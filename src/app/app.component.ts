@@ -1,19 +1,4 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
-import {PackageServiceService} from './package-service.service'
-import { DailyItinerary } from './DailyItinerary';
-import { PackagePdfRequest } from './PackagePdfRequest';
-import {SelectedOption} from './SelectedOption';
-import {Package} from "./Package";
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title='';
-  constructor(private packageService: PackageServiceService){}
-=======
 import { SelectedOption } from './SelectedOption';
 import { PackageServiceService } from './package-service.service';
 import { DailyItinerary } from './DailyItinerary';
@@ -28,7 +13,6 @@ import { PackagePdfRequest } from './PackagePdfRequest';
 export class AppComponent {
   constructor(private packageService: PackageServiceService) {}
   //MorningStar Changes
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
   userdata: any = {};
   destinationKey = '';
 
@@ -43,12 +27,6 @@ export class AppComponent {
   optionSelectedStays: any = {};
   optionSelectedSights: any = {};
   optionSelectedMealOptions: any = {};
-<<<<<<< HEAD
-  checkInDate:any={};
-  checkOutDate:any={};
-=======
-
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
   dailyItinerary: DailyItinerary[] = [];
   package: Package = {
     agent: '',
@@ -87,19 +65,10 @@ export class AppComponent {
     let stay = dayForm.stay.name;
     let meal = dayForm.meals.name;
     let sight = dayForm.sightSeeing.name;
-<<<<<<< HEAD
-    let checkIn = dayForm.checkIn;
-    let checkOut=dayForm.checkOut;
-    console.log(dayForm)
-    this.dailyItinerary.push({
-      checkIn: checkIn,
-      checkOut: checkOut,
-=======
 
     this.dailyItinerary.push({
       checkIn: '',
       checkOut: '',
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
       day: '',
       destination: dest,
       meal: meal,
@@ -186,8 +155,4 @@ export class AppComponent {
   ngOnInit(): void {
     this.getDestinations();
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff

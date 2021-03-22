@@ -20,27 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-<<<<<<< HEAD
-  it(`should have as title 'PackageCustomization'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('PackageCustomization');
-=======
   it(`should have as title 'morningStar'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('morningStar');
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-<<<<<<< HEAD
-    expect(compiled.querySelector('.content span').textContent).toContain('PackageCustomization app is running!');
-=======
     expect(compiled.querySelector('.content span').textContent).toContain('morningStar app is running!');
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
   });
 });

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<h1>{{title}}</h1>
-=======
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
 <div class="container-fluid">
   <p style="margin-left: 15px;" class="fs-2 mb-5 mt-5">
     <span style="color: rgb(10, 190, 250);"><i class="fas fa-th-list"></i></span> Package Details
@@ -80,11 +76,7 @@
         </div>
 
         <!--Stay-->
-<<<<<<< HEAD
-        <div class="col-md-1">
-=======
         <div class="col-md-2">
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
           <label for="stay" class="form-label">Stay</label>
           <select name="stay" class="form-select" [(ngModel)]="optionSelectedStays" id="stay" #destination
             (ngModelChange)="getMeals($event)" required>
@@ -96,11 +88,7 @@
         </div>
 
         <!--Meals-->
-<<<<<<< HEAD
-        <div class="col-md-1">
-=======
         <div class="col-md-2">
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
           <label for="meals" class="form-label">Meals</label>
           <select name="meals" class="form-select" [(ngModel)]="optionSelectedMealOptions" id="meals" #meals required>
             <option></option>
@@ -109,27 +97,9 @@
             </option>
           </select>
         </div>
-<<<<<<< HEAD
-    <!-- CheckIn -->
-            <div class="col-md-2">
-              <label for="CheckIn" class="form-label">CheckIn</label>
-              <input name="checkIn" [(ngModel)]="checkInDate" id="checkIn" type="date" class="form-control">
-            </div>
-    <!-- CheckIn -->
-          <div class="col-md-2">
-            <label for="CheckOut" class="form-label">CheckOut</label>
-            <input name="checkOut" type="date" id="CheckOut" [(ngModel)]="checkOutDate" class="form-control">
-          </div>
-
-
-
-<!--SightSeeing-->
-        <div class="col-md-1">
-=======
 
         <!--SightSeeing-->
         <div class="col-md-2">
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
           <label for="sightSeeing" class="form-label">SightSeeing</label>
           <select name="sightSeeing" class="form-select" [(ngModel)]="optionSelectedSights" id="sightSeeing"
             #sightSeeing required>
@@ -140,11 +110,7 @@
           </select>
         </div>
 
-<<<<<<< HEAD
-        <div class="col-md-1">
-=======
         <div class="col-md-2">
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
           <button style="margin: 30px;" type="submit" class="btn btn-outline-primary">+</button>
         </div>
       </div>
@@ -157,13 +123,8 @@
           <th scope="col">Destination</th>
           <th scope="col">Sub-Destination</th>
           <th scope="col">Stay</th>
-<<<<<<< HEAD
-          <th scope="col">CheckIn</th>
-         <th scope="col">CheckOut</th>
-=======
           <!-- <th scope="col">CheckIn</th>
           <th scope="col">CheckOut</th> -->
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
           <th scope="col">Meal</th>
           <th scope="col">Site Seeing</th>
           <th scope="col">Delete</th>
@@ -175,13 +136,8 @@
           <td>{{t.destination}}</td>
           <td>{{t.subDestination}}</td>
           <td>{{t.stay}}</td>
-<<<<<<< HEAD
-          <td>{{t.checkIn}} </td>
-          <td>{{t.checkOut}} </td> 
-=======
           <!-- <td>{{t.content6}} </td> -->
           <!-- <td>{{checkOut.value}} </td>  -->
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
           <td>{{t.meal}}</td>
           <td>{{t.sightSeeing}}</td>
           <td> <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
@@ -218,8 +174,4 @@
         </div>
       </div>
     </form>
-<<<<<<< HEAD
   </div>
-=======
-  </div>
->>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
