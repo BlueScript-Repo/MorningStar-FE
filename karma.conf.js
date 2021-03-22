@@ -25,7 +25,11 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
+<<<<<<< HEAD
       dir: require('path').join(__dirname, './coverage/PackageCustomization'),
+=======
+      dir: require('path').join(__dirname, './coverage/morningStar'),
+>>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
       subdir: '.',
       reporters: [
         { type: 'html' },

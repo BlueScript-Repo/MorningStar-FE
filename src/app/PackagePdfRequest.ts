@@ -9,4 +9,8 @@ export class PackagePdfRequest {
   roomType: string = '';
   travelDate: string = '';
   dayIternares: DailyItinerary[] = [];
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff

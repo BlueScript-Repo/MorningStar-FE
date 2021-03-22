@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 # PackageCustomization
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+=======
+# MorningStar
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
+>>>>>>> 810969d3a5ebd80ec0116130c8d96c095de1ddff
 
 ## Development server
 
