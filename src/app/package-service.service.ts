@@ -64,4 +64,10 @@ export class PackageServiceService {
       responseType: 'blob',
     });
   }
+
+  testFunction()
+  {
+    console.log("TestFunction");
+    
+  }
 }
