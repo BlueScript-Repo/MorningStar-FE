@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Destinations} from './Destinations';
 import {Subdestination} from './Subdestination'
 import {PackageServiceService} from './../package-service.service';
-import {DestOption} from './DestOption'
+import {DestOption} from './DestOption';
+import {Stay} from './Stay';
+import {Meal} from './Meal'
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
@@ -72,9 +74,67 @@ console.log(subdestinationForm);
 console.log(desti.value);
 
 this.newSubdestination.push({
-  destinationId:desti.value,
+  destinationId:desti,
   name:subd,
   pincode:pin
+})
+
+}
+
+
+// Stay
+newStay:Stay[]=[]
+stay1:DestOption[]=[
+  {Id:"SUB1234",value:"Kullu"},
+  {Id:"SUB6765",value:"Chandni Chowk"},
+  {Id:"SUB2432",value:"City"},
+  {Id:"SUB5645",value:"Bengaluru city"},
+  {Id:"SUB4564",value:"Noida city"},
+  {Id:"SUB5445",value:"manali"},
+  {Id:"SUB6458",value:"Lonavla"},
+]
+addStay(stayForm:any){
+var subdes=stayForm.subd;
+var StayName=stayForm.stayName;
+var Type=stayForm.stayType;
+var AcNonAc=stayForm.acNonAc;
+var StayRating=stayForm.rating
+
+this.newStay.push({
+  acNonAc:AcNonAc,
+  rating:StayRating,
+  stayName:StayName,
+  stayType:Type,
+  subDestinationId:subdes
+})
+
+
+}
+
+
+
+// Meal
+
+stayId:DestOption[]=[
+  {Id:"STY1234",value:"Stay1"},
+  {Id:"STY6765",value:"stay2"},
+  {Id:"STY2432",value:"Stay3"},
+  {Id:"STY5645",value:"Bengaluru Stay"},
+  {Id:"STY4564",value:"Noida Stay"},
+  {Id:"STY5445",value:"manali Stay"},
+  {Id:"STY6458",value:"Lonavla Stay"},
+]
+newMeal:Meal[]=[];
+addMeal(mealForm:any){
+var stayID=mealForm.StayId;
+var MealType=mealForm.mealType;
+var Rate=mealForm.rate;
+console.log(mealForm);
+
+this.newMeal.push({
+  mealsType:MealType,
+  rate:Rate,
+  stayId:stayID
 })
 
 }

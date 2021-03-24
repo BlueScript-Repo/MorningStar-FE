@@ -122,4 +122,140 @@
           </table>
         </div>
       </div>
+
+
+
+      <!-- Stay -->
+      <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#stay" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <div class="card-body">
+         Stay
+        </div></a>
+      </div> 
+      <div style="margin-top: 0px;" class="collapse" id="stay">
+        <div class="card card-body">
+          <form #stayForm="ngForm" (ngSubmit)=addStay(stayForm.value) >
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="subd" class="form-label">Sub Destination</label>
+                    <select name="subd" class="form-select" [(ngModel)]="OnOptionSelect" id="subd" #subd (ngModelChange)="OnOptionSelect($event)" >
+                        <option></option>
+                        <option *ngFor="let st of stay1" [ngValue]=st.Id>{{st.value}}</option>
+
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">Stay Name</label>
+                    <input type="text" ngModel name="stayName" class="form-control" placeholder="Enter Name of Stay ">
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">Stay Type</label>
+                    <input type="text" ngModel name="stayType" class="form-control" placeholder="Enter the Stay Type ">
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">AC/non-AC</label>
+                    <input type="text" ngModel name="acNonAc" class="form-control" placeholder="AC or Non-AC">
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">Rating</label>
+                    <input type="text" ngModel name="rating" class="form-control" placeholder="Enter Rating of stay ">
+                </div>
+
+               
+            </div>
+            <div align="right" class="row">
+                <div class="col-md-12">
+                   <input class="btn12" type="submit" value="Add">
+                </div>
+            </div>
+          </form>
+          <table style="margin-top:20px" class="table">
+              <thead>
+                  <th>
+                      Sub-Destination ID
+                  </th>
+                  <th>
+                      Stay Name
+                  </th>
+                  <th>
+                      Stay Type
+                  </th>
+                  <th>
+                   AC / Non-AC
+                </th>
+                <th>
+                    Rating
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let st of newStay">
+                    <td> {{st.subDestinationId}} </td>
+                    <td> {{st.stayName}} </td>
+                    <td> {{st.stayType}} </td>
+                    <td> {{st.acNonAc}} </td>
+                    <td> {{st.rating}} </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+<!-- Meal -->
+<div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#Meal" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <div class="card-body">
+     Meal
+    </div></a>
+  </div> 
+  <div style="margin-top: 0px;" class="collapse" id="Meal">
+    <div class="card card-body">
+      <form #mealForm="ngForm" (ngSubmit)=addMeal(mealForm.value) >
+        <div class="row">
+            <div class="col-md-4">
+                <label for="StayId" class="form-label">Stay Id</label>
+                <select name="StayId" class="form-select" [(ngModel)]="OnOptionSelect" id="StayId" #Stay (ngModelChange)="OnOptionSelect($event)" >
+                    <option></option>
+                    <option *ngFor="let st12 of stayId" [ngValue]=st12.Id>{{st12.value}}</option>
+
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="" class="form-label">Meal Type</label>
+                <input type="text" ngModel name="mealType" class="form-control" placeholder="Enter Meal Type">
+            </div>
+            <div class="col-md-4">
+                <label for="" class="form-label">Rate</label>
+                <input type="text" ngModel name="rate" class="form-control" placeholder="Enter the rate">
+            </div>
+           
+        </div>
+        <div align="right" class="row">
+            <div class="col-md-12">
+               <input class="btn12" type="submit" value="Add">
+            </div>
+        </div>
+      </form>
+      <table style="margin-top:20px" class="table">
+          <thead>
+              <th>
+                  Stay ID
+              </th>
+              <th>
+                 Meal Type
+              </th>
+              <th>
+                  Rate
+              </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let meal of newMeal">
+                <!-- <td> {{dest.country}} </td> -->
+                <td> {{meal.stayId}} </td>
+                <td> {{meal.mealsType}} </td>
+                <td> {{meal.rate}} </td>
+                <!-- <td> {{dest.policies}} </td> -->
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>

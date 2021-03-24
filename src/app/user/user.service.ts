@@ -12,7 +12,7 @@ export class UserService {
   private usersUrl!: string; 
 
   constructor(private http: HttpClient) {
-    this.usersUrl='http://localhost:8080/'
+    this.usersUrl='http://morningstarapis-env.eba-k8smp6gh.ap-south-1.elasticbeanstalk.com/'
    }  
 
   createPackage(userRegistration: UserRegistration) {
