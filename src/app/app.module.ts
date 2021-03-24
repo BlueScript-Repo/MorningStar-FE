@@ -11,7 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import {RouterModule,Routes} from '@angular/router';
 import { UpdateComponent } from './update/update.component'
-
+import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 
 
 const route:Routes=[
@@ -28,7 +28,8 @@ const route:Routes=[
     LandingPageComponent,
     HeaderComponent,
     FooterComponent,
-    UpdateComponent
+    UpdateComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,

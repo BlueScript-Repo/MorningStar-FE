@@ -1,0 +1,41 @@
+<section>
+    <div class="container">
+        <div class="user signinBx">
+            <div class="imgbox"><img src="assets/d1.png" alt=""></div>
+            <div class="formBox">
+                <form #user="ngForm" (ngSubmit)="authenticate(user.value)">
+                    <h2>
+                        SignIn
+                    </h2>
+                    <input type="text" name="userName" id="" ngModel class="form-control" placeholder="Enter your username">
+                    <input type="password" name="password" id="" ngModel class="form-control" placeholder="Password here">
+                    <input type="submit" name="" id="" class="form-control" value="Login">
+                    <p class="signup">Don't Have an account?
+                        <a onclick="toggleForm();" href="#">Signup.</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div class="user signupBox">
+            <div class="formBox">
+                <form #submitForm="ngForm" (ngSubmit)="submitUser(submitForm.value)">
+                    <h2>
+                        Create an Account
+                    </h2>
+                    <input type="email" name="email" id="" ngModel class="form-control" placeholder="Enter your Email">
+                    <input type="password" name="password" id="" ngModel class="form-control" placeholder="Create your password">
+                    <input type="password" name="confirmPassword" id="" ngModel class="form-control" placeholder="Confirm your password">
+                    <input type="text" name="firstName" id="" ngModel class="form-control" placeholder="Enter your firstName">
+                    <input type="text" name="lastName" id="" ngModel class="form-control" placeholder="Enter your lastName">
+                    <input type="text" name="contactNo" id="" ngModel class="form-control" placeholder="Enter your contactNo">
+                    <input type="text" name="pincode" id="" ngModel class="form-control" placeholder="Enter your pinCode">
+                    <input type="submit" name="" id=""  class="form-control" value="Sign Up">
+                    <p class="signup">Already have an account?
+                        <a onclick="toggleForm();" href="#">Login. </a>
+                    </p>
+                </form>
+            </div>
+            <div class="imgbox"><img src="assets/d2.png" alt=""></div>
+        </div>
+    </div>
+</section>
