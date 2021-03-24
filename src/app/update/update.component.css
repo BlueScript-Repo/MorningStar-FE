@@ -1,0 +1,16 @@
+.button_link{
+    background:#ffd200 ;
+}
+.btn12{
+    background:#ffd200 ;
+    border:1px solid #ffd200;
+    width:100px;
+    height:40px;
+    margin-top: 20px;
+}
+.btn12:focus{
+    outline: 1px solid #ffd200;
+}
+.table,.table th{
+    border: none;
+}

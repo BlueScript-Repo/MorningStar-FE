@@ -6,12 +6,29 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomizationComponent } from './customization/customization.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import {RouterModule,Routes} from '@angular/router';
+import { UpdateComponent } from './update/update.component'
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
+
+
+const route:Routes=[
+  {path: 'LandingPage', component: LandingPageComponent},
+  {path:'customPackage',component: CustomizationComponent},
+  {path:'',redirectTo:'/LandingPage',pathMatch:'full'}
+] 
+
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent, 
     CustomizationComponent,
+    LandingPageComponent,
+    HeaderComponent,
+    FooterComponent,
+    UpdateComponent,
     UserRegistrationComponent
   ],
   imports: [
@@ -19,7 +36,8 @@ import { UserRegistrationComponent } from './user/user-registration/user-registr
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(route)
   ],
   providers: [],
   bootstrap: [AppComponent]

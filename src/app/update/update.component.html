@@ -1,0 +1,125 @@
+<div class="container-fluid">
+    <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <div class="card-body">
+          Destination
+        </div></a>
+      </div>  
+    <div style="margin-top: 0px;" class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <form #destinationForm="ngForm" (ngSubmit)=addDestination(destinationForm.value) >
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" ngModel name="country" class="form-control" placeholder="Enter Destination">
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">Destination</label>
+                    <input type="text" ngModel name="destination" class="form-control" placeholder="Enter ">
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">Notes</label>
+                    <input type="text" ngModel name="notes" class="form-control" placeholder="Enter ">
+                </div>
+                <div class="col-md-2">
+                    <label for="" class="form-label">Pin Code</label>
+                    <input type="text" ngModel name="pincode" class="form-control" placeholder="Enter ">
+                </div>  
+                <div class="col-md-2">
+                    <label for="" class="form-label">Policies</label>
+                    <input type="text" ngModel name="policies" class="form-control" placeholder="Enter ">
+                </div>  
+            </div>
+            <div align="right" class="row">
+                <div class="col-md-12">
+                   <input class="btn12" type="submit" value="Add">
+                </div>
+            </div>
+          </form>
+          <table style="margin-top:20px" class="table">
+              <thead>
+                  <th>
+                      Country
+                  </th>
+                  <th>
+                      Destination
+                  </th>
+                  <th>
+                      notes
+                  </th>
+                  <th>
+                      Pin Code
+                  </th>
+                  <th>
+                    Policies
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dest of newDestination">
+                    <td> {{dest.country}} </td>
+                    <td> {{dest.name}} </td>
+                    <td> {{dest.notes}} </td>
+                    <td> {{dest.pinCode}} </td>
+                    <td> {{dest.policies}} </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#subd" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <div class="card-body">
+          Sub-Destination
+        </div></a>
+      </div>  
+      <div style="margin-top: 0px;" class="collapse" id="subd">
+        <div class="card card-body">
+          <form #subdestinationForm="ngForm" (ngSubmit)=addSubDestination(subdestinationForm.value) >
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="destination" class="form-label">Destination</label>
+                    <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination (ngModelChange)="OnOptionSelect($event)" >
+                        <option></option>
+                        <option *ngFor="let desti of destination1" [ngValue]=desti.Id>{{desti.value}}</option>
+
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="" class="form-label">Sub Destination</label>
+                    <input type="text" ngModel name="Subdestination" class="form-control" placeholder="Enter ">
+                </div>
+                <div class="col-md-4">
+                    <label for="" class="form-label">Pin Code</label>
+                    <input type="text" ngModel name="pincode" class="form-control" placeholder="Enter ">
+                </div>
+               
+            </div>
+            <div align="right" class="row">
+                <div class="col-md-12">
+                   <input class="btn12" type="submit" value="Add">
+                </div>
+            </div>
+          </form>
+          <table style="margin-top:20px" class="table">
+              <thead>
+                  <th>
+                      Destination
+                  </th>
+                  <th>
+                      Sub Destination
+                  </th>
+                  <th>
+                      Pin Code
+                  </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let subd of newSubdestination">
+                    <!-- <td> {{dest.country}} </td> -->
+                    <td> {{subd.destinationId}} </td>
+                    <td> {{subd.name}} </td>
+                    <td> {{subd.pincode}} </td>
+                    <!-- <td> {{dest.policies}} </td> -->
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+</div>
