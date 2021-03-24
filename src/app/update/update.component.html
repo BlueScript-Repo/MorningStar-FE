@@ -75,8 +75,12 @@
           <form #subdestinationForm="ngForm" (ngSubmit)=addSubDestination(subdestinationForm.value) >
             <div class="row">
                 <div class="col-md-4">
-                    <label for="country" class="form-label">Destination</label>
-                    <input type="text" ngModel name="destination" class="form-control" placeholder="Enter Destination">
+                    <label for="destination" class="form-label">Destination</label>
+                    <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination (ngModelChange)="OnOptionSelect($event)" >
+                        <option></option>
+                        <option *ngFor="let desti of destination1" [ngValue]=desti.Id>{{desti.value}}</option>
+
+                    </select>
                 </div>
                 <div class="col-md-4">
                     <label for="" class="form-label">Sub Destination</label>
@@ -107,12 +111,12 @@
                   </th>
               </thead>
               <tbody>
-                <tr *ngFor="let dest of newDestination">
-                    <td> {{dest.country}} </td>
-                    <td> {{dest.name}} </td>
-                    <td> {{dest.notes}} </td>
-                    <td> {{dest.pinCode}} </td>
-                    <td> {{dest.policies}} </td>
+                <tr *ngFor="let subd of newSubdestination">
+                    <!-- <td> {{dest.country}} </td> -->
+                    <td> {{subd.destinationId}} </td>
+                    <td> {{subd.name}} </td>
+                    <td> {{subd.pincode}} </td>
+                    <!-- <td> {{dest.policies}} </td> -->
                 </tr>
             </tbody>
           </table>
