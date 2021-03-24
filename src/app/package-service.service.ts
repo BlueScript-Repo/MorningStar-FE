@@ -65,6 +65,13 @@ export class PackageServiceService {
     });
   }
 
+  saveDestination(data:any){
+    let url_destination = this.baseUrl +'destination'
+    console.warn("save destination" ,data);
+    return this.http.post(url_destination,data)
+  }
+
+
   testFunction()
   {
     console.log("TestFunction");
