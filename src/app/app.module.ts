@@ -6,11 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomizationComponent } from './customization/customization.component';
+import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomizationComponent
+    CustomizationComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
