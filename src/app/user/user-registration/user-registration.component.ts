@@ -36,7 +36,7 @@ export class UserRegistrationComponent implements OnInit {
       
     };
 
-    this.userService.createPackage(this.userRegistration).subscribe((res)=>{
+    this.userService.createUser(this.userRegistration).subscribe((res)=>{
       console.log(res);
     });
   } 
@@ -45,17 +45,25 @@ export class UserRegistrationComponent implements OnInit {
     password:''
   }
 
+  token:any={};
+  Authorization:any;
+
   authenticate(user:any){
     this.userLogin={
       userName: user.userName,
       password: user.password
     }
-     this.userService.authenticate(this.userLogin).subscribe((result)=>{
+     this.userService.authenticate(this.userLogin).subscribe((result)=>{ 
+       
       console.log(result);
+      this.token=result;
+      console.log(this.token.jwtToken);
+
+      localStorage.setItem('token', this.token.jwtToken)
     });
+
   }
  
   ngOnInit(): void {
   }
-
 }

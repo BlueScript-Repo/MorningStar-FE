@@ -1,5 +1,6 @@
 export class Meal{
-    mealsType: string="";
+  destinationId: string = '';
+  name: string="";
   rate: string="";
   stayId: string="";
 }

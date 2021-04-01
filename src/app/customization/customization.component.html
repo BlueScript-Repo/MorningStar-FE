@@ -1,7 +1,717 @@
-<div class="container-fluid">
-    <p style="margin-left: 15px;" class="fs-2 mb-5 mt-5">
-      <span style="color: rgb(10, 190, 250);"><i class="fas fa-th-list"></i></span> Package Details
-    </p>
+
+ <div class="site wrapper-content">
+  <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+    <div class="banner-wrapper container article_heading">
+      <div class="breadcrumbs-wrapper">
+        <ul class="phys-breadcrumb">
+          <li><a href="index.html" class="home">Home</a></li>
+          <li>Package Customize</li>
+        </ul>
+      </div>
+      <h1 class="heading_primary">Package Customize</h1></div>
+  </div>
+       
+   <section style="margin-top: -20px;" class="content-area">
+    <div  class="container">
+      <div class="row mt-5 mb-5">
+                  <div class="shortcode_title title-center title-decoration-bottom-center">
+                      <h3 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h3><span class="line_after_title"></span>
+                  </div>
+                  <div class="col-md-3">
+                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#destination"
+                      class="fs-5">
+                         Destination <i class="fa fa-plus"></i>
+                     </a>
+                  </div>
+                  <div class="col-md-3">
+                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Subdestination"
+                      class="fs-5">
+                         Sub-destination <i class="fa fa-plus"></i>
+                     </a>
+                  </div>
+                  <div class="col-md-2">
+                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Stay"
+                      class="fs-5">
+                         Stay <i class="fa fa-plus"></i>
+                     </a>
+                  </div>
+                  <div class="col-md-2">
+                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#meal"
+                      class="fs-5">
+                         Meal <i class="fa fa-plus"></i>
+                     </a>
+                  </div>
+                  <div class="col-md-2">
+                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Sight"
+                      class="fs-5">
+                         SightSeeing <i class="fa fa-plus"></i>
+                     </a>
+                  </div>
+          </div>
+    </div>
+  </section>
+</div>
+<table class="table">
+  <tr *ngFor="let i of desti">
+<td>{{i.name}}</td>
+  </tr>
+</table>
+<!-- Destination -->
+<div class="modal fade" id="destination" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
+    <div style="background: transparent;width:100%;border: none;" class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div *ngFor="let i of desti" class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  
+                  
+                  
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                          Kerala
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 10px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Kerala, a state situated on the tropical Malabar Coast of southwestern India, is one of the most popular tourist destinations in the country. Named as one of the ten paradises of the world by National Geographic Traveler, Kerala is famous especially for its ecotourism initiatives and beautiful backwaters.</span></p>
+                        <p class="fs-3">
+                          <i style="margin-right:10px" class="far fa-images"></i>Images of Kerala:-
+                      </p>  
+                        <div align="center" class="row  mb-3">
+                             
+                              <div class="col-sm-6">
+                                      <img src="assets/Alleppey.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                 
+                                      <img src="assets/kerala-702011665eb080f.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
+                              </div>
+                        </div>
+                              <div align="center" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/KERALA.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/Kerala_lake Vembanad.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/KERALA-M0210_20180405124622.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>  
+                  <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                </div>
+                
+                
+                <div *ngFor="let data of desti" class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                          {{data.name}}
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{data.note}} </span></p>
+                          <div align="center" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px" class="far fa-images"></i>Images of {{data.name}}:-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/{{data.name}}1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/{{data.name}}2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                              </div>
+                          </div>
+                          <div align="center" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/{{data.name}}3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/{{data.name}}4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/{{data.name}}5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <form #destinationForm="ngForm" (ngSubmit)="getDestination(destinationForm.value)">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name=destination ngModel={{data.name}} value={{data.name}} >
+                        </div>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name=key ngModel={{data.key}} value={{data.key}} >
+                        </div>
+                        <div class="col-md-4">
+                          <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                            <button type="submit" class="plus-toggler" >select</button>
+                        </div>
+                        </div>
+                      </div>
+                    </form>
+                     
+                    </div>
+                </div>
+                <!-- <div class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                          Kashmir
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Every year, thousands of Hindu pilgrims visit holy shrines of Vaishno Devi and Amarnath which has had significant impact on the state's economy. Kashmir Valley is one of the top tourist destinations of India. ... It attracts tourists for its unique handicrafts and the world-famous Kashmiri Shawls.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px" class="far fa-images"></i>Images of Kashmir:-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/kash1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/kash3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                              </div>
+                          </div>
+                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/kash5.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/kash4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/Kash2.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>
+                </div> -->
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+      </div>
+      
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+    </div>
+  </div>
+</div>
+
+<!-- SubDestination -->
+<div class="modal fade" id="Subdestination" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
+    <div style="background: transparent;width:100%;border: none;" class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+          <div id="subdestination_Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#subdestination_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#subdestination_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#subdestination_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  
+                  
+                  
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                          Alappuzha (Alleppey)
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Alappuzha (Alleppey) is known as ‘the Venice of the East’. Offering the best tourist places in Alleppey, this charming place is the hub of Kerala’s backwaters and is home to a huge network of backwaters and more than thousand houseboats. The houseboats you find in the backwaters of Alappuzha are in fact a reworked version of the Kettuvallams of olden times. Kettuvallam is a Malayalam word, ‘Kettu’, means living structures and ‘Vallom’ means boat. In the olden days, kettuvallam or boat with a thatched roof that covers over wooden hulls was used to carry tons of rice and spices.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px" class="far fa-images"></i>Images of Alleppey in Kerala :-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/alle2.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/alle3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                              </div>
+                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/alle5.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/alle1.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/alle4.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>  
+                  <!-- <img src="assets/..." class="d-block w-100" alt="..."> -->
+                </div>
+                <div class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                          Munnar 
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Munnar is a spectacular spot in Kerala, and its beauty attracts thousands of visitors every year towards it. What makes Munnar even more popular is the presence of three rivers that flow through this area, namely Mattupetti, Periavaru, and Nallathanni. Various viewpoints are segregated throughout this area, from where you can have a look at the stunning valleys, hills, and rivers. It’s pleasant hills, pristine lakes, and rocky terrains have further made it a popular trekking and camping site. </span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px" class="far fa-images"></i>Images of Munnar:-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/mu1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/mu3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                              </div>
+                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/mu2.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/mu4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/mu5.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                          Kodaikanal 
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Its name in the Tamil language means "The Gift of the Forest". Kodaikanal is referred to as the "Princess of Hill stations" and has a long history as a retreat and popular tourist destination.Apart from being a famous hill station, Kodaikanal's claim to fame also rests on the fact that it is home to the Kurinji flower which blooms once in 12 years in the December and envelops the entire valley in a beautiful sea of blue.It is not without reason that Kodaikanal is a huge draw card for the tourists.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px" class="far fa-images"></i>Images of Kodaikanal :-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/kod1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/kod2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
+                              </div>
+                          </div>
+                          <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/kod3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/kod4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/kod5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#subdestination_Carousel"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true">
+                    <!-- <i class="fa fa-plus"></i> -->
+                </span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#subdestination_Carousel"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+<!-- Stay -->
+ <div class="modal fade" id="Stay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
+    <div style="background: transparent;width:100%;border: none;" class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+          <div id="stay_Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#stay_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#stay_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#stay_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  
+                  
+                  
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px;" class="fs-3"><i style="color: rgb(112, 222, 255);" class="fas fa-campground"></i>
+                          Lake Palace Backwater Resort Alleppey
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Located on the banks of Vembanad Lake, Lake Palace Resort offers accommodation with Kerala architecture and décor. This resort features a restaurant, an outdoor pool and free parking.
+
+                          Elegant cottages and villas at Lake Palace come with wooden furnishings. They are equipped with a TV, minibar and private bathroom with shower facilities.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px;color: rgb(255, 245, 112);" class="far fa-images"></i>Images of Lake Palace Backwater Resort Alleppey :-
+                              </p>
+                              <div class="col-sm-4">
+                                   <img src="assets/stay1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                               </div>
+                               <div class="col-sm-4">
+                                   <img src="assets/stay4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                               </div>
+                               <div class="col-sm-4">
+                                   <img src="assets/stay5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                               </div>
+                          </div>
+                          <div align="center" style="margin-left:-10px;" class="row mt-3">
+                                  <div class="col-sm-6">
+                                          <img src="assets/stay3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-6">
+                                          <img src="assets/stay2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
+                                  </div>
+                                  
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>  
+                  <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                </div>
+                <div class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
+                          Indiavacationz Houseboats 
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Situated in Alleppey, 500 m from Nehru Trophy Boat Race, Indiavacationz Houseboats features air-conditioned rooms with free WiFi throughout the property. Guests can enjoy the on-site restaurant. Free private parking is available on site.
+
+                          Guests can enjoy a complimentary fruit bowl. The air-conditioned rooms include a seating area where you can relax. Certain units feature views of the lake or river. </span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="margin-right:10px;color: rgb(112, 222, 255);" class="far fa-images"></i>Images of Indiavacationz Houseboats:-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/st5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/st2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
+                              </div>
+                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/st3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/st4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/st1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 245, 112);" class="fas fa-campground"></i>
+                          Warmth Lake Haven
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Located in Alleppey, 24 km from Nehru Trophy Boat Race, Exquisite Retreat, Fishing, Spice & Fruit Garden provides accommodation with a restaurant, free private parking and a garden. The property is around 14 km from Nehru Trophy Finishing Point, 14 km from Alleppey Lighthouse and 22 km from Ambalapuzha Sree Krishna Temple. The hotel features family rooms.
+
+                          Guest rooms at the hotel are equipped with a seating area. At Exquisite Retreat, Fishing, Spice & Fruit Garden each room is fitted with a flat-screen TV, a private bathroom, and a balcony with a garden view.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                              <p class="fs-3">
+                                  <i style="color: rgb(255, 112, 112);margin-right: 10px;" class="far fa-images"></i>Images of Warmth Lake Haven :-
+                              </p>
+                              <div class="col-sm-6">
+                                      <img src="assets/sta1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6">
+                                      <img src="assets/sta5.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                              </div>
+                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div class="col-sm-4">
+                                      <img src="assets/sta3.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/sta4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                                  </div>
+                                  <div class="col-sm-4">
+                                      <img src="assets/sta2.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                                  </div>
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#stay_Carousel"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true">
+                    <!-- <i class="fa fa-plus"></i> -->
+                </span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#stay_Carousel"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Meal -->
+<div class="modal fade" id="meal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
+    <div style="background: transparent;width:100%;border: none;" class="modal-content">
+      <!-- <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> -->
+      <div class="modal-body">
+          <div id="meal_Carousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#meal_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#meal_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#meal_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  
+                  
+                  
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px;" class="fs-3"><i style="color: rgb(112, 222, 255);" class="fas fa-campground"></i>
+                          Lunch
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">
+                          Kashmir Cuisine is filled with comfort food and it will make you go back for more. This is because of the richness and also the flavours that are infused by the use of whole spices. The Kashmir valley is a considered as the crown of India and is majorly influenced by the Mughlai cuisine. The place is not only known for its serene look but also filled with delicacies that would keep your mouth watering for more.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-5 mt-5">
+                              <p class="fs-3 mb-5">
+                                  <i style="margin-right:10px;color: rgb(255, 245, 112);" class="far fa-images"></i>Images of popular Meal plans of Kashmir :-
+                              </p>
+                              <p></p>
+                              <br>
+                              <div class="col-sm-6">
+                                   <img src="assets/lunch.jpg" class="img-fluid img_over" style="width:200px;height:140px" alt="">
+                               </div>
+                               <div class="col-sm-6">
+                                   <img src="assets/lunch3.jpg" class="img-fluid img_over" style="width:200px;height:140px" alt="">
+                          </div>
+                              </div>
+                              <div align="center" style="margin-left:-10px;" class="row mt-3">
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>  
+                  <!-- <img src="assets/..." class="d-block w-100" alt="..."> -->
+                </div>
+                <div class="carousel-item">
+                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div align="center" style="background:transparent" class="card-header">
+                        <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
+                          Breakfast 
+                        </p>
+                      </div>
+                      <div class="card-body">
+                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Kashmiri cuisine possesses a rich heritage of dishes that draw influences from across the continent and perfected over time by gifted chefs. The Kashmiris aren’t very big on breakfast in the traditional sense, but they certainly love their bread, which still remains the most filling and affordable breakfast item in the region. Known for their local bakeries, Kandurwans, they have a specific bread for every meal and every season.</span></p>
+                          <div align="center" style="margin-left: 09px;" class="row  mb-5">
+                              <p class="fs-3 mb-5 mt-5">
+                                  <i style="margin-right:10px;color: rgb(112, 222, 255);" class="far fa-images"></i>Images of breakfast plan in Kashmir:-
+                              </p>
+                              <div class="col-sm-6 mt-3">
+                                      <img src="assets/KashmirBreakfast.jpg" class="img-fluid img_over" style="width:250px;height:140px" alt="">
+                              </div>
+                              <div class="col-sm-6 mt-3">
+                                      <img src="assets/kashmiriChaiAndBreakfast.jpg" class="img-fluid img_over" style="width:250px;height: 140px;" alt="">
+                              </div>
+                          </div>
+                          <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                                  <div align="left" class="col-md-4">
+                                      <a href="#"> show more.... </a>
+                                  </div>
+                              </div>
+                          
+                      
+                      </div>
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
+                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#meal_Carousel"  data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true">
+                    <!-- <i class="fa fa-plus"></i> -->
+                </span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#meal_Carousel"  data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="site wrapper-content">
+  <div class="home-content" role="main">
+    <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+			<div class="banner-wrapper container article_heading"> -->
+				<!-- <div class="breadcrumbs-wrapper"> -->
+					<!-- <ul class="phys-breadcrumb">
+						<li><a href="index.html" class="home">Home</a></li>
+						<li>Package Customize</li>
+					</ul>
+				</div> -->
+        <!-- <h1 style="color: #fff;margin-left: -90px;"><span style="color: rgb(10, 190, 250);margin-right: 20px;"><i class="fas fa-th-list"></i></span>Package Customize</h1></div>
+		</div>
+    </div>
+<div style=" margin-top:30px" class="container-fluid">
     <div style="margin-left: 10px;" class="container row">
       <div class="col-md-12 mb-1">
         <p class="fs-4">
@@ -61,10 +771,10 @@
                 {{des.name}}
               </option>
             </select>
-          </div>
+          </div> -->
   
           <!--SUB-->
-          <div class="col-md-2">
+          <!-- <div class="col-md-2">
             <label for="subDestination" class="form-label">Sub Destination</label>
             <select name="subDestination" class="form-select" [(ngModel)]="optionSelectedSubDestinations"
               id="subDestination" #subDestination (ngModelChange)="getStayAndSights($event)" required>
@@ -73,10 +783,10 @@
                 {{des.name}}
               </option>
             </select>
-          </div>
+          </div> -->
   
           <!--Stay-->
-          <div class="col-md-2">
+          <!-- <div class="col-md-1">
             <label for="stay" class="form-label">Stay</label>
             <select name="stay" class="form-select" [(ngModel)]="optionSelectedStays" id="stay" #destination
               (ngModelChange)="getMeals($event)" required>
@@ -85,10 +795,10 @@
                 {{des.name}}
               </option>
             </select>
-          </div>
+          </div> -->
   
           <!--Meals-->
-          <div class="col-md-2">
+          <!-- <div class="col-md-1">
             <label for="meals" class="form-label">Meals</label>
             <select name="meals" class="form-select" [(ngModel)]="optionSelectedMealOptions" id="meals" #meals required>
               <option></option>
@@ -97,9 +807,20 @@
               </option>
             </select>
           </div>
-  
+   -->
+          <!-- CheckIn -->
+          <!-- <div class="col-md-2">
+            <label for="CheckIn" class="form-label">CheckIn</label>
+            <input name="checkIn" [(ngModel)]="checkInDate" id="checkIn" type="date" class="form-control">
+          </div> -->
+          <!-- Checkout -->
+                <!-- <div class="col-md-2">
+                  <label for="CheckOut" class="form-label">CheckOut</label>
+                  <input name="checkOut" type="date" id="CheckOut" [(ngModel)]="checkOutDate" class="form-control">
+                </div> -->
+
           <!--SightSeeing-->
-          <div class="col-md-2">
+          <!-- <div class="col-md-1">
             <label for="sightSeeing" class="form-label">SightSeeing</label>
             <select name="sightSeeing" class="form-select" [(ngModel)]="optionSelectedSights" id="sightSeeing"
               #sightSeeing required>
@@ -110,7 +831,7 @@
             </select>
           </div>
   
-          <div class="col-md-2">
+          <div class="col-md-1">
             <button style="margin: 30px;" type="submit" class="btn btn-outline-primary">+</button>
           </div>
         </div>
@@ -118,26 +839,26 @@
   
       <table id="t2" class="table mt-5 mb-5">
         <thead>
-          <tr>
+          <tr> -->
             <!-- <th scope="col">Day</th> -->
-            <th scope="col">Destination</th>
+            <!-- <th scope="col">Destination</th>
             <th scope="col">Sub-Destination</th>
             <th scope="col">Stay</th>
-            <!-- <th scope="col">CheckIn</th>
-            <th scope="col">CheckOut</th> -->
+            <th scope="col">CheckIn</th>
+         <th scope="col">CheckOut</th>
             <th scope="col">Meal</th>
             <th scope="col">Site Seeing</th>
             <th scope="col">Delete</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let t of dailyItinerary;let i=index">
+        <tbody> -->
+          <!-- <tr *ngFor="let t of dailyItinerary;let i=index"> -->
             <!-- <td>{{t.content}}</td> -->
-            <td>{{t.destination}}</td>
+            <!-- <td>{{t.destination}}</td>
             <td>{{t.subDestination}}</td>
             <td>{{t.stay}}</td>
-            <!-- <td>{{t.content6}} </td> -->
-            <!-- <td>{{checkOut.value}} </td>  -->
+            <td>{{t.checkIn}} </td>
+          <td>{{t.checkOut}} </td> 
             <td>{{t.meal}}</td>
             <td>{{t.sightSeeing}}</td>
             <td> <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
@@ -175,4 +896,7 @@
         </div>
       </form>
     </div>
-  
+  </div>
+  </div> -->
+
+ 

@@ -1,4 +1,4 @@
 export class DestOption{
-    public Id: string='';
+    public key: string='';
    public value:string=''
 }

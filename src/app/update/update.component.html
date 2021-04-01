@@ -1,13 +1,34 @@
-<div class="container-fluid">
-    <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+<div class="top_site_main" style="background-image:url(assets/home/bg-sale.jpg);background-size: cover;padding-top: 90px;padding-bottom: 50px;">
+    <div class="banner-wrapper container article_heading">
+<h1 class="heading_primary">Update Data</h1></div>
+</div>
+<div style="padding-top: 30px;" class="container-fluid">
+
+
+<!-- Navs/Tabs -->
+
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#destination" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Destination</button>
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#subd" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sub Destination</button>
+      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#stay" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Stay</button>
+      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#meal" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Meal</button>
+      <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#sight" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sight Seeing</button>
+    </div>
+</nav>
+
+
+
+<div class="tab-content" id="nav-tabContent">
+    <!-- <div class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         <div class="card-body">
           Destination
         </div></a>
-      </div>  
-    <div style="margin-top: 0px;" class="collapse" id="collapseExample">
+      </div>   -->
+    <div style="margin-top: 0px;" class="tab-pane fade show active" id="destination" role="tabpanel" aria-labelledby="nav-homw-tab">
         <div class="card card-body">
           <form #destinationForm="ngForm" (ngSubmit)=addDestination(destinationForm.value) >
-            <div class="row">
+            <div style="padding-left: 80px;" class="row">
                 <div class="col-md-2">
                     <label for="country" class="form-label">Country</label>
                     <input type="text" ngModel name="country" class="form-control" placeholder="Enter Destination">
@@ -27,15 +48,13 @@
                 <div class="col-md-2">
                     <label for="" class="form-label">Policies</label>
                     <input type="text" ngModel name="policies" class="form-control" placeholder="Enter ">
-                </div>  
-            </div>
-            <div align="right" class="row">
-                <div class="col-md-12">
-                   <input class="btn12" type="submit" value="Add">
-                </div>
+                </div> 
+                <div class="col-md-2">
+                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+                </div> 
             </div>
           </form>
-          <table style="margin-top:20px" class="table">
+          <table style="padding-left: 80px;margin-top:20px" class="table">
               <thead>
                   <th>
                       Country
@@ -52,53 +71,71 @@
                   <th>
                     Policies
                 </th>
+                <th>
+                    Delete
+                </th>
               </thead>
               <tbody>
-                <tr *ngFor="let dest of newDestination">
+                <tr *ngFor="let dest of newDestination;let i=index">
                     <td> {{dest.country}} </td>
                     <td> {{dest.name}} </td>
-                    <td> {{dest.notes}} </td>
+                    <td> {{dest.note}} </td>
                     <td> {{dest.pinCode}} </td>
                     <td> {{dest.policies}} </td>
+                    <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
                 </tr>
             </tbody>
           </table>
+          <div align="right" class="row">
+              <div class="col-md-12">   
+                <input style="margin-top: 30px;color: white;width: 100px;margin-right: 125px;" class="btn12" type="submit" value="Add" (click)="postDestination()" >
+            </div>
+          </div>
         </div>
       </div>
-      <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#subd" role="button" aria-expanded="false" aria-controls="collapseExample">
+
+
+
+
+      <!-- <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#subd" role="button" aria-expanded="false" aria-controls="collapseExample">
         <div class="card-body">
           Sub-Destination
         </div></a>
-      </div>  
-      <div style="margin-top: 0px;" class="collapse" id="subd">
+      </div>   -->
+      <div style="margin-top: 0px;" class="tab-pane fade show " id="subd">
         <div class="card card-body">
           <form #subdestinationForm="ngForm" (ngSubmit)=addSubDestination(subdestinationForm.value) >
-            <div class="row">
-                <div class="col-md-4">
+            <div style="padding-left: 180px;" class="row">
+                <div class="col-md-3">
                     <label for="destination" class="form-label">Destination</label>
-                    <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination (ngModelChange)="OnOptionSelect($event)" >
+                    <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination required >
                         <option></option>
-                        <option *ngFor="let desti of destination1" [ngValue]=desti.Id>{{desti.value}}</option>
+                        <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
 
                     </select>
+                     <!-- <select name="destination" class="form-select" [(ngModel)]="optionSelectedDestinations" id="destination"
+              #destination (ngModelChange)="getSubDestinations($event)" required>
+              <option></option>
+              <option *ngFor="let des of destinations" [ngValue]=des>
+                {{des.name}}
+              </option>
+            </select> -->
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="" class="form-label">Sub Destination</label>
                     <input type="text" ngModel name="Subdestination" class="form-control" placeholder="Enter ">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="" class="form-label">Pin Code</label>
                     <input type="text" ngModel name="pincode" class="form-control" placeholder="Enter ">
                 </div>
+                <div class="col-md-3">
+                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+                </div> 
                
             </div>
-            <div align="right" class="row">
-                <div class="col-md-12">
-                   <input class="btn12" type="submit" value="Add">
-                </div>
-            </div>
-          </form>
-          <table style="margin-top:20px" class="table">
+        </form>
+          <table style="margin-top:20px;padding-left: 120px;" class="table">
               <thead>
                   <th>
                       Destination
@@ -109,43 +146,57 @@
                   <th>
                       Pin Code
                   </th>
+                  <th>Delete</th>
               </thead>
               <tbody>
-                <tr *ngFor="let subd of newSubdestination">
+                <tr *ngFor="let subd of newSubdestination;let i=index">
                     <!-- <td> {{dest.country}} </td> -->
                     <td> {{subd.destinationId}} </td>
                     <td> {{subd.name}} </td>
                     <td> {{subd.pincode}} </td>
-                    <!-- <td> {{dest.policies}} </td> -->
+                    <td> <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button> </td>
                 </tr>
             </tbody>
           </table>
+          <div align="right" class="row">
+              <div class="col-md-12">
+                 <input style="color: white;margin-right: 170px;" class="btn12" type="submit" value="Add" (click)="postSubd()" >
+              </div>
+          </div>
+        
         </div>
       </div>
 
 
 
       <!-- Stay -->
-      <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#stay" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <!-- <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#stay" role="button" aria-expanded="false" aria-controls="collapseExample">
         <div class="card-body">
          Stay
         </div></a>
-      </div> 
-      <div style="margin-top: 0px;" class="collapse" id="stay">
+      </div>  -->
+      <div style="margin-top: 0px;" class="tab-pane fade show" id="stay">
         <div class="card card-body">
           <form #stayForm="ngForm" (ngSubmit)=addStay(stayForm.value) >
-            <div class="row">
+            <div style="padding-left:10px;" class="row">
+                <div class="col-md-2">
+                    <label for="destination" class="form-label">Destination</label>
+                    <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination required >
+                        <option></option>
+                        <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
+    
+                    </select>
+                </div>
                 <div class="col-md-2">
                     <label for="subd" class="form-label">Sub Destination</label>
-                    <select name="subd" class="form-select" [(ngModel)]="OnOptionSelect" id="subd" #subd (ngModelChange)="OnOptionSelect($event)" >
+                    <select name="subd" class="form-select" [(ngModel)]="subdestinationOptions" id="subdestination" #subdestination required >
                         <option></option>
-                        <option *ngFor="let st of stay1" [ngValue]=st.Id>{{st.value}}</option>
-
+                        <option *ngFor="let subd of newsubdestination" [ngValue]=subd>{{subd.name}}</option>
                     </select>
                 </div>
                 <div class="col-md-2">
                     <label for="" class="form-label">Stay Name</label>
-                    <input type="text" ngModel name="stayName" class="form-control" placeholder="Enter Name of Stay ">
+                    <input type="text" ngModel name="name" class="form-control" placeholder="Enter Name of Stay ">
                 </div>
                 <div class="col-md-2">
                     <label for="" class="form-label">Stay Type</label>
@@ -155,21 +206,22 @@
                     <label for="" class="form-label">AC/non-AC</label>
                     <input type="text" ngModel name="acNonAc" class="form-control" placeholder="AC or Non-AC">
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <label for="" class="form-label">Rating</label>
-                    <input type="text" ngModel name="rating" class="form-control" placeholder="Enter Rating of stay ">
+                    <input type="text" ngModel name="rating" class="form-control" placeholder="Enter Rating">
                 </div>
+                <div class="col-md-1">
+                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+                </div> 
 
                
             </div>
-            <div align="right" class="row">
-                <div class="col-md-12">
-                   <input class="btn12" type="submit" value="Add">
-                </div>
-            </div>
-          </form>
-          <table style="margin-top:20px" class="table">
+            </form>
+          <table style="padding-left:50px;margin-top:20px" class="table">
               <thead>
+                  <th>
+                      Destination ID
+                  </th>
                   <th>
                       Sub-Destination ID
                   </th>
@@ -185,56 +237,87 @@
                 <th>
                     Rating
                 </th>
+                <th>
+                    Delete
+                </th>
               </thead>
               <tbody>
-                <tr *ngFor="let st of newStay">
+                <tr *ngFor="let st of newStay;let i=index">
+                    <td>
+                        {{st.destinationId}}
+                    </td>
                     <td> {{st.subDestinationId}} </td>
-                    <td> {{st.stayName}} </td>
+                    <td> {{st.name}} </td>
                     <td> {{st.stayType}} </td>
                     <td> {{st.acNonAc}} </td>
                     <td> {{st.rating}} </td>
+                    <td>
+                        <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button>
+                    </td>
                 </tr>
             </tbody>
           </table>
+          <div align="right" class="row">
+            <div class="col-md-12">
+               <input class="btn12" style="color: white;margin-right: 4px;" type="submit" (click)="postStay()" value="Add">
+            </div>
+        </div>
+      
         </div>
       </div>
 
 <!-- Meal -->
-<div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#Meal" role="button" aria-expanded="false" aria-controls="collapseExample">
+<!-- <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#Meal" role="button" aria-expanded="false" aria-controls="collapseExample">
     <div class="card-body">
      Meal
     </div></a>
-  </div> 
-  <div style="margin-top: 0px;" class="collapse" id="Meal">
+  </div>  -->
+  <div style="margin-top: 0px;" class="tab-pane fade show" id="meal">
     <div class="card card-body">
       <form #mealForm="ngForm" (ngSubmit)=addMeal(mealForm.value) >
         <div class="row">
-            <div class="col-md-4">
-                <label for="StayId" class="form-label">Stay Id</label>
-                <select name="StayId" class="form-select" [(ngModel)]="OnOptionSelect" id="StayId" #Stay (ngModelChange)="OnOptionSelect($event)" >
+            <div class="col-md-2">
+                <label for="destination" class="form-label">Destination</label>
+                <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination required >
                     <option></option>
-                    <option *ngFor="let st12 of stayId" [ngValue]=st12.Id>{{st12.value}}</option>
+                    <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
 
                 </select>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <label for="StayId" class="form-label">Stay</label>
+                <!-- <select name="StayId" class="form-select" [(ngModel)]="OnOptionSelect" id="Subd" #Subd required >
+                    <option></option>
+                    <option *ngFor="let st12 of stayId" [ngValue]=st12.key>{{st12.value}}</option>
+                </select> -->
+
+                <select name="StayId" class="form-select" [(ngModel)]="stayOptions" id="Stay" #Stay required >
+                    <option></option>
+                    <option *ngFor="let stay of newStayOptions" [ngValue]=stay>{{stay.name}}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
                 <label for="" class="form-label">Meal Type</label>
                 <input type="text" ngModel name="mealType" class="form-control" placeholder="Enter Meal Type">
             </div>
-            <div class="col-md-4">
+
+            <div class="col-md-2">
                 <label for="" class="form-label">Rate</label>
                 <input type="text" ngModel name="rate" class="form-control" placeholder="Enter the rate">
             </div>
+
+             <div class="col-md-2">
+                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+                </div> 
            
         </div>
-        <div align="right" class="row">
-            <div class="col-md-12">
-               <input class="btn12" type="submit" value="Add">
-            </div>
-        </div>
+       
       </form>
       <table style="margin-top:20px" class="table">
           <thead>
+              <th>
+                  Destination Id
+              </th>
               <th>
                   Stay ID
               </th>
@@ -244,18 +327,130 @@
               <th>
                   Rate
               </th>
+              <th>
+                  Delete
+              </th>
           </thead>
           <tbody>
-            <tr *ngFor="let meal of newMeal">
-                <!-- <td> {{dest.country}} </td> -->
+            <tr *ngFor="let meal of newMeal;let i=index">
+                <td>
+                    {{meal.destinationId}}
+                </td>
                 <td> {{meal.stayId}} </td>
-                <td> {{meal.mealsType}} </td>
+                <td> {{meal.name}} </td>
                 <td> {{meal.rate}} </td>
-                <!-- <td> {{dest.policies}} </td> -->
+                <td> <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button> </td>
             </tr>
         </tbody>
       </table>
+      <div align="right" class="row">
+        <div class="col-md-12">
+           <input class="btn12" style="color: white" type="submit" value="Add" (click)="postMeal()">
+        </div>
+    </div>
     </div>
   </div>
 
+  <!-- Sightseeing -->
+<!-- <div style="margin-top: 20px;" class="card"><a style="text-decoration:none" href="" data-bs-toggle="collapse" href="#Sight" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <div class="card-body">
+     Sight Seeing
+    </div></a>
+  </div>  -->
+  <div style="margin-top: 0px;" class="collapse" id="sight">
+    <div class="card card-body">
+      <form #sightForm="ngForm" (ngSubmit)=addSight(sightForm.value) >
+        <div class="row">
+            <div class="col-md-2">
+                <label for="destination" class="form-label">Destination</label>
+                <select name="destination" class="form-select" [(ngModel)]="OnOptionSelect" id="destination" #destination required >
+                    <option></option>
+                    <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
+
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="subdId" class="form-label">Sub Destination</label>
+                <select name="subdestination" class="form-select" [(ngModel)]="subdestinationOptions" id="subdestination" #subdestination required >
+                        <option></option>
+                        <option *ngFor="let subd of newsubdestination" [ngValue]=subd>{{subd.name}}</option>
+                    </select>
+            </div>
+            <div class="col-md-1">
+                <label for="" class="form-label">Sight</label>
+                <input type="text" ngModel name="sightName" class="form-control" placeholder="Enter Meal Type">
+            </div>
+            <div class="col-md-2">
+                <label for="" class="form-label">Start Date</label>
+                <input type="date" ngModel name="start" class="form-control" placeholder="Enter the rate">
+            </div>
+            <div class="col-md-2">
+                <label for="" class="form-label">End Date</label>
+                <input type="date" ngModel name="end" class="form-control" placeholder="Enter the rate">
+            </div>
+            <div class="col-md-1">
+                <label for="" class="form-label">Rate</label>
+                <input type="text" ngModel name="rate" class="form-control" placeholder="Enter the rate">
+            </div>
+            <div class="col-md-2">
+                <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+            </div> 
+           
+        </div>
+      
+      </form>
+      <table style="margin-top:20px" class="table">
+          <thead>
+              <th>
+                  Destination ID
+              </th>
+              <th>
+                  Sub Destination ID
+              </th>
+              <th>
+                Sight
+              </th>
+              <th>
+                  Start Date
+              </th>
+              <th>
+                End Date
+            </th>
+            <th>
+               Rate
+            </th>
+            <th>
+                Delete
+            </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sights of newSights;let i=index">
+                <td>
+                    {{sights.destinationId}}
+                </td>
+                <td> {{sights.subDestinationId}} </td>
+                <td> {{sights.name}} </td>
+                <td> {{sights.startTime}} </td>
+                <td> {{sights.endTime}} </td>
+                <td> {{sights.rate}} </td>
+                <td>
+                    <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+      <div align="right" class="row">
+        <div class="col-md-12">
+           <input class="btn12" style="color: white" type="submit" (click)="postSight()" value="Add">
+        </div>
+    </div>
+    </div>
+  </div>
+
+
 </div>
+
+
+<!-- <h1> {{title}} </h1>
+<button type="submit" (click)="add()" class="btn12">Click me!</button>
+</div> -->

@@ -17,9 +17,11 @@ import { UserRegistrationComponent } from './user/user-registration/user-registr
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
   {path:'customPackage',component: CustomizationComponent},
+  {path:'LoginPage',component: UserRegistrationComponent},
+  {path:'updatePage',component: UpdateComponent},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'}
 ] 
-
+  
 
 @NgModule({
   declarations: [

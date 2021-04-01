@@ -28,6 +28,8 @@ export class CustomizationComponent implements OnInit {
   optionSelectedStays: any = {};
   optionSelectedSights: any = {};
   optionSelectedMealOptions: any = {};
+  checkInDate:any={};
+  checkOutDate:any={};
   dailyItinerary: DailyItinerary[] = [];
   package: Package = {
     agent: '',
@@ -66,10 +68,12 @@ export class CustomizationComponent implements OnInit {
     let stay = dayForm.stay.name;
     let meal = dayForm.meals.name;
     let sight = dayForm.sightSeeing.name;
+    let checkIn = dayForm.checkIn;
+    let checkOut=dayForm.checkOut;
 
     this.dailyItinerary.push({
-      checkIn: '',
-      checkOut: '',
+      checkIn: checkIn,
+      checkOut: checkOut,
       day: '',
       destination: dest,
       meal: meal,
@@ -157,6 +161,21 @@ export class CustomizationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDestinations();
+    this.getDestinations1();
+  }
+
+  desti:any={}
+  getDestinations1(){
+    return this.packageService.getDestinations1().subscribe((res=>{
+      this.desti=res;
+      console.log(res);
+    }))
+  }
+
+  getDestination(destinationForm:any){
+    var destination1=destinationForm.destination;
+    console.log("Value is "+ JSON.stringify(destinationForm));
+    
   }
 
 }

@@ -1,21 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-/* Manual Changes */
-.container_landing_page{
-	margin-left: 90px;
-	margin-right: 90px;
-}
+	/* Manual Changes */
+	.container_landing_page{
+		margin-left: 90px;
+		margin-right: 90px;
+	}
 
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+	html,
+	body {
+	height: 100%;
+	}
+	body {
+	margin: 0;
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+	}
 /*------------------------------------------------------------------
 [Master Stylesheet]
 

@@ -14,3 +14,30 @@
 .table,.table th{
     border: none;
 }
+
+.nav-tabs .nav-link{
+    border:1 px solid #fff;
+}
+.nav-tabs , .nav-link{
+    border:1px solid #fff;
+}
+
+.nav-tabs .nav-link:hover{
+    border-bottom: 5px solid #ffd200;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+
+.nav-tabs .nav-link.active{
+    /* background-color:#ffd200; */
+    border-bottom: 5px solid #ffd200;
+    color: #ffd200;
+    border-top: none;
+    border-left:none;
+    border-right: none;
+    /* color: #fff;     */
+}
+.nav-tabs{
+    border: none;
+}
