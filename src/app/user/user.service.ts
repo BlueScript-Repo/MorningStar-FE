@@ -26,5 +26,4 @@ export class UserService {
     let url1 = this.usersUrl + 'authenticate';
     return this.http.post(url1,userLogin);
   }
-
 }
