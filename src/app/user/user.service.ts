@@ -12,10 +12,10 @@ export class UserService {
   private usersUrl!: string; 
 
   constructor(private http: HttpClient) {
-    this.usersUrl='http://morningstarapis-env.eba-k8smp6gh.ap-south-1.elasticbeanstalk.com/'
+       this.usersUrl='http://morningstarapis-env.eba-k8smp6gh.ap-south-1.elasticbeanstalk.com/';
    }  
 
-  createPackage(userRegistration: UserRegistration) {
+  createUser(userRegistration: UserRegistration) {
    
     let url4 = this.usersUrl + 'user';
     return this.http.post<UserRegistration>(url4, userRegistration);
@@ -26,4 +26,5 @@ export class UserService {
     let url1 = this.usersUrl + 'authenticate';
     return this.http.post(url1,userLogin);
   }
+
 }
