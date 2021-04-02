@@ -53,17 +53,13 @@ export class UserRegistrationComponent implements OnInit {
       userName: user.userName,
       password: user.password
     }
-     this.userService.authenticate(this.userLogin).subscribe((result)=>{ 
-       
+     this.userService.authenticate(this.userLogin).subscribe((result)=>{       
       console.log(result);
       this.token=result;
       console.log(this.token.jwtToken);
-
       localStorage.setItem('token', this.token.jwtToken)
     });
-
-  }
- 
+  } 
   ngOnInit(): void {
   }
 }

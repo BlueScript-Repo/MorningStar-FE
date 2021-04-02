@@ -7,43 +7,41 @@ import { PackagePdfRequest } from './PackagePdfRequest';
   providedIn: 'root',
 })
 export class PackageServiceService {
+
+token = localStorage.getItem('token');
+
   constructor(private http: HttpClient) {}
-      // t=`eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc21pdGFnYXZoYW5lMDZAZ21haWwuY29tIiwiZXhwIjoxNjE2Njk3MjY3LCJpYXQiOjE2MTY2NzkyNjd9.eP8lr5SCJL0Xr19VGv11VkNE4YF2tclKLEjJKxH9gMg`;
-      
+
        httpOptions={
         headers:new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization:`Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhc21pdGFnYXZoYW5lMDZAZ21haWwuY29tIiwiZXhwIjoxNjE2Njk3MjY3LCJpYXQiOjE2MTY2NzkyNjd9.eP8lr5SCJL0Xr19VGv11VkNE4YF2tclKLEjJKxH9gMg`
+          Authorization:`Bearer `+this.token
         })
-      }
-      
-       
-
+      } 
 
   baseUrl =
     'http://morningstarapis-env.eba-k8smp6gh.ap-south-1.elasticbeanstalk.com/';
   
-  
-  
-    getUserData(user: any) {
+  getUserData(user: any) {
     let url_user = this.baseUrl + 'user/contact/' + user;
     return this.http.get(url_user,this.httpOptions);
   }
+
   getDestinations1(){
     console.log("Getting Destinations....");
-    let desti_url="http://localhost:3000/destination"
-    return this.http.get(desti_url);
+    let desti_url=this.baseUrl+"destination"
+    return this.http.get(desti_url, this.httpOptions);
   }
 
   getSubDestinations1(){
     console.log("Getting Subdestination.......");
-    let url="http://localhost:3000/subdestination";
+    let url=this.baseUrl+"subdestination";
     return this.http.get(url);
   }
 
   getStay1(){
     console.log("Getting stay.......");
-    let url="http://localhost:3000/stay";
+    let url=this.baseUrl+"stay";
     return this.http.get(url);
     
   }
@@ -56,22 +54,22 @@ export class PackageServiceService {
 
   getSubDestinations(destinationKey: string) {
     let url2 = this.baseUrl + 'subDestination/destinationId/' + destinationKey;
-    return this.http.get(url2);
+    return this.http.get(url2, this.httpOptions);
   }
 
   getStay(stay: string) {
     let url3 = this.baseUrl + 'stay/subDestinationId/' + stay;
-    return this.http.get(url3);
+    return this.http.get(url3, this.httpOptions);
   }
 
   getSightseeing(sightseeing: string) {
     let url5 = this.baseUrl + 'sightseeing/subDestinationId/' + sightseeing;
-    return this.http.get(url5);
+    return this.http.get(url5, this.httpOptions);
   }
 
   getMeal(meal: string) {
     let url4 = this.baseUrl + 'meal/stayId/' + meal;
-    return this.http.get(url4);
+    return this.http.get(url4, this.httpOptions);
   }
 
   createPackage(userPackage: Package) {
@@ -100,7 +98,7 @@ export class PackageServiceService {
   saveDestination(data:any){
     let url_destination = this.baseUrl +'destination'
     console.warn("save destination" ,data);
-    return this.http.post(url_destination,data)
+    return this.http.post(url_destination,data, this.httpOptions)
   }
 
 
@@ -110,32 +108,32 @@ export class PackageServiceService {
     
   }
   postDestination(data:any){
-    let post_url ="http://localhost:3000/destination";
+    let post_url =this.baseUrl+"destination";
     console.warn("save destination" ,JSON.stringify(data));
-    return this.http.post(post_url,data);
+    return this.http.post(post_url,data, this.httpOptions);
   
   }
   postSubd(data:any){
-    let post_url="http://localhost:3000/subdestination";
+    let post_url=this.baseUrl+"subdestination";
     console.log("Post Subdestination works "+JSON.stringify(data));
-  return this.http.post(post_url,data);
+  return this.http.post(post_url,data, this.httpOptions);
   }
 
   postStay(data:any){
-    let post_stay="http://localhost:3000/stay";
+    let post_stay=this.baseUrl+"stay";
     console.log("post Stay "+JSON.stringify(data));
-  return this.http.post(post_stay,data);    
+  return this.http.post(post_stay,data, this.httpOptions);    
   }
 
   postMeal(data:any){
-    let post_meal="http://localhost:3000/meal";
+    let post_meal=this.baseUrl+"meal";
     console.log("Posting Meal....."+JSON.stringify(data));
-    return this.http.post(post_meal,data);
+    return this.http.post(post_meal,data, this.httpOptions);
   }
   postSight(data:any){
-    let post_sight="http://localhost:3000/sightseeing";
+    let post_sight=this.baseUrl+"sightseeing";
     console.log("Post Sightseeing....."+JSON.stringify(data));
-    return this.http.post(post_sight,data);
+    return this.http.post(post_sight,data, this.httpOptions);
     
   }
 }
