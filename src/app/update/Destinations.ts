@@ -1,8 +1,8 @@
 export class Destinations{
-    public key: string="";
+    // public key: string="";
     public country:string ="";
     public name:string ="";
-    public note:string ="";
+    public notes:string ="";
     public pinCode: string="";
     public policies: string="";
     public subDestination: string=""

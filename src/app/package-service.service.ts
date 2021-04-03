@@ -108,7 +108,7 @@ token = localStorage.getItem('token');
     
   }
   postDestination(data:any){
-    let post_url =this.baseUrl+"destination";
+    let post_url =this.baseUrl+"destination/bulk";
     console.warn("save destination" ,JSON.stringify(data));
     return this.http.post(post_url,data, this.httpOptions);
   

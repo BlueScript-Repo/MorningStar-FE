@@ -16,9 +16,9 @@ export class UpdateComponent implements OnInit {
   constructor(private desti:PackageServiceService) { }
 
   ngOnInit(): void {
-    this.getDestinations1();
-    this.getSubDestinations1();
-    this.getStay();
+    // this.getDestinations1();
+    // this.getSubDestinations1();
+    // this.getStay();
     // this.title=localStorage.getItem('Token');
 
   }
@@ -38,15 +38,15 @@ export class UpdateComponent implements OnInit {
     var pin=destinationForm.pincode;
     var policy=destinationForm.policies;
 console.log(destinationForm);
-// // this.desti.saveDestination(destinationForm).subscribe((res)=>{
-// //   console.log("result is "+res);
+ this.desti.saveDestination(destinationForm).subscribe((res)=>{
+   console.log("result is "+res);
   
-// });
+});
     this.newDestination.push({
-      key:"",
+      // key:"",
       country:count,
       name:dest,
-      note:note,
+      notes:note,
       pinCode:pin,
       policies:policy,
       subDestination:''

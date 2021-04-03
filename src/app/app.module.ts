@@ -13,6 +13,8 @@ import {RouterModule,Routes} from '@angular/router';
 import { UpdateComponent } from './update/update.component'
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 import { AuthInterceptor } from './user/AuthInterceptor';
+import { PackageListComponent } from './package-list/package-list.component';
+import { PackageDetailsComponent } from './package-details/package-details.component';
 
 
 const route:Routes=[
@@ -32,7 +34,9 @@ const route:Routes=[
     HeaderComponent,
     FooterComponent,
     UpdateComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    PackageListComponent,
+    PackageDetailsComponent
   ],
   imports: [
     BrowserModule,
