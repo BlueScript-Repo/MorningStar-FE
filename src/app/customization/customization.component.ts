@@ -21,7 +21,7 @@ export class CustomizationComponent implements OnInit {
   destinations: any = {};
   stays: any = {};
   sights: any = {};
-  mealOptions: any = {};
+  meal: any = {};
 
   optionSelectedSubDestinations: any = {};
   optionSelectedDestinations: any = {};
@@ -87,12 +87,12 @@ export class CustomizationComponent implements OnInit {
     });
   }
 
-  getDestinations() {
-    this.packageService.getDestinations().subscribe((res) => {
-      console.log('Response is ' + res);
-      this.destinations = res;
-    });
-  }
+  // getDestinations() {
+  //   this.packageService.getDestinations().subscribe((res) => {
+  //     console.log('Response is ' + res);
+  //     this.destinations = res;
+  //   });
+  // }
 
   getSubDestinations(key: SelectedOption) {
     this.packageService.getSubDestinations(key.key).subscribe((res) => {
@@ -100,21 +100,21 @@ export class CustomizationComponent implements OnInit {
     });
   }
 
-  getStayAndSights(key: SelectedOption) {
-    this.packageService.getStay(key.key).subscribe((res) => {
-      this.stays = res;
-    });
+  // getStayAndSights(key: SelectedOption) {
+  //   this.packageService.getStay(key.key).subscribe((res) => {
+  //     this.stays = res;
+  //   });
 
-    this.packageService.getSightseeing(key.key).subscribe((res) => {
-      this.sights = res;
-    });
-  }
+  //   this.packageService.getSightseeing(key.key).subscribe((res) => {
+  //     this.sights = res;
+  //   });
+  // }
 
-  getMeals(key: SelectedOption) {
-    this.packageService.getMeal(key.key).subscribe((res) => {
-      this.mealOptions = res;
-    });
-  }
+  // getMeals(key: SelectedOption) {
+  //   this.packageService.getMeal(key.key).subscribe((res) => {
+  //     this.mealOptions = res;
+  //   });
+  // }
 
   deleteTodo(id: number) {
     this.dailyItinerary = this.dailyItinerary.filter((v, i) => i != id);
@@ -160,8 +160,14 @@ export class CustomizationComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getDestinations();
-    this.getDestinations1();
+    // this.getDestinations();
+    // this.getDestinations1();
+    // this.getDestinations1();
+    // this.getDestinations1();
+    // this.getDestinations1();
+    // this.getDestinations1();
+    // this.getDestinations1();
+    // this.getSubDestinations1(this.destinationForm);
   }
 
   desti:any={}
@@ -172,10 +178,45 @@ export class CustomizationComponent implements OnInit {
     }))
   }
 
-  getDestination(destinationForm:any){
-    var destination1=destinationForm.destination;
-    console.log("Value is "+ JSON.stringify(destinationForm));
-    
+  getSubdestination(destination1:any){
+    this.packageService.getSubDestinations(destination1).subscribe((res) => {
+      console.log(res);
+      console.log("Hiiiiiiiiiiiiiiiiiii"+JSON.stringify(res));
+      
+      this.subDestinations = res;
+      console.log(this.subDestinations);
+      
+    });
+
   }
+  getStay(subdestination1:any){
+    this.packageService.getStay(subdestination1).subscribe((res) => {
+      console.log(res);
+      console.log("Calling Get Stay Function........."+JSON.stringify(res));
+      
+      this.stays = res;
+      console.log(this.subDestinations);
+    });
+    }
+ 
+// destinationForm:any;
+getMeal(stay1:any){
+  this.packageService.getMeal(stay1).subscribe((res) => {
+    console.log(res);
+    console.log("Calling GetMeal Function........."+JSON.stringify(res));
+    this.meal=res;
+    console.log(this.stays);
+    
+  })
+}
+getSight(subdestination1:any){
+this.packageService.getSightseeing(subdestination1).subscribe((res) => {
+  console.log(res);
+  console.log("Calling get Sightseeing--->"+JSON.stringify(res));
+  this.sights=res;  
+  console.log(this.sights);
+  
+})
+}
 
 }

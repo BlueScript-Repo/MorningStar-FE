@@ -46,29 +46,33 @@ token = localStorage.getItem('token');
     
   }
 
-  getDestinations() {
-    // console.log('Calling backend');
-    let url1 = this.baseUrl + 'destination';
-    return this.http.get(url1,this.httpOptions);
-  }
+  // getDestinations() {
+  //   // console.log('Calling backend');
+  //   let url1 = this.baseUrl + 'destination';
+  //   return this.http.get(url1,this.httpOptions);
+  // }
 
-  getSubDestinations(destinationKey: string) {
-    let url2 = this.baseUrl + 'subDestination/destinationId/' + destinationKey;
+  getSubDestinations(destinationKey: any) {
+    let url2 = this.baseUrl + 'subDestination/destinationId/' + destinationKey.key;
+    console.log("calling in service : "+destinationKey.key);
     return this.http.get(url2, this.httpOptions);
   }
 
-  getStay(stay: string) {
-    let url3 = this.baseUrl + 'stay/subDestinationId/' + stay;
+  getStay(stay: any) {
+    let url3 = this.baseUrl + 'stay/subDestinationId/' + stay.key;
+    console.log("calling in Get STay in service : "+stay.key);
     return this.http.get(url3, this.httpOptions);
   }
 
-  getSightseeing(sightseeing: string) {
-    let url5 = this.baseUrl + 'sightseeing/subDestinationId/' + sightseeing;
+  getSightseeing(sightseeing: any) {
+    let url5 = this.baseUrl + 'sightseeing/subDestinationId/' + sightseeing.key;
+    console.log("calling in Get sightservice in service : "+sightseeing.key);
     return this.http.get(url5, this.httpOptions);
   }
 
-  getMeal(meal: string) {
-    let url4 = this.baseUrl + 'meal/stayId/' + meal;
+  getMeal(meal: any) {
+    let url4 = this.baseUrl + 'meal/stayId/' + meal.key;
+    console.log("calling in Get STay in service : "+meal.key);
     return this.http.get(url4, this.httpOptions);
   }
 
