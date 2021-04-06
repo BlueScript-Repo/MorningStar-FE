@@ -15,6 +15,7 @@ import { UserRegistrationComponent } from './user/user-registration/user-registr
 import { AuthInterceptor } from './user/AuthInterceptor';
 import { PackageListComponent } from './package-list/package-list.component';
 import { PackageDetailsComponent } from './package-details/package-details.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 const route:Routes=[
@@ -22,7 +23,8 @@ const route:Routes=[
   {path:'customPackage',component: CustomizationComponent},
   {path:'LoginPage',component: UserRegistrationComponent},
   {path:'updatePage',component: UpdateComponent},
-  {path:'',redirectTo:'/LandingPage',pathMatch:'full'}
+  {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
+  {path:'HomePage',component: HomePageComponent}
 ] 
   
 
@@ -36,7 +38,8 @@ const route:Routes=[
     UpdateComponent,
     UserRegistrationComponent,
     PackageListComponent,
-    PackageDetailsComponent
+    PackageDetailsComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

@@ -12,18 +12,18 @@
   </div>
        
    <section style="margin-top: -20px;" class="content-area">
-    <div  class="container">
-      <div class="row mt-5 mb-5">
+    <div class="container-fluid">
+      <div align="center" class="row mt-5 mb-5">
                   <div class="shortcode_title title-center title-decoration-bottom-center">
                       <h3 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h3><span class="line_after_title"></span>
                   </div>
-                  <div class="col-md-3">
-                      <a style="text-decoration: none; color: black;width: 150px;" (click)="getDestinations1()" (click)="getDestinations1()" (click)="getDestinations1()" (click)="getDestinations1()" (click)="getDestinations1()" (click)="getDestinations1()" href="#" data-bs-toggle="modal" data-bs-target="#destination"
+                  <div class="col-md-2">
+                      <a style="text-decoration: none; color: black;width: 150px;"  href="#" data-bs-toggle="modal" data-bs-target="#destination"
                       class="fs-5">
                          Destination <i class="fa fa-plus"></i>
                      </a>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-2">
                       <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Subdestination"
                       class="fs-5">
                          Sub-destination <i class="fa fa-plus"></i>
@@ -47,43 +47,63 @@
                          SightSeeing <i class="fa fa-plus"></i>
                      </a>
                   </div>
+                  <div class="col-md-2">
+                    <button style="color:white;margin-top:-50px" type="submit" class="btn12" (click)="ShowData()">Add</button>
+                  </div>
           </div>
     </div>
   </section>
 </div>
+<table>
+  <tbody>
+    <tr>
+      <td *ngFor="let data of AddData">
+        {{data.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>
 <div class="row">
-  <div class="col-md-3">
-    <table class="table">
-      <tr *ngFor="let i of desti">
-    <td>{{i.name}}</td>
-    <td>{{i.key}}</td>
-      </tr>
-    </table>
+  <div *ngFor="let data of AddData" class="col-md-2">
+    {{ data.name}}
   </div>
-  <div class="col-md-3">
-    <table class="table">
-      <tr *ngFor="let j of subDestinations">
-    <td>{{j.name}}</td>
-    <td>{{j.key}}</td>
-      </tr>
-    </table>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <table class="table">
+        <tr *ngFor="let i of desti">
+      <td>{{i.name}}</td>
+      <td>{{i.key}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <table class="table">
+        <tr *ngFor="let j of subDestinations">
+      <td>{{j.name}}</td>
+      <td>{{j.key}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <table class="table">
+        <tr *ngFor="let k of stays">
+      <td>{{k.name}}</td>
+      <td>{{k.key}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <table class="table">
+        <tr *ngFor="let m of meal">
+      <td>{{m.name}}</td>
+      <td>{{m.key}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <div class="col-md-3">
-    <table class="table">
-      <tr *ngFor="let k of stays">
-    <td>{{k.name}}</td>
-    <td>{{k.key}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="col-md-3">
-    <table class="table">
-      <tr *ngFor="let m of meal">
-    <td>{{m.name}}</td>
-    <td>{{m.key}}</td>
-      </tr>
-    </table>
-  </div>
+  
 </div>
 
 <!-- Destination -->
@@ -624,11 +644,21 @@
                                       <a href="#"> show more.... </a>
                                   </div>
                               </div>
-                          
-                      
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                              <form #mealForm="ngForm" (ngSubmit)="showMeal(mealForm.value)">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <input type="text" class="form-control" name=meal ngModel={{ml.name}} value={{ml.name}} >
+                                  </div>
+                                  <div class="col-md-4">
+                                    <input type="text" class="form-control" name=key ngModel={{ml.key}} value={{ml.key}} >
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                                      <button type="submit" class="plus-toggler">select</button>
+                                  </div>
+                                  </div>
+                                </div>
+                              </form> 
                       </div>
                     </div>
                 </div>
@@ -743,9 +773,21 @@
                               </div>
                           </div>
                       </div>
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
+                      <form #sightForm="ngForm" (ngSubmit)="showSight(sightForm.value)">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <input type="text" class="form-control" name=sight ngModel={{sight.name}} value={{sight.name}} >
+                          </div>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control" name=key ngModel={{sight.key}} value={{sight.key}} >
+                          </div>
+                          <div class="col-md-4">
+                            <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                              <button type="submit" class="plus-toggler">select</button>
+                          </div>
+                          </div>
+                        </div>
+                      </form> 
                       </div>
                     </div>
                 </div>

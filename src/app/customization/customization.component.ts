@@ -4,13 +4,14 @@ import { PackageServiceService } from './../package-service.service';
 import { DailyItinerary } from './../DailyItinerary';
 import { Package } from './../Package';
 import { PackagePdfRequest } from './../PackagePdfRequest';
+import {DataList} from './DataList'
 @Component({
   selector: 'app-customization',
   templateUrl: './customization.component.html',
   styleUrls: ['./customization.component.css']
 })
 export class CustomizationComponent implements OnInit {
-
+  
   constructor(private packageService: PackageServiceService) {}
   //MorningStar Changes
   userdata: any = {};
@@ -163,10 +164,12 @@ export class CustomizationComponent implements OnInit {
     // this.getDestinations();
     // this.getDestinations1();
     // this.getDestinations1();
-    // this.getDestinations1();
-    // this.getDestinations1();
-    // this.getDestinations1();
-    // this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
     // this.getSubDestinations1(this.destinationForm);
   }
 
@@ -177,37 +180,58 @@ export class CustomizationComponent implements OnInit {
       console.log(res);
     }))
   }
-
-  getSubdestination(destination1:any){
-    this.packageService.getSubDestinations(destination1).subscribe((res) => {
+  TotalData:DataList[]=[];
+  destination:DataList[]=[];
+  getSubdestination(destinationForm:any){
+    // console.log(destination1);
+    var destination1=destinationForm.destination;
+    console.log(destinationForm);
+    console.log(destination1);
+    console.log("Calling of Get SubDestinations......."+JSON.stringify(destination1));
+    this.packageService.getSubDestinations(destinationForm).subscribe((res) => {
       console.log(res);
       console.log("Hiiiiiiiiiiiiiiiiiii"+JSON.stringify(res));
-      
       this.subDestinations = res;
       console.log(this.subDestinations);
-      
     });
-
+    this.destination.push({
+      name:destination1
+    })
   }
-  getStay(subdestination1:any){
-    this.packageService.getStay(subdestination1).subscribe((res) => {
-      console.log(res);
+  subdestination:DataList[]=[];
+  getStay(subDestinationForm:any){
+    var subdestination1=subDestinationForm.Subdestination;
+    console.log(subDestinationForm);
+    console.log(subdestination1);
+    // console.log(subdestination1.key);
+    // console.log(JSON.stringify(subdestination1));
+    this.packageService.getStay(subDestinationForm).subscribe((res) => {
       console.log("Calling Get Stay Function........."+JSON.stringify(res));
-      
       this.stays = res;
       console.log(this.subDestinations);
     });
-    }
+
+    this.subdestination.push({
+      name:subdestination1
+    })
+    
+  }
  
-// destinationForm:any;
-getMeal(stay1:any){
-  this.packageService.getMeal(stay1).subscribe((res) => {
-    console.log(res);
+stay:DataList[]=[];
+getMeal(stayForm:any){
+  var stay1=stayForm.stay;
+  console.log(stayForm);
+  
+  console.log(stay1);
+  this.packageService.getMeal(stayForm).subscribe((res) => {
     console.log("Calling GetMeal Function........."+JSON.stringify(res));
     this.meal=res;
     console.log(this.stays);
     
   })
+    this.stay.push({
+      name:stay1
+    })
 }
 getSight(subdestination1:any){
 this.packageService.getSightseeing(subdestination1).subscribe((res) => {
@@ -217,6 +241,39 @@ this.packageService.getSightseeing(subdestination1).subscribe((res) => {
   console.log(this.sights);
   
 })
+}
+meal1:DataList[]=[];
+showMeal(mealForm:any){
+  console.log(mealForm);
+  var meal2=mealForm.meal;
+  console.log(meal2);
+  
+  this.meal1.push({
+    name:meal2
+  })
+
+}
+
+sight:DataList[]=[];
+showSight(sightForm:any){
+  console.log(sightForm);
+  var sight1=sightForm.sight;
+  console.log(sight1);
+    this.sight.push({
+      name:sight1
+    })
+}
+AddData:DataList[]=[];
+ShowData(){
+  this.TotalData=this.destination.concat(this.subdestination);
+  console.log(this.TotalData);
+  this.TotalData=this.TotalData.concat(this.stay);
+  console.log(this.TotalData);
+  this.TotalData=this.TotalData.concat(this.meal1);
+  console.log(this.TotalData);
+  this.AddData=this.TotalData.concat(this.sight);
+  console.log(this.AddData);
+  
 }
 
 }

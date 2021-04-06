@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { UserLogin } from '../UserLogin';
 import { UserRegistration } from '../UserRegistration';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
@@ -10,7 +10,7 @@ import { UserRegistration } from '../UserRegistration';
 })
 export class UserRegistrationComponent implements OnInit {
 
-  constructor(private userService: UserService) { } 
+  constructor(private userService: UserService,private router:Router) { } 
 
   userRegistration : UserRegistration={
 
@@ -53,6 +53,7 @@ export class UserRegistrationComponent implements OnInit {
       userName: user.userName,
       password: user.password
     }
+    this.router.navigate(["/HomePage"])
      this.userService.authenticate(this.userLogin).subscribe((result)=>{       
       console.log(result);
       this.token=result;
