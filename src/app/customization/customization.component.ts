@@ -170,6 +170,10 @@ export class CustomizationComponent implements OnInit {
     this.getDestinations1();
     this.getDestinations1();
     this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
+    this.getDestinations1();
     // this.getSubDestinations1(this.destinationForm);
   }
 
@@ -275,5 +279,67 @@ ShowData(){
   console.log(this.AddData);
   
 }
+
+title1 = 'OwlCarousel2 in Angular7 with Custom Navigation Arrows';
+
+carouselOptions = {
+  margin: 125,
+  nav: true,
+  navText: ["<div class='nav-btn prev-slide fas fa-arrow-circle-left'></div>", "<div class='nav-btn next-slide fas fa-arrow-circle-right'></div>"],
+  responsiveClass: true,
+  responsive: {
+    0: {
+      items: 1,
+      nav: true,
+    },
+
+  }
+}
+carouselOptions1 = {
+  margin: 105,
+  nav: true,
+  navText: ["<div class='nav-btn prev-slide fas fa-arrow-circle-left'></div>", "<div class='nav-btn next-slide fas fa-arrow-circle-right'></div>"],
+  responsiveClass: true,
+  responsive: {
+    800: {
+      items: 1,
+      nav: true,
+      loop: true
+    }
+  }
+}
+
+
+customOptions: any = {
+  loop: true,
+  mouseDrag: true,
+  touchDrag: true,
+  pullDrag: true,
+  dots: true,
+  nav: true,
+  navSpeed: 700,
+  navText: [ '<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>' ],
+  responsive: {
+    0: {
+      items: 1
+    },
+    //  200: {
+    //    items: 2
+    //  },
+    //  440: {
+    //    items: 3
+    //  },
+    //  600: {
+    //    items: 4
+    //  },
+    // 800: {
+    //   items:5
+    // },
+    // 1000: {
+    //   items: 6
+    // }
+  },
+}
+
 
 }

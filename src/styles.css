@@ -1828,7 +1828,8 @@ input[type=radio]:checked:before {
 	padding-bottom: 10px;
 	background-color: #111;
 	border-radius: 500px;
-	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5)
+	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5);
+	width: 40px;
 }
 .owl-nav .owl-prev{
 	padding-left: 12px;
@@ -1837,7 +1838,8 @@ input[type=radio]:checked:before {
 	padding-bottom: 10px;
 	background-color: #111;
 	border-radius: 500px;
-	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5)
+	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5);
+	width: 40px;
 }
 .card2:hover{
 	/* transform: scale(1.05,1.05); */
@@ -8977,3 +8979,5 @@ html.swipebox-html.swipebox-touch{overflow:hidden!important}
 .swipebox-touch #swipebox-container:before{left:0;-webkit-box-shadow:inset 10px 0 10px -8px #656565;box-shadow:inset 10px 0 10px -8px #656565}
 .swipebox-touch #swipebox-container:after{right:0;-webkit-box-shadow:inset -10px 0 10px -8px #656565;box-shadow:inset -10px 0 10px -8px #656565}
 .swipebox-touch #swipebox-overlay.leftSpringTouch #swipebox-container:before,.swipebox-touch #swipebox-overlay.rightSpringTouch #swipebox-container:after{opacity:1}@-webkit-keyframes rightSpring{0%{left:0}50%{left:-30px}100%{left:0}}@keyframes rightSpring{0%{left:0}50%{left:-30px}100%{left:0}}@-webkit-keyframes leftSpring{0%{left:0}50%{left:30px}100%{left:0}}@keyframes leftSpring{0%{left:0}50%{left:30px}100%{left:0}}@media screen and (min-width:800px){#swipebox-close{right:10px}#swipebox-arrows{width:92%;max-width:800px}}#swipebox-overlay{background:#0d0d0d}#swipebox-bottom-bar,#swipebox-top-bar{text-shadow:1px 1px 1px #000;background:#000;opacity:.95}#swipebox-top-bar{color:#fff!important;font-size:15px;line-height:43px;font-family:Helvetica,Arial,sans-serif}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

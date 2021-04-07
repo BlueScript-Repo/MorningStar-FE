@@ -13,6 +13,64 @@
        
    <section style="margin-top: -20px;" class="content-area">
     <div class="container-fluid">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template *ngFor="let dest of desti" carouselSlide>  
+        <!-- <owl-carousel [options]="carouselOptions" [items]="desti" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                    <div style="width: 100%;" class="item" *ngFor="let dest of desti;let i= index"> -->
+                      <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
+                        <div align="center" style="background:transparent" class="card-header">
+                          <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                            {{dest.name}}
+                          </p>
+                        </div>
+                        <div class="card-body">
+                          <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{dest.description}} </span></p>
+                            <div align="center" class="row  mb-3">
+                                <p class="fs-3">
+                                    <i style="margin-right:10px" class="far fa-images"></i>Images of {{dest.name}}:-
+                                </p>
+                                <div class="col-sm-6">
+                                        <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                                </div>
+                                <div class="col-sm-6">
+                                        <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                                </div>
+                            </div>
+                            <div align="center" class="row mt-3    ">
+                                    <div class="col-sm-4">
+                                        <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                    </div>
+                                    <div align="left" class="col-md-4">
+                                        <a href="#"> show more.... </a>
+                                    </div>
+                                </div>
+                            
+                        
+                        </div>
+                        <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
+                          </div>
+                          <div class="col-md-4">
+                            <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
+                          </div>
+                          <div class="col-md-4">
+                            <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                              <button type="submit" class="plus-toggler">select</button>
+                          </div>
+                          </div>
+                        </div>
+                      </form>
+                      </div>
+                      </ng-template>
+                      </owl-carousel-o>
       <div align="center" class="row mt-5 mb-5">
                   <div class="shortcode_title title-center title-decoration-bottom-center">
                       <h3 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h3><span class="line_after_title"></span>
@@ -63,11 +121,11 @@
     </tr>
   </tbody>
 </table>
-<div class="row">
+<!-- <div class="row">
   <div *ngFor="let data of AddData" class="col-md-2">
     {{ data.name}}
   </div>
-</div>
+</div> -->
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -112,308 +170,134 @@
     <div style="background: transparent;width:100%;border: none;" class="modal-content">
 
       <div class="modal-body">
-          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-              <div *ngFor="let i of desti" class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  
-                  
-                  
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                          Kerala
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 10px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Kerala, a state situated on the tropical Malabar Coast of southwestern India, is one of the most popular tourist destinations in the country. Named as one of the ten paradises of the world by National Geographic Traveler, Kerala is famous especially for its ecotourism initiatives and beautiful backwaters.</span></p>
-                        <p class="fs-3">
-                          <i style="margin-right:10px" class="far fa-images"></i>Images of Kerala:-
-                      </p>  
-                        <div align="center" class="row  mb-3">
-                             
-                              <div class="col-sm-6">
-                                      <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6">
-                                 
-                                      <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
-                              </div>
+      <owl-carousel-o [options]="customOptions">
+        <ng-template *ngFor="let dest of desti" carouselSlide>  
+        <!-- <owl-carousel [options]="carouselOptions" [items]="desti" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                    <div style="width: 100%;" class="item" *ngFor="let dest of desti;let i= index"> -->
+                      <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                        <div align="center" style="background:transparent" class="card-header">
+                          <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                            {{dest.name}}
+                          </p>
                         </div>
-                              <div align="center" class="row mt-3    ">
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                          
-                      
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div>
-                    </div>  
-                  <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                </div>
-                
-                
-                <div *ngFor="let data of desti" class="carousel-item">
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                          {{data.name}}
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{data.description}} </span></p>
-                          <div align="center" class="row  mb-3">
-                              <p class="fs-3">
-                                  <i style="margin-right:10px" class="far fa-images"></i>Images of {{data.name}}:-
-                              </p>
-                              <div class="col-sm-6">
-                                      <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6">
-                                      <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                              </div>
+                        <div class="card-body">
+                          <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{dest.description}} </span></p>
+                            <div align="center" class="row  mb-3">
+                                <p class="fs-3">
+                                    <i style="margin-right:10px" class="far fa-images"></i>Images of {{dest.name}}:-
+                                </p>
+                                <div class="col-sm-6">
+                                        <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                                </div>
+                                <div class="col-sm-6">
+                                        <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                                </div>
+                            </div>
+                            <div align="center" class="row mt-3    ">
+                                    <div class="col-sm-4">
+                                        <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                                    </div>
+                                    <div align="left" class="col-md-4">
+                                        <a href="#"> show more.... </a>
+                                    </div>
+                                </div>
+                            
+                        
+                        </div>
+                        <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
                           </div>
-                          <div align="center" class="row mt-3    ">
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                          
-                      
-                      </div>
-                      <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{data.name}} value={{data.name}} >
-                        </div>
-                        <div class="col-md-4">
-                          <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{data.key}} value={{data.key}} >
-                        </div>
-                        <div class="col-md-4">
-                          <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                            <button type="submit" class="plus-toggler">select</button>
-                        </div>
-                        </div>
-                      </div>
-                    </form>
-                    </div>
-                </div>
-                <!-- <div class="carousel-item">
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                          Kashmir
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Every year, thousands of Hindu pilgrims visit holy shrines of Vaishno Devi and Amarnath which has had significant impact on the state's economy. Kashmir Valley is one of the top tourist destinations of India. ... It attracts tourists for its unique handicrafts and the world-famous Kashmiri Shawls.</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                              <p class="fs-3">
-                                  <i style="margin-right:10px" class="far fa-images"></i>Images of Kashmir:-
-                              </p>
-                              <div class="col-sm-6">
-                                      <img src="assets/kash1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6">
-                                      <img src="assets/kash3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                              </div>
+                          <div class="col-md-4">
+                            <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
                           </div>
-                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                                  <div class="col-sm-4">
-                                      <img src="assets/kash5.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/kash4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Kash2.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                                  </div>
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                          
-                      
+                          <div class="col-md-4">
+                            <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                              <button type="submit" class="plus-toggler">select</button>
+                          </div>
+                          </div>
+                        </div>
+                      </form>
                       </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div>
-                    </div>
-                </div> -->
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-      </div>
+                      </ng-template>
+                      </owl-carousel-o>
+                    <!-- </div>
+                  </owl-carousel> -->
       
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
     </div>
   </div>
 </div>
-
+</div>
 <!-- SubDestination -->
 <div class="modal fade" id="Subdestination" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div style="margin-top: -10px;" class="modal-dialog modal-xl">
     <div style="background: transparent;width:100%;border: none;" class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
+      
       <div class="modal-body">
-          <div id="subdestination_Carousel" class="carousel slide" data-bs-ride="carousel">
-              <div *ngFor="let i of subDestinations" class="carousel-indicators">
-                <button type="button" data-bs-target="#subdestination_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#subdestination_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#subdestination_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <owl-carousel  [options]="carouselOptions" [items]="subDestinations" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+          <div style="width: 100%;margin-left: 100px;" class="item" *ngFor="let subd of subDestinations;let i= index">
+            <div style="height: 100%;width: 100%;margin-left: 110px;" class="card">
+              <div align="center" style="background:transparent" class="card-header">
+                <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                  {{subd.name}}
+                </p>
               </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  
-                  
-                  
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                          Alleppey
-                        </p>
+              <div class="card-body">
+                <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{subd.description}} </span></p>
+                  <div align="center" class="row  mb-3">
+                      <p class="fs-3">
+                          <i style="margin-right:10px" class="far fa-images"></i>Images of {{subd.name}}:-
+                      </p>
+                      <div class="col-sm-6">
+                              <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
                       </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Alappuzha (Alleppey) is known as ‘the Venice of the East’. Offering the best tourist places in Alleppey, this charming place is the hub of Kerala’s backwaters and is home to a huge network of backwaters and more than thousand houseboats. The houseboats you find in the backwaters of Alappuzha are in fact a reworked version of the Kettuvallams of olden times. Kettuvallam is a Malayalam word, ‘Kettu’, means living structures and ‘Vallom’ means boat. In the olden days, kettuvallam or boat with a thatched roof that covers over wooden hulls was used to carry tons of rice and spices.</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                              <p class="fs-3">
-                                  <i style="margin-right:10px" class="far fa-images"></i>Images of Alleppey in Kerala :-
-                              </p>
-                              <div class="col-sm-6">
-                                      <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6">
-                                      <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                              </div>
-                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                                  </div>
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                             
+                      <div class="col-sm-6">
+                              <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                      </div>
+                  </div>
+                  <div align="center" class="row mt-3    ">
+                          <div class="col-sm-4">
+                              <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
                           </div>
-                          
-                      
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div>
-                    </div>  
-                  <!-- <img src="assets/..." class="d-block w-100" alt="..."> -->
-                </div>
-                <div *ngFor="let subd of subDestinations" class="carousel-item">
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                          {{subd.name}}
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{subd.description}}</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                              <p class="fs-3">
-                                  <i style="margin-right:10px" class="far fa-images"></i>Images of {{subd.name}}:-
-                              </p>
-                              <div class="col-sm-6">
-                                      <img src="assets/mu1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6">
-                                      <img src="assets/mu3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                              </div>
-                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                                  <div class="col-sm-4">
-                                      <img src="assets/mu2.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/mu4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/mu5.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                                  </div>
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
+                          <div class="col-sm-4">
+                              <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
                           </div>
-                         
-                           <form #subDestinationForm="ngForm" (ngSubmit)="getSight(subDestinationForm.value)" (ngSubmit)="getStay(subDestinationForm.value)" >
-                                <div class="row">
-                                  <div class="col-md-4">
-                                    <input style="visibility:hidden" type="text" class="form-control" name=Subdestination ngModel={{subd.name}} value={{subd.name}} >
-                                  </div>
-                                  <div class="col-md-4">
-                                    <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{subd.key}} value={{subd.key}} >
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                                      <button type="submit" class="plus-toggler">select</button>
-                                  </div>
-                                  </div>
-                                </div>
-                              </form>
-                      
+                          <div class="col-sm-4">
+                              <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                          </div>
+                          <div align="left" class="col-md-4">
+                              <a href="#"> show more.... </a>
+                          </div>
                       </div>
-                      <!-- <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div> -->
-                    </div>
-                </div>
+                  
+              
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#subdestination_Carousel"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true">
-                    <!-- <i class="fa fa-plus"></i> -->
-                </span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#subdestination_Carousel"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <form #subDestinationForm="ngForm" (ngSubmit)="getSight(subDestinationForm.value)" (ngSubmit)="getStay(subDestinationForm.value)" >
+                <div class="row">
+                  <div class="col-md-4">
+                    <input style="visibility:hidden" type="text" class="form-control" name=Subdestination ngModel={{subd.name}} value={{subd.name}} >
+                  </div>
+                  <div class="col-md-4">
+                    <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{subd.key}} value={{subd.key}} >
+                  </div>
+                  <div class="col-md-4">
+                    <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                      <button type="submit" class="plus-toggler">select</button>
+                  </div>
+                  </div>
+                </div>
+              </form>
             </div>
+          </div>
+        </owl-carousel>
       </div>
     </div>
   </div>
@@ -809,7 +693,62 @@
 </div>
 </div>
 
-
+<owl-carousel [options]="carouselOptions" [items]="desti" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+  <div style="width: 100%;" class="item" *ngFor="let dest of desti;let i= index">
+  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+    <div align="center" style="background:transparent" class="card-header">
+      <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+        {{dest.name}}
+      </p>
+    </div>
+    <div class="card-body">
+      <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{dest.description}} </span></p>
+        <div align="center" class="row  mb-3">
+            <p class="fs-3">
+                <i style="margin-right:10px" class="far fa-images"></i>Images of {{dest.name}}:-
+            </p>
+            <div class="col-sm-6">
+                    <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+            </div>
+            <div class="col-sm-6">
+                    <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+            </div>
+        </div>
+        <div align="center" class="row mt-3    ">
+                <div class="col-sm-4">
+                    <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                </div>
+                <div class="col-sm-4">
+                    <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                </div>
+                <div class="col-sm-4">
+                    <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                </div>
+                <div align="left" class="col-md-4">
+                    <a href="#"> show more.... </a>
+                </div>
+            </div>
+        
+    
+    </div>
+    <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
+    <div class="row">
+      <div class="col-md-4">
+        <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
+      </div>
+      <div class="col-md-4">
+        <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
+      </div>
+      <div class="col-md-4">
+        <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+          <button type="submit" class="plus-toggler">select</button>
+      </div>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+</owl-carousel>
 
 
 

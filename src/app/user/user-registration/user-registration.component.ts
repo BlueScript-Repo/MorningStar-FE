@@ -63,4 +63,5 @@ export class UserRegistrationComponent implements OnInit {
   } 
   ngOnInit(): void {
   }
+  
 }

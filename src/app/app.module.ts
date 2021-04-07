@@ -16,7 +16,9 @@ import { AuthInterceptor } from './user/AuthInterceptor';
 import { PackageListComponent } from './package-list/package-list.component';
 import { PackageDetailsComponent } from './package-details/package-details.component';
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { OwlModule } from 'ngx-owl-carousel';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MatSliderModule } from '@angular/material/slider';
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
@@ -42,6 +44,9 @@ const route:Routes=[
     HomePageComponent
   ],
   imports: [
+    MatSliderModule,
+    CarouselModule ,
+    OwlModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
