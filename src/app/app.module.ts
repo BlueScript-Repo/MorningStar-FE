@@ -19,14 +19,17 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MatSliderModule } from '@angular/material/slider';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DealsComponent } from './deals/deals.component';
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
   {path:'customPackage',component: CustomizationComponent},
   {path:'LoginPage',component: UserRegistrationComponent},
   {path:'updatePage',component: UpdateComponent},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
-  {path:'HomePage',component: HomePageComponent}
+  {path:'HomePage',component: HomePageComponent},
+  {path:"deals",component:DealsComponent}
 ] 
   
 
@@ -41,9 +44,12 @@ const route:Routes=[
     UserRegistrationComponent,
     PackageListComponent,
     PackageDetailsComponent,
-    HomePageComponent
+    HomePageComponent,
+    DealsComponent
   ],
   imports: [
+    MatDialogModule,
+    ReactiveFormsModule,
     MatSliderModule,
     CarouselModule ,
     OwlModule,

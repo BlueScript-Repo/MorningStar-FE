@@ -1,38 +1,40 @@
-<!-- <form #dataForm="ngForm" (ngSubmit)=addData(dataForm.value) >
+<form #totalForm="ngForm" (ngSubmit)="showTotalData(totalForm.value)">
+<form #dataForm="ngForm" (ngSubmit)=addData(dataForm.value) >
     <div style="padding-left: 80px;" class="row">
         <div class="col-md-2">
             <label for="country" class="form-label">Country</label>
-            <input type="text" ngModel name="country" class="form-control" placeholder="Enter Destination">
+            <input type="text" ngModel value="country" name="country" #country class="form-control" placeholder="Enter Destination">
         </div>
         <div class="col-md-2">
-            <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+            <button type="submit" style="margin-top: 30px;color: white;" (click)="getcountry(country.value)" class="btn12">+</button>
         </div> 
     </div>
   </form>
   <form #dataForm1="ngForm" (ngSubmit)=addData1(dataForm1.value) >
     <div style="padding-left: 80px;" class="row">
         <div class="col-md-2">
-            <label for="country" class="form-label">Country</label>
-            <input type="text" ngModel name="country1" class="form-control" placeholder="Enter Destination">
+            <label for="country" class="form-label">State</label>
+            <input type="text" ngModel name="state" #state class="form-control" placeholder="Enter Destination">
         </div>
         <div class="col-md-2">
-            <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+            <button type="submit" style="margin-top: 30px;color: white;" (click)="getstate(state.value)" class="btn12">+</button>
         </div> 
     </div>
   </form>
   <form #dataForm2="ngForm" (ngSubmit)=addData2(dataForm2.value) >
     <div style="padding-left: 80px;" class="row">
         <div class="col-md-2">
-            <label for="country" class="form-label">Country</label>
-            <input type="text" ngModel name="country2" class="form-control" placeholder="Enter Destination">
+            <label for="country" class="form-label">District</label>
+            <input type="text" ngModel name="district" #district class="form-control" placeholder="Enter Destination">
         </div> 
         <div class="col-md-2">
-            <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+">
+            <input style="margin-top: 30px;color: white;" (click)="getdesti(district.value)" class="btn12" type="submit" value="+">
         </div> 
     </div>
   </form>
   <input style="margin-top: 30px;color: white;" (click)="ShowArrays()" class="btn12" type="submit" value="Add">
- <table>
+  </form>
+ <!-- <table>
     <tbody>
         <tr *ngFor="let arr of arr1">
             <td>
@@ -49,15 +51,102 @@
             </td>
             <td>
                 {{arr.policy}}
-            </td> -->
-        <!-- </tr>
+            </td> 
+        </tr>
     </tbody>
   </table> -->
 
-  <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+  <!-- <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
     <div class="banner-wrapper container article_heading">
       <h1 style="padding-top: 190px;" class="heading_primary">Home Page</h1></div>
   </div>
 <div style="padding-top: 300px;padding-left: 30%;" class="container">
     <h1>Welcome USer !!!!!!!!</h1>
+</div> -->
+
+<table>
+    <tbody>
+        <tr *ngFor="let i of destination">
+            <td>{{i.name}} </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<form [formGroup]="profileForm" (ngSubmit)="getProfile()">
+  
+    <label>
+      First Name:
+      <input type="text" ngModel=Mayur value="mayur" formControlName="firstName">
+    </label>
+  
+    <label>
+      Last Name:
+      <input type="text" ngModel=Bhakare value="bhakare" formControlName="lastName">
+    </label>
+     
+
+    <form formGroupName="address">
+        <!-- <h3>Address</h3> -->
+
+        <label>
+          Street:
+          <input type="text" formControlName="street">
+        </label>
+      
+        <label>
+          City:
+          <input type="text" formControlName="city">
+        </label>
+        
+        <label>
+          State:
+          <input type="text" formControlName="state">
+        </label>
+      
+        <label>
+          Zip Code:
+          <input type="text" formControlName="zip">
+        </label>
+    </form>
+
+
+        <input type="submit" value="Submit" >
+  </form>
+
+
+
+<div class="popup center">
+  <div class="icon">
+    <i class="fa fa-check"></i>
+  </div>
+  <div class="title">
+    success
+  </div>
+  <div class="description">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus ab reiciendis dolorem culpa, minima error fugit unde. Explicabo deleniti esse, obcaecati dolorem tempora enim alias, vero iusto cupiditate quos laborum!
+  </div>
+  <div class="dismiss-btn">
+    <button (click)="closeModal()" id="dismiss-popup-btn">
+      Dismiss
+    </button>
+  </div>
 </div>
+
+<div class="center">
+  <button id="popup-open-btn" (click)="showModal()" >
+    OPen popup
+  </button>
+</div>
+
+
+<script>
+  document.getElementById("popup-open-btn").addEventListener("click",function(){
+   document.getElementsByClassName("popup")[0].classList.add("active");
+ });
+
+ document.getElementById("dismiss-popup-btn").addEventListener("click",function(){
+   document.getElementsByClassName("popup")[0].classList.remove("active")
+ })
+</script>
+

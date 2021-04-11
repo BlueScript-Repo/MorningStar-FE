@@ -13,94 +13,35 @@
        
    <section style="margin-top: -20px;" class="content-area">
     <div class="container-fluid">
-      <owl-carousel-o [options]="customOptions">
-        <ng-template *ngFor="let dest of desti" carouselSlide>  
-        <!-- <owl-carousel [options]="carouselOptions" [items]="desti" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                    <div style="width: 100%;" class="item" *ngFor="let dest of desti;let i= index"> -->
-                      <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
-                        <div align="center" style="background:transparent" class="card-header">
-                          <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                            {{dest.name}}
-                          </p>
-                        </div>
-                        <div class="card-body">
-                          <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{dest.description}} </span></p>
-                            <div align="center" class="row  mb-3">
-                                <p class="fs-3">
-                                    <i style="margin-right:10px" class="far fa-images"></i>Images of {{dest.name}}:-
-                                </p>
-                                <div class="col-sm-6">
-                                        <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                                </div>
-                                <div class="col-sm-6">
-                                        <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                                </div>
-                            </div>
-                            <div align="center" class="row mt-3    ">
-                                    <div class="col-sm-4">
-                                        <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                    </div>
-                                    <div align="left" class="col-md-4">
-                                        <a href="#"> show more.... </a>
-                                    </div>
-                                </div>
-                            
-                        
-                        </div>
-                        <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
-                          </div>
-                          <div class="col-md-4">
-                            <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
-                          </div>
-                          <div class="col-md-4">
-                            <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                              <button type="submit" class="plus-toggler">select</button>
-                          </div>
-                          </div>
-                        </div>
-                      </form>
-                      </div>
-                      </ng-template>
-                      </owl-carousel-o>
+      
       <div align="center" class="row mt-5 mb-5">
                   <div class="shortcode_title title-center title-decoration-bottom-center">
                       <h3 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h3><span class="line_after_title"></span>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;"  href="#" data-bs-toggle="modal" data-bs-target="#destination"
-                      class="fs-5">
+                      <a style="text-decoration: none; color: black;width: 150px;"  id="popup-open-btn" (click)="showModal()" class="fs-5">
                          Destination <i class="fa fa-plus"></i>
                      </a>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Subdestination"
-                      class="fs-5">
+                      <a style="text-decoration: none; color: black;width: 150px;"  id="popup1-open-btn" (click)="showModal1()" class="fs-5">
                          Sub-destination <i class="fa fa-plus"></i>
                      </a>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Stay"
+                      <a style="text-decoration: none; color: black;width: 150px;" id="popup2-open-btn" (click)="showModal2()" href="#" data-bs-toggle="modal" data-bs-target="#Stay"
                       class="fs-5">
                          Stay <i class="fa fa-plus"></i>
                      </a>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#meal"
+                      <a style="text-decoration: none; color: black;width: 150px;" id="popup3-open-btn" (click)="showModal3()" href="#" data-bs-toggle="modal" data-bs-target="#meal"
                       class="fs-5">
                          Meal <i class="fa fa-plus"></i>
                      </a>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;" href="#" data-bs-toggle="modal" data-bs-target="#Sight"
+                      <a style="text-decoration: none; color: black;width: 150px;" id="popup4-open-btn" (click)="showModal4()" (click)="ShowData()"  href="#" data-bs-toggle="modal" data-bs-target="#Sight"
                       class="fs-5">
                          SightSeeing <i class="fa fa-plus"></i>
                      </a>
@@ -112,20 +53,54 @@
     </div>
   </section>
 </div>
-<table>
-  <tbody>
-    <tr>
-      <td *ngFor="let data of AddData">
-        {{data.name}}
-      </td>
-    </tr>
-  </tbody>
-</table>
-<!-- <div class="row">
-  <div *ngFor="let data of AddData" class="col-md-2">
-    {{ data.name}}
-  </div>
-</div> -->
+<div class="container">
+  <table class="table" style="border: 0px solid white;">
+      <thead style="border: 0px solid white;">
+        <th>
+          Destination
+        </th>
+        <th>
+          Sub Destination
+        </th>
+        <th>
+          Stay
+        </th>
+        <th>
+          Meal
+        </th>
+        <th>
+          SightSeeing
+        </th>
+        <th>
+          Delete
+        </th>
+      </thead>
+    <tbody>
+<tr *ngFor="let i of dailyItinerary;let t=index">
+<td>
+  {{i.destination}}
+</td>
+<td>
+  {{i.subDestination}}
+</td>
+<td>
+  {{i.stay}}
+</td>
+<td>
+  {{i.meal}}
+</td>
+<td>
+  {{i.sightSeeing}}
+</td>
+<td>
+  <button (click)="deleteTodo(t)" class="btn btn-outline-danger">-</button>
+</td>
+</tr>
+    </tbody>
+  </table>
+</div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -165,16 +140,13 @@
 </div>
 
 <!-- Destination -->
-<div class="modal fade" id="destination" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
-    <div style="background: transparent;width:100%;border: none;" class="modal-content">
 
-      <div class="modal-body">
+<div class="popup center">
+  <div class="description">
+    <form #newData="ngForm" (ngSubmit)="newdata()" >
       <owl-carousel-o [options]="customOptions">
         <ng-template *ngFor="let dest of desti" carouselSlide>  
-        <!-- <owl-carousel [options]="carouselOptions" [items]="desti" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                    <div style="width: 100%;" class="item" *ngFor="let dest of desti;let i= index"> -->
-                      <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+                      <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
                         <div align="center" style="background:transparent" class="card-header">
                           <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
                             {{dest.name}}
@@ -206,555 +178,320 @@
                                     <div align="left" class="col-md-4">
                                         <a href="#"> show more.... </a>
                                     </div>
+                                    </div>
                                 </div>
-                            
                         
-                        </div>
-                        <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
+                        <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)" >
                         <div class="row">
                           <div class="col-md-4">
-                            <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
+                            <input type="text" #name class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
                           </div>
                           <div class="col-md-4">
-                            <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
+                            <input type="text" #key class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
                           </div>
                           <div class="col-md-4">
                             <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                              <button type="submit" class="plus-toggler">select</button>
+                              <button type="submit" (click)="getvalue(key.value,name.value)" class="plus-toggler">select</button>
                           </div>
                           </div>
                         </div>
                       </form>
-                      </div>
+                    </div>
+                   
                       </ng-template>
                       </owl-carousel-o>
-                    <!-- </div>
-                  </owl-carousel> -->
-      
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-    </div>
+                      <button type="submit" class="bt12">Add</button>
+                      </form>
+                      <div class="dismiss-btn">
+                        <button (click)="closeModal()" id="dismiss-popup-btn">
+                          Close
+                        </button>
+                      </div>
   </div>
-</div>
-</div>
+  </div>
+
+
 <!-- SubDestination -->
-<div class="modal fade" id="Subdestination" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
-    <div style="background: transparent;width:100%;border: none;" class="modal-content">
-      
-      <div class="modal-body">
-        <owl-carousel  [options]="carouselOptions" [items]="subDestinations" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-          <div style="width: 100%;margin-left: 100px;" class="item" *ngFor="let subd of subDestinations;let i= index">
-            <div style="height: 100%;width: 100%;margin-left: 110px;" class="card">
-              <div align="center" style="background:transparent" class="card-header">
-                <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-                  {{subd.name}}
-                </p>
-              </div>
-              <div class="card-body">
-                <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{subd.description}} </span></p>
-                  <div align="center" class="row  mb-3">
-                      <p class="fs-3">
-                          <i style="margin-right:10px" class="far fa-images"></i>Images of {{subd.name}}:-
-                      </p>
-                      <div class="col-sm-6">
-                              <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                      </div>
-                      <div class="col-sm-6">
-                              <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                      </div>
-                  </div>
-                  <div align="center" class="row mt-3    ">
-                          <div class="col-sm-4">
-                              <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                          </div>
-                          <div class="col-sm-4">
-                              <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                          </div>
-                          <div class="col-sm-4">
-                              <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                          </div>
-                          <div align="left" class="col-md-4">
-                              <a href="#"> show more.... </a>
-                          </div>
-                      </div>
-                  
-              
-              </div>
-              <form #subDestinationForm="ngForm" (ngSubmit)="getSight(subDestinationForm.value)" (ngSubmit)="getStay(subDestinationForm.value)" >
-                <div class="row">
-                  <div class="col-md-4">
-                    <input style="visibility:hidden" type="text" class="form-control" name=Subdestination ngModel={{subd.name}} value={{subd.name}} >
-                  </div>
-                  <div class="col-md-4">
-                    <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{subd.key}} value={{subd.key}} >
-                  </div>
-                  <div class="col-md-4">
-                    <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                      <button type="submit" class="plus-toggler">select</button>
-                  </div>
-                  </div>
-                </div>
-              </form>
+<div class="popup1 center">
+  <div class="description">
+    <form #newData="ngForm" (ngSubmit)="newdata()" >
+      <owl-carousel-o [options]="customOptions">
+        <ng-template *ngFor="let subd of subDestinations" carouselSlide>  
+          <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
+            <div align="center" style="background:transparent" class="card-header">
+              <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
+                {{subd.name}}
+              </p>
             </div>
+            <div class="card-body">
+              <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{subd.description}} </span></p>
+                <div align="center" class="row  mb-3">
+                    <p class="fs-3">
+                        <i style="margin-right:10px" class="far fa-images"></i>Images of {{subd.name}}:-
+                    </p>
+                    <div class="col-sm-6">
+                            <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                    </div>
+                    <div class="col-sm-6">
+                            <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                    </div>
+                </div>
+                <div align="center" class="row mt-3    ">
+                        <div class="col-sm-4">
+                            <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                        </div>
+                        <div align="left" class="col-md-4">
+                            <a href="#"> show more.... </a>
+                        </div>
+                    </div>
+                
+            
+            </div>
+            <form #subDestinationForm="ngForm" (ngSubmit)="getSight(subDestinationForm.value)" (ngSubmit)="getStay(subDestinationForm.value)" >
+              <div class="row">
+                <div class="col-md-4">
+                  <input style="visibility:hidden" type="text" class="form-control" name=Subdestination ngModel={{subd.name}} value={{subd.name}} >
+                </div>
+                <div class="col-md-4">
+                  <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{subd.key}} value={{subd.key}} >
+                </div>
+                <div class="col-md-4">
+                  <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                    <button type="submit" class="plus-toggler">select</button>
+                </div>
+                </div>
+              </div>
+            </form>
           </div>
-        </owl-carousel>
-      </div>
-    </div>
+                      </ng-template>
+                      </owl-carousel-o>
+                      <button type="submit" class="bt12">Add</button>
+                      </form>
+                      <div class="dismiss-btn">
+                        <button (click)="closeModal1()" id="dismiss-popup1-btn">
+                          Close
+                        </button>
+                      </div>
   </div>
-</div>
- 
+  </div>
 
 
 <!-- Stay -->
- <div class="modal fade" id="Stay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
-    <div style="background: transparent;width:100%;border: none;" class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
-      <div class="modal-body">
-          <div id="stay_Carousel" class="carousel slide" data-bs-ride="carousel">
-              <div *ngFor="let stay of stays" class="carousel-indicators">
-                <button type="button" data-bs-target="#stay_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#stay_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#stay_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  
-                  
-                  
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px;" class="fs-3"><i style="color: rgb(112, 222, 255);" class="fas fa-campground"></i>
-                          Lake Palace Backwater Resort Alleppey
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">Located on the banks of Vembanad Lake, Lake Palace Resort offers accommodation with Kerala architecture and décor. This resort features a restaurant, an outdoor pool and free parking.
-
-                          Elegant cottages and villas at Lake Palace come with wooden furnishings. They are equipped with a TV, minibar and private bathroom with shower facilities.</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                              <p class="fs-3">
-                                  <i style="margin-right:10px;color: rgb(255, 245, 112);" class="far fa-images"></i>Images of Lake Palace Backwater Resort Alleppey :-
-                              </p>
-                              <div class="col-sm-4">
-                                   <img src="assets/stay1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                               </div>
-                               <div class="col-sm-4">
-                                   <img src="assets/stay4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                               </div>
-                               <div class="col-sm-4">
-                                   <img src="assets/stay5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                               </div>
-                          </div>
-                          <div align="center" style="margin-left:-10px;" class="row mt-3">
-                                  <div class="col-sm-6">
-                                          <img src="assets/stay3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-6">
-                                          <img src="assets/stay2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
-                                  </div>
-                                  
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                          
-                      
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -30px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div>
-                    </div>  
-                  <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                </div>
-                <div *ngFor="let stay of stays" class="carousel-item">
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
-                          {{stay.name}} 
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{stay.description}}</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                              <p class="fs-3">
-                                  <i style="margin-right:10px;color: rgb(112, 222, 255);" class="far fa-images"></i>Images of {{stay.name}}:-
-                              </p>
-                              <div class="col-sm-6">
-                                      <img src="assets/st5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6">
-                                      <img src="assets/st2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
-                              </div>
-                              <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                                  <div class="col-sm-4">
-                                      <img src="assets/st3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/st4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div class="col-sm-4">
-                                      <img src="assets/st1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                                  </div>
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                          </div>
-                          <form #stayForm="ngForm" (ngSubmit)="getMeal(stayForm.value)">
-                            <div class="row">
-                              <div class="col-md-4">
-                                <input style="visibility:hidden" type="text" class="form-control" name=stay ngModel={{stay.name}} value={{stay.name}} >
-                              </div>
-                              <div class="col-md-4">
-                                <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{stay.key}} value={{stay.key}} >
-                              </div>
-                              <div class="col-md-4">
-                                <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                                  <button type="submit" class="plus-toggler">select</button>
-                              </div>
-                              </div>
-                            </div>
-                          </form> 
-                      
-                      </div>
-                      <!-- <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div> -->
+<div class="popup2 center">
+  <div class="description">
+    <!-- <form #newData="ngForm" (ngSubmit)="newdata()" > -->
+      <owl-carousel-o [options]="customOptions">
+        <ng-template *ngFor="let stay of stays" carouselSlide>  
+          <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
+            <div align="center" style="background:transparent" class="card-header">
+              <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
+                {{stay.name}} 
+              </p>
+            </div>
+            <div class="card-body">
+              <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{stay.description}}</span></p>
+                <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                    <p class="fs-3">
+                        <i style="margin-right:10px;color: rgb(112, 222, 255);" class="far fa-images"></i>Images of {{stay.name}}:-
+                    </p>
+                    <div class="col-sm-6">
+                            <img src="assets/st5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                    </div>
+                    <div class="col-sm-6">
+                            <img src="assets/st2.jpg" class="img-fluid img_over" style="width:100%;height: 140px;" alt="">
+                    </div>
+                    <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                        <div class="col-sm-4">
+                            <img src="assets/st3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="assets/st4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="assets/st1.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
+                        </div>
+                        <div align="left" class="col-md-4">
+                            <a href="#"> show more.... </a>
+                        </div>
                     </div>
                 </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#stay_Carousel"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true">
-                    <!-- <i class="fa fa-plus"></i> -->
-                </span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#stay_Carousel"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+                <form #stayForm="ngForm" (ngSubmit)="getMeal(stayForm.value)">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <input style="visibility:hidden" type="text" class="form-control" name=stay ngModel={{stay.name}} value={{stay.name}} >
+                    </div>
+                    <div class="col-md-4">
+                      <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{stay.key}} value={{stay.key}} >
+                    </div>
+                    <div class="col-md-4">
+                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                        <button type="submit" class="plus-toggler">select</button>
+                    </div>
+                    </div>
+                  </div>
+                </form> 
+            
             </div>
-      </div>
-    </div>
+          </div>
+                      </ng-template>
+                      </owl-carousel-o>
+                      <button type="submit" class="bt12">Add</button>
+                      <!-- </form> -->
+                      <div class="dismiss-btn">
+                        <button (click)="closeModal2()" id="dismiss-popup2-btn">
+                          Close
+                        </button>
+                      </div>
   </div>
-</div>
-
-
-
+  </div>
 
 
 <!-- Meal -->
-<div class="modal fade" id="meal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
-    <div style="background: transparent;width:100%;border: none;" class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
-      <div class="modal-body">
-          <div id="meal_Carousel" class="carousel slide" data-bs-ride="carousel">
-              <div *ngFor="let ml of meal" class="carousel-indicators">
-                <button type="button" data-bs-target="#meal_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#meal_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#meal_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  
-                  
-                  
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px;" class="fs-3"><i style="color: rgb(112, 222, 255);" class="fas fa-campground"></i>
-                          Lunch
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">
-                          Kashmir Cuisine is filled with comfort food and it will make you go back for more. This is because of the richness and also the flavours that are infused by the use of whole spices. The Kashmir valley is a considered as the crown of India and is majorly influenced by the Mughlai cuisine. The place is not only known for its serene look but also filled with delicacies that would keep your mouth watering for more.</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-5 mt-5">
-                              <p class="fs-3 mb-5">
-                                  <i style="margin-right:10px;color: rgb(255, 245, 112);" class="far fa-images"></i>Images of popular Meal plans of Kashmir :-
-                              </p>
-                              <p></p>
-                              <br>
-                              <div class="col-sm-6">
-                                   <img src="assets/lunch.jpg" class="img-fluid img_over" style="width:200px;height:140px" alt="">
-                               </div>
-                               <div class="col-sm-6">
-                                   <img src="assets/lunch3.jpg" class="img-fluid img_over" style="width:200px;height:140px" alt="">
-                          </div>
-                              </div>
-                              <div align="center" style="margin-left:-10px;" class="row mt-3">
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                          
-                      
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div>
-                    </div>  
-                  <!-- <img src="assets/..." class="d-block w-100" alt="..."> -->
-                </div>
-                <div *ngFor="let ml of meal" class="carousel-item">
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
-                          {{ml.name}} 
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{ml.description}}</span></p>
-                          <div align="center" style="margin-left: 09px;" class="row  mb-5">
-                              <p class="fs-3 mb-5 mt-5">
-                                  <i style="margin-right:10px;color: rgb(112, 222, 255);" class="far fa-images"></i>Images of {{ml.name}} plan:-
-                              </p>
-                              <div class="col-sm-6 mt-3">
-                                      <img src="assets/KashmirBreakfast.jpg" class="img-fluid img_over" style="width:250px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-6 mt-3">
-                                      <img src="assets/kashmiriChaiAndBreakfast.jpg" class="img-fluid img_over" style="width:250px;height: 140px;" alt="">
-                              </div>
-                          </div>
-                          <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                                  <div align="left" class="col-md-4">
-                                      <a href="#"> show more.... </a>
-                                  </div>
-                              </div>
-                              <form #mealForm="ngForm" (ngSubmit)="showMeal(mealForm.value)">
-                                <div class="row">
-                                  <div class="col-md-4">
-                                    <input type="text" class="form-control" name=meal ngModel={{ml.name}} value={{ml.name}} >
-                                  </div>
-                                  <div class="col-md-4">
-                                    <input type="text" class="form-control" name=key ngModel={{ml.key}} value={{ml.key}} >
-                                  </div>
-                                  <div class="col-md-4">
-                                    <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                                      <button type="submit" class="plus-toggler">select</button>
-                                  </div>
-                                  </div>
-                                </div>
-                              </form> 
-                      </div>
+<div class="popup3 center">
+  <div class="description">
+    <!-- <form #newData="ngForm" (ngSubmit)="newdata()" > -->
+      <owl-carousel-o [options]="customOptions">
+        <ng-template *ngFor="let ml of meal" carouselSlide>  
+          <div style="height: 100%;width: 50%;margin-left:25%;" class="card">
+            <div align="center" style="background:transparent" class="card-header">
+              <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
+                {{ml.name}} 
+              </p>
+            </div>
+            <div class="card-body">
+              <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{ml.description}}</span></p>
+                <div align="center" style="margin-left: 09px;" class="row  mb-5">
+                    <p class="fs-3 mb-5 mt-5">
+                        <i style="margin-right:10px;color: rgb(112, 222, 255);" class="far fa-images"></i>Images of {{ml.name}} plan:-
+                    </p>
+                    <div class="col-sm-6 mt-3">
+                            <img src="assets/KashmirBreakfast.jpg" class="img-fluid img_over" style="width:250px;height:140px" alt="">
+                    </div>
+                    <div class="col-sm-6 mt-3">
+                            <img src="assets/kashmiriChaiAndBreakfast.jpg" class="img-fluid img_over" style="width:250px;height: 140px;" alt="">
                     </div>
                 </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#meal_Carousel"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true">
-                    <!-- <i class="fa fa-plus"></i> -->
-                </span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#meal_Carousel"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+                <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                        <div align="left" class="col-md-4">
+                            <a href="#"> show more.... </a>
+                        </div>
+                    </div>
+                    <form #mealForm="ngForm" (ngSubmit)="showMeal(mealForm.value)">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name=meal ngModel={{ml.name}} value={{ml.name}} >
+                        </div>
+                        <div class="col-md-4">
+                          <input type="text" class="form-control" name=key ngModel={{ml.key}} value={{ml.key}} >
+                        </div>
+                        <div class="col-md-4">
+                          <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                            <button type="submit" class="plus-toggler">select</button>
+                        </div>
+                        </div>
+                      </div>
+                    </form> 
             </div>
-      </div>
-    </div>
+          </div>
+                      </ng-template>
+                      </owl-carousel-o>
+                      <button type="submit" class="bt12">Add</button>
+                      <!-- </form> -->
+                      <div class="dismiss-btn">
+                        <button (click)="closeModal3()" id="dismiss-popup3-btn">
+                          Close
+                        </button>
+                      </div>
   </div>
-</div>
+  </div>
+
 
 <!-- Sightseeing -->
-<div class="modal fade" id="Sight" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div style="margin-top: -10px;" class="modal-dialog modal-xl">
-    <div style="background: transparent;width:100%;border: none;" class="modal-content">
-      <!-- <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div> -->
-      <div class="modal-body">
-          <div id="sight_Carousel" class="carousel slide" data-bs-ride="carousel">
-              <div *ngFor="let sight of sights" class="carousel-indicators">
-                <button type="button" data-bs-target="#sight_Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#sight_Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#sight_Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-              </div>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  
-                  
-                  
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px;" class="fs-3"><i style="color: rgb(112, 222, 255);" class="fas fa-campground"></i>
-                          Backwater
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"></span></p>
-                        <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                          <p class="fs-3">
-                              <i style="margin-right:10px" class="far fa-images"></i>Images of backwater:-
-                          </p>
-                          <div class="col-sm-6">
-                                  <img src="assets/mu1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                          </div>
-                          <div class="col-sm-6">
-                                  <img src="assets/mu3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                          </div>
-                          <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                              <div class="col-sm-4">
-                                  <img src="assets/mu2.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-4">
-                                  <img src="assets/mu4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-4">
-                                  <img src="assets/mu5.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                              </div>
-                              <div align="left" class="col-md-4">
-                                  <a href="#"> show more.... </a>
-                              </div>
-                          </div>
-                      </div>
-                      </div>
-                      <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -50px;" class="plus-unit">
-                          <button type="button" class="plus-toggler" data-bs-dismiss="modal">select</button>
-                      </div>
-                    </div>  
-                  <!-- <img src="assets/..." class="d-block w-100" alt="..."> -->
+<div class="popup4 center">
+  <div class="description">
+    <!-- <form #newData="ngForm" (ngSubmit)="newdata()" > -->
+      <owl-carousel-o [options]="customOptions">
+        <ng-template *ngFor="let sight of sights" carouselSlide>  
+          <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+            <div align="center" style="background:transparent" class="card-header">
+              <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
+                {{sight.name}} 
+              </p>
+            </div>
+            <div class="card-body">
+              <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{sight.description}}</span></p>
+              <div align="center" style="margin-left: 09px;" class="row  mb-3">
+                <p class="fs-3">
+                    <i style="margin-right:10px" class="far fa-images"></i>Images of {{sight.name}}:-
+                </p>
+                <div class="col-sm-6">
+                        <img src="assets/mu1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
                 </div>
-                <div *ngFor="let sight of sights" class="carousel-item">
-                  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-                      <div align="center" style="background:transparent" class="card-header">
-                        <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
-                          {{sight.name}} 
-                        </p>
-                      </div>
-                      <div class="card-body">
-                        <p style="margin-top: 20px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400">{{sight.description}}</span></p>
-                        <div align="center" style="margin-left: 09px;" class="row  mb-3">
-                          <p class="fs-3">
-                              <i style="margin-right:10px" class="far fa-images"></i>Images of {{sight.name}}:-
-                          </p>
-                          <div class="col-sm-6">
-                                  <img src="assets/mu1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                          </div>
-                          <div class="col-sm-6">
-                                  <img src="assets/mu3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-                          </div>
-                          <div align="center" style="margin-left:-10px;" class="row mt-3    ">
-                              <div class="col-sm-4">
-                                  <img src="assets/mu2.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-4">
-                                  <img src="assets/mu4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
-                              </div>
-                              <div class="col-sm-4">
-                                  <img src="assets/mu5.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-                              </div>
-                              <div align="left" class="col-md-4">
-                                  <a href="#"> show more.... </a>
-                              </div>
-                          </div>
-                      </div>
-                      <form #sightForm="ngForm" (ngSubmit)="showSight(sightForm.value)">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <input type="text" class="form-control" name=sight ngModel={{sight.name}} value={{sight.name}} >
-                          </div>
-                          <div class="col-md-4">
-                            <input type="text" class="form-control" name=key ngModel={{sight.key}} value={{sight.key}} >
-                          </div>
-                          <div class="col-md-4">
-                            <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-                              <button type="submit" class="plus-toggler">select</button>
-                          </div>
-                          </div>
-                        </div>
-                      </form> 
-                      </div>
+                <div class="col-sm-6">
+                        <img src="assets/mu3.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
+                </div>
+                <div align="center" style="margin-left:-10px;" class="row mt-3    ">
+                    <div class="col-sm-4">
+                        <img src="assets/mu2.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="assets/mu4.jpg" class="img-fluid img_over" style="width:400px;height:140px" alt="">
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="assets/mu5.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
+                    </div>
+                    <div align="left" class="col-md-4">
+                        <a href="#"> show more.... </a>
                     </div>
                 </div>
+            </div>
+            <form #sightForm="ngForm" (ngSubmit)="showSight(sightForm.value)">
+              <div class="row">
+                <div class="col-md-4">
+                  <input type="text" class="form-control" name=sight ngModel={{sight.name}} value={{sight.name}} >
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" name=key ngModel={{sight.key}} value={{sight.key}} >
+                </div>
+                <div class="col-md-4">
+                  <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
+                    <button type="submit" class="plus-toggler">select</button>
+                </div>
+                </div>
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#sight_Carousel"  data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true">
-                    <!-- <i class="fa fa-plus"></i> -->
-                </span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#sight_Carousel"  data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+            </form> 
             </div>
-      </div>
-    </div>
+          </div>
+                      </ng-template>
+                      </owl-carousel-o>
+                      <button type="submit" class="bt12">Add</button>
+                      <!-- </form> -->
+                      <div class="dismiss-btn">
+                        <button (click)="closeModal4()" id="dismiss-popup4-btn">
+                          Close
+                        </button>
+                      </div>
+  </div>
   </div>
 </div>
-</div>
-
-<owl-carousel [options]="carouselOptions" [items]="desti" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-  <div style="width: 100%;" class="item" *ngFor="let dest of desti;let i= index">
-  <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
-    <div align="center" style="background:transparent" class="card-header">
-      <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
-        {{dest.name}}
-      </p>
-    </div>
-    <div class="card-body">
-      <p style="margin-top: 5px;font-weight: bold;" class="card-title">Description: <span style="font-weight:400"> {{dest.description}} </span></p>
-        <div align="center" class="row  mb-3">
-            <p class="fs-3">
-                <i style="margin-right:10px" class="far fa-images"></i>Images of {{dest.name}}:-
-            </p>
-            <div class="col-sm-6">
-                    <img src="assets/Alappuzha1.jpg" class="img-fluid img_over" style="width:500px;height:140px" alt="">
-            </div>
-            <div class="col-sm-6">
-                    <img src="assets/Alappuzha2.jpg" class="img-fluid img_over" style="width:420px;height: 140px;" alt="">
-            </div>
-        </div>
-        <div align="center" class="row mt-3    ">
-                <div class="col-sm-4">
-                    <img src="assets/Alappuzha3.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                </div>
-                <div class="col-sm-4">
-                    <img src="assets/Alappuzha4.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                </div>
-                <div class="col-sm-4">
-                    <img src="assets/Alappuzha5.jpg" class="img-fluid img_over" style="width:100%;height:140px" alt="">
-                </div>
-                <div align="left" class="col-md-4">
-                    <a href="#"> show more.... </a>
-                </div>
-            </div>
-        
-    
-    </div>
-    <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)">
-    <div class="row">
-      <div class="col-md-4">
-        <input style="visibility:hidden" type="text" class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
-      </div>
-      <div class="col-md-4">
-        <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
-      </div>
-      <div class="col-md-4">
-        <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
-          <button type="submit" class="plus-toggler">select</button>
-      </div>
-      </div>
-    </div>
-  </form>
-  </div>
-</div>
-</owl-carousel>
 
 
 
 
 
 
+                      
+    <!-- <div class="">
+    <button id="popup-open-btn" (click)="showModal()" >
+    OPen popup
+    </button>
+    </div> -->
 
 
 
@@ -963,5 +700,16 @@
     </div>
   </div>
   </div> -->
-
- 
+<!-- <form #data="ngForm" (ngSubmit)="Data(data.value)" >
+  <div>
+    <label for="subDestination" class="form-label">Sub Destination</label>
+    <select name="subDestination" class="form-select" [(ngModel)]="optionSelectedSubDestinations"
+      id="subDestination" #subDestination (ngModelChange)="getStayAndSights($event)" required>
+      <option></option>
+      <option *ngFor="let des of subDestinations1" [ngValue]=des>
+        {{des.value}}
+      </option>
+    </select>
+  </div> 
+  <button type="submit">Add</button>
+</form> -->

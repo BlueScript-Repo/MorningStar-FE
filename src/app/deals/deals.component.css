@@ -1,0 +1,7 @@
+.deal_card:hover{
+    transform: scale(1.03,1.03);
+    transition:all 0.5s;
+}
+figure{
+    overflow:hidden;
+}

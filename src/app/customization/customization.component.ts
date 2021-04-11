@@ -4,7 +4,8 @@ import { PackageServiceService } from './../package-service.service';
 import { DailyItinerary } from './../DailyItinerary';
 import { Package } from './../Package';
 import { PackagePdfRequest } from './../PackagePdfRequest';
-import {DataList} from './DataList'
+import {DataList} from './DataList';
+import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-customization',
   templateUrl: './customization.component.html',
@@ -18,12 +19,12 @@ export class CustomizationComponent implements OnInit {
   destinationKey = '';
   title = '';
 
-  subDestinations: any = {};
+  
   destinations: any = {};
   stays: any = {};
   sights: any = {};
   meal: any = {};
-
+subDestinations:any={}
   optionSelectedSubDestinations: any = {};
   optionSelectedDestinations: any = {};
   optionSelectedStays: any = {};
@@ -51,10 +52,6 @@ export class CustomizationComponent implements OnInit {
     dayIternares: [],
   };
 
-  showTable() {
-    //document.getElementById('t1').style.visibility = 'visible';
-  }
-
   getUserData2(user: any) {
     console.log('contact number is ' + user);
     this.packageService.getUserData(user).subscribe((res) => {
@@ -72,20 +69,20 @@ export class CustomizationComponent implements OnInit {
     let checkIn = dayForm.checkIn;
     let checkOut=dayForm.checkOut;
 
-    this.dailyItinerary.push({
-      checkIn: checkIn,
-      checkOut: checkOut,
-      day: '',
-      destination: dest,
-      meal: meal,
-      sightSeeing: sight,
-      stay: stay,
-      subDestination: subDest,
-      packageId: '',
-      deleted: false,
-      dailyItineraryId: '',
-      place: dest,
-    });
+    // this.dailyItinerary.push({
+    //   checkIn: checkIn,
+    //   checkOut: checkOut,
+    //   day: '',
+    //   destination: dest,
+    //   meal: meal,
+    //   sightSeeing: sight,
+    //   stay: stay,
+    //   subDestination: subDest,
+    //   packageId: '',
+    //   deleted: false,
+    //   dailyItineraryId: '',
+    //   place: dest,
+    // });
   }
 
   // getDestinations() {
@@ -95,13 +92,21 @@ export class CustomizationComponent implements OnInit {
   //   });
   // }
 
-  getSubDestinations(key: SelectedOption) {
-    this.packageService.getSubDestinations(key.key).subscribe((res) => {
-      this.subDestinations = res;
-    });
-  }
+  // getSubDestinations(key: SelectedOption) {
+  //   this.packageService.getSubDestinations(key.key).subscribe((res) => {
+  //     this.subDestinations = res;
+  //   });
+  // }
 
-  // getStayAndSights(key: SelectedOption) {
+  subDestinations1=[
+    {key: 'SUB123',value:"chepauk"},
+    {key: 'SUB123',value:"chepauk"},
+    {key: 'SUB123',value:"chepauk"},
+    {key: 'SUB123',value:"chepauk"},
+    {key: 'SUB123',value:"chepauk"}
+  ];
+
+   getStayAndSights(key: any) {
   //   this.packageService.getStay(key.key).subscribe((res) => {
   //     this.stays = res;
   //   });
@@ -109,7 +114,12 @@ export class CustomizationComponent implements OnInit {
   //   this.packageService.getSightseeing(key.key).subscribe((res) => {
   //     this.sights = res;
   //   });
-  // }
+    console.log(key.key);
+    console.log(key.value);
+}
+Data(data:any){
+  console.log(data.subDestination);
+}
 
   // getMeals(key: SelectedOption) {
   //   this.packageService.getMeal(key.key).subscribe((res) => {
@@ -187,37 +197,32 @@ export class CustomizationComponent implements OnInit {
   TotalData:DataList[]=[];
   destination:DataList[]=[];
   getSubdestination(destinationForm:any){
-    // console.log(destination1);
     var destination1=destinationForm.destination;
-    console.log(destinationForm);
     console.log(destination1);
     console.log("Calling of Get SubDestinations......."+JSON.stringify(destination1));
     this.packageService.getSubDestinations(destinationForm).subscribe((res) => {
-      console.log(res);
-      console.log("Hiiiiiiiiiiiiiiiiiii"+JSON.stringify(res));
       this.subDestinations = res;
       console.log(this.subDestinations);
     });
     this.destination.push({
       name:destination1
     })
+    console.log("destination Array  "+JSON.stringify(this.destination));
+    
   }
   subdestination:DataList[]=[];
   getStay(subDestinationForm:any){
     var subdestination1=subDestinationForm.Subdestination;
-    console.log(subDestinationForm);
-    console.log(subdestination1);
-    // console.log(subdestination1.key);
-    // console.log(JSON.stringify(subdestination1));
     this.packageService.getStay(subDestinationForm).subscribe((res) => {
       console.log("Calling Get Stay Function........."+JSON.stringify(res));
       this.stays = res;
-      console.log(this.subDestinations);
+      console.log(this.stays);
     });
 
     this.subdestination.push({
       name:subdestination1
     })
+    console.log("Subdestination Array: " + JSON.stringify(this.subdestination));
     
   }
  
@@ -230,12 +235,14 @@ getMeal(stayForm:any){
   this.packageService.getMeal(stayForm).subscribe((res) => {
     console.log("Calling GetMeal Function........."+JSON.stringify(res));
     this.meal=res;
-    console.log(this.stays);
+    console.log(this.meal);
     
   })
     this.stay.push({
       name:stay1
     })
+    console.log("Stay array: " + JSON.stringify(this.stay));
+    
 }
 getSight(subdestination1:any){
 this.packageService.getSightseeing(subdestination1).subscribe((res) => {
@@ -266,19 +273,21 @@ showSight(sightForm:any){
     this.sight.push({
       name:sight1
     })
+    console.log("Sight array: " + JSON.stringify(this.sight));
+    
 }
 AddData:DataList[]=[];
-ShowData(){
-  this.TotalData=this.destination.concat(this.subdestination);
-  console.log(this.TotalData);
-  this.TotalData=this.TotalData.concat(this.stay);
-  console.log(this.TotalData);
-  this.TotalData=this.TotalData.concat(this.meal1);
-  console.log(this.TotalData);
-  this.AddData=this.TotalData.concat(this.sight);
-  console.log(this.AddData);
+// ShowData(){
+//   this.TotalData=this.destination.concat(this.subdestination);
+//   console.log(this.TotalData);
+//   this.TotalData=this.TotalData.concat(this.stay);
+//   console.log(this.TotalData);
+//   this.TotalData=this.TotalData.concat(this.meal1);
+//   console.log(this.TotalData);
+//   this.AddData=this.TotalData.concat(this.sight);
+//   console.log(this.AddData);
   
-}
+// }
 
 title1 = 'OwlCarousel2 in Angular7 with Custom Navigation Arrows';
 
@@ -340,6 +349,103 @@ customOptions: any = {
     // }
   },
 }
+
+totalForm=new FormGroup({
+  carousel:new FormGroup({
+    destination:new FormControl(''),
+    key:new FormControl('')
+  })
+});
+getvalue(name:any,key:any){
+  console.log(name);
+  console.log(key);   
+}
+newdata(){
+  console.log(this.totalForm.value);  
+}
+
+showModal(){
+  document.getElementById("popup-open-btn")?.addEventListener("click",function() {
+  document.getElementsByClassName("popup")[0].classList.add("active")
+})
+}
+closeModal(){
+document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
+  document.getElementsByClassName("popup")[0].classList.remove("active")
+})
+}
+showModal1(){
+  document.getElementById("popup1-open-btn")?.addEventListener("click",function() {
+  document.getElementsByClassName("popup1")[0].classList.add("active")
+})
+}
+closeModal1(){
+  document.getElementById("dismiss-popup1-btn")?.addEventListener("click",function(){
+    document.getElementsByClassName("popup1")[0].classList.remove("active")
+  })
+  }
+
+  showModal2(){
+    document.getElementById("popup2-open-btn")?.addEventListener("click",function() {
+    document.getElementsByClassName("popup2")[0].classList.add("active")
+  })
+  }
+  closeModal2(){
+    document.getElementById("dismiss-popup2-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup2")[0].classList.remove("active")
+    })
+    }
+
+    showModal3(){
+      document.getElementById("popup3-open-btn")?.addEventListener("click",function() {
+      document.getElementsByClassName("popup3")[0].classList.add("active")
+    })
+    }
+    closeModal3(){
+      document.getElementById("dismiss-popup3-btn")?.addEventListener("click",function(){
+        document.getElementsByClassName("popup3")[0].classList.remove("active")
+      })
+      }
+
+
+      showModal4(){
+        document.getElementById("popup4-open-btn")?.addEventListener("click",function() {
+        document.getElementsByClassName("popup4")[0].classList.add("active")
+      })
+      }
+      closeModal4(){
+        document.getElementById("dismiss-popup4-btn")?.addEventListener("click",function(){
+          document.getElementsByClassName("popup4")[0].classList.remove("active")
+        })
+        }
+
+        ShowData(){
+          this.dailyItinerary.push({
+      checkIn: "20/12/22",
+      checkOut: "23/12/22",
+      day: '',
+      destination: this.destination[0].name,
+      meal: this.meal1[0].name,
+      sightSeeing: this.sight[0].name,
+      stay: this.stay[0].name,
+      subDestination: this.subdestination[0].name,
+      packageId: '',
+      deleted: false,
+      dailyItineraryId: '',
+      place: this.destination[0].name
+    });
+    console.log("This is DailyItinerary Array: " + JSON.stringify(this.dailyItinerary));
+    this.destination=[];
+    this.meal1=[];
+    this.sight=[];
+    this.subdestination=[];
+    this.stay=[];
+
+        }
+
+
+
+
 
 
 }
