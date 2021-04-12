@@ -14,10 +14,31 @@
    <section style="margin-top: -20px;" class="content-area">
     <div class="container-fluid">
       
-      <div align="center" class="row mt-5 mb-5">
+      <div align="center" class="row mt-5 mb-3">
                   <div class="shortcode_title title-center title-decoration-bottom-center">
-                      <h3 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h3><span class="line_after_title"></span>
+                      <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Search Our Packages</h4><span class="line_after_title"></span>
                   </div>
+
+                  <div style="margin-top: -10px;margin-bottom: 50px;" class="col-md-12">
+                    <div class="wrapper">
+                      <div class="search-input">
+                        <a href="" target="_blank" hidden></a>
+                        <input type="text" placeholder="Type to search....">
+                        <div class="autocom-box">
+                          <!-- here list are inserted from javascript -->
+                        </div>
+                        <div class="icon"><i class="fas fa-search"></i></div>
+                      </div>
+                    </div>  
+                  </div>
+                  <h2 class="mb-3 mt-3">
+                    -OR-
+                  </h2>
+                  <div class="shortcode_title title-center title-decoration-bottom-center mb-5 mt-5">
+                    <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h4><span class="line_after_title"></span>
+                </div>
+                 
+
                   <div class="col-md-2">
                       <a style="text-decoration: none; color: black;width: 150px;"  id="popup-open-btn" (click)="showModal()" class="fs-5">
                          Destination <i class="fa fa-plus"></i>
@@ -54,24 +75,24 @@
   </section>
 </div>
 <div class="container">
-  <table class="table" style="border: 0px solid white;">
-      <thead style="border: 0px solid white;">
-        <th>
+  <table class="table" style="border: 0px;border-bottom: 2px solid black;">
+      <thead >
+        <th style="border: 0px solid white;">
           Destination
         </th>
-        <th>
+        <th style="border: 0px solid white;">
           Sub Destination
         </th>
-        <th>
+        <th style="border: 0px solid white;">
           Stay
         </th>
-        <th>
+        <th style="border: 0px solid white;">
           Meal
         </th>
-        <th>
+        <th style="border: 0px solid white;">
           SightSeeing
         </th>
-        <th>
+        <th style="border: 0px solid white;">
           Delete
         </th>
       </thead>
