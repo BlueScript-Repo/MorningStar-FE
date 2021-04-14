@@ -22,6 +22,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DealsComponent } from './deals/deals.component';
+import { PackageComponent } from './package/package.component';
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
   {path:'customPackage',component: CustomizationComponent},
@@ -29,7 +30,8 @@ const route:Routes=[
   {path:'updatePage',component: UpdateComponent},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
   {path:'HomePage',component: HomePageComponent},
-  {path:"deals",component:DealsComponent}
+  {path:"deals",component:DealsComponent},
+  {path:"package",component:PackageComponent},
 ] 
   
 
@@ -45,7 +47,8 @@ const route:Routes=[
     PackageListComponent,
     PackageDetailsComponent,
     HomePageComponent,
-    DealsComponent
+    DealsComponent,
+    PackageComponent
   ],
   imports: [
     MatDialogModule,
