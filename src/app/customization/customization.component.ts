@@ -171,16 +171,6 @@ Data(data:any){
 
 
   ngOnInit(): void {
-    // this.getDestinations();
-    // this.getDestinations1();
-    // this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
     this.getDestinations1();
     this.getDestinations1();
     this.getDestinations1();
