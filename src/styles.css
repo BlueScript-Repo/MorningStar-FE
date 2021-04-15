@@ -1953,6 +1953,34 @@ input[type=radio]:checked:before {
 	margin-right: 20px;
 }
 
+.Carousel_Package .owl-nav .owl-prev{
+	padding-left: 12px;
+	padding-top: 12px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	background-color: #fff;
+	border-radius: 500px;
+	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5);
+	width: 40px;
+	color: #ffd200;
+	margin-top: -270px;
+	margin-left: -70px;
+}
+
+.Carousel_Package .owl-nav .owl-next{
+	z-index:1;
+	padding-left: 12px;
+	padding-top: 12px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	background-color: #fff;
+	border-radius: 500px;
+	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5);
+	width: 40px;
+	color: #ffd200;
+	margin-top: -50px;
+	margin-left: 73%;
+}
 .owl-nav .owl-prev{
 	padding-left: 12px;
 	padding-top: 12px;
@@ -6403,6 +6431,13 @@ input[type=radio]:checked:before {
 	height:      0;
 }
 
+.Carousel_Package .owl-carousel .owl-stage-outer {
+	position:          relative;
+	overflow:          hidden;
+	/* fix for flashing background */
+	-webkit-transform: translate3d(0px, 0px, 0px);
+	width: 70%;
+}
 .owl-carousel .owl-stage-outer {
 	position:          relative;
 	overflow:          hidden;

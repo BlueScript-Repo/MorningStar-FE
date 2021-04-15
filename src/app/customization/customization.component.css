@@ -741,7 +741,8 @@ h6 {
 
 
 .dismiss-btn{
-	margin-top: 120px;
+	margin-top: 220px;
+	margin-left: -320px;
 }
   .center{
 	position: absolute;
@@ -779,7 +780,7 @@ h6 {
 	  transition:transform 300ms cubic-bezier(0.18,0.89,0.43,1.19);
 	  box-shadow: 10px 10px 500px rgba(0,0,0,0.6);
 	  background: rgba(0, 0, 0, 0.5);
-	  height: 190%;
+	  height: 233%;
 	  }
   
 	  .popup > div{

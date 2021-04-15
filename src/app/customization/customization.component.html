@@ -40,12 +40,12 @@
                  
 
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;"  id="popup-open-btn" (click)="showModal()" class="fs-5">
+                      <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (click)="showModal()" class="fs-5">
                          Destination <i class="fa fa-plus"></i>
                      </a>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;"  id="popup1-open-btn" (click)="showModal1()" class="fs-5">
+                      <a style="text-decoration: none; color: black;width: 150px;cursor: pointer"  id="popup1-open-btn" (click)="showModal1()" class="fs-5">
                          Sub-destination <i class="fa fa-plus"></i>
                      </a>
                   </div>
@@ -163,11 +163,11 @@
 <!-- Destination -->
 
 <div class="popup center">
-  <div class="description">
+  <div style="padding-left:25%" class="description">
     <form #newData="ngForm" (ngSubmit)="newdata()" >
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o class="Carousel_Package" [options]="customOptions">
         <ng-template *ngFor="let dest of desti" carouselSlide>  
-                      <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
+                      <div style="height: 100%;width: 70%;" class="card">
                         <div align="center" style="background:transparent" class="card-header">
                           <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
                             {{dest.name}}
@@ -205,10 +205,10 @@
                         <form #destinationForm="ngForm" (ngSubmit)="getSubdestination(destinationForm.value)" >
                         <div class="row">
                           <div class="col-md-4">
-                            <input type="text" #name class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
+                            <input style="visibility:hidden" type="text" #name class="form-control" name=destination ngModel={{dest.name}} value={{dest.name}} >
                           </div>
                           <div class="col-md-4">
-                            <input type="text" #key class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
+                            <input style="visibility:hidden" type="text" #key class="form-control" name=key ngModel={{dest.key}} value={{dest.key}} >
                           </div>
                           <div class="col-md-4">
                             <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
@@ -224,7 +224,7 @@
                       <button type="submit" class="bt12">Add</button>
                       </form>
                       <div class="dismiss-btn">
-                        <button (click)="closeModal()" id="dismiss-popup-btn">
+                        <button (click)="closeModal()" class="btn12" id="dismiss-popup-btn">
                           Close
                         </button>
                       </div>
@@ -234,11 +234,11 @@
 
 <!-- SubDestination -->
 <div class="popup1 center">
-  <div class="description">
+  <div style="padding-left: 25%;" class="description">
     <form #newData="ngForm" (ngSubmit)="newdata()" >
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o class="Carousel_Package" [options]="customOptions">
         <ng-template *ngFor="let subd of subDestinations" carouselSlide>  
-          <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
+          <div style="height: 100%;width: 70%;" class="card">
             <div align="center" style="background:transparent" class="card-header">
               <p style="letter-spacing:2px" class="fs-3"><i class="fas fa-tree"></i>
                 {{subd.name}}
@@ -295,7 +295,7 @@
                       <button type="submit" class="bt12">Add</button>
                       </form>
                       <div class="dismiss-btn">
-                        <button (click)="closeModal1()" id="dismiss-popup1-btn">
+                        <button (click)="closeModal1()" class="btn12" id="dismiss-popup1-btn">
                           Close
                         </button>
                       </div>
@@ -305,11 +305,11 @@
 
 <!-- Stay -->
 <div class="popup2 center">
-  <div class="description">
+  <div style="padding-left: 25%;" class="description">
     <!-- <form #newData="ngForm" (ngSubmit)="newdata()" > -->
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o class="Carousel_Package" [options]="customOptions">
         <ng-template *ngFor="let stay of stays" carouselSlide>  
-          <div style="height: 100%;width: 50%;margin-left: 25%;" class="card">
+          <div style="height: 100%;width: 70%;" class="card">
             <div align="center" style="background:transparent" class="card-header">
               <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
                 {{stay.name}} 
@@ -365,7 +365,7 @@
                       <button type="submit" class="bt12">Add</button>
                       <!-- </form> -->
                       <div class="dismiss-btn">
-                        <button (click)="closeModal2()" id="dismiss-popup2-btn">
+                        <button (click)="closeModal2()" class="btn12" id="dismiss-popup2-btn">
                           Close
                         </button>
                       </div>
@@ -375,11 +375,11 @@
 
 <!-- Meal -->
 <div class="popup3 center">
-  <div class="description">
+  <div style="padding-left: 25%;" class="description">
     <!-- <form #newData="ngForm" (ngSubmit)="newdata()" > -->
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o class="Carousel_Package" [options]="customOptions">
         <ng-template *ngFor="let ml of meal" carouselSlide>  
-          <div style="height: 100%;width: 50%;margin-left:25%;" class="card">
+          <div style="height: 100%;width: 70%;" class="card">
             <div align="center" style="background:transparent" class="card-header">
               <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
                 {{ml.name}} 
@@ -406,10 +406,10 @@
                     <form #mealForm="ngForm" (ngSubmit)="showMeal(mealForm.value)">
                       <div class="row">
                         <div class="col-md-4">
-                          <input type="text" class="form-control" name=meal ngModel={{ml.name}} value={{ml.name}} >
+                          <input style="visibility:hidden" type="text" class="form-control" name=meal ngModel={{ml.name}} value={{ml.name}} >
                         </div>
                         <div class="col-md-4">
-                          <input type="text" class="form-control" name=key ngModel={{ml.key}} value={{ml.key}} >
+                          <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{ml.key}} value={{ml.key}} >
                         </div>
                         <div class="col-md-4">
                           <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
@@ -425,7 +425,7 @@
                       <button type="submit" class="bt12">Add</button>
                       <!-- </form> -->
                       <div class="dismiss-btn">
-                        <button (click)="closeModal3()" id="dismiss-popup3-btn">
+                        <button (click)="closeModal3()" class="btn12" id="dismiss-popup3-btn">
                           Close
                         </button>
                       </div>
@@ -435,11 +435,11 @@
 
 <!-- Sightseeing -->
 <div class="popup4 center">
-  <div class="description">
+  <div style="padding-left: 25%;" class="description">
     <!-- <form #newData="ngForm" (ngSubmit)="newdata()" > -->
-      <owl-carousel-o [options]="customOptions">
+      <owl-carousel-o class="Carousel_Package" [options]="customOptions">
         <ng-template *ngFor="let sight of sights" carouselSlide>  
-          <div style="height: 100%;width: 80%;margin-left: 110px;" class="card">
+          <div style="height: 100%;width: 70%;" class="card">
             <div align="center" style="background:transparent" class="card-header">
               <p style="letter-spacing:2px" class="fs-3"><i style="color: rgb(255, 112, 112);" class="fas fa-campground"></i>
                 {{sight.name}} 
@@ -475,10 +475,10 @@
             <form #sightForm="ngForm" (ngSubmit)="showSight(sightForm.value)">
               <div class="row">
                 <div class="col-md-4">
-                  <input type="text" class="form-control" name=sight ngModel={{sight.name}} value={{sight.name}} >
+                  <input style="visibility:hidden" type="text" class="form-control" name=sight ngModel={{sight.name}} value={{sight.name}} >
                 </div>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" name=key ngModel={{sight.key}} value={{sight.key}} >
+                  <input style="visibility:hidden" type="text" class="form-control" name=key ngModel={{sight.key}} value={{sight.key}} >
                 </div>
                 <div class="col-md-4">
                   <div align="right" style="margin-right: 40px;margin-bottom: 40px;margin-top: -20px;" class="plus-unit">
@@ -494,7 +494,7 @@
                       <button type="submit" class="bt12">Add</button>
                       <!-- </form> -->
                       <div class="dismiss-btn">
-                        <button (click)="closeModal4()" id="dismiss-popup4-btn">
+                        <button (click)="closeModal4()" class="btn12" id="dismiss-popup4-btn">
                           Close
                         </button>
                       </div>
