@@ -4,6 +4,27 @@
 		
 		<section class="content-area">
 			<div class="container">
+
+<div class="row">
+	<form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
+	<div align="center" style="margin-top: -10px;margin-bottom: 50px;" class="col-md-12">
+		<div class="wrapper">
+		  <div class="search-input">
+			<a href="" target="_blank" hidden></a>
+			<input ngModel type="text" name=Package placeholder="Type to search....">
+			<div class="autocom-box">
+			  <!-- here list are inserted from javascript -->
+			</div>
+			<div class="icon">
+					<button><i class="fas fa-search"></i></button>
+			</div>
+		  </div>
+		</div>  
+	  </div>
+	</form>
+</div>
+	
+
 				<div class="row">
 					<div class="site-main col-sm-12 alignright">
 						<ul class="tours products wrapper-tours-slider">

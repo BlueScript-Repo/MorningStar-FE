@@ -12,4 +12,9 @@ export class PackageListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  search(searchForm:any){
+    console.log(searchForm);
+    
+  }
+
 }
