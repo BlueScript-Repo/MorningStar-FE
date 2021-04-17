@@ -32,6 +32,7 @@ const route:Routes=[
   {path:'HomePage',component: HomePageComponent},
   {path:"deals",component:DealsComponent},
   {path:"package",component:PackageComponent},
+  {path:"packageList",component:PackageListComponent},
 ] 
   
 

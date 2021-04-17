@@ -83,3 +83,26 @@
   .search-input .icon button:hover{
       color: rgb(89, 214, 255);
   }  
+
+  .content-list-tour:hover{
+    transform:scale(1.01);
+    box-shadow:10px 10px 30px rgba(0,0,0,0.4);
+    transition:all 0.5s;
+  }
+
+  .btn12{
+    background:transparent ;
+    border:2px solid #ffd200;
+    width:200px;
+    height:40px;
+    margin-top: 20px;
+    border-radius:30px;
+    color: #ffd200;
+}
+.btn12:focus{
+    outline: 1px solid #ffd200;
+}
+.btn12:hover{
+  background: #ffd200;
+  color: #fff
+}

@@ -46,11 +46,6 @@ token = localStorage.getItem('token');
     
   }
 
-  // getDestinations() {
-  //   // console.log('Calling backend');
-  //   let url1 = this.baseUrl + 'destination';
-  //   return this.http.get(url1,this.httpOptions);
-  // }
 
   getSubDestinations(destinationKey: any) {
     let url2 = this.baseUrl + 'subDestination/destinationId/' + destinationKey.key;
@@ -137,7 +132,13 @@ token = localStorage.getItem('token');
   postSight(data:any){
     let post_sight=this.baseUrl+"sightseeing";
     console.log("Post Sightseeing....."+JSON.stringify(data));
-    return this.http.post(post_sight,data, this.httpOptions);
-    
+    return this.http.post(post_sight,data, this.httpOptions); 
   }
+
+  getProduct(data:any){
+    let urlproduct=this.baseUrl+"Products/key/"+data;
+    console.log(urlproduct);
+    return this.http.get(urlproduct)
+  }
+
 }
