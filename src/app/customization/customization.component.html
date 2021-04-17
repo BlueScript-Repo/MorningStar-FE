@@ -2,12 +2,6 @@
  <div class="site wrapper-content">
   <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
     <div class="banner-wrapper container article_heading">
-      <div class="breadcrumbs-wrapper">
-        <ul class="phys-breadcrumb">
-          <li><a href="index.html" class="home">Home</a></li>
-          <li>Package Customize</li>
-        </ul>
-      </div>
       <h1 class="heading_primary">Package Customize</h1></div>
   </div>
        
@@ -15,25 +9,6 @@
     <div class="container-fluid">
       
       <div align="center" class="row mt-5 mb-3">
-                  <div class="shortcode_title title-center title-decoration-bottom-center">
-                      <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Search Our Packages</h4><span class="line_after_title"></span>
-                  </div>
-
-                  <div style="margin-top: -10px;margin-bottom: 50px;" class="col-md-12">
-                    <div class="wrapper">
-                      <div class="search-input">
-                        <a href="" target="_blank" hidden></a>
-                        <input type="text" placeholder="Type to search....">
-                        <div class="autocom-box">
-                          <!-- here list are inserted from javascript -->
-                        </div>
-                        <div class="icon"><i class="fas fa-search"></i></div>
-                      </div>
-                    </div>  
-                  </div>
-                  <h2 class="mb-3 mt-3">
-                    -OR-
-                  </h2>
                   <div class="shortcode_title title-center title-decoration-bottom-center mb-5 mt-5">
                     <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h4><span class="line_after_title"></span>
                 </div>
@@ -74,8 +49,8 @@
     </div>
   </section>
 </div>
-<div class="container">
-  <table class="table" style="border: 0px;border-bottom: 2px solid black;">
+<div style="padding-bottom:100px ;" class="container">
+  <table id=table class="table" style="border: 0px;border-bottom: 2px solid black;">
       <thead >
         <th style="border: 0px solid white;">
           Destination
@@ -119,45 +94,6 @@
 </tr>
     </tbody>
   </table>
-</div>
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <table class="table">
-        <tr *ngFor="let i of desti">
-      <td>{{i.name}}</td>
-      <td>{{i.key}}</td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-md-3">
-      <table class="table">
-        <tr *ngFor="let j of subDestinations">
-      <td>{{j.name}}</td>
-      <td>{{j.key}}</td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-md-3">
-      <table class="table">
-        <tr *ngFor="let k of stays">
-      <td>{{k.name}}</td>
-      <td>{{k.key}}</td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-md-3">
-      <table class="table">
-        <tr *ngFor="let m of meal">
-      <td>{{m.name}}</td>
-      <td>{{m.key}}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-  
 </div>
 
 <!-- Destination -->
