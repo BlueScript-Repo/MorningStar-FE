@@ -1,0 +1,268 @@
+<div class="top_site_main" style="background-image:url(assets/home/bg-sale.jpg);background-size: cover;padding-top: 90px;padding-bottom: 50px;">
+    <div class="banner-wrapper container article_heading">
+<h1 class="heading_primary">Update Data</h1></div>
+</div>
+<div style="padding-top: 30px;padding-bottom: 50px;" class="container">
+
+    <div class="mt-5 mb-3" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Create Product</h1>
+    </div>
+    <form [formGroup]="Product" (ngSubmit)="Submit()" class="form mb-5 mt-3" action="">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="ProductName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" formControlName="name"  placeholder="Enter Product Name" required>
+            </div>
+            <div class="col-md-4">
+                <label for="ProductName" class="form-label">Duration</label>
+                <input type="text" class="form-control" formControlName="duration"  placeholder="Enter Duration">
+            </div>
+            <div class="col-md-4">
+                <label for="ProductName" class="form-label">Product Category</label>
+                <input type="text" class="form-control" formControlName="category"  placeholder="Enter Product Category">
+            </div>
+        </div>
+
+        <div class="mt-5 row">
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="Destination" class="form-label">Destination</label>
+                            <input type="text" class="form-control" formControlName="destination"  placeholder="Enter Destination">
+                    </div>
+                    <div class="mt-3 col-md-8">
+                        <label for="SubDestination" class="form-label">Sub Destination</label>
+                            <input style="margin-bottom: 15px;" formControlName="subdestination" #subdestination type="text" class="form-control"  placeholder="Enter Sub Destination" required>
+                    </div>
+                    <div style="margin-top:20px;" class="col-md-4">
+                        <button style="width: 60px;" type="button" (click)="getsubd(subdestination.value)" class="btn12">+</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="mb-3">
+                    <label for="Description" class="form-label">Description</label>
+                    <textarea class="form-control" formControlName="Description" id="Description" rows="4"></textarea>
+                  </div>
+            </div>
+            <!-- <div align="right" class="col-md-12">
+                <button type="submit" class="btn121">Submit</button>
+            </div> -->
+        </div>
+        <table style="border: none" class="table mb-5">
+            <thead>
+                <th style="border-top: none;border-right: none;">Sub Destination</th>
+                <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let t of subdestinations;let i=index">
+                    <td>{{t.name}}</td>
+                    <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                </tr>
+            </tbody>
+        </table>
+    <hr class="mt-3 mb-3">
+    <div class="mt-5 mb-3" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Sub Destination</h1>
+    </div>
+
+    <div class="row mb-5 mt-3">
+        <div class="col-md-3">
+            <label class="form-label">Product Type</label>
+            <select class="form-select" #productType formControlName="type" aria-label="Default select example">
+                <option selected></option>
+                <option>Standard</option>
+                <option>Delux</option>
+                <option>Luxury</option>
+              </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Sub Destination</label>
+            <select class="form-select" formControlName="subd" #Subdestination aria-label="SubDestination">
+                <option selected></option>
+                <option *ngFor="let i of subdestinations">{{i.name}}</option>
+                <!-- <option>Sydney</option>
+                <option>Adelaide</option> -->
+              </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Hotels</label>
+            <input type="text" class="form-control" formControlName="hotel" #hotel placeholder="Enter the Hotel">
+        </div>
+        <div style="margin-top:27px" class="col-md-2">
+            <button class="btn121" type="button" (click)="showSubdestination(productType.value,Subdestination.value,hotel.value)">Add</button>
+        </div>
+    </div>
+   <table class="table">
+    <thead>
+        <th>Product Type</th>
+        <th>Sub Destination</th>
+        <th>Hotels</th>
+        <th>Delete</th>
+    </thead>   
+<tbody>
+    <tr *ngFor="let j of productSubDestination;let i=index">
+        <!-- <td>
+            {{j.productType}}
+        </td> -->
+        <td>{{j.subDestinationName}} </td>
+        <td>{{j.hotelName}} </td>
+        <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+    </tr>
+</tbody>   
+   </table>
+    
+
+<hr class="mt-3 mb-5">
+    <div class="mt-5 mb-3" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Price</h1>
+    </div>
+    <div class="row mb-3 mt-3">
+        <div class="col-md-3">
+            <label class="form-label">Product Type</label>
+            <select #proType class="form-select" formControlName="ProductType" aria-label="Default select example">
+                <option selected></option>
+                <option >Standard</option>
+                <option >Delux</option>
+                <option >Luxury</option>
+              </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Adult</label>
+            <input type="text" #Adult formControlName="adult" class="form-control" placeholder="Enter the Amount">
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Child</label>
+            <input type="text" #Child formControlName="child" class="form-control" placeholder="Enter the Amount">
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Infant</label>
+            <input type="text" #Infant formControlName="infant" class="form-control" placeholder="Enter the Amount">
+        </div>
+        <div align="right" class="col-md-12 mt-3">
+            <button type="button" (click)="ShowData(proType.value,Adult.value,Child.value,Infant.value)" class="btn121"> Add</button>
+        </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <th>
+                    Product Type
+                </th>
+                <th>Adult</th>
+                <th>Child</th>
+                <th>Infant</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let j of productPrice;let i = index">
+                    <td>{{j.productType}} </td>
+                    <td>{{j.adultPrice}} </td>
+                    <td>{{j.childrenPrice}} </td>
+                    <td>{{j.infantPrice}} </td>
+                    <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <hr class="mt-3 mb-5">
+    <div class="mt-5 mb-3" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Inclusion</h1>
+    </div>
+    <div class="row mb-5">
+        <label for="inputEmail3" class="col-sm-2 col-form-label mt-3">Product Inclusion</label>
+    <div class="col-sm-8">
+        <textarea class="form-control" formControlName="inclusion" #inclusion id="exampleFormControlTextarea1" rows="2"></textarea>
+    </div>
+    <div class="col-sm-2">
+        <button type="button" (click)="ShowInclusion(inclusion.value)" class="btn121"> Add</button>
+    </div>
+    </div>
+    <table style="border: none" class="table mb-5">
+        <thead>
+            <th style="border-top: none;border-right: none;">Product Inclusion</th>
+            <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of productInclusion;let i=index">
+                <td>{{t.inclusionText}}</td>
+                <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <hr class="mt-3 mb-5">
+    <div class="mt-5 mb-3" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Exclusion</h1>
+    </div>
+    <div class="row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label mt-3">Product Exclusion</label>
+    <div class="col-sm-8">
+        <textarea class="form-control" formControlName="exclusion" #exclusion id="exampleFormControlTextarea1" rows="2"></textarea>
+    </div>
+    <div class="col-sm-2">
+        <button type="button" (click)="ShowExclusion(exclusion.value)" class="btn121"> Add</button>
+    </div>
+    </div>
+
+    <table style="border: none" class="table mb-5">
+        <thead>
+            <th style="border-top: none;border-right: none;">Product Exclusion</th>
+            <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of productExclusion;let i=index">
+                <td>{{t.exclusionText}}</td>
+                <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr class="mt-5 mb-5">
+    <div class="mt-5 mb-3" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Days</h1>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label class="form-label">Product Days</label>
+            <input type="text" formControlName="days" #Day class="form-control" placeholder="Enter Day">
+        </div>
+        <div class="col-md-7">
+            <label class="form-label">Day Description</label>
+        <textarea class="form-control" formControlName="description" #Description id="exampleFormControlTextarea1" rows="2"></textarea>
+        </div>
+        <div style="margin-top:27px" class="col-md-1">
+            <button type="button" (click)="ShowDay(Day.value,Description.value)" class="btn121">Add</button>
+        </div>
+    </div>
+    <table style="border: none" class="table mb-5">
+        <thead>
+            <th style="border-top: none;border-right: none;">Product Days</th>
+            <th style="border-top: none;border-right: none;">Day Description</th>
+            <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of productDays;let i=index">
+                <td>{{t.day}}</td>
+                <td>{{t.dayDescription}}</td>
+                <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+<div class="row">
+    <div align="center" class="col-md-12">
+        <button style="width: 100px;" class="btn12">Submit</button>
+    </div>
+</div>
+
+
+</form>
+
+</div>

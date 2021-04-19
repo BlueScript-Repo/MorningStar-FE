@@ -141,4 +141,10 @@ token = localStorage.getItem('token');
     return this.http.get(urlproduct)
   }
 
+  uploadProduct(data:any){
+    let uploadUrl=this.baseUrl+"Products";
+    console.log(data);
+    return this.http.post(uploadUrl,data);
+  }
+
 }

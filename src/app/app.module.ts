@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DealsComponent } from './deals/deals.component';
 import { PackageComponent } from './package/package.component';
+import { AddProductComponent } from './add-product/add-product.component';
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
   {path:'customPackage',component: CustomizationComponent},
@@ -33,6 +34,7 @@ const route:Routes=[
   {path:"deals",component:DealsComponent},
   {path:"package",component:PackageComponent},
   {path:"packageList",component:PackageListComponent},
+  {path:"uploadProduct",component:AddProductComponent}
 ] 
   
 
@@ -49,7 +51,8 @@ const route:Routes=[
     PackageDetailsComponent,
     HomePageComponent,
     DealsComponent,
-    PackageComponent
+    PackageComponent,
+    AddProductComponent
   ],
   imports: [
     MatDialogModule,
