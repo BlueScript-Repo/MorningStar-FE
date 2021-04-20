@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PackageServiceService} from './../package-service.service'
 import {Router} from "@angular/router";
-
+import {CodeArr} from "./CodeArr";
 @Component({
   selector: 'app-package-list',
   templateUrl: './package-list.component.html',
@@ -16,6 +16,7 @@ export class PackageListComponent implements OnInit {
   products:any={};
   key=10;
 keyword="";
+productCode:CodeArr[]=[];
   search(searchForm:any){
     console.log(searchForm);  
     this.keyword=searchForm.Package;
@@ -31,11 +32,27 @@ keyword="";
       else{ 
       this.products=res;
       this.key=Object.keys(this.products).length;
+      this.productCode=this.products[0].productCode;
       console.log(this.key);
-      
+      console.log(this.products);
+      console.log(this.productCode);
       }
       
     }))
+  }
+  productDetails:any={};
+  getData(val:any){
+let code1=val.code;
+console.log(code1);
+this.productCode=val.code;
+    console.log(this.productCode);
+  this.http.getProductDetails(this.productCode).subscribe(res=>{
+    this.productDetails=res;
+    console.log(this.productDetails);
+    this.router.navigate(["/productDetails"]);
+    this.http.setArray(this.productDetails);
+  })
+  
   }
   nav(){
     this.router.navigate(["/customPackage"])

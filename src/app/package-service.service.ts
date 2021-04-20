@@ -7,11 +7,19 @@ import { PackagePdfRequest } from './PackagePdfRequest';
   providedIn: 'root',
 })
 export class PackageServiceService {
+  productDetails:any;
+
 
 token = localStorage.getItem('token');
 
   constructor(private http: HttpClient) {}
 
+    setArray(data:any){
+      this.productDetails=data
+    }
+    getArray(){
+      return this.productDetails;
+    }
        httpOptions={
         headers:new HttpHeaders({
           'Content-Type': 'application/json',
@@ -147,4 +155,9 @@ token = localStorage.getItem('token');
     return this.http.post(uploadUrl,data);
   }
 
+  getProductDetails(productCode:any){
+    let geturl=this.baseUrl+"Products/productCode?productCode="+productCode;
+    console.log("Calling function getDetails ");
+    return this.http.get(geturl);
+  }
 }

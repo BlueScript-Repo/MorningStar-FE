@@ -1,0 +1,75 @@
+<div class="wrapper-container">
+	<div class="site wrapper-content">
+		<div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+			<div class="banner-wrapper container article_heading">
+				<h1 class="heading_primary">Site Images</h1></div>
+		</div>
+		<section class="content-area">
+			<div class="container">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" style="font-size: 18px;" data-bs-toggle="tab" data-bs-target="#product" type="button" role="tab" aria-controls="nav-home" aria-selected="true" >Product Specific Image</button>
+            <button class="nav-link" id="nav-profile-tab" style="font-size: 18px;" data-bs-toggle="tab" data-bs-target="#website" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Website Specific Image</button>
+          </div>
+      </nav>	
+          
+
+
+      <div class="tab-content" id="nav-tabContent">
+      <div style="margin-top: 0px;" class="tab-pane fade show active" id="product" role="tabpanel" aria-labelledby="nav-homw-tab">
+          <div class="card card-body">
+          </div>
+        </div>
+        <div style="margin-top: 0px;" class="tab-pane fade show " id="website">
+          <div class="card card-body">
+            <form #directory="ngForm" (ngSubmit)="getImages(directory.value)" >
+              <div style="padding-left: 180px;" class="row">
+                  <div class="col-md-3">
+                      <label for="destination" class="form-label">Page</label>
+                      <select name="page"  [(ngModel)]=pageOption (ngModelChange)="getPage($event)" class="form-select" #page required >
+                        <option></option>
+                        <option *ngFor="let i of arr">
+                            {{i.value}}
+                          </option>
+                          <!-- <option>{{page.name}}</option> -->
+  
+                      </select>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="" class="form-label">Section</label>
+                      <select name="section"   [(ngModel)]=sectionOption (ngModelChange)="getSection($event)" class="form-select"  id="destination" #section required >
+                        <option></option>
+                        <option *ngFor="let i of sectionArr">{{i.value}}</option>
+                        <!-- <option>{{section.name}}</option> -->
+
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                      <label for="" class="form-label">Sub Section</label>
+                      <select name="subSection" [(ngModel)]=subsectionOption (ngModelChange)="getsub($event)" class="form-select"  id="destination" #subsection required >
+                        <option *ngFor="let i of subSectionArr">{{i.value}}</option>
+                        <!-- <option>{{subSection.name}}</option> -->
+
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                      <button style="margin-top: 30px;color: white;" ngModel class="btn12" type="submit">Submit</button>
+                  </div> 
+                 
+              </div>
+          </form>
+            <!-- <div align="right" class="row">
+                <div class="col-md-12">
+                   <input style="color: white;margin-right: 170px;" class="btn12" type="submit" value="Add" (click)="postSubd()" >
+                </div>
+            </div> -->
+          
+          </div>
+        </div>
+  </div>
+  
+
+			</div>
+		</section>
+	</div>
+</div>
