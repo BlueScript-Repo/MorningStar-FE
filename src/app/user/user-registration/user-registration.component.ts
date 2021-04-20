@@ -33,9 +33,7 @@ export class UserRegistrationComponent implements OnInit {
       lastName: submitForm.lastName,
       pincode:submitForm.pincode,
       contactNo: submitForm.contactNo
-      
     };
-
     this.userService.createUser(this.userRegistration).subscribe((res)=>{
       console.log(res);
     });
@@ -53,12 +51,18 @@ export class UserRegistrationComponent implements OnInit {
       userName: user.userName,
       password: user.password
     }
-    this.router.navigate(["/HomePage"])
+    console.log(this.userLogin.userName);
+    console.log(this.userLogin.password);
+    
      this.userService.authenticate(this.userLogin).subscribe((result)=>{       
-      console.log(result);
+      console.log("This is in authenticate "+result);
       this.token=result;
       console.log(this.token.jwtToken);
       localStorage.setItem('token', this.token.jwtToken)
+      if (this.token.jwtToken) {
+    this.router.navigate(["/HomePage"]);
+    alert("Welcome")
+      }
     });
   } 
   ngOnInit(): void {
