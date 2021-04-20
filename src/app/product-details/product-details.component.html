@@ -36,42 +36,10 @@
                     <li>
                       <a href="assets/tour/tour-1.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-1.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
                     </li>
-                    <li>
-                      <a href="assets/tour/tour-2.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-2.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-3.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-3.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-4.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-4.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-5.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-5.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-6.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-6.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-1.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-1.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-2.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-2.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-3.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-3.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-4.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-4.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-5.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-5.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
-                    <li>
-                      <a href="assets/tour/tour-6.jpg" class="swipebox" title=""><img width="950" height="700" src="assets/tour/tour-6.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
-                    </li>
+                   
                   </ul>
                 </div>
-                <div id="carousel" class="flexslider thumbnail_product">
+                <!-- <div id="carousel" class="flexslider thumbnail_product">
                   <ul class="slides">
                     <li>
                       <img width="150" height="100" src="assets/tour/tour-1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" title="" draggable="false">
@@ -110,10 +78,10 @@
                       <img width="150" height="100" src="assets/tour/tour-6.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="" title="" draggable="false">
                     </li>
                   </ul>
-                </div>
+                </div> -->
                 <div class="clear"></div>
                 <div class="">
-                  <ul class="nav nav-tabs tabs wc-tabs navs_container" id="myTab" role="tablist">
+                  <ul class="nav nav-tabs tabs wc-tabs navs_container mt-5" id="myTab" role="tablist">
                     <li class="description_tab nav-item active" role="presentation">
                       <!-- <a href="#tab-description" role="tab" data-toggle="tab">Description</a> -->
                       <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#tab-description" type="button" role="tab" aria-selected="true">Description</button>
@@ -125,7 +93,7 @@
                   </ul>
                   <div class="tab-content">
                     <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab active tabs_layout" id="tab-description">
-                      <p class="fs-3"> Product Description</p>
+                      <p class="fs-3 mt-5"> Product Description</p>
                       <p>{{productDetails.description}}</p>
                       <!-- <p>Felis venenatis metus placerat taciti malesuada ultricies bibendum nunc hymenaeos orci erat mollis pretium ligula ligulamus pellentesque urna. Sagittis bibendum justo congue facilisi. Aliquam potenti sagittis etiam facilisis vehicula. Id.</p> -->
                       <table class="tours-tabs_table">
@@ -143,18 +111,8 @@
                           <td>
                             <table>
                               <tbody>
-                              <tr>
-                                <td><i class="fa fa-check icon-tick icon-tick--on"></i>{{productDetails.productInclusion[0].inclusionText}}
-                                </td>
-                                <td><i class="fa fa-check icon-tick icon-tick--on"></i>Accommodations
-                                </td>
-                              </tr>
-                              <tr>
-                                <td>
-                                  <i class="fa fa-check icon-tick icon-tick--on"></i>2 days cruise
-                                </td>
-                                <td>
-                                  <i class="fa fa-check icon-tick icon-tick--on"></i>Professional guide
+                              <tr *ngFor="let i of productDetails.productInclusion">
+                                <td><i class="fa fa-check icon-tick icon-tick--on"></i>{{i.inclusionText}}
                                 </td>
                               </tr>
                               </tbody>
@@ -166,15 +124,12 @@
                           <td>
                             <table>
                               <tbody>
-                              <tr>
+                              <tr *ngFor="let i of productDetails.productExclusion">
                                 <td>
-                                  <i class="fa fa-times icon-tick icon-tick--off"></i>{{productDetails.productExclusion[0].exclusionText}}
+                                  <i class="fa fa-times icon-tick icon-tick--off"></i>{{i.exclusionText}}
                                 </td>
                               </tr>
-                              <tr>
-                                <td><i class="fa fa-times icon-tick icon-tick--off"></i>Guide&nbsp;gratuity
-                                </td>
-                              </tr>
+                             
                               </tbody>
                             </table>
                           </td>
@@ -185,12 +140,11 @@
                       <p>Potenti mattis ad mollis eleifend Phasellus adipiscing ullamcorper interdum faucibus orci litora ornare aliquam. Ligula feugiat scelerisque. Molestie. Facilisi hac.</p>
                     </div>
                     <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab tabs_layout" id="tab-itinerary_tab">
-                      <div class="interary-item">
-                        <p><span class="icon-left">1</span></p>
-                        <div *ngFor="let i of productDetails.productDays" class="item_content">
-                          <h2><strong>{{i.day}}: {{i.dayDescription}}</strong></h2>
-                          <p>Ornare proin neque tempus cubilia cubilia blandit netus.<br>
-                            Maecenas massa. Fermentum.</p>
+                      <div *ngFor="let i of productDetails.productDays;let j=index" class="interary-item">
+                        <div class="item_content">
+                        <p ><span style="margin-left:-100px;margin-top:20px" class="icon-left">{{j+1}}</span></p>
+                        <h2><strong>{{i.day}}:Description</strong></h2>
+                          <p> {{i.dayDescription}}</p>
                           <ul>
                             <li>Pretium vitae tempus sem enim enim.</li>
                             <li>Tempus, leo, taciti augue aliquam hendrerit.</li>
