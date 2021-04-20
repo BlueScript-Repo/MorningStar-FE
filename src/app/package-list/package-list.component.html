@@ -65,10 +65,7 @@
 												</h4></div>
 												<div class="description">
 													<p>{{i.description}}</p>
-					<form #list="ngForm" (ngSubmit)="getData(list.value)">
-						<input type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
-						<button type="submit" class="btn12">Submit</button>
-				</form>
+					
 												</div>
 												<span class="post_date">{{i.duration}}</span></div>
 											<div class="content-right">
@@ -82,8 +79,12 @@
 													</div>
 												</div>
 												<span class="price">{{i.productRate}}</span>
-												<a rel="nofollow" href="single-tour.html" class="button product_type_tour_phys add_to_cart_button">Read more</a>
-											</div>
+												<form #list="ngForm" (ngSubmit)="getData(list.value)">
+													<input style="visibility:hidden" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
+													<button style="width: 120px;" type="submit" class="btn12">Read More</button>
+											
+											</form>
+										</div>
 										</div>
 									</div>
 								</li>
