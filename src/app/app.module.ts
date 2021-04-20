@@ -24,6 +24,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DealsComponent } from './deals/deals.component';
 import { PackageComponent } from './package/package.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { SiteImagesComponent } from './site-images/site-images.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
   {path:'customPackage',component: CustomizationComponent},
@@ -34,7 +37,8 @@ const route:Routes=[
   {path:"deals",component:DealsComponent},
   {path:"package",component:PackageComponent},
   {path:"packageList",component:PackageListComponent},
-  {path:"uploadProduct",component:AddProductComponent}
+  {path:"uploadProduct",component:AddProductComponent},
+  {path:"productDetails",component:ProductDetailsComponent}
 ] 
   
 
@@ -52,7 +56,10 @@ const route:Routes=[
     HomePageComponent,
     DealsComponent,
     PackageComponent,
-    AddProductComponent
+    AddProductComponent,
+    SiteImagesComponent,
+    ProductDetailsComponent
+
   ],
   imports: [
     MatDialogModule,
