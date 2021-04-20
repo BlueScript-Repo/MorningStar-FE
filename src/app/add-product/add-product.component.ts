@@ -67,11 +67,11 @@ export class AddProductComponent implements OnInit {
   }
 
   showSubdestination(type:any,subdesti:any,hot:any){
-    // let ptype=type;
+    let ptype=type;
     let subd=subdesti;
     let hotels=hot;    
     this.productSubDestination.push({
-      // productType:ptype,
+      productType:ptype,
       hotelName:hotels,
       subDestinationName:subd
     })
