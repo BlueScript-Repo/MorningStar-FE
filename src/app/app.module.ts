@@ -26,6 +26,7 @@ import { PackageComponent } from './package/package.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { SiteImagesComponent } from './site-images/site-images.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { InquiryComponent } from './inquiry/inquiry.component';
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
@@ -38,7 +39,8 @@ const route:Routes=[
   {path:"package",component:PackageComponent},
   {path:"packageList",component:PackageListComponent},
   {path:"uploadProduct",component:AddProductComponent},
-  {path:"productDetails",component:ProductDetailsComponent}
+  {path:"productDetails",component:ProductDetailsComponent},
+  {path:"Inquiries",component:InquiryComponent}
 ] 
   
 
@@ -58,7 +60,8 @@ const route:Routes=[
     PackageComponent,
     AddProductComponent,
     SiteImagesComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    InquiryComponent
 
   ],
   imports: [

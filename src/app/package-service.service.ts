@@ -160,4 +160,15 @@ token = localStorage.getItem('token');
     console.log("Calling function getDetails ");
     return this.http.get(geturl);
   }
+
+  getInquiry(){
+    let inquiry=this.baseUrl+"ProductInquiry/agentId?agentId=1"
+   console.log("Calling Inquiry");
+   return this.http.get(inquiry)
+  }
+  postInquiry(data:any){
+    let postInquiry=this.baseUrl+"ProductInquiry";
+    console.log(data);
+    return this.http.post(postInquiry,data);
+  }
 }

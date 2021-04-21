@@ -1,0 +1,49 @@
+<div style="padding-bottom: 190px;" class="navbarTop">
+    <div class="site wrapper-content">
+     <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+       <div class="banner-wrapper container article_heading">
+         <h1 class="heading_primary">Inquiry</h1>
+        </div>
+     </div>
+     </div>
+     <div class="container">
+        <div class="mt-5 mb-3" style="text-align:left">
+            <h3 class="title_primary fs-4" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Inquiry</h3>
+        </div>
+        <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
+
+            <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
+                <th style="text-align:center;border: none" >
+                    Client Name
+                </th>
+                <th style="text-align:center;border: none">Email Id</th>
+                <th style="text-align:center;border: none">Contact Number</th>
+                <th style="text-align:center;border: none">City</th>
+                <th style="text-align:center;border: none">Product Code</th>
+            </thead>
+            <tbody>
+                <tr class="td1" *ngFor="let i of Inquiries">
+                    <td style="text-align:center;border: none">
+                        {{i.userName}}
+                    </td>
+                    <td style="text-align:center;border: none">
+                        {{i.userEmail}}
+                    </td>
+                    <td style="text-align:center;border: none">
+                        {{i.contactNo}}
+                    </td>
+                    <td style="text-align:center;border: none">
+                        {{i.userCity}}
+                    </td>
+                    <td style="text-align:center;border: none">
+                        <form #detail="ngForm" (ngSubmit)="getDetails(detail.value)">
+                            <input style="visibility:hidden;display:none" type="text" ngModel={{i.productCode}} value="{{i.productCode}}" name="product" >
+                        <button class="btn1" style="background:transparent;border:none;text-decoration:underline" >{{i.productCode}}</button>
+                    </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>  
+     </div>
+</div>
+
