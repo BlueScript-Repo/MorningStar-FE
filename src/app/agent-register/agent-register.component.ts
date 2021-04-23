@@ -26,7 +26,6 @@ show="true";
 
 key=10;
   ngOnInit(): void {
-    this.role="user";
     this.key=10;
     this.role=localStorage.getItem('role');
     console.log("calling in agent ONinit"+this.role);
