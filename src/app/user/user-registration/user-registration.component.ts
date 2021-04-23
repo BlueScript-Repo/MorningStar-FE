@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 export class UserRegistrationComponent implements OnInit {
 
   constructor(private userService: UserService,private router:Router) { } 
-
+user:string='';
   userRegistration : UserRegistration={
 
     email:'',
@@ -44,8 +44,9 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   token:any={};
+  role:any;
   Authorization:any;
-
+rolestorage:any;
   authenticate(user:any){
     this.userLogin={
       userName: user.userName,
@@ -55,17 +56,25 @@ export class UserRegistrationComponent implements OnInit {
     console.log(this.userLogin.password);
     
      this.userService.authenticate(this.userLogin).subscribe((result)=>{       
-      console.log("This is in authenticate "+result);
+      console.log(result);
       this.token=result;
       console.log(this.token.jwtToken);
-      localStorage.setItem('token', this.token.jwtToken)
-      if (this.token.jwtToken) {
+      this.role=result.role;
+      console.log(this.role);
+      localStorage.setItem('token', this.token.jwtToken);
+      localStorage.setItem('role',this.role);
+      this.rolestorage=localStorage.getItem('role')
+      console.log(this.rolestorage);
+        if (this.token.jwtToken) {
     this.router.navigate(["/HomePage"]);
     alert("Welcome")
       }
+     
     });
   } 
   ngOnInit(): void {
+    this.user=this.userService.userName
+    console.log(this.user);
   }
   
 }
