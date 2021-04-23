@@ -8,7 +8,8 @@ import { PackagePdfRequest } from './PackagePdfRequest';
 })
 export class PackageServiceService {
   productDetails:any;
-
+  role:any
+  isAuthenticated:boolean=false;
 
 token = localStorage.getItem('token');
 
@@ -19,6 +20,12 @@ token = localStorage.getItem('token');
     }
     getArray(){
       return this.productDetails;
+    }
+    setRole(data:any){
+      this.role=data;
+    }
+    getRole(){
+      return this.role;
     }
        httpOptions={
         headers:new HttpHeaders({
@@ -175,5 +182,10 @@ token = localStorage.getItem('token');
     let postAgent=this.baseUrl+"agent";
     console.log(data);
     return this.http.post(postAgent,data);
+  }
+  postImage(data:any){
+    let url=this.baseUrl+"awsS3Files";
+    console.log(data);
+    return this.http.post(url,data);
   }
 }

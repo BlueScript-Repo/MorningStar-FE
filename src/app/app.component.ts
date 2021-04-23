@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PackageServiceService} from './package-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string = '';
+  constructor(public authService:PackageServiceService){}
     ngOnInit(): void {
   }
 }

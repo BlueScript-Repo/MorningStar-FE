@@ -54,7 +54,8 @@ export class AddProductComponent implements OnInit {
     inclusion:new FormControl(''),
     exclusion: new FormControl(''),
     days: new FormControl(''),
-    description: new FormControl('')
+    description: new FormControl(''),
+    productCodeMorningStar:new FormControl('')
   });
   getsubd(sub:any){
     let subd=sub;
@@ -146,9 +147,9 @@ export class AddProductComponent implements OnInit {
       productType:this.Product.value.type
     }
     console.log(this.upload);
-    this.http.uploadProduct(this.upload).subscribe(res=>{
-      console.log(res);
-    })
+    // this.http.uploadProduct(this.upload).subscribe(res=>{
+    //   console.log(res);
+    // })
     // this.upload=[];
   }
 

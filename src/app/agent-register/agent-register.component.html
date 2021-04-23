@@ -1,5 +1,5 @@
 <div style="padding-top: 150px;padding-bottom: 100px;" class="navbarTop body html">
-    <ng-template #el>
+    <div  *ngIf="role=='USER'" >
         <div style="padding-top: 150px;padding-bottom: 100px"class="container">
             <div class="row">
                 <div align="center" class="col-md-12">
@@ -10,9 +10,9 @@
             <h1 style="text-align:center">Oops!!!....You do not have an access over this page</h1>
             
         </div>
-    </ng-template>
+    </div>
                 
-    <div *ngIf="key!=10 else el" class="site wrapper-content">
+    <div *ngIf="role=='ADMIN'" class="site wrapper-content">
     <div class="wrapper">
       <div class="title">
 Agent  Register</div>

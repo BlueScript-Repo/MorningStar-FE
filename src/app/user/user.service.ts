@@ -8,9 +8,8 @@ import { UserRegistration } from './UserRegistration';
   providedIn: 'root'
 })
 export class UserService {
-
-  Role:string='';
-
+  isAuthenticated:boolean=false;
+  Role:any=localStorage.getItem('role');
   private usersUrl!: string; 
 
   userName="Mayur Bhakare";
@@ -40,4 +39,15 @@ export class UserService {
     console.log(userLogin);
     return this.http.post(url1,userLogin);
   }
+  auth(){
+    this.Role=localStorage.getItem('role');
+    console.log("2"+this.Role);
+  }
+  
+    logOut(){
+      this.Role=localStorage.removeItem('role');
+      localStorage.removeItem('token')
+      console.log("After Logout"+this.Role);
+      
+    }
 }

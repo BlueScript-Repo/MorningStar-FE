@@ -29,21 +29,24 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { InquiryComponent } from './inquiry/inquiry.component';
 import { AgentRegisterComponent } from './agent-register/agent-register.component';
 import { CommonModule } from '@angular/common';  
+import { AuthGuard } from './auth.guard';
+import { AgentGuard } from './agent.guard';
+import { UserGuard } from './user.guard';
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
   {path:'customPackage',component: CustomizationComponent},
   {path:'LoginPage',component: UserRegistrationComponent},
-  {path:'updatePage',component: UpdateComponent},
+  {path:'updatePage',component: UpdateComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
   {path:'HomePage',component: HomePageComponent},
   {path:"deals",component:DealsComponent},
   {path:"package",component:PackageComponent},
   {path:"packageList",component:PackageListComponent},
-  {path:"uploadProduct",component:AddProductComponent},
-  {path:"productDetails",component:ProductDetailsComponent},
-  {path:"Inquiries",component:InquiryComponent},
-  {path:"agentRegister",component:AgentRegisterComponent},
+  {path:"uploadProduct",component:AddProductComponent,canActivate:[AuthGuard]},
+  {path:"productDetails",component:ProductDetailsComponent,canActivate:[AuthGuard,AgentGuard,UserGuard]},
+  {path:"Inquiries",component:InquiryComponent,canActivate:[AuthGuard]},
+  {path:"agentRegister",component:AgentRegisterComponent,canActivate:[AuthGuard]},
 ] 
   
 

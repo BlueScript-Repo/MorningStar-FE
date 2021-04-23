@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { UserLogin } from '../UserLogin';
 import { UserRegistration } from '../UserRegistration';
 import {Router} from "@angular/router";
+import {PackageServiceService} from './../../package-service.service'
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
@@ -10,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class UserRegistrationComponent implements OnInit {
 
-  constructor(private userService: UserService,private router:Router) { } 
+  constructor(private userService: UserService,private router:Router,private http:PackageServiceService) { } 
 user:string='';
   userRegistration : UserRegistration={
 
@@ -66,8 +67,12 @@ rolestorage:any;
       this.rolestorage=localStorage.getItem('role')
       console.log(this.rolestorage);
         if (this.token.jwtToken) {
+          this.userService.auth()
+          console.log("Hiii welcome to login");
+          
+          alert("Welcome")
+    // this.http.setRole(this.rolestorage)
     this.router.navigate(["/HomePage"]);
-    alert("Welcome")
       }
      
     });
