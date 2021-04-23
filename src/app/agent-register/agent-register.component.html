@@ -1,0 +1,57 @@
+<div style="padding-top: 150px;padding-bottom: 100px;" class="navbarTop body html">
+    <ng-template #el>
+        <div style="padding-top: 150px;padding-bottom: 100px"class="container">
+            <div class="row">
+                <div align="center" class="col-md-12">
+                    <img style="width: 300px;" src="assets/productList/Oops.jpg" alt="">
+
+                </div>
+            </div>
+            <h1 style="text-align:center">Oops!!!....You do not have an access over this page</h1>
+            
+        </div>
+    </ng-template>
+                
+    <div *ngIf="key!=10 else el" class="site wrapper-content">
+    <div class="wrapper">
+      <div class="title">
+Agent  Register</div>
+    <form #agentForm="ngForm" (ngSubmit)="createAgent(agentForm.value)" class="row g-3 mt-5 mb-5">
+        <div class="col-md-6">
+          <label for="fname" class="form-label">First Name</label>
+          <input type="fname" name="first" ngModel class="form-control" id="fname" placeholder="Enter First Name">
+        </div>
+        <div class="col-md-6">
+          <label for="lname" class="form-label">Last Name</label>
+          <input type="text" name="last" ngModel class="form-control" id="lname" placeholder="Last Name">
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" name="email" ngModel class="form-control" id="email" placeholder="Enter your email address">
+        </div>
+        <div class="col-12">
+          <label for="contact" class="form-label">Contact Number</label>
+          <input type="text" name="contact" ngModel class="form-control" id="contact" placeholder="Enter your Contact Number ">
+        </div>
+        <div class="col-12">
+            <label for="working" class="form-label">Working Area</label>
+            <input type="text" name="working" ngModel class="form-control" id="working" placeholder="Enter your working area ">
+          </div>
+        <div class="col-md-6">
+          <label for="Password" class="form-label">Password</label>
+          <input type="password" ngModel name="Password" class="form-control" id="password" placeholder="Enter your Password">
+        </div>
+        <div class="col-md-6">
+            <label for="Password" class="form-label">Confirm Password</label>
+            <input type="password" name="confirm" ngModel class="form-control" id="currentpassword" placeholder="Confirm your Password">
+          </div>
+          <div class="field mt-5">
+            <input type="submit" value="Register">
+          </div>
+  
+      </form>
+
+
+</div>
+</div>
+</div>

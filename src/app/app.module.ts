@@ -27,6 +27,8 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { SiteImagesComponent } from './site-images/site-images.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { InquiryComponent } from './inquiry/inquiry.component';
+import { AgentRegisterComponent } from './agent-register/agent-register.component';
+import { CommonModule } from '@angular/common';  
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
@@ -40,12 +42,14 @@ const route:Routes=[
   {path:"packageList",component:PackageListComponent},
   {path:"uploadProduct",component:AddProductComponent},
   {path:"productDetails",component:ProductDetailsComponent},
-  {path:"Inquiries",component:InquiryComponent}
+  {path:"Inquiries",component:InquiryComponent},
+  {path:"agentRegister",component:AgentRegisterComponent},
 ] 
   
 
 @NgModule({
   declarations: [
+    AgentRegisterComponent,
     AppComponent, 
     CustomizationComponent,
     LandingPageComponent,
@@ -75,6 +79,7 @@ const route:Routes=[
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    CommonModule,
     RouterModule.forRoot(route)
   ],
   providers: [{

@@ -162,7 +162,7 @@ token = localStorage.getItem('token');
   }
 
   getInquiry(){
-    let inquiry=this.baseUrl+"ProductInquiry/agentId?agentId=1"
+    let inquiry=this.baseUrl+"ProductInquiry/agentId?agentId=AID324353WGX"
    console.log("Calling Inquiry");
    return this.http.get(inquiry)
   }
@@ -170,5 +170,10 @@ token = localStorage.getItem('token');
     let postInquiry=this.baseUrl+"ProductInquiry";
     console.log(data);
     return this.http.post(postInquiry,data);
+  }
+  postAgent(data:any){
+    let postAgent=this.baseUrl+"agent";
+    console.log(data);
+    return this.http.post(postAgent,data);
   }
 }
