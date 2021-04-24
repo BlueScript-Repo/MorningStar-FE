@@ -13,15 +13,26 @@ export class InquiryComponent implements OnInit {
   ngOnInit(): void {
     this.getProductInquiry();
   }
+  role=localStorage.getItem('role');
 Inquiries:any = {}
 details:any = {}
   getProductInquiry(){
-return this.http.getInquiry().subscribe(data =>{
-  console.log(data);
-  this.Inquiries = data;
-  console.log(this.Inquiries);
-  
-})    
+    if(this.role=='AGENT'){
+      return this.http.getInquiry().subscribe(data =>{
+        console.log(data);
+        this.Inquiries = data;
+        console.log(this.Inquiries);
+      })    
+    }
+    else if(this.role =='ADMIN'){
+      return this.http.getInquiryAll().subscribe(data =>{
+        console.log(data);
+        this.Inquiries = data;
+        console.log(this.Inquiries);
+      })
+    }
+    return console.log("Getting null");
+    
   }
   getDetails(detail:any){
     console.log(detail)

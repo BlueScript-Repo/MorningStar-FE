@@ -13,6 +13,7 @@ export class PackageListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  role=localStorage.getItem('role');
   products:any={};
   key=10;
 keyword="";
@@ -51,8 +52,16 @@ this.productCode=val.code;
     this.http.getProductDetails(this.productCode).subscribe(res=>{
     this.productDetails=res;
     console.log(this.productDetails);
+    if (this.role=='ADMIN'){
+      
     this.router.navigate(["/productDetails"]);
     this.http.setArray(this.productDetails);
+
+    }
+    else if(this.role=='USER'){
+      this.router.navigate(["/UserproductDetails"]);
+      this.http.setArray(this.productDetails);  
+    }
   })
   
   }

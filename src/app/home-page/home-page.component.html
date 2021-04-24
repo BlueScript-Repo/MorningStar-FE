@@ -1,9 +1,14 @@
-<div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+ <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
   <div style="padding-top:150px;padding-bottom:60px" class="banner-wrapper container article_heading">
   
-      <h1 class="heading_primary fs-1">Deals</h1>
+      <h1 class="heading_primary fs-1">Home Page</h1>
   </div>
-</div><form #totalForm="ngForm" (ngSubmit)="showTotalData(totalForm.value)">
+
+</div>
+  <div style="padding-bottom:400px" class="container padding:100px">
+    <h1>Hello User</h1>
+  </div>
+<!-- <form #totalForm="ngForm" (ngSubmit)="showTotalData(totalForm.value)">
 <form #dataForm="ngForm" (ngSubmit)=addData(dataForm.value) >
     <div style="padding-left: 80px;" class="row">
         <div class="col-md-2">
@@ -38,7 +43,7 @@
     </div>
   </form>
   <input style="margin-top: 30px;color: white;" (click)="ShowArrays()" class="btn12" type="submit" value="Add">
-  </form>
+  </form> -->
  <!-- <table>
     <tbody>
         <tr *ngFor="let arr of arr1">
@@ -69,16 +74,16 @@
     <h1>Welcome USer !!!!!!!!</h1>
 </div> -->
 
-<table>
+<!-- <table>
     <tbody>
         <tr *ngFor="let i of destination">
             <td>{{i.name}} </td>
         </tr>
     </tbody>
-</table>
+</table> -->
 
 
-<form [formGroup]="profileForm" (ngSubmit)="getProfile()">
+<!-- <form [formGroup]="profileForm" (ngSubmit)="getProfile()">
   
     <label>
       First Name:
@@ -89,12 +94,12 @@
       Last Name:
       <input type="text" ngModel=Bhakare value="bhakare" formControlName="lastName">
     </label>
-     
+      -->
 
-    <form formGroupName="address">
+    <!-- <form formGroupName="address"> -->
         <!-- <h3>Address</h3> -->
 
-        <label>
+        <!-- <label>
           Street:
           <input type="text" formControlName="street">
         </label>
@@ -154,4 +159,4 @@
    document.getElementsByClassName("popup")[0].classList.remove("active")
  })
 </script>
-
+ -->

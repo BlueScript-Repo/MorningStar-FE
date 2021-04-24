@@ -173,6 +173,11 @@ token = localStorage.getItem('token');
    console.log("Calling Inquiry");
    return this.http.get(inquiry)
   }
+  getInquiryAll(){
+    let inquiryDetails=this.baseUrl+"ProductInquiry";
+    console.log("Calling All Inquiry");
+   return this.http.get(inquiryDetails)
+  }
   postInquiry(data:any){
     let postInquiry=this.baseUrl+"ProductInquiry";
     console.log(data);
@@ -185,7 +190,7 @@ token = localStorage.getItem('token');
   }
   postImage(data:any){
     let url=this.baseUrl+"awsS3Files";
-    console.log(data);
+    console.log("Calling in service"+data);
     return this.http.post(url,data);
   }
 }

@@ -44,8 +44,10 @@ const route:Routes=[
   {path:"package",component:PackageComponent},
   {path:"packageList",component:PackageListComponent},
   {path:"uploadProduct",component:AddProductComponent,canActivate:[AuthGuard]},
-  {path:"productDetails",component:ProductDetailsComponent,canActivate:[AuthGuard,AgentGuard,UserGuard]},
+  {path:"productDetails",component:ProductDetailsComponent,canActivate:[AuthGuard]},
+  {path:"UserproductDetails",component:ProductDetailsComponent,canActivate:[UserGuard]},
   {path:"Inquiries",component:InquiryComponent,canActivate:[AuthGuard]},
+  {path:"AgentInquiries",component:InquiryComponent,canActivate:[AgentGuard]},
   {path:"agentRegister",component:AgentRegisterComponent,canActivate:[AuthGuard]},
 ] 
   

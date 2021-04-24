@@ -63,13 +63,37 @@ export class SiteImagesComponent implements OnInit {
     file:{},
     bucketName:''
   };
+
+  urllink:string="assets/banner/top-heading.jpg"
+  formdata:any;
   selectedFile: any;
   onFileChange(event:any){
       //Select File
-      this.selectedFile = event.target.files[0];
-  localStorage.setItem('image',this.selectedFile.name)
+  //     this.selectedFile = event.target.files[0];
+  // localStorage.setItem('image',this.selectedFile.name)
+  //     this.formdata=new FormData();
+  //     for (let i = 0; i < this.selectedFile.length; i++) {
+  //       const element = this.selectedFile[i];
+        
+  //     }
+  //     this.formdata.append('image',this.selectedFile,this.selectedFile.name)
+  //     console.log(this.formdata);
       
-    }
+
+if(event.target.files){
+  var reader=new FileReader()
+  reader.readAsDataURL(event.target.files[0]);
+  console.log(reader);
+  
+  reader.onload=(event:any) => {
+    this.urllink=event.target.result
+  console.log(this.urllink);
+
+  }
+}
+
+  
+}
   
   
   onUpload(){
@@ -90,9 +114,11 @@ export class SiteImagesComponent implements OnInit {
   }
   getImg(value:any){
     this.uploadImageData={
-      file:value.image,
+      file:this.urllink,
       bucketName:"Mayur"
      };
+     console.log("Calling in getImg "+value);
+     
     console.log("getting Value "+JSON.stringify(value));
     this.http.postImage(this.uploadImageData).subscribe(res => {
       console.log("value is "+  res);

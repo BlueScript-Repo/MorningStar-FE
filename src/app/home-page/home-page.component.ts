@@ -15,7 +15,7 @@ export class HomePageComponent implements OnInit {
   constructor(private http:PackageServiceService) { }
 
   ngOnInit(): void {
-    this.getdestination();
+    // this.getdestination();
   }
   arr1:Arr1[]=[];
   arr2:Arr2[]=[];

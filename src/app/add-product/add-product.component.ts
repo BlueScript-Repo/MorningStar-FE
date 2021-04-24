@@ -147,9 +147,9 @@ export class AddProductComponent implements OnInit {
       productType:this.Product.value.type
     }
     console.log(this.upload);
-    // this.http.uploadProduct(this.upload).subscribe(res=>{
-    //   console.log(res);
-    // })
+    this.http.uploadProduct(this.upload).subscribe(res=>{
+      console.log(res);
+    })
     // this.upload=[];
   }
 
