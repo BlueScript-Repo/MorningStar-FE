@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders,HttpResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpRequest,HttpResponse} from '@angular/common/http';
 import { Package } from './Package';
 import { PackagePdfRequest } from './PackagePdfRequest';
+import { Observable } from 'rxjs';
+import { HttpEvent } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -188,9 +190,23 @@ token = localStorage.getItem('token');
     console.log(data);
     return this.http.post(postAgent,data);
   }
-  postImage(data:any){
-    let url=this.baseUrl+"awsS3Files";
-    console.log("Calling in service"+data);
-    return this.http.post(url,data);
+  // postImage(data:any){
+  //   let url=this.baseUrl+"awsS3Files";
+  //   console.log("Calling in service"+data);
+  //   return this.http.post(url,data);
+  // }
+
+  postImage(file: any):Observable<HttpEvent<{}>>{
+
+    const formdata: FormData= new FormData();
+    let bucketName=localStorage.getItem('productCode');
+    formdata.append('file',file);
+    let url=this.baseUrl+"awsS3Files?bucketName="+bucketName;
+    const req= new HttpRequest('POST',url,formdata,{
+      reportProgress:true,
+      responseType:'text'
+    });
+    
+    return this.http.request(req);
   }
 }

@@ -48,7 +48,6 @@ console.log(code1);
 this.productCode=val.code;
     console.log(this.productCode);
 
-
     this.http.getProductDetails(this.productCode).subscribe(res=>{
     this.productDetails=res;
     console.log(this.productDetails);

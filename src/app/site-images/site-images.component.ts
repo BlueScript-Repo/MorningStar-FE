@@ -59,69 +59,23 @@ export class SiteImagesComponent implements OnInit {
     
   // }
 
-  uploadImageData:Files={
-    file:{},
-    bucketName:''
-  };
-
-  urllink:string="assets/banner/top-heading.jpg"
-  formdata:any;
   selectedFile: any;
   onFileChange(event:any){
-      //Select File
-  //     this.selectedFile = event.target.files[0];
-  // localStorage.setItem('image',this.selectedFile.name)
-  //     this.formdata=new FormData();
-  //     for (let i = 0; i < this.selectedFile.length; i++) {
-  //       const element = this.selectedFile[i];
-        
-  //     }
-  //     this.formdata.append('image',this.selectedFile,this.selectedFile.name)
-  //     console.log(this.formdata);
-      
+      this.selectedFile = event.target.files[0];
 
-if(event.target.files){
-  var reader=new FileReader()
-  reader.readAsDataURL(event.target.files[0]);
-  console.log(reader);
-  
-  reader.onload=(event:any) => {
-    this.urllink=event.target.result
-  console.log(this.urllink);
-
-  }
 }
-
-  
-}
-  
-  
   onUpload(){
-  console.log(this.selectedFile);
-  // const uploadImageData = new FormData();
- 
-  console.log(this.uploadImageData);
-  
-  console.log(this.selectedFile);
-  console.log(this.uploadImageData);
-  // this.http.postImage(this.uploadImageData).subscribe(res => {
-  //   console.log("value is "+  res);
-  //   // this.uploadImageData={};
-  // })
+  const file=this.selectedFile;
+  console.log("file",file)
+  this.http.postImage(file).subscribe(res => {
+    console.log("value is "+  res);
+
+  })
   }
 
   ngOnInit(): void {
   }
   getImg(value:any){
-    this.uploadImageData={
-      file:this.urllink,
-      bucketName:"Mayur"
-     };
-     console.log("Calling in getImg "+value);
-     
-    console.log("getting Value "+JSON.stringify(value));
-    this.http.postImage(this.uploadImageData).subscribe(res => {
-      console.log("value is "+  res);
-    })
+  
   }
 }

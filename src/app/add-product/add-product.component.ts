@@ -131,6 +131,7 @@ export class AddProductComponent implements OnInit {
     this.productDays = this.productDays.filter((v, i) => i != id);
   }
 
+  productCode:any={};
   Submit(){
     console.log(this.Product.value);
     this.upload={
@@ -149,6 +150,9 @@ export class AddProductComponent implements OnInit {
     console.log(this.upload);
     this.http.uploadProduct(this.upload).subscribe(res=>{
       console.log(res);
+      this.productCode=res;
+      console.log(this.productCode.productCode);
+      localStorage.setItem('productCode', this.productCode.productCode);
     })
     // this.upload=[];
   }
