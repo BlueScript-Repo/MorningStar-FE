@@ -197,18 +197,37 @@ bucketName:any;
   // }
 
   postImage(file: any):Observable<HttpEvent<{}>>{
-    const formdata: FormData= new FormData();
+     const formdata: FormData= new FormData();
    this.bucketName=localStorage.getItem('productCode');
     console.log("In service "+this.bucketName);
-    formdata.append('file',file);
-    let url=this.baseUrl+"awsS3Files/uploadImages?bucketName="+this.bucketName;
+     formdata.append('file',file);
+    let url=this.baseUrl+"awsS3Files?bucketName="+this.bucketName;
     const req= new HttpRequest('POST',url,formdata,{
       reportProgress:true,
       responseType:'text'
     });
-    this.bucketName=localStorage.removeItem('productCode');
-    console.log("In service2 "+this.bucketName);
+    // this.bucketName=localStorage.removeItem('productCode');
+    // console.log("In service2 "+this.bucketName);
     return this.http.request(req);
   
-  }
+  } 
+
+  
+  // postImage(formData: any):Observable<HttpEvent<{}>>{
+  //  // const formdata: FormData= new FormData();
+  //  this.bucketName=localStorage.getItem('productCode');
+  //   console.log("In service "+this.bucketName);
+  //   //formdata.append('file',formData);
+  //   console.log("In service:"+formData);
+
+  //   let url=this.baseUrl+"awsS3Files?bucketName="+this.bucketName;
+  //   const req= new HttpRequest('POST',url,formData,{
+  //     reportProgress:true,
+  //     responseType:'text'
+  //   });
+  //   // this.bucketName=localStorage.removeItem('productCode');
+  //   // console.log("In service2 "+this.bucketName);
+  //   return this.http.request(req);
+  
+  // }
 }
