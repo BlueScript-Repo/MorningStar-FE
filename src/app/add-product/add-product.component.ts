@@ -7,14 +7,14 @@ import {Inclusion} from "./Inclusion";
 import {Exclusion} from "./Exclusion";
 import {Day} from './Day';
 import {UploadData} from './UploadData';
-import {PackageServiceService} from '././../package-service.service'
+import {PackageServiceService} from '././../package-service.service';
+import {Images} from './MultiImages';
 @Component({ 
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-
   subdestinations:Subdestination[]=[];
   productSubDestination:SubdestinationHotel[]=[];
   productPrice:Price[] = [];
@@ -132,6 +132,19 @@ export class AddProductComponent implements OnInit {
   }
 
   productCode:any={};
+  selectedFile=[];
+  total_images:any=[];
+  images:any=[];
+  onFileChange(event:any){
+      this.selectedFile = event.target.files[0];
+  this.images.push(
+  this.selectedFile
+  )
+  console.log("Selected File is "+this.selectedFile);
+  console.log("images are "+JSON.stringify(this.images));
+  
+  
+}
   Submit(){
     console.log(this.Product.value);
     this.upload={
@@ -153,8 +166,31 @@ export class AddProductComponent implements OnInit {
       this.productCode=res;
       console.log(this.productCode.productCode);
       localStorage.setItem('productCode', this.productCode.productCode);
+      let bucket=localStorage.getItem('productCode');
+      console.log("bucket "+bucket);
+      this.total_images.push(this.images)
+      console.log(this.total_images);
+      localStorage.setItem('files',this.images)
+      let file=this.images;
+        // let file=this.total_images;
+        // const file=this.selectedFile;
+        console.log("file is=====================",file[0])
+        this.http.postImage(file).subscribe(res => {
+          console.log("value is "+  JSON.stringify(res));
+                  })
+        
     })
     // this.upload=[];
   }
+  
+  
+  getImg(value:any){
+  
+  }
+  onUpload(){
+
+  }
+
+
 
 }

@@ -46,6 +46,7 @@ const route:Routes=[
   {path:"uploadProduct",component:AddProductComponent,canActivate:[AuthGuard]},
   {path:"productDetails",component:ProductDetailsComponent,canActivate:[AuthGuard]},
   {path:"UserproductDetails",component:ProductDetailsComponent,canActivate:[UserGuard]},
+  {path:"AgentProductDetails",component:ProductDetailsComponent,canActivate:[AgentGuard]},
   {path:"Inquiries",component:InquiryComponent,canActivate:[AuthGuard]},
   {path:"AgentInquiries",component:InquiryComponent,canActivate:[AgentGuard]},
   {path:"agentRegister",component:AgentRegisterComponent,canActivate:[AuthGuard]},

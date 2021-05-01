@@ -14,7 +14,7 @@ export class PackageServiceService {
   isAuthenticated:boolean=false;
 
 token = localStorage.getItem('token');
-
+bucketName:any;
   constructor(private http: HttpClient) {}
 
     setArray(data:any){
@@ -197,16 +197,18 @@ token = localStorage.getItem('token');
   // }
 
   postImage(file: any):Observable<HttpEvent<{}>>{
-
     const formdata: FormData= new FormData();
-    let bucketName=localStorage.getItem('productCode');
+   this.bucketName=localStorage.getItem('productCode');
+    console.log("In service "+this.bucketName);
     formdata.append('file',file);
-    let url=this.baseUrl+"awsS3Files?bucketName="+bucketName;
+    let url=this.baseUrl+"awsS3Files/uploadImages?bucketName="+this.bucketName;
     const req= new HttpRequest('POST',url,formdata,{
       reportProgress:true,
       responseType:'text'
     });
-    
+    this.bucketName=localStorage.removeItem('productCode');
+    console.log("In service2 "+this.bucketName);
     return this.http.request(req);
+  
   }
 }

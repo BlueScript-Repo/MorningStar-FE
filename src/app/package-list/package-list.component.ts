@@ -61,6 +61,10 @@ this.productCode=val.code;
       this.router.navigate(["/UserproductDetails"]);
       this.http.setArray(this.productDetails);  
     }
+    else if(this.role=='AGENT'){
+      this.router.navigate(["/AgentProductDetails"]);
+      this.http.setArray(this.productDetails);  
+    }
   })
   
   }

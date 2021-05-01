@@ -192,7 +192,60 @@
                 </div>							
               </div>
             </div>
-            <div class="col-md-4">
+            <div *ngIf="authenticate.Role=='ADMIN'" class="col-md-4">
+              <div class="summary entry-summary description_single" style="width: 100%">
+              <div class="affix-sidebar">
+                <div class="entry-content-tour">
+                  <p style="color: white;font-size: 20px;" class="price">
+                    <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                  </p>
+                  <div class="clear"></div>
+                  <div style="padding-top: 50px;padding-bottom: 50px;" class="booking">
+                    <div class="">
+                      <div class="form-block__title">
+                        <h4>Deal</h4>
+                      </div>
+                      <form  id="tourBookingForm" #dealForm="ngForm" (ngSubmit)="deal(dealForm.value)">
+                        <!-- <div class="">
+                          <input name="name" ngModel value="" placeholder="User name" type="text">
+                        </div> -->
+                        
+                        <div class="">
+                          <input name="deal_Percent" ngModel value="" placeholder="Apply Deal" type="text">
+                        </div>
+                        <!-- <div class="">
+                          <input name="phone" ngModel value="" placeholder="Phone" type="text">
+                        </div>
+                        <div class="">
+                          <input name="city" ngModel value="" placeholder="City" type="text">
+                        </div> -->
+                        <div class="">
+                          <input style="visibility:hidden;display: none;" name="productCode" ngModel={{productDetails.productCode}} value="{{productDetails.productCode}}" placeholder="Phone" type="text">
+                        </div>
+                        <!-- <div class="">
+                          <input type="text" ngModel name="date" value="" placeholder="Date Book" class="hasDatepicker">
+                        </div> -->
+                        
+                        <div class="spinner">
+                          <div class="rect1"></div>
+                          <div class="rect2"></div>
+                          <div class="rect3"></div>
+                          <div class="rect4"></div>
+                          <div class="rect5"></div>
+                        </div>
+                        <input class="btn-booking btn" value="Apply Deal" type="submit">
+                      </form>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="widget-area align-left col-sm-3">	
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <div *ngIf="authenticate.Role=='USER'" class="col-md-4">
               <div class="summary entry-summary description_single" style="width: 100%">
               <div class="affix-sidebar">
                 <div class="entry-content-tour">
@@ -234,6 +287,59 @@
                           <div class="rect5"></div>
                         </div>
                         <input class="btn-booking btn" value="Inquire now" type="submit">
+                      </form>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="widget-area align-left col-sm-3">	
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <div *ngIf="authenticate.Role=='AGENT'" class="col-md-4">
+              <div class="summary entry-summary description_single" style="width: 100%">
+              <div class="affix-sidebar">
+                <div class="entry-content-tour">
+                  <p style="color: white;font-size: 20px;" class="price">
+                    <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                  </p>
+                  <div class="clear"></div>
+                  <div style="padding-top: 50px;padding-bottom: 50px;" class="booking">
+                    <div class="">
+                      <div class="form-block__title">
+                        <h4>Book the tour</h4>
+                      </div>
+                      <form id="tourBookingForm" #dealForm1="ngForm" (ngSubmit)="deal1(dealForm1.value)">
+                        <!-- <div class="">
+                          <input name="name" ngModel value="" placeholder="User name" type="text">
+                        </div> -->
+                        
+                        <div class="">
+                          <input name="deal_Percent" ngModel value="" placeholder="Apply Deal" type="text">
+                        </div>
+                        <!-- <div class="">
+                          <input name="phone" ngModel value="" placeholder="Phone" type="text">
+                        </div>
+                        <div class="">
+                          <input name="city" ngModel value="" placeholder="City" type="text">
+                        </div> -->
+                        <div class="">
+                          <input style="visibility:hidden;display: none;" name="productCode" ngModel={{productDetails.productCode}} value="{{productDetails.productCode}}" placeholder="Phone" type="text">
+                        </div>
+                        <!-- <div class="">
+                          <input type="text" ngModel name="date" value="" placeholder="Date Book" class="hasDatepicker">
+                        </div> -->
+                        
+                        <div class="spinner">
+                          <div class="rect1"></div>
+                          <div class="rect2"></div>
+                          <div class="rect3"></div>
+                          <div class="rect4"></div>
+                          <div class="rect5"></div>
+                        </div>
+                        <input class="btn-booking btn" value="Apply Deal" type="submit">
                       </form>
                     </div>
                   </div>

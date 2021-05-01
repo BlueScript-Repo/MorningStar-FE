@@ -62,15 +62,14 @@ export class SiteImagesComponent implements OnInit {
   selectedFile: any;
   onFileChange(event:any){
       this.selectedFile = event.target.files[0];
-
 }
+
   onUpload(){
   const file=this.selectedFile;
   console.log("file",file)
   this.http.postImage(file).subscribe(res => {
     console.log("value is "+  res);
-
-  })
+            })
   }
 
   ngOnInit(): void {

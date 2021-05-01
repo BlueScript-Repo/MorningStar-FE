@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PackageServiceService} from './../package-service.service';
-import {InquiryDetails} from './InquiryDetails'
+import {InquiryDetails} from './InquiryDetails';
+import {UserService} from './../user/user.service'
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
@@ -8,18 +9,21 @@ import {InquiryDetails} from './InquiryDetails'
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor(private http:PackageServiceService) { } 
+  constructor(private http:PackageServiceService,public authenticate:UserService) { } 
 
     productDetails:any;
 
 
   getProductDetails(){
+}
 
-  }
+role:any;
 
   ngOnInit(): void {
     this.productDetails=this.http.getArray()
     console.log("In details component calling array: "+JSON.stringify(this.productDetails));
+    this.role=localStorage.getItem('role');
+    console.log(this.role);
     
   }
   inquery:InquiryDetails={
@@ -52,6 +56,14 @@ export class ProductDetailsComponent implements OnInit {
       console.log(response);
     })
     alert("Your Inquiry has been successfully sent to the Inquiry List")
+  }
+  deal1(dealForm1:any){
+    let deal=dealForm1.deal_Percent;
+    console.log(deal);    
+  }
+  deal(dealForm:any){
+    let deal=dealForm.deal_Percent;
+    console.log(deal);    
   }
 }
 
