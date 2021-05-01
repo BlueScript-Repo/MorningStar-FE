@@ -65,14 +65,14 @@ bucketName:any;
 
 
   getSubDestinations(destinationKey: any) {
-    let url2 = this.baseUrl + 'subDestination/destinationId/' + destinationKey.key;
-    console.log("calling in service : "+destinationKey.key);
+    let url2 = this.baseUrl + 'subDestination/destinationId/' + destinationKey;
+    console.log("calling in service : "+destinationKey);
     return this.http.get(url2, this.httpOptions);
   }
 
   getStay(stay: any) {
-    let url3 = this.baseUrl + 'stay/subDestinationId/' + stay.key;
-    console.log("calling in Get STay in service : "+stay.key);
+    let url3 = this.baseUrl + 'stay/subDestinationId/' + stay;
+    console.log("calling in Get STay in service : "+stay);
     return this.http.get(url3, this.httpOptions);
   }
 
@@ -130,24 +130,24 @@ bucketName:any;
   
   }
   postSubd(data:any){
-    let post_url=this.baseUrl+"subdestination";
+    let post_url=this.baseUrl+"subDestination/bulk";
     console.log("Post Subdestination works "+JSON.stringify(data));
   return this.http.post(post_url,data, this.httpOptions);
   }
 
   postStay(data:any){
-    let post_stay=this.baseUrl+"stay";
+    let post_stay=this.baseUrl+"stay/bulk";
     console.log("post Stay "+JSON.stringify(data));
   return this.http.post(post_stay,data, this.httpOptions);    
   }
 
   postMeal(data:any){
-    let post_meal=this.baseUrl+"meal";
+    let post_meal=this.baseUrl+"meal/bulk";
     console.log("Posting Meal....."+JSON.stringify(data));
     return this.http.post(post_meal,data, this.httpOptions);
   }
   postSight(data:any){
-    let post_sight=this.baseUrl+"sightseeing";
+    let post_sight=this.baseUrl+"sightseeing/bulk";
     console.log("Post Sightseeing....."+JSON.stringify(data));
     return this.http.post(post_sight,data, this.httpOptions); 
   }

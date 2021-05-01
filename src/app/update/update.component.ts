@@ -5,7 +5,8 @@ import {PackageServiceService} from './../package-service.service';
 import {DestOption} from './DestOption';
 import {Stay} from './Stay';
 import {Meal} from './Meal';
-import {Sightseeing} from './Sightseeing'
+import {Sightseeing} from './Sightseeing';
+import {SelectedOption} from './../SelectedOption';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
@@ -13,22 +14,14 @@ import {Sightseeing} from './Sightseeing'
 })
 export class UpdateComponent implements OnInit {
 
-  constructor(private desti:PackageServiceService) { }
+  constructor(private http:PackageServiceService) { }
 
   ngOnInit(): void {
-    // this.getDestinations1();
-    // this.getSubDestinations1();
-    // this.getStay();
-    // this.title=localStorage.getItem('Token');
-
+    this.getDestinations1();
   }
-  // addDestination(val:any){
-  //   console.log(val);
-  // }
     
   
-  
-  // Destination
+  val='Mayur';
   newDestination:Destinations[]=[];
 
   addDestination(destinationForm:any){
@@ -38,10 +31,6 @@ export class UpdateComponent implements OnInit {
     var pin=destinationForm.pincode;
     var policy=destinationForm.policies;
 console.log(destinationForm);
- this.desti.saveDestination(destinationForm).subscribe((res)=>{
-   console.log("result is "+res);
-  
-});
     this.newDestination.push({
       // key:"",
       country:count,
@@ -52,52 +41,45 @@ console.log(destinationForm);
       subDestination:''
     })
     count='';
+    console.log(this.newDestination);
   }
   
 
 
 // SubDestination
 optionDestinations:any = {};
-newSubdestination:Subdestination[]=[];
-// destination1:DestOption[]=[];
+newSubdestination=[];
+destination1:DestOption[]=[];
 
-// OnOptionSelect(val:any){
 
-// }
 OnOptionSelect:any={};
+onOptionSubdestination:any={};
 subdestinationOptions:any={};
 stayOptions:any={};
+destinations:any={};
 
+
+newSubdestinations:Subdestination[]=[];
 addSubDestination(subdestinationForm:any){
 var desti=subdestinationForm.destination;
 var subd=subdestinationForm.Subdestination;
 var pin=subdestinationForm.pincode;
-
+var desc=subdestinationForm.Description
 console.log(subdestinationForm);
-console.log(desti.name);
 
-this.newSubdestination.push({
+this.newSubdestinations.push({
   key:'',
-  note:'',
-  destinationId:desti.name,
+  description:desc,
+  destinationId:desti.key,
   name:subd,
   pincode:pin
 })
-
+console.log(this.newSubdestinations);
 }
 
 
-// Stay
 newStay:Stay[]=[]
-subdesti:DestOption[]=[
-  {key:"SUB1234",value:"Kullu"},
-  {key:"SUB6765",value:"Chandni Chowk"},
-  {key:"SUB2432",value:"City"},
-  {key:"SUB5645",value:"Bengaluru city"},
-  {key:"SUB4564",value:"Noida city"},
-  {key:"SUB5445",value:"manali"},
-  {key:"SUB6458",value:"Lonavla"},
-]
+
 addStay(stayForm:any){
 var desti=stayForm.destination;
 var subdes=stayForm.subd;
@@ -117,8 +99,7 @@ this.newStay.push({
   rating:StayRating,
   stayType:Type
 })
-
-
+console.log(this.newStay);
 }
 
 
@@ -156,12 +137,14 @@ addSight(sightForm:any){
 
 this.newSights.push({
   destinationId:desti.key,
-  endTime:endDate,
+  endTime:startdate,
   name:sight,
   rate:Rate,
-  startTime:startdate,
+  startTime:endDate,
   subDestinationId:subDesti.key
 })
+console.log(this.newSights);
+
 
 
 }
@@ -174,54 +157,71 @@ add(){
   this.title="Hii...You've clicked button";
   localStorage.setItem("Token",this.title)
 }
-
+Clear(){
+ this.val='';
+}
 
 postDestination(){
-  this.desti.postDestination(this.newDestination).subscribe((res)=>{
+  this.http.postDestination(this.newDestination).subscribe((res)=>{
     console.log(res);
     
   })
 }
 destination_select:any={};
 getDestinations1(){
-  this.desti.getDestinations1().subscribe((res)=>{
+  this.http.getDestinations1().subscribe((res)=>{
     console.log("Response is " + JSON.stringify(res));
   this.destination_select=res;   
   })
 }
 postSubd(){
-  this.desti.postSubd(this.newSubdestination).subscribe((response)=>{
+  this.http.postSubd(this.newSubdestinations).subscribe((response)=>{
     console.log(response);
   })
 }
-
-newsubdestination:any={};
-getSubDestinations1(){
-  this.desti.getSubDestinations1().subscribe((response)=>{
+getSubDestinations(val:SelectedOption){
+  console.log(val.key);
+  this.http.getSubDestinations(val.key).subscribe((response)=>{
     console.log(response);
-    this.newsubdestination=response;    
+    this.subdestinationOptions=response 
   })
+  
+}
+stays:any={};
+sights:any={};
+getStayAndSights(key: any) {
+    this.http.getStay(key.key).subscribe((res) => {
+      this.stays = res;
+      console.log(this.stays);
+      
+    });
+
+    this.http.getSightseeing(key.key).subscribe((res) => {
+      this.sights = res;
+    });
+    console.log(key.key);
+    console.log(key.value);
 }
 postStay(){
-this.desti.postStay(this.newStay).subscribe((response)=>{
+this.http.postStay(this.newStay).subscribe((response)=>{
   console.log(response);  
 })
 }
 newStayOptions:any={}
 getStay(){
-  this.desti.getStay1().subscribe((res)=>{
+  this.http.getStay1().subscribe((res)=>{
     console.log(res);
     this.newStayOptions=res;
   })
 }
 postMeal(){
-  this.desti.postMeal(this.newMeal).subscribe((res)=>{
+  this.http.postMeal(this.newMeal).subscribe((res)=>{
     console.log(res);
     
   })
 }
 postSight(){
-  this.desti.postSight(this.newSights).subscribe((res)=>{
+  this.http.postSight(this.newSights).subscribe((res)=>{
     console.log(res);
     
   })
@@ -229,7 +229,7 @@ postSight(){
 deleteTodo(id: number) {
   this.newMeal = this.newMeal.filter((v, i) => i != id);
   this.newDestination = this.newDestination.filter((v, i) => i != id);
-  this.newSubdestination = this.newSubdestination.filter((v, i) => i != id);
+  this.newSubdestinations = this.newSubdestinations.filter((v, i) => i != id);
   this.newStay = this.newStay.filter((v, i) => i != id);
   this.newSights = this.newSights.filter((v, i) => i != id);
 }

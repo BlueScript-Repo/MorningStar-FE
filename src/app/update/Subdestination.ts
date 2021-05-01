@@ -1,7 +1,7 @@
 export class Subdestination{
     public key: string='';
-    public note:string='';
+    public description:string='';
     public destinationId:string='';
     public name: string = '';
-    public pincode: string = '';    
+    public pincode: number = 0;    
 }
