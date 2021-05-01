@@ -129,21 +129,20 @@ export class AddProductComponent implements OnInit {
     this.productInclusion = this.productInclusion.filter((v, i) => i != id);
     this.productExclusion = this.productExclusion.filter((v, i) => i != id);
     this.productDays = this.productDays.filter((v, i) => i != id);
+    this.images = this.images.filter((v:any,i:any) => i != id);
   }
 
   productCode:any={};
   selectedFile=[];
-  total_images:any=[];
   images:any=[];
   onFileChange(event:any){
       this.selectedFile = event.target.files[0];
   this.images.push(
   this.selectedFile
   )
-  console.log("Selected File is "+this.selectedFile);
-  console.log("images are "+JSON.stringify(this.images));
-  
-  
+  console.log(this.images[0].name);
+  // console.log("Selected File is "+this.selectedFile);
+  console.log(this.images);
 }
   Submit(){
     console.log(this.Product.value);
@@ -168,18 +167,17 @@ export class AddProductComponent implements OnInit {
       localStorage.setItem('productCode', this.productCode.productCode);
       let bucket=localStorage.getItem('productCode');
       console.log("bucket "+bucket);
-      this.total_images.push(this.images)
-      console.log(this.total_images);
-      localStorage.setItem('files',this.images)
-      let file=this.images;
-        // let file=this.total_images;
-        // const file=this.selectedFile;
-        console.log("file is=====================",file[0])
-        this.http.postImage(file).subscribe(res => {
+      for (var i = 0; i < this.images.length; i++) {
+        const img=this.images[i];
+        this.http.postImage(img).subscribe(res => {
           console.log("value is "+  JSON.stringify(res));
                   })
-        
+                  console.log("images are: "+img);
+                  
+      }
     })
+    
+    
     // this.upload=[];
   }
   

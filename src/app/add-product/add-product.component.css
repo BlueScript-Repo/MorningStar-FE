@@ -23,3 +23,28 @@
   background: #ffd200;
   color: #fff
 }
+.upload-box{
+    font-size:16px;
+    background-color:white;
+    border-radius:50px;
+    box-shadow:5px 5px 10px rgba(0,0,0,0.5);
+    width: 300px;
+    /* height:50px; */
+    outline: none;
+}
+::-webkit-file-upload-button{
+    color: #ffd200;
+    background-color:#fff;
+    padding: 10px;
+    border: none;
+    border-radius: 50px;
+    border: 2px solid #ffd200;
+    margin-right: 20px;
+    /* box-shadow:1px 1px 0px #ffd200; */
+    outline:none;
+}
+::-webkit-file-upload-button:hover{
+background:#ffd200;
+color:#fff;
+cursor:pointer;
+}

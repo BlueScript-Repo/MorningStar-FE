@@ -56,9 +56,9 @@
                 <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
             </thead>
             <tbody>
-                <tr *ngFor="let t of subdestinations;let i=index">
-                    <td>{{t.name}}</td>
-                    <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                <tr style="border: none;" *ngFor="let t of subdestinations;let i=index">
+                    <td style="border-top: none;border-right: none;">{{t.name}}</td>
+                    <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
                 </tr>
             </tbody>
         </table>
@@ -96,19 +96,19 @@
     </div>
    <table class="table">
     <thead>
-        <th>Product Type</th>
-        <th>Sub Destination</th>
-        <th>Hotels</th>
-        <th>Delete</th>
+        <th style="border-top: none;border-right: none;">Product Type</th>
+        <th style="border-top: none;border-right: none;">Sub Destination</th>
+        <th style="border-top: none;border-right: none;">Hotels</th>
+        <th style="border-top: none;border-right: none;">Delete</th>
     </thead>   
 <tbody>
     <tr *ngFor="let j of productSubDestination;let i=index">
-        <td>
+        <td style="border-top: none;border-right: none;">
             {{j.productType}}
         </td>
-        <td>{{j.subDestinationName}} </td>
-        <td>{{j.hotelName}} </td>
-        <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+        <td style="border-top: none;border-right: none;">{{j.subDestinationName}} </td>
+        <td style="border-top: none;border-right: none;">{{j.hotelName}} </td>
+        <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
     </tr>
 </tbody>   
    </table>
@@ -147,21 +147,21 @@
 
         <table class="table">
             <thead>
-                <th>
+                <th style="border-top: none;border-right: none;">
                     Product Type
                 </th>
-                <th>Adult</th>
-                <th>Child</th>
-                <th>Infant</th>
-                <th>Delete</th>
+                <th style="border-top: none;border-right: none;">Adult</th>
+                <th style="border-top: none;border-right: none;">Child</th>
+                <th style="border-top: none;border-right: none;">Infant</th>
+                <th style="border-top: none;border-right: none;">Delete</th>
             </thead>
             <tbody>
                 <tr *ngFor="let j of productPrice;let i = index">
-                    <td>{{j.productType}} </td>
-                    <td>{{j.adultPrice}} </td>
-                    <td>{{j.childrenPrice}} </td>
-                    <td>{{j.infantPrice}} </td>
-                    <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                    <td style="border-top: none;border-right: none;">{{j.productType}} </td>
+                    <td style="border-top: none;border-right: none;">{{j.adultPrice}} </td>
+                    <td style="border-top: none;border-right: none;">{{j.childrenPrice}} </td>
+                    <td style="border-top: none;border-right: none;">{{j.infantPrice}} </td>
+                    <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
                 </tr>
             </tbody>
         </table>
@@ -188,8 +188,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let t of productInclusion;let i=index">
-                <td>{{t.inclusionText}}</td>
-                <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                <td style="border-top: none;border-right: none;">{{t.inclusionText}}</td>
+                <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
             </tr>
         </tbody>
     </table>
@@ -218,8 +218,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let t of productExclusion;let i=index">
-                <td>{{t.exclusionText}}</td>
-                <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                <td style="border-top: none;border-right: none;">{{t.exclusionText}}</td>
+                <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
             </tr>
         </tbody>
     </table>
@@ -250,28 +250,34 @@
         </thead>
         <tbody>
             <tr *ngFor="let t of productDays;let i=index">
-                <td>{{t.day}}</td>
-                <td>{{t.dayDescription}}</td>
-                <td><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                <td style="border-top: none;border-right: none;">{{t.day}}</td>
+                <td style="border-top: none;border-right: none;">{{t.dayDescription}}</td>
+                <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
             </tr>
         </tbody>
     </table>
-    <div class="container mb-5">
-          <div class="row">
-          <div class="col-md-12">
-            <h1>Upload Image</h1>
-          </div>
-        </div>
+        <hr class="mt-5 mb-5">
+    <div class="mt-5 mb-5" style="text-align:left">
+        <h1 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Days</h1>
+    </div>
         <div class="container row">
           <div class="col-md-6">
             <!-- <img [src]="urllink" alt=""> -->
-            <input type="file" name="image" ngModel (change)="onFileChange($event)" id="">
-          </div>
-          <div class="col-md-6">
-            <input type="submit" (click)="onUpload()" value="Upload" class="btn btn-outline-danger">
+            <input type="file" name="image" class="upload-box mb-3" ngModel (change)="onFileChange($event)" id="">
           </div>
         </div>
-      </div>
+      <table style="border: none" class="table mb-5">
+        <thead>
+            <th style="border-top: none;border-right: none;">Images</th>
+            <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let j of images;let i=index">
+                <td style="border-top: none;border-right: none;">{{j.name}}</td>
+                <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+            </tr>
+        </tbody>
+    </table>
 <div class="row">
     <div align="center" class="col-md-12">
         <button style="width: 100px;" class="btn12">Submit</button>

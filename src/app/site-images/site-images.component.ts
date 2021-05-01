@@ -82,7 +82,6 @@ image:any=[];
       console.log("value is "+  res);
               })
   }
-
   // console.log("formData :" +formData);
   // this.image.push(formData)
   // console.log("in ts file: "+this.image);
