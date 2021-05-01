@@ -206,13 +206,11 @@ bucketName:any;
       reportProgress:true,
       responseType:'text'
     });
-    // this.bucketName=localStorage.removeItem('productCode');
-    // console.log("In service2 "+this.bucketName);
+    this.bucketName=localStorage.removeItem('productCode');
+    console.log("In service2 "+this.bucketName);
     return this.http.request(req);
   
   } 
-
-  
   // postImage(formData: any):Observable<HttpEvent<{}>>{
   //  // const formdata: FormData= new FormData();
   //  this.bucketName=localStorage.getItem('productCode');

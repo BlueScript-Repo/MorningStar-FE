@@ -1,3 +1,3 @@
 export class Images{
-    // public image:[]=[];
+    public image:[]=[];
 }
