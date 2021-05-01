@@ -59,17 +59,43 @@ export class SiteImagesComponent implements OnInit {
     
   // }
 
+  myFiles:string [] = [];
   selectedFile: any;
-  onFileChange(event:any){
-      this.selectedFile = event.target.files[0];
+  onFileChange(event:any){ 
+    
+    for (var i = 0; i < event.target.files.length; i++) { 
+      this.myFiles.push(event.target.files[i]);
+  }
+     // this.selectedFile = event.target.files[0];
 }
-
+image:any=[];
   onUpload(){
-  const file=this.selectedFile;
-  console.log("file",file)
-  this.http.postImage(file).subscribe(res => {
-    console.log("value is "+  res);
-            })
+  //const file=this.selectedFile; 
+  const formData=new FormData();
+  for (var i = 0; i < this.myFiles.length; i++) { 
+    const file=this.myFiles[i];
+    //formData.append("file[]", this.myFiles[i]);
+
+    //console.log(formData);
+    
+    this.http.postImage(file).subscribe(res => {
+      console.log("value is "+  res);
+              })
+  }
+
+  // console.log("formData :" +formData);
+  // this.image.push(formData)
+  // console.log("in ts file: "+this.image);
+  
+  //console.log("file",file)
+  // this.http.postImage(file).subscribe(res => {
+  //   console.log("value is "+  res);
+  //           })
+  // }
+
+  // this.http.postImage(formData).subscribe(res => {
+  //   console.log("value is "+  res);
+  //           })
   }
 
   ngOnInit(): void {
