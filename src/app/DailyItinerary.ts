@@ -4,7 +4,7 @@ export class DailyItinerary {
   public day: string = '';
   public destination: string = '';
   public meal: string = '';
-  public sightSeeing: string = '';
+  public sightSeeing: any = '';
   public stay: string = '';
   public subDestination: string = '';
   public packageId: string = '';

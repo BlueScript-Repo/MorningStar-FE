@@ -37,7 +37,7 @@
                      </a>
                   </div>
                   <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;" id="popup4-open-btn" (click)="showModal4()" (click)="ShowData()"  href="#" data-bs-toggle="modal" data-bs-target="#Sight"
+                      <a style="text-decoration: none; color: black;width: 150px;" id="popup4-open-btn" (click)="showModal4()"  href="#" data-bs-toggle="modal" data-bs-target="#Sight"
                       class="fs-5">
                          SightSeeing <i class="fa fa-plus"></i>
                      </a>
@@ -92,6 +92,11 @@
   <button (click)="deleteTodo(t)" class="btn btn-outline-danger">-</button>
 </td>
 </tr>
+<!-- <tr *ngFor="let sigh of sight">
+  <td>
+    {{sigh.name}}
+  </td>
+</tr> -->
     </tbody>
   </table>
 </div>

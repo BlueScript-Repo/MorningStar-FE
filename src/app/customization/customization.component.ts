@@ -172,8 +172,8 @@ Data(data:any){
 
   ngOnInit(): void {
     this.getDestinations1();
-    this.getDestinations1();
-    this.getDestinations1();
+    // this.getDestinations1();
+    // this.getDestinations1();
     // this.getSubDestinations1(this.destinationForm);
   }
 
@@ -185,54 +185,57 @@ Data(data:any){
     }))
   }
   TotalData:DataList[]=[];
-  destination:DataList[]=[];
+  destination:any={};
   getSubdestination(destinationForm:any){
     var destination1=destinationForm.destination;
     console.log(destination1);
     console.log("Calling of Get SubDestinations......."+JSON.stringify(destination1));
-    this.packageService.getSubDestinations(destinationForm).subscribe((res) => {
+    this.packageService.getSubDestinations(destinationForm.key).subscribe((res) => {
       this.subDestinations = res;
       console.log(this.subDestinations);
     });
-    this.destination.push({
+    this.destination={
       name:destination1
-    })
+    }
+    console.log("destination Array  "+JSON.stringify(this.destination.name));
+    // this.destination={};
     console.log("destination Array  "+JSON.stringify(this.destination));
-    
   }
-  subdestination:DataList[]=[];
+  subdestination:any={};
   getStay(subDestinationForm:any){
     var subdestination1=subDestinationForm.Subdestination;
-    this.packageService.getStay(subDestinationForm).subscribe((res) => {
+    this.packageService.getStay(subDestinationForm.key).subscribe((res) => {
       console.log("Calling Get Stay Function........."+JSON.stringify(res));
       this.stays = res;
       console.log(this.stays);
     });
 
-    this.subdestination.push({
+    this.subdestination={
       name:subdestination1
-    })
+    }
     console.log("Subdestination Array: " + JSON.stringify(this.subdestination));
-    
+    // this.subdestination={};
   }
  
-stay:DataList[]=[];
+stay:any={};
 getMeal(stayForm:any){
   var stay1=stayForm.stay;
   console.log(stayForm);
   
   console.log(stay1);
-  this.packageService.getMeal(stayForm).subscribe((res) => {
+  console.log(stayForm.key);
+  
+  this.packageService.getMeal(stayForm.key).subscribe((res) => {
     console.log("Calling GetMeal Function........."+JSON.stringify(res));
     this.meal=res;
     console.log(this.meal);
     
   })
-    this.stay.push({
+    this.stay={
       name:stay1
-    })
+    }
     console.log("Stay array: " + JSON.stringify(this.stay));
-    
+    // this.stay={};
 }
 getSight(subdestination1:any){
 this.packageService.getSightseeing(subdestination1).subscribe((res) => {
@@ -243,16 +246,16 @@ this.packageService.getSightseeing(subdestination1).subscribe((res) => {
   
 })
 }
-meal1:DataList[]=[];
+meal1:any={};
 showMeal(mealForm:any){
   console.log(mealForm);
   var meal2=mealForm.meal;
   console.log(meal2);
   
-  this.meal1.push({
+  this.meal1={
     name:meal2
-  })
-
+  }
+console.log(this.meal);
 }
 
 sight:DataList[]=[];
@@ -260,9 +263,9 @@ showSight(sightForm:any){
   console.log(sightForm);
   var sight1=sightForm.sight;
   console.log(sight1);
-    this.sight.push({
-      name:sight1
-    })
+    this.sight.push(
+    sight1
+    )
     console.log("Sight array: " + JSON.stringify(this.sight));
     
 }
@@ -414,22 +417,22 @@ closeModal1(){
       checkIn: "20/12/22",
       checkOut: "23/12/22",
       day: '',
-      destination: this.destination[0].name,
-      meal: this.meal1[0].name,
-      sightSeeing: this.sight[0].name,
-      stay: this.stay[0].name,
-      subDestination: this.subdestination[0].name,
+      destination: this.destination.name,
+      meal: this.meal1.name,
+      sightSeeing: this.sight,
+      stay: this.stay.name,
+      subDestination: this.subdestination.name,
       packageId: '',
       deleted: false,
       dailyItineraryId: '',
-      place: this.destination[0].name
+      place: this.destination.name
     });
     console.log("This is DailyItinerary Array: " + JSON.stringify(this.dailyItinerary));
-    this.destination=[];
-    this.meal1=[];
+    this.destination={};
+    this.meal1={};
     this.sight=[];
-    this.subdestination=[];
-    this.stay=[];
+    this.subdestination={};
+    this.stay={};
 
         }
 

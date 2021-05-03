@@ -83,8 +83,8 @@ bucketName:any;
   }
 
   getMeal(meal: any) {
-    let url4 = this.baseUrl + 'meal/stayId/' + meal.key;
-    console.log("calling in Get STay in service : "+meal.key);
+    let url4 = this.baseUrl + 'meal/stayId/' + meal;
+    console.log("calling in Get STay in service : "+meal);
     return this.http.get(url4, this.httpOptions);
   }
 
