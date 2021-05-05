@@ -80,6 +80,19 @@ rolestorage:any;
   ngOnInit(): void {
     this.user=this.userService.userName
     console.log(this.user);
-  }
+  } 
+  // toggle1(){
+    
+  //   document.getElementById("sign-up-btn")?.addEventListener("onclick", function() {
+  //     document.getElementsByClassName("container")[0].classList.add("sign-up-mode");
+  //   });
+  // }
+  // toggle2(){
+    
+  //   document.getElementById("sign-in-btn")?.addEventListener("click", function() {
+  //     document.getElementsByClassName(".container")[0].classList.remove("sign-up-mode");
+  //   });
+    
+  // }
   
 }

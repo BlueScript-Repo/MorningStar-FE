@@ -105,7 +105,8 @@
             "scripts": [
               "src/assets/js/jquery.min.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/modal.js"
+              "src/assets/modal.js",
+              "src/assets/app.js"
             ]
           }
         },

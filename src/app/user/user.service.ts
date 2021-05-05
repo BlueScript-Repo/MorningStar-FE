@@ -15,7 +15,7 @@ export class UserService {
   userName="Mayur Bhakare";
 
   constructor(private http: HttpClient) {
-       this.usersUrl='http://morningstarapis-env.eba-k8smp6gh.ap-south-1.elasticbeanstalk.com/';
+       this.usersUrl='http://morningstarweb-env.eba-pb7idjdb.ap-south-1.elasticbeanstalk.com/';
    }  
 
    setRole(data:any){

@@ -37,7 +37,7 @@ bucketName:any;
       } 
 
   baseUrl =
-    'http://morningstarapis-env.eba-k8smp6gh.ap-south-1.elasticbeanstalk.com/';
+    'http://morningstarweb-env.eba-pb7idjdb.ap-south-1.elasticbeanstalk.com/';
   
   getUserData(user: any) {
     let url_user = this.baseUrl + 'user/contact/' + user;
