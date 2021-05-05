@@ -34,9 +34,12 @@ export class UserService {
     return this.http.post<UserRegistration>(url4, userRegistration);
   } 
 
+  username:any='';
   authenticate(userLogin: UserLogin):Observable<any>{
     let url1 = this.usersUrl + 'authenticate';
-    console.log(userLogin);
+    this.username=userLogin.userName;
+    localStorage.setItem("user",this.username);
+    console.log("This is user login:    "+JSON.stringify(userLogin));
     return this.http.post(url1,userLogin);
   }
   auth(){

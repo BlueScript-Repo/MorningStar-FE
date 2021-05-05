@@ -6,6 +6,7 @@ import { Package } from './../Package';
 import { PackagePdfRequest } from './../PackagePdfRequest';
 import {DataList} from './DataList';
 import { FormGroup, FormControl } from '@angular/forms';
+import {UserService} from './../user/user.service'
 @Component({
   selector: 'app-customization',
   templateUrl: './customization.component.html',
@@ -13,13 +14,11 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class CustomizationComponent implements OnInit {
   
-  constructor(private packageService: PackageServiceService) {}
+  constructor(private packageService: PackageServiceService,public authenticate:UserService) {}
   //MorningStar Changes
   userdata: any = {};
   destinationKey = '';
   title = '';
-
-  
   destinations: any = {};
   stays: any = {};
   sights: any = {};
@@ -107,42 +106,56 @@ subDestinations:any={}
   ];
 
    getStayAndSights(key: any) {
-  //   this.packageService.getStay(key.key).subscribe((res) => {
-  //     this.stays = res;
-  //   });
-
-  //   this.packageService.getSightseeing(key.key).subscribe((res) => {
-  //     this.sights = res;
-  //   });
     console.log(key.key);
     console.log(key.value);
 }
-Data(data:any){
-  console.log(data.subDestination);
-}
 
-  // getMeals(key: SelectedOption) {
-  //   this.packageService.getMeal(key.key).subscribe((res) => {
-  //     this.mealOptions = res;
-  //   });
-  // }
 
+ 
   deleteTodo(id: number) {
     this.dailyItinerary = this.dailyItinerary.filter((v, i) => i != id);
   }
 
+  role:any;
+  user:any;
   submitAndGeneratePDF(submitForm: any) {
+    let air: string='';
+    let Visa:string='';
+    let username:string='';
+    this.role=localStorage.getItem('role');
+    this.user=localStorage.getItem('user');
+    if (this.role=='ADMIN') {
+          username=this.userdata.firstName + ' ' + this.userdata.lastName;
+    }
+    else{
+      username=this.user;
+    }
+    if (submitForm.airTicket==true) {
+      air="true";
+    }
+    else if (submitForm.airTicket==false){
+      air="false";
+    }
+    
+    if (submitForm.visa==true) {
+      Visa="true";
+    }
+    else if (submitForm.visa==false){
+      Visa="false";
+    }
     this.package = {
       agent: 'Agent Vinod',
-      airTickets: submitForm.airTicket,
+      airTickets: air,
+      // airTickets: submitForm.airTicket,
       price: submitForm.price,
-      user: this.userdata.firstName + ' ' + this.userdata.lastName,
-      visa: submitForm.visa,
+      user: username,
+      visa:Visa,
+      // visa: submitForm.visa,
       dailyItineraries: this.dailyItinerary,
     };
 
     this.packagePdfRequest = {
-      destination: this.dailyItinerary[0].destination,
+      destination: this.destination.name,
       fistName: this.userdata.firstName,
       lastName: this.userdata.lastName,
       lengthOfStay: this.dailyItinerary.length + '',
@@ -267,8 +280,9 @@ showSight(sightForm:any){
     sight1
     )
     console.log("Sight array: " + JSON.stringify(this.sight));
-    
+   
 }
+
 AddData:DataList[]=[];
 // ShowData(){
 //   this.TotalData=this.destination.concat(this.subdestination);
@@ -413,19 +427,25 @@ closeModal1(){
         }
 
         ShowData(){
+          let sightString:string='';
+          for (let i = 0; i < this.sight.length; i++) {
+             sightString = sightString+","+this.sight[i];
+           }
+           console.log(sightString);
+           
           this.dailyItinerary.push({
       checkIn: "20/12/22",
       checkOut: "23/12/22",
       day: '',
-      destination: this.destination.name,
+      // destination: this.destination.name,
       meal: this.meal1.name,
-      sightSeeing: this.sight,
+      sightSeeing:sightString,
       stay: this.stay.name,
       subDestination: this.subdestination.name,
       packageId: '',
       deleted: false,
-      dailyItineraryId: '',
-      place: this.destination.name
+      dailyItineraryId: ''
+      // place: this.destination.name
     });
     console.log("This is DailyItinerary Array: " + JSON.stringify(this.dailyItinerary));
     this.destination={};

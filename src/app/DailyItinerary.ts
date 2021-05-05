@@ -2,7 +2,7 @@ export class DailyItinerary {
   public checkIn: string = '';
   public checkOut: string = '';
   public day: string = '';
-  public destination: string = '';
+  // public destination: string = '';
   public meal: string = '';
   public sightSeeing: any = '';
   public stay: string = '';
@@ -10,5 +10,5 @@ export class DailyItinerary {
   public packageId: string = '';
   public dailyItineraryId: string = '';
   public deleted = true;
-  public place: string = '';
+  // public place: string = '';
 }

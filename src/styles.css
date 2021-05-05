@@ -1827,13 +1827,14 @@ input[type=radio]:checked:before {
 	padding-top: 12px;
 	padding-right: 15px;
 	padding-bottom: 10px;
-	background-color: #111;
+	background-color: #fff;
 	border-radius: 500px;
-	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5);
+	box-shadow:10px 10px 10px rgba(0, 0, 0,0.5);
 	width: 40px;
 	color: #ffd200;
-	margin-top: -160px;
+	margin-top: -190px;
 	margin-left: -70px;
+	cursor: pointer;
 }
 
 #trending .owl-nav .owl-next{
@@ -1841,15 +1842,17 @@ input[type=radio]:checked:before {
 	padding-top: 10px;
 	padding-right: 11px;
 	padding-bottom: 10px;
-	background-color: #111;
+	background-color: #fff;
 	border-radius: 500px;
-	box-shadow:0px 10px 10px rgba(0, 0, 0,0.5);
+	box-shadow:10px 10px 10px rgba(0, 0, 0,0.5);
 	width: 40px;
 	color: #ffd200;
 	margin-top: -35px;
 	margin-left: 100%;
 	margin-right: 20px;
+	cursor: pointer;
 }
+
 
 #deals_discount .owl-nav .owl-next{
 	padding-left: 15px;

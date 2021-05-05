@@ -5,21 +5,75 @@
       <h1 class="heading_primary">Package Customize</h1></div>
   </div>
        
-   <section style="margin-top: -20px;" class="content-area">
+  <div align="center" *ngIf="authenticate.Role=='ADMIN'" style="margin-left: 12%;padding-top: 100px;" class="container row">
+    <div class="shortcode_title title-center title-decoration-bottom-center mb-5 mt-5">
+      <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Find User</h4><span class="line_after_title"></span>
+  </div>
+    <div class="mb-3 row">
+      <!-- <label for="staticEmail" style="margin-left: 0px;margin-top: -3px;" class="col-md-2 col-form-label">Find
+        User</label> -->
+      <div class="col-sm-4 mb-5">
+        <input type="text" style="margin-left: -100px;width: 180px;font-size: 12px" #contact_number class="form-control"
+          id="staticEmail" placeholder="Enter your contact Number">
+      </div>
+      <div align="left" class="col-sm-4">
+        <button style="width: 80px;height:30px;font-size: 13px;margin-left: -35%;"
+        (click)="getUserData2(contact_number.value)" class="col-sm-2 btn btn-outline-primary">
+        Find
+      </button>
+      </div>
+     
+      <table id="t1" style="border: none;" class="table container">
+        <thead style="border-top: none;border-right: none;">
+          <th style="border-top: none;border-right: none;">
+            First Name
+          </th>
+          <th style="border-top: none;border-right: none;">
+            Last Name
+          </th>
+          <th style="border-top: none;border-right: none;">
+            Contact Number
+          </th>
+          <th style="border-top: none;border-right: none;">
+            E-mail
+          </th>
+          <th style="border-top: none;border-right: none;">
+            PIN
+          </th>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border-top: none;border-right: none;">{{userdata.firstName}}</td>
+            <td style="border-top: none;border-right: none;">{{userdata.lastName}}</td>
+            <td style="border-top: none;border-right: none;">{{userdata.contactNo}} </td>
+            <td style="border-top: none;border-right: none;">{{userdata.email}} </td>
+            <td style="border-top: none;border-right: none;">{{userdata.pinCode}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+   <section style="margin-top: -90px;" class="content-area">
     <div class="container-fluid">
       
       <div align="center" class="row mt-5 mb-3">
                   <div class="shortcode_title title-center title-decoration-bottom-center mb-5 mt-5">
                     <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h4><span class="line_after_title"></span>
                 </div>
+                <div style="margin-bottom:90px" class="col-md-12">
+                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (click)="showModal()" class="fs-5">
+                     Destination <i class="fa fa-plus"></i>
+                 </a>
+                 <p class="fs-5 mt-3">{{destination.name}}</p>
+              </div>
                  
 
-                  <div class="col-md-2">
+                  <!-- <div class="col-md-2">
                       <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (click)="showModal()" class="fs-5">
                          Destination <i class="fa fa-plus"></i>
                      </a>
-                  </div>
-                  <div class="col-md-2">
+                  </div> -->
+                  <div class="col-md-3">
                       <a style="text-decoration: none; color: black;width: 150px;cursor: pointer"  id="popup1-open-btn" (click)="showModal1()" class="fs-5">
                          Sub-destination <i class="fa fa-plus"></i>
                      </a>
@@ -36,7 +90,7 @@
                          Meal <i class="fa fa-plus"></i>
                      </a>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-3">
                       <a style="text-decoration: none; color: black;width: 150px;" id="popup4-open-btn" (click)="showModal4()"  href="#" data-bs-toggle="modal" data-bs-target="#Sight"
                       class="fs-5">
                          SightSeeing <i class="fa fa-plus"></i>
@@ -52,43 +106,43 @@
 <div style="padding-bottom:100px ;" class="container">
   <table id=table class="table" style="border: 0px;border-bottom: 2px solid black;">
       <thead >
-        <th style="border: 0px solid white;">
+        <!-- <th style="border: 0px solid white;">
           Destination
-        </th>
-        <th style="border: 0px solid white;">
+        </th> -->
+        <th style="border-top: none;border-right: none;">
           Sub Destination
         </th>
-        <th style="border: 0px solid white;">
+        <th style="border-top: none;border-right: none;">
           Stay
         </th>
-        <th style="border: 0px solid white;">
+        <th style="border-top: none;border-right: none;">
           Meal
         </th>
-        <th style="border: 0px solid white;">
+        <th style="border-top: none;border-right: none;">
           SightSeeing
         </th>
-        <th style="border: 0px solid white;">
+        <th style="border-top: none;border-right: none;">
           Delete
         </th>
       </thead>
     <tbody>
 <tr *ngFor="let i of dailyItinerary;let t=index">
-<td>
+<!-- <td>
   {{i.destination}}
-</td>
-<td>
+</td> -->
+<td style="border-top: none;border-right: none;">
   {{i.subDestination}}
 </td>
-<td>
+<td style="border-top: none;border-right: none;">
   {{i.stay}}
 </td>
-<td>
+<td style="border-top: none;border-right: none;">
   {{i.meal}}
 </td>
-<td>
+<td style="border-top: none;border-right: none;">
   {{i.sightSeeing}}
 </td>
-<td>
+<td style="border-top: none;border-right: none;">
   <button (click)="deleteTodo(t)" class="btn btn-outline-danger">-</button>
 </td>
 </tr>
@@ -441,6 +495,37 @@
                       </div>
   </div>
   </div>
+  <form #submitForm="ngForm" (ngSubmit)="submitAndGeneratePDF(submitForm.value)">
+    <div class="container">
+      <div style="padding-left:20%;padding-top: 0px;padding-bottom: 50px;" class="row ">
+        <div class="col-md-2">
+          <div style="margin-top: 35px;" class="form-check">
+            <input class="form-check-input" type="checkbox" ngModel name="airTicket" id="airTicket">
+            <label class="form-check-label" for="airTicket">
+              Air Tickets
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div style="margin-top: 35px;" class="form-check">
+            <input class="form-check-input" type="checkbox" ngModel name="visa" id="visa">
+            <label style="margin-left: 10px;" class="form-check-label" for="visa">
+              Visa
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="price" class="form-label">Price</label>
+          <input type="text" ngModel class="form-control" name="price" placeholder="Enter the price">
+        </div>
+        <div class="col-md-4">
+          <button type="submit" style="margin-left: 30px;margin-top: 30px;"
+            class="btn btn-outline-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
 </div>
 
 

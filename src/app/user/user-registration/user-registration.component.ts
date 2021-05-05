@@ -57,7 +57,7 @@ rolestorage:any;
     console.log(this.userLogin.password);
     
      this.userService.authenticate(this.userLogin).subscribe((result)=>{       
-      console.log(result);
+      console.log("This is Result: "+JSON.stringify(result));
       this.token=result;
       console.log(this.token.jwtToken);
       this.role=result.role;
