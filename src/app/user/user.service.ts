@@ -51,6 +51,6 @@ export class UserService {
       this.Role=localStorage.removeItem('role');
       localStorage.removeItem('token')
       console.log("After Logout"+this.Role);
-      
+      localStorage.removeItem('user')
     }
 }
