@@ -35,7 +35,9 @@ import { UserGuard } from './user.guard';
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
-  {path:'customPackage',component: CustomizationComponent},
+  {path:'UsercustomPackage',component: CustomizationComponent,canActivate:[UserGuard]},
+  {path:'AgentcustomPackage',component: CustomizationComponent,canActivate:[AgentGuard]},
+  {path:'AdmincustomPackage',component: CustomizationComponent,canActivate:[AuthGuard]},
   {path:'LoginPage',component: UserRegistrationComponent},
   {path:'updatePage',component: UpdateComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
