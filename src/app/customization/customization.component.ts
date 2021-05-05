@@ -67,55 +67,16 @@ subDestinations:any={}
     let sight = dayForm.sightSeeing.name;
     let checkIn = dayForm.checkIn;
     let checkOut=dayForm.checkOut;
-
-    // this.dailyItinerary.push({
-    //   checkIn: checkIn,
-    //   checkOut: checkOut,
-    //   day: '',
-    //   destination: dest,
-    //   meal: meal,
-    //   sightSeeing: sight,
-    //   stay: stay,
-    //   subDestination: subDest,
-    //   packageId: '',
-    //   deleted: false,
-    //   dailyItineraryId: '',
-    //   place: dest,
-    // });
-  }
-
-  // getDestinations() {
-  //   this.packageService.getDestinations().subscribe((res) => {
-  //     console.log('Response is ' + res);
-  //     this.destinations = res;
-  //   });
-  // }
-
-  // getSubDestinations(key: SelectedOption) {
-  //   this.packageService.getSubDestinations(key.key).subscribe((res) => {
-  //     this.subDestinations = res;
-  //   });
-  // }
-
-  subDestinations1=[
-    {key: 'SUB123',value:"chepauk"},
-    {key: 'SUB123',value:"chepauk"},
-    {key: 'SUB123',value:"chepauk"},
-    {key: 'SUB123',value:"chepauk"},
-    {key: 'SUB123',value:"chepauk"}
-  ];
+}
 
    getStayAndSights(key: any) {
     console.log(key.key);
     console.log(key.value);
 }
-
-
  
   deleteTodo(id: number) {
     this.dailyItinerary = this.dailyItinerary.filter((v, i) => i != id);
   }
-
   role:any;
   user:any;
   submitAndGeneratePDF(submitForm: any) {
@@ -185,10 +146,7 @@ subDestinations:any={}
 
   ngOnInit(): void {
     this.getDestinations1();
-    // this.getDestinations1();
-    // this.getDestinations1();
-    // this.getSubDestinations1(this.destinationForm);
-  }
+    }
 
   desti:any={}
   getDestinations1(){
@@ -211,7 +169,6 @@ subDestinations:any={}
       name:destination1
     }
     console.log("destination Array  "+JSON.stringify(this.destination.name));
-    // this.destination={};
     console.log("destination Array  "+JSON.stringify(this.destination));
   }
   subdestination:any={};
@@ -227,7 +184,6 @@ subDestinations:any={}
       name:subdestination1
     }
     console.log("Subdestination Array: " + JSON.stringify(this.subdestination));
-    // this.subdestination={};
   }
  
 stay:any={};
@@ -248,7 +204,6 @@ getMeal(stayForm:any){
       name:stay1
     }
     console.log("Stay array: " + JSON.stringify(this.stay));
-    // this.stay={};
 }
 getSight(subdestination1:any){
 this.packageService.getSightseeing(subdestination1).subscribe((res) => {
@@ -284,17 +239,6 @@ showSight(sightForm:any){
 }
 
 AddData:DataList[]=[];
-// ShowData(){
-//   this.TotalData=this.destination.concat(this.subdestination);
-//   console.log(this.TotalData);
-//   this.TotalData=this.TotalData.concat(this.stay);
-//   console.log(this.TotalData);
-//   this.TotalData=this.TotalData.concat(this.meal1);
-//   console.log(this.TotalData);
-//   this.AddData=this.TotalData.concat(this.sight);
-//   console.log(this.AddData);
-  
-// }
 
 title1 = 'OwlCarousel2 in Angular7 with Custom Navigation Arrows';
 
