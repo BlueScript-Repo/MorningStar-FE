@@ -81,6 +81,16 @@ rolestorage:any;
     this.user=this.userService.userName
     console.log(this.user);
   } 
+  toggle(){
+    document.getElementById("sign-up-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("container123")[0].classList.add("sign-up-mode");
+    } )
+  }
+  toggle2(){
+    document.getElementById("sign-in-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("container123")[0].classList.remove("sign-up-mode");
+    } )
+  }
   // toggle1(){
     
   //   document.getElementById("sign-up-btn")?.addEventListener("onclick", function() {
