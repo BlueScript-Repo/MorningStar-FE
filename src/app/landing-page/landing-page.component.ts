@@ -57,19 +57,29 @@ export class LandingPageComponent implements OnInit {
        200: {
          items: 2
        },
-       440: {
+       300: {
          items: 3
        },
-      // 600: {
-      //   items: 4
-      // },
-      // 800: {
-      //   items:5
-      // }
-      // 1000: {
-      //   items: 6
-      // }
+      400: {
+        items: 4
+      },
+      500: {
+        items:5
+      },
+      600: {
+        items: 6
+      },
+      700:{
+        items:7
+      },
+      800:{
+        items:8
+      },
+      900:{
+        items:9
+      }
     },
   }
+  
 }
 

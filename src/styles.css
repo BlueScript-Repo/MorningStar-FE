@@ -1852,6 +1852,39 @@ input[type=radio]:checked:before {
 	margin-right: 20px;
 	cursor: pointer;
 }
+#exploreByTheme .owl-nav .owl-next{
+	padding-left: 15px;
+	padding-top: 10px;
+	padding-right: 11px;
+	padding-bottom: 10px;
+	background-color: #fff;
+	border-radius: 500px;
+	box-shadow:10px 10px 10px rgba(0, 0, 0,0.5);
+	width: 40px;
+	color: #ffd200;
+	margin-top: -35px;
+	margin-left: 100%;
+	margin-right: 20px;
+	cursor: pointer;
+	/* z-index: 955; */
+}
+#exploreByTheme{
+	padding-left: 150px;
+}
+#exploreByTheme .owl-nav .owl-prev{
+	padding-left: 12px;
+	padding-top: 12px;
+	padding-right: 15px;
+	padding-bottom: 10px;
+	background-color: #fff;
+	border-radius: 500px;
+	box-shadow:10px 10px 10px rgba(0, 0, 0,0.5);
+	width: 40px;
+	color: #ffd200;
+	margin-top: -140px;
+	margin-left: -70px;
+	cursor: pointer;
+}
 
 
 #deals_discount .owl-nav .owl-next{
