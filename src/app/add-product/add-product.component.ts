@@ -203,6 +203,17 @@ export class AddProductComponent implements OnInit {
 
   }
 
-
+  modal(){
+    document.getElementById("open-popup-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup")[0].classList.add("active");
+    });
+   }
+   closeModal(){
+     
+    document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup")[0].classList.remove("active");
+    });
+   }
+   
 
 }
