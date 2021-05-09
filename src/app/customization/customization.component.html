@@ -5,7 +5,7 @@
       <h1 class="heading_primary">Package Customize</h1></div>
   </div>
        
-  <div align="center" *ngIf="authenticate.Role=='ADMIN'" style="margin-left: 12%;padding-top: 100px;" class="container row">
+  <div align="center" style="margin-left: 12%;padding-top: 100px;" class="container row">
     <div class="shortcode_title title-center title-decoration-bottom-center mb-5 mt-5">
       <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Find User</h4><span class="line_after_title"></span>
   </div>
@@ -13,7 +13,7 @@
       <!-- <label for="staticEmail" style="margin-left: 0px;margin-top: -3px;" class="col-md-2 col-form-label">Find
         User</label> -->
       <div class="col-sm-4 mb-5">
-        <input type="text" style="margin-left: -100px;width: 180px;font-size: 12px" #contact_number class="form-control"
+        <input type="text" style="margin-left: -100px;width: 180px;font-size: 14px" #contact_number class="form-control input1"
           id="staticEmail" placeholder="Enter your contact Number">
       </div>
       <div align="left" class="col-sm-4">
@@ -61,33 +61,33 @@
                     <h4 class="title_primary"><i style="margin-right:10px" class="fab fa-artstation"></i>Customize Your Package</h4><span class="line_after_title"></span>
                 </div>
                 <div style="margin-bottom:90px" class="col-md-12">
-                    <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-5">
+                    <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-3">
                       Destination
                     </p>  
                      <div style="margin-top:-25px;margin-left: 90px;" class="container12">
                       <input type="text" class="input" placeholder="Search">
-                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (click)="showModal()" class="fs-5">
+                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (mouseenter)="showModal()" class="fs-3">
                     <div class="btnSearch">
                         <i class="fa fa-search"></i>	
                       </div>
                  </a>
                 </div>
-                 <p class="fs-5 mt-3">{{destination.name}}</p>
+                 <p class="fs-2 mt-3">{{destination.name}}</p>
               </div>
                  
 
                   <!-- <div class="col-md-2">
-                      <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (click)="showModal()" class="fs-5">
+                      <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup-open-btn" (mouseenter)="showModal()" class="fs-3">
                          Destination <i class="fa fa-plus"></i>
                      </a>
                   </div> -->
                   <div class="col-md-3">
-                     <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-5">
+                     <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-3">
                       Sub-destination
                     </p>  
                      <div style="margin-top:-25px;margin-left: 90px;" class="container12">
                       <input type="text" class="input" placeholder="Search">
-                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup1-open-btn" (click)="showModal1()" class="fs-5">
+                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup1-open-btn" (mouseenter)="showModal1()" class="fs-3">
                     <div class="btnSearch">
                         <i class="fa fa-search"></i>	
                       </div>
@@ -95,12 +95,12 @@
                 </div>
                   </div>
                   <div class="col-md-3">
-                     <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-5">
+                     <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-3">
                       Stay
                     </p>  
                      <div style="margin-top:-25px;margin-left: 30px;" class="container12">
                       <input type="text" class="input" placeholder="Search">
-                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup2-open-btn" (click)="showModal2()" class="fs-5">
+                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup2-open-btn" (mouseenter)="showModal2()" class="fs-3">
                     <div class="btnSearch">
                         <i class="fa fa-search"></i>	
                       </div>
@@ -108,12 +108,12 @@
                 </div>
                   </div>
                   <div class="col-md-2">
-                    <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-5">
+                    <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-3">
                       Meal
                     </p>  
                      <div style="margin-top:-25px;margin-left: 30px;" class="container12">
                       <input type="text" class="input" placeholder="Search">
-                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup3-open-btn" (click)="showModal3()" class="fs-5">
+                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup3-open-btn" (mouseenter)="showModal3()" class="fs-3">
                     <div class="btnSearch">
                         <i class="fa fa-search"></i>	
                       </div>
@@ -121,12 +121,12 @@
                 </div>
                   </div>
                   <div class="col-md-3">
-                    <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-5">
+                    <p style="text-decoration: none; color: black;width: 150px;cursor: pointer" class="fs-3">
                       Sightseeing
                     </p>  
                      <div style="margin-top:-25px;margin-left: 70px;" class="container12">
                       <input type="text" class="input" placeholder="Search">
-                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup4-open-btn" (click)="showModal4()" class="fs-5">
+                  <a style="text-decoration: none; color: black;width: 150px;cursor: pointer" id="popup4-open-btn" (mouseenter)="showModal4()" class="fs-3">
                     <div class="btnSearch">
                         <i class="fa fa-search"></i>	
                       </div>
@@ -134,7 +134,7 @@
                 </div>
                   </div>
                   <div align="right" style="margin-left: -15%;margin-top: 5%;" class="col-md-12 mt-5">
-                    <button style="color:white;margin-top:-50px" type="submit" class="btn12" (click)="ShowData()">Add</button>
+                    <button style="color:white;margin-top:-50px" type="submit" class="btn1" (click)="ShowData()">Add</button>
                   </div>
           </div>
     </div>
@@ -256,7 +256,7 @@
                       <button type="submit" class="bt12">Add</button>
                       </form>
                       <div class="dismiss-btn">
-                        <button (click)="closeModal()" class="btn12" id="dismiss-popup-btn">
+                        <button (mouseenter)="closeModal()" class="btn1" id="dismiss-popup-btn">
                           Close
                         </button>
                       </div>
@@ -327,7 +327,7 @@
                       <button type="submit" class="bt12">Add</button>
                       </form>
                       <div class="dismiss-btn">
-                        <button (click)="closeModal1()" class="btn12" id="dismiss-popup1-btn">
+                        <button (mouseenter)="closeModal1()" class="btn1" id="dismiss-popup1-btn">
                           Close
                         </button>
                       </div>
@@ -397,7 +397,7 @@
                       <button type="submit" class="bt12">Add</button>
                       <!-- </form> -->
                       <div class="dismiss-btn">
-                        <button (click)="closeModal2()" class="btn12" id="dismiss-popup2-btn">
+                        <button (mouseenter)="closeModal2()" class="btn1" id="dismiss-popup2-btn">
                           Close
                         </button>
                       </div>
@@ -457,7 +457,7 @@
                       <button type="submit" class="bt12">Add</button>
                       <!-- </form> -->
                       <div class="dismiss-btn">
-                        <button (click)="closeModal3()" class="btn12" id="dismiss-popup3-btn">
+                        <button (mouseenter)="closeModal3()" class="btn1" id="dismiss-popup3-btn">
                           Close
                         </button>
                       </div>
@@ -526,7 +526,7 @@
                       <button type="submit" class="bt12">Add</button>
                       <!-- </form> -->
                       <div class="dismiss-btn">
-                        <button (click)="closeModal4()" class="btn12" id="dismiss-popup4-btn">
+                        <button (mouseenter)="closeModal4()" class="btn1" id="dismiss-popup4-btn">
                           Close
                         </button>
                       </div>
@@ -554,11 +554,11 @@
         </div>
         <div class="col-md-2">
           <label for="price" class="form-label">Price</label>
-          <input type="text" ngModel class="form-control" name="price" placeholder="Enter the price">
+          <input type="text" style="height:30px;font-size: 14px;" ngModel class="form-control input1" name="price" placeholder="Enter the price">
         </div>
         <div class="col-md-4">
           <button type="submit" style="margin-left: 30px;margin-top: 30px;"
-            class="btn btn-outline-primary">Submit</button>
+            class=" btn12">Submit</button>
         </div>
       </div>
     </div>

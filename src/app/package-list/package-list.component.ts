@@ -65,11 +65,14 @@ this.productCode=val.code;
       this.router.navigate(["/AgentProductDetails"]);
       this.http.setArray(this.productDetails);  
     }
+    else {
+      this.router.navigate(["/LoginPage"])
+    }
   })
   
   }
   nav(){
-    this.router.navigate(["/customPackage"])
+    this.router.navigate(["/customPackage"]);
   }
 
 }

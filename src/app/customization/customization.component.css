@@ -687,14 +687,14 @@ h6 {
 .tour-reviews-item .reviews-item-info .reviews-item-rating i {
 	color: #333;
 }
-.btn12{
+.btn1{
     background:#ffd200 ;
     border:1px solid #ffd200;
     width:100px;
     height:40px;
     margin-top: 20px;
 }
-.btn12:focus{
+.btn1:focus{
     outline: 1px solid #ffd200;
 }
 .owl-carousel {
@@ -983,3 +983,26 @@ h6 {
 	.btnSearch:hover{
 		background: rgb(89, 214, 255);;
 	}
+	.btn12{
+		background:transparent ;
+		border:2px solid #ffd200;
+		width:100px;
+		height:40px;
+		margin-top: 20px;
+		border-radius:30px;
+		color: #ffd200;
+		font-size: 16px;
+	}
+	.btn12:focus{
+		outline: 0px solid #fff;
+	}
+	.btn12:hover{
+	  background: #ffd200;
+	  color: #fff
+	}
+	.input1{
+		/* margin-top: 10px; */
+		height: 35px;
+		font-size:14px
+	}
+	

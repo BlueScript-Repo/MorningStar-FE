@@ -16,6 +16,7 @@ import {Images} from './MultiImages';
 })
 export class AddProductComponent implements OnInit {
   subdestinations:Subdestination[]=[];
+  subdestinationOptions:Subdestination[]=[];
   productSubDestination:SubdestinationHotel[]=[];
   productPrice:Price[] = [];
   productInclusion:Inclusion[] = [];
@@ -65,6 +66,7 @@ export class AddProductComponent implements OnInit {
     })
     console.log(this.subdestinations);
     sub=" ";
+    this.subdestinationOptions=this.subdestinations;
   }
 
   showSubdestination(type:any,subdesti:any,hot:any){
@@ -121,14 +123,26 @@ export class AddProductComponent implements OnInit {
  
   ngOnInit(): void {
   }
-
-  deleteTodo(id: number) {
-    this.subdestinations = this.subdestinations.filter((v, i) => i != id);
-    this.productSubDestination = this.productSubDestination.filter((v, i) => i != id);
+  deletePrice(id:number){
     this.productPrice = this.productPrice.filter((v, i) => i != id);
-    this.productInclusion = this.productInclusion.filter((v, i) => i != id);
+  }
+  deleteSubdestination(id:any){
+
+    this.subdestinations = this.subdestinations.filter((v, i) => i != id);
+  }
+  deleteSubdest(id:any){
+    this.productSubDestination = this.productSubDestination.filter((v, i) => i != id);
+  }
+  deleteExclusion(id:any){
     this.productExclusion = this.productExclusion.filter((v, i) => i != id);
+  }
+  deleteInclusion(id:any){
+    this.productInclusion = this.productInclusion.filter((v, i) => i != id);
+  }
+  deleteDays(id:any){
     this.productDays = this.productDays.filter((v, i) => i != id);
+  }
+  deleteTodo(id: number) {
     this.images = this.images.filter((v:any,i:any) => i != id);
   }
 

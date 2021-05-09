@@ -41,3 +41,8 @@
 .nav-tabs{
     border: none;
 }
+input{
+    margin-top: 10px;
+    height: 35px;
+    font-size:14px
+}

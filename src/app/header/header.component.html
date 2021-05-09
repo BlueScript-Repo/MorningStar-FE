@@ -1,168 +1,33 @@
 
-<header *ngIf="authenticate.Role=='USER' else elseblock" id="masthead" class="site-header sticky_header affix-top">
+<header  id="masthead" class="site-header sticky_header affix-top">
     <div style="margin-top: 0%;" class="navigation-menu">
-        <div class="container-fluid">
+        <div class="">
             <div class="menu-mobile-effect navbar-toggle button-collapse" data-activates="mobile-demo">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </div>
             
-            <div class="row">
-                <div align="center" style="margin-top:20px" class="col-md-3">
-                    <a style="text-decoration:none" href="" title="Travel" rel="home">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;" alt="Logo" width="974" height="30" class="logo_transparent_static">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;margin-top: -10px;" alt="Sticky logo" width="474" height="130" class="logo_sticky">
-                    </a>
-                </div>
-                <div align="center" class="col-9">
+            <div style="margin-bottom: -30px;" class="sm-logo">
+                <a href="" title="Travel" rel="home">
+                    <img src="assets/log1.png" alt="Logo" width="274" height="10" class="logo_transparent_static">
+                    <img src="assets/log1.png" alt="Sticky logo" width="274" height="130" class="logo_sticky">
+                </a>
+            </div>
                     <nav class="width-navigation">
                         <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
                             <li class="">
                                 <a style="text-decoration:none" routerLink="LandingPage" >Home</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="UsercustomPackage" >Customize Package</a>
+                            <li *ngIf="authenticate.Role=='USER'" class="menu-item-has-children">
+                                <a style="text-decoration:none" routerLink="customPackage" >Customize Package</a>
                             </li>
-    
+                            
                             <li><a style="text-decoration:none" routerLink="deals">Deals</a></li>
-                            <!-- <li><a style="text-decoration:none" routerLink="Inquiries">Inquiries</a></li> -->
-                            <!-- <li><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li> -->
-                            <li><a style="text-decoration:none" routerLink="packageList">Search Package</a></li>
-    
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="updatePage" >Upload Data</a>
-                            </li> -->
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="uploadProduct" >Upload Product</a>
-                            </li> -->
-                            <li><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
-                            <li class="menu-right">
-                                <ul>
-                                    <li id="travel_social_widget-2" class="widget travel_search">
-                                        <div class="search-toggler-unit">
-                                            <div class="search-toggler">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                        <div class="search-menu search-overlay search-hidden">
-                                            <div class="closeicon"></div>
-                                            <form method="get" class="search-form" action="tours.html">
-                                                <input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
-                                                <input type="submit" class="search-submit font-awesome" value="&#xf002;">
-                                            </form>
-                                            <div class="background-overlay"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</header>
-
-
-<header *ngIf="authenticate.Role=='AGENT' else elseblock" id="masthead" class="site-header sticky_header affix-top">
-    <div style="margin-top: 0%;" class="navigation-menu">
-        <div class="container-fluid">
-            <div class="menu-mobile-effect navbar-toggle button-collapse" data-activates="mobile-demo">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </div>
-            
-            <div class="row">
-                <div align="center" style="margin-top:20px" class="col-md-3">
-                    <a style="text-decoration:none" href="" title="Travel" rel="home">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;" alt="Logo" width="974" height="30" class="logo_transparent_static">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;margin-top: -10px;" alt="Sticky logo" width="474" height="130" class="logo_sticky">
-                    </a>
-                </div>
-                <div align="center" class="col-9">
-                    <nav class="width-navigation">
-                        <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
-                            <li class="">
-                                <a style="text-decoration:none" routerLink="LandingPage" >Home</a>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="AgentcustomPackage" >Customize Package</a>
-                            </li>
-    
-                            <li><a style="text-decoration:none" routerLink="deals">Deals</a></li>
-                            <li><a style="text-decoration:none" routerLink="AgentInquiries">Inquiries</a></li>
-                            <!-- <li><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li> -->
-                            <li><a style="text-decoration:none" routerLink="packageList">Search Package</a></li>
-    
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="updatePage" >Upload Data</a>
-                            </li> -->
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="uploadProduct" >Upload Product</a>
-                            </li> -->
-                            <li><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
-                            <li class="menu-right">
-                                <ul>
-                                    <li id="travel_social_widget-2" class="widget travel_search">
-                                        <div class="search-toggler-unit">
-                                            <div class="search-toggler">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                        <div class="search-menu search-overlay search-hidden">
-                                            <div class="closeicon"></div>
-                                            <form method="get" class="search-form" action="tours.html">
-                                                <input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
-                                                <input type="submit" class="search-submit font-awesome" value="&#xf002;">
-                                            </form>
-                                            <div class="background-overlay"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</header>
-
-
-<header *ngIf="authenticate.Role=='ADMIN' else elseblock" id="masthead" class="site-header sticky_header affix-top">
-    <div style="margin-top: 0%;" class="navigation-menu">
-        <div class="container-fluid">
-            <div class="menu-mobile-effect navbar-toggle button-collapse" data-activates="mobile-demo">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </div>
-            
-            <div class="row">
-                <div align="center" style="margin-top:20px" class="col-md-3">
-                    <a style="text-decoration:none" href="" title="Travel" rel="home">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;" alt="Logo" width="974" height="30" class="logo_transparent_static">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;margin-top: -10px;" alt="Sticky logo" width="474" height="130" class="logo_sticky">
-                    </a>
-                </div>
-                <div align="center" class="col-9">
-                    <nav class="width-navigation">
-                        <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
-                            <li class="">
-                                <a style="text-decoration:none" routerLink="LandingPage" >Home</a>
-                            </li>
-                            <li class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="AdmincustomPackage" >Customize Package</a>
-                            </li>
-    
-                            <li><a style="text-decoration:none" routerLink="deals">Deals</a></li>
-                            <li><a style="text-decoration:none" routerLink="Inquiries">Inquiries</a></li>
-                            <li><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li>
-                            <li><a style="text-decoration:none" routerLink="packageList">Search Package</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="Inquiries">Inquiries</a></li>
+                            <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" routerLink="AgentInquiries">Inquiries</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li>
+                            <li><a style="text-decoration:none" routerLink="packageList">Search</a></li>
     
                             <li class="menu-item-has-children">
                                 <a style="text-decoration:none" routerLink="updatePage" >Upload Data</a>
@@ -170,7 +35,10 @@
                             <li class="menu-item-has-children">
                                 <a style="text-decoration:none" routerLink="uploadProduct" >Upload Product</a>
                             </li>
-                            <li><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                            <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                            <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                            <li *ngIf="authenticate.Role==null"><a style="text-decoration:none" routerLink="LoginPage">Log In</a></li>
                             <li class="menu-right">
                                 <ul>
                                     <li id="travel_social_widget-2" class="widget travel_search">
@@ -192,80 +60,9 @@
                             </li>
                         </ul>
                     </nav>
-                </div>
-            </div>
             
         </div>
     </div>
 </header>
 
 
-
-
-<ng-template #elseblock>
-<header *ngIf="authenticate.Role==null" id="masthead" class="site-header sticky_header affix-top">
-    <div style="margin-top: 0%;" class="navigation-menu">
-        <div class="container-fluid">
-            <div class="menu-mobile-effect navbar-toggle button-collapse" data-activates="mobile-demo">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </div>
-            
-            <div class="row">
-                <div align="center" style="margin-top:20px" class="col-md-3">
-                    <a style="text-decoration:none" href="" title="Travel" rel="home">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;" alt="Logo" width="974" height="30" class="logo_transparent_static">
-                        <img src="assets/log1.png" style="margin-top: 0px;width:320px;margin-top: -10px;" alt="Sticky logo" width="474" height="130" class="logo_sticky">
-                    </a>
-                </div>
-                <div align="center" class="col-9">
-                    <nav class="width-navigation">
-                        <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
-                            <li class="">
-                                <a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="LandingPage" >Home</a>
-                            </li>
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="customPackage" >Customize Package</a>
-                            </li>
-     -->
-                            <li><a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="deals">Deals</a></li>
-                            <!-- <li><a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="Inquiries">Inquiries</a></li> -->
-                            <!-- <li><a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="agentRegister">Agent</a></li> -->
-                            <li><a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="packageList">Search Package</a></li>
-    
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="updatePage" >Upload Data</a>
-                            </li> -->
-                            <!-- <li class="menu-item-has-children">
-                                <a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="uploadProduct" >Upload Product</a>
-                            </li> -->
-                            <li><a style="text-decoration:none;color: gold;letter-spacing:2px" routerLink="LoginPage">Log In</a></li>
-                            <li class="menu-right">
-                                <ul>
-                                    <li id="travel_social_widget-2" class="widget travel_search">
-                                        <div class="search-toggler-unit">
-                                            <div class="search-toggler">
-                                                <i class="fa fa-search"></i>
-                                            </div>
-                                        </div>
-                                        <div class="search-menu search-overlay search-hidden">
-                                            <div class="closeicon"></div>
-                                            <form method="get" class="search-form" action="tours.html">
-                                                <input type="search" class="search-field" placeholder="Search ..." value="" name="s" title="Search for:">
-                                                <input type="submit" class="search-submit font-awesome" value="&#xf002;">
-                                            </form>
-                                            <div class="background-overlay"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</header>
-</ng-template>

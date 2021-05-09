@@ -4,6 +4,7 @@ import { UserLogin } from '../UserLogin';
 import { UserRegistration } from '../UserRegistration';
 import {Router} from "@angular/router";
 import {PackageServiceService} from './../../package-service.service'
+import { style } from '@angular/animations';
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
@@ -70,7 +71,6 @@ rolestorage:any;
           this.userService.auth()
           console.log("Hiii welcome to login");
           
-          alert("Welcome")
     // this.http.setRole(this.rolestorage)
     this.router.navigate(["/HomePage"]);
       }
@@ -82,7 +82,9 @@ rolestorage:any;
     console.log(this.user);
   } 
   toggle(){
-    document.getElementById("sign-up-btn")?.addEventListener("click",function(){
+    var element=document.getElementById("sign-up-btn");
+    // style=window.getComputedStyle(element);
+    element?.addEventListener("click",function(){
       document.getElementsByClassName("container123")[0].classList.add("sign-up-mode");
     } )
   }
@@ -91,18 +93,21 @@ rolestorage:any;
       document.getElementsByClassName("container123")[0].classList.remove("sign-up-mode");
     } )
   }
-  // toggle1(){
-    
-  //   document.getElementById("sign-up-btn")?.addEventListener("onclick", function() {
-  //     document.getElementsByClassName("container")[0].classList.add("sign-up-mode");
-  //   });
-  // }
-  // toggle2(){
-    
-  //   document.getElementById("sign-in-btn")?.addEventListener("click", function() {
-  //     document.getElementsByClassName(".container")[0].classList.remove("sign-up-mode");
-  //   });
-    
-  // }
+  toggle3(){
+    document.getElementById("sign-up-btn1")?.addEventListener("click",function(){
+      document.getElementsByClassName("container123")[0].classList.remove("sign-up-mode");
+    } )
+  }
+ modal(){
+  document.getElementById("open-popup-btn")?.addEventListener("click",function(){
+    document.getElementsByClassName("popup")[0].classList.add("active");
+  });
+ }
+ closeModal(){
+   
+  document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
+    document.getElementsByClassName("popup")[0].classList.remove("active");
+  });
+ }
   
 }

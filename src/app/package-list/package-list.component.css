@@ -80,7 +80,7 @@
     color: #ffd200;
 }
 .btn12:focus{
-    outline: 1px solid #ffd200;
+    outline: 0px solid #fff;
 }
 .btn12:hover{
   background: #ffd200;
