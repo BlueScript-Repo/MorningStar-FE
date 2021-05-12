@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { AuthGuard } from './auth.guard';
 import { AgentGuard } from './agent.guard';
 import { UserGuard } from './user.guard';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
@@ -71,7 +72,8 @@ const route:Routes=[
     AddProductComponent,
     SiteImagesComponent,
     ProductDetailsComponent,
-    InquiryComponent
+    InquiryComponent,
+    FilterPipe
 
   ],
   imports: [

@@ -3,11 +3,9 @@
     background: #664AFF;
   }
   
-  /* .wrapper{
-      padding-left: 50px;
+  .wrapper{
     width: 650px;
-    margin: 0px;
-  } */
+  }
   
   .wrapper .search-input{
     background: #fff;
@@ -56,10 +54,10 @@
   .btn12{
     background:transparent ;
     border:2px solid #ffd200;
-    width:200px;
+    width:160px;
     height:40px;
     margin-top: 20px;
-    border-radius:30px;
+    border-radius:0px;
     color: #ffd200;
 }
 .btn12:focus{
@@ -69,3 +67,39 @@
   background: #ffd200;
   color: #fff
 }
+.product{
+  padding: 10px;
+  transition: all 0.5s;
+}
+.product:hover{
+  box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.2);
+  transform: scale(1.03,1.03);
+  transition: all 0.5s;
+}
+.accordion-button{
+  background: white;
+  }
+  
+  .accordion-body{
+      background: #fff;
+  
+  }
+  .btn123{
+padding: 5px;
+margin-bottom: -10px;
+    border:1px solid rgb(255, 90, 90);
+    color: white;
+    background-color:rgb(255, 90, 90);
+    border-radius:0%;
+  }
+  .btn{
+    margin: 20px;
+    /* margin-bottom: 20px; */
+    padding: 10px;
+    font-size: 12px;
+/* margin-bottom: -10px; */
+    border:1px solid rgb(65, 125, 255);
+    color: white;
+    background-color:rgb(65, 125, 255);;
+    border-radius:0%;
+  }

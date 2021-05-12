@@ -152,6 +152,32 @@ bucketName:any;
     return this.http.post(post_sight,data, this.httpOptions); 
   }
 
+
+
+
+
+
+
+
+  // Demo
+  postdemo(data:any){
+    let url ="http://localhost:3000/product";
+    console.log(data);
+  return this.http.post(url,data);    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   getProduct(data:any){
     let urlproduct=this.baseUrl+"Products/key/"+data;
     console.log(urlproduct);
