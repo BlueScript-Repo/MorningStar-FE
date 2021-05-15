@@ -1,8 +1,8 @@
 export class Sightseeing{
     public destinationId: string="";
-    public endTime: Date=new Date();
+    public endTime: string="";
     public name: string="";
     public rate: string="";
-    public startTime: Date=new Date();
+    public startTime: string="";
     public subDestinationId: string="";
 }

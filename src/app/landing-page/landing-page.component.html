@@ -3,7 +3,7 @@
     <div class="home-content" role="main">
         <div class="wrapper-bg-video">
             <video id="video" poster="assets/video_slider.jpg" playsinline autoplay oncanplay="this.muted=true" loop>
-                <source src="http://physcode.com/video/330149744.mp4" type="video/mp4">
+                <!-- <source src="http://physcode.com/video/330149744.mp4" type="video/mp4"> -->
             </video>
             <div class="content-slider">
                 <p>Find your special tour today </p>
@@ -15,7 +15,7 @@
                         <div class="wrapper">
                           <div class="search-input">
                             <a href="" target="_blank" hidden></a>
-                            <input ngModel type="text" name=Package placeholder="Search your packages.....">
+                            <input ngModel type="text" name=Package (click)="nav()" placeholder="Search your packages.....">
                             <div class="icon">
                                     <button><i class="fas fa-search"></i></button>
                             </div>
@@ -547,30 +547,65 @@
 </div>
 
 <!-- Testimonial -->
-    <div style="margin-top:0px;" class="section-white padding-bottom-6x">
-        <div class="container_landing_page">
-            <div class="row">
-                
-                <div class="col-md-8">
-                    <div class="mt-5 mb-3" style="text-align:center">
-                        <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>TESTIMONIAL</h3>
-                    </div>
-                    <div style="padding-left: 50px;padding-top: 30px;" class="row">
-                        <div class="col-md-6">
-                            <img src="assets/testimonial1.png" style="width:90%;height: 120%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px" alt="" >
-                        </div>
-                        <div class="col-md-6">
-                            <img src="assets/testimonial2.png" style="width:90%;height: 120%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px" alt="" >
-                        </div>
-                    </div>
-                </div>
-                <div style="padding-left: 50px;padding-top: 8%;" class="col-md-4">
-                    <img src="assets/reviews.png" style="width:80%;height: 83%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px" alt="" >
+<div style="margin-top:0px;" class="section-white padding-bottom-6x">
+    <div class="container_landing_page">
+        <div align="center" class="row">
+             <div class="col-md-8">
+                <div class="mt-5 mb-3" style="text-align:center">
+                    <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>TESTIMONIAL</h3>
                 </div>
                 
+        <div class="container1">
+             <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">    
+                         <div style="padding-bottom: 190px;" class="box-part text-center">
+                  <div style="padding-top: 20px;" class="round-icon"> <img src="https://i.imgur.com/S6SGKFQ.png" width="80px" height="20px"> </div>
+                  <div><h4 class="rating-num"> 4/5</h4> 1,050 reviews</div>
+                        <div class="item_rating" >
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                      </div>
+                </div>
             </div>
+    
+  
+    
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">    
+            <div style="padding-bottom: 190px;" class="box-part text-center">   
+            <div style="padding-top: 25px;" class="round-icon"> <img src="https://i.imgur.com/8lJt6UN.png" width="60px" height="60px"> </div>
+              <p class="sm-text-1 grey-text mb-0"></p> 
+              <div style="padding-top: 7px;"><h4 class="rating-num"> 4/5</h4> </div>   
+              <div> 1,050 reviews </div>
+            
+                  <div style="padding-top:15px" class="item_rating" >
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                  </div>        
+            </div>
+            </div>
+  
         </div>
+      </div>
     </div>
+  
+  
+          <div style="margin-top: 8.5%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">    
+            <div style="padding-bottom: 7px;" class="box-part text-center">
+              <div class="round-icon"> <img src="assets/reviews.png" width="80px" height="20px"> </div>
+              
+              
+            
+          </div>
+          </div>
+    </div> 
+  </div>
+  </div>
 </div>
         
     </div>

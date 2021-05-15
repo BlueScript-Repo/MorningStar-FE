@@ -185,7 +185,7 @@ h6 {
 }
 
 .transparent_home_page .affix-top .navbar-nav > li > a {
-	color: #fff;
+	color: #ffd200;
 }
 
 .transparent_home_page .sticky_header.affix .navigation-menu {
@@ -647,7 +647,7 @@ h6 {
 	}
 
 	#mobile-demo {
-		background: #232323;
+		background: rgb(0, 0, 0);
 	}
 
 	#mobile-demo .navbar-nav > li > a, #mobile-demo .navbar-nav > li > span {

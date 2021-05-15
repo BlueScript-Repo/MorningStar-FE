@@ -10,7 +10,7 @@
 <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#destination" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Destination</button>
-      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#subd" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sub Destination</button>
+      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#subd" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" (click)="getDestinations1()" >Sub Destination</button>
       <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#stay" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Stay</button>
       <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#meal" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Meal</button>
       <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#sight" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Sight Seeing</button>
@@ -24,7 +24,7 @@
     <div style="margin-top: 0px;" class="collapse active" id="destination" role="tabpanel" aria-labelledby="nav-homw-tab">
         <div class="card card-body">
           <form #destinationForm="ngForm" (ngSubmit)=addDestination(destinationForm.value) >
-            <div style="padding-left: 80px;" class="row">
+            <div style="padding-left: 50px;" class="row">
                 <div class="col-md-2">
                     <label for="country" class="form-label">Country</label>
                     <input type="text" ngModel name="country" class="form-control" placeholder="Enter Destination" value={{val}} >
@@ -38,6 +38,10 @@
                     <input type="text" ngModel name="notes" class="form-control" placeholder="Enter notes" value={{val}}>
                 </div>
                 <div class="col-md-2">
+                    <label for="" class="form-label">Description</label>
+                    <input type="text" ngModel name="description" class="form-control" placeholder="Add description" value={{val}}>
+                </div>
+                <div class="col-md-1">
                     <label for="" class="form-label">Pin Code</label>
                     <input type="text" ngModel name="pincode" class="form-control" placeholder="Enter Pincode" value={{val}}>
                 </div>  
@@ -45,8 +49,8 @@
                     <label for="" class="form-label">Policies</label>
                     <input type="text" ngModel name="policies" class="form-control" placeholder="Enter Policies" value={{val}}>
                 </div> 
-                <div class="col-md-2">
-                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" (click)="Clear()" value="+">
+                <div class="col-md-1">
+                    <input style="margin-top: 30px;color: white;width: 50px;" class="btn12" type="submit" (click)="Clear()" value="+">
                 </div> 
             </div>
           </form>
@@ -62,6 +66,9 @@
                       notes
                   </th>
                   <th style="border-top: none;border-right: none;">
+                    Description
+                </th>
+                  <th style="border-top: none;border-right: none;">
                       Pin Code
                   </th>
                   <th style="border-top: none;border-right: none;">
@@ -76,9 +83,10 @@
                     <td style="border-top: none;border-right: none;"> {{dest.country}} </td>
                     <td style="border-top: none;border-right: none;"> {{dest.name}} </td>
                     <td style="border-top: none;border-right: none;"> {{dest.notes}} </td>
+                    <td style="border-top: none;border-right: none;"> {{dest.description}} </td> 
                     <td style="border-top: none;border-right: none;"> {{dest.pinCode}} </td>
                     <td style="border-top: none;border-right: none;"> {{dest.policies}} </td>
-                    <td style="border-top: none;border-right: none;"><button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button></td>
+                    <td style="border-top: none;border-right: none;"><button (click)="deleteDestination(i)" class="btn btn-outline-danger">-</button></td>
                 </tr>
             </tbody>
           </table>
@@ -98,7 +106,7 @@
             <div style="padding-left: 180px;" class="row">
                 <div class="col-md-3">
                     <label for="destination" class="form-label">Destination</label>
-                    <select name="destination" style="height: 35px;margin-top: 10px;" class="form-select" (ngModelChange)="getSubDestinations($event)" [(ngModel)]="OnOptionSelect" id="destination" value={{val}} #destination required >
+                    <select name="destination" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" (ngModelChange)="getSubDestinations($event)" [(ngModel)]="OnOptionSelect" id="destination" value={{val}} #destination required >
                         <option></option>
                         <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
 
@@ -145,7 +153,7 @@
                     <td style="border-top: none;border-right: none;"> {{subd.name}} </td>
                     <td style="border-top: none;border-right: none;">{{subd.description}}</td>
                     <td style="border-top: none;border-right: none;"> {{subd.pincode}} </td>
-                    <td style="border-top: none;border-right: none;"> <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button> </td>
+                    <td style="border-top: none;border-right: none;"> <button (click)="deleteSubdestions(i)" class="btn btn-outline-danger">-</button> </td>
                 </tr>
             </tbody>
           </table>
@@ -168,7 +176,7 @@
             <div style="padding-left:10px;" class="row">
                 <div class="col-md-2">
                     <label for="destination" class="form-label">Destination</label>
-                    <select name="destination" style="height: 35px;margin-top: 10px;" class="form-select" [(ngModel)]="OnOptionSelect" (ngModelChange)="getSubDestinations($event)" id="destination" #destination required value={{val}} >
+                    <select name="destination" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" [(ngModel)]="OnOptionSelect" (ngModelChange)="getSubDestinations($event)" id="destination" #destination required value={{val}} >
                         <option></option>
                         <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
     
@@ -176,7 +184,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="subd" class="form-label">Sub Destination</label>
-                    <select name="subd" style="height: 35px;margin-top: 10px;" class="form-select" [(ngModel)]="onOptionSubdestination" id="subdestination" value={{val}} #subdestination required >
+                    <select name="subd" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" [(ngModel)]="onOptionSubdestination" id="subdestination" value={{val}} #subdestination required >
                         <option></option>
                         <option *ngFor="let subd of subdestinationOptions" [ngValue]=subd>{{subd.name}}</option>
                     </select>
@@ -186,10 +194,14 @@
                     <input type="text" ngModel name="name" class="form-control" placeholder="Enter Name of Stay " value={{val}}>
                 </div>
                 <div class="col-md-2">
-                    <label for="" class="form-label">Stay Type</label>
-                    <input type="text" ngModel name="stayType" class="form-control" placeholder="Enter the Stay Type " value={{val}}>
+                    <label for="" class="form-label">Description</label>
+                    <input type="text" ngModel name="description" class="form-control" placeholder="Add Description" value={{val}}>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
+                    <label for="" class="form-label">Stay Type</label>
+                    <input type="text" ngModel name="stayType" class="form-control" placeholder="Enter the Stay Type" value={{val}}>
+                </div>
+                <div class="col-md-1">
                     <label for="" class="form-label">AC/non-AC</label>
                     <input type="text" ngModel name="acNonAc" class="form-control" placeholder="AC or Non-AC" value={{val}}>
                 </div>
@@ -198,7 +210,7 @@
                     <input type="text" ngModel name="rating" class="form-control" placeholder="Enter Rating" value={{val}}>
                 </div>
                 <div class="col-md-1">
-                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" (click)="Clear()" value="+">
+                    <input style="margin-top: 30px;color: white;width: 50px;" class="btn12" type="submit" (click)="Clear()" value="+">
                 </div> 
 
                
@@ -206,15 +218,16 @@
             </form>
           <table style="padding-left:50px;margin-top:20px" class="table">
               <thead>
-                  <th style="border-top: none;border-right: none;">
-                      Destination ID
-                  </th>
+                 
                   <th style="border-top: none;border-right: none;">
                       Sub-Destination ID
                   </th>
                   <th style="border-top: none;border-right: none;">
-                      Stay Name
-                  </th>
+                    Stay Name
+                </th>
+                <th style="border-top: none;border-right: none;">
+                    Description
+                </th>
                   <th style="border-top: none;border-right: none;">
                       Stay Type
                   </th>
@@ -230,16 +243,17 @@
               </thead>
               <tbody>
                 <tr *ngFor="let st of newStay;let i=index">
-                    <td style="border-top: none;border-right: none;">
+                    <!-- <td style="border-top: none;border-right: none;">
                         {{st.destinationId}}
-                    </td>   
+                    </td>    -->
                     <td style="border-top: none;border-right: none;"> {{st.subDestinationId}} </td>
-                    <td style="border-top: none;border-right: none;"> {{st.name}} </td>
+                    <td style="border-top: none;border-right: none;"> {{st.stayName }} </td>
+                    <td style="border-top: none;border-right: none;"> {{st.description}}</td>
                     <td style="border-top: none;border-right: none;"> {{st.stayType}} </td>
                     <td style="border-top: none;border-right: none;"> {{st.acNonAc}} </td>
                     <td style="border-top: none;border-right: none;"> {{st.rating}} </td>
                     <td style="border-top: none;border-right: none;">
-                        <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button>
+                        <button (click)="deleteStay(i)" class="btn btn-outline-danger">-</button>
                     </td>
                 </tr>
             </tbody>
@@ -261,7 +275,7 @@
         <div class="row">
             <div class="col-md-2">
                 <label for="destination" class="form-label">Destination</label>
-                <select name="destination" style="height: 35px;margin-top: 10px;" class="form-select" (ngModelChange)="getSubDestinations($event)" [(ngModel)]="OnOptionSelect" id="destination" #destination required  value={{val}}>
+                <select name="destination" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" (ngModelChange)="getSubDestinations($event)" [(ngModel)]="OnOptionSelect" id="destination" #destination required  value={{val}}>
                     <option></option>
                     <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
 
@@ -269,7 +283,7 @@
             </div>
             <div class="col-md-2">
                 <label for="subd" class="form-label">Sub Destination</label>
-                <select name="subd" style="height: 35px;margin-top: 10px;" class="form-select" [(ngModel)]="onOptionSubdestination" (ngModelChange)="getStayAndSights($event)" id="subdestination" #subdestination required value={{val}} >
+                <select name="subd" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" [(ngModel)]="onOptionSubdestination" (ngModelChange)="getStayAndSights($event)" id="subdestination" #subdestination required value={{val}} >
                     <option></option>
                     <option *ngFor="let subd of subdestinationOptions" [ngValue]=subd>{{subd.name}}</option>
                 </select>
@@ -278,7 +292,7 @@
                 <label for="StayId" class="form-label">Stay</label>
                
 
-                <select name="StayId" style="height: 35px;margin-top: 10px;" class="form-select" [(ngModel)]="stayOptions" id="Stay" #Stay required value={{val}} >
+                <select name="StayId" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" [(ngModel)]="stayOptions" id="Stay" #Stay required value={{val}} >
                     <option></option>
                     <option *ngFor="let stay of stays" [ngValue]=stay>{{stay.name}}</option>
                 </select>
@@ -287,14 +301,18 @@
                 <label for="" class="form-label">Meal Type</label>
                 <input type="text" ngModel name="mealType" class="form-control" placeholder="Enter Meal Type" value={{val}}>
             </div>
-
             <div class="col-md-2">
+                <label for="" class="form-label">Description</label>
+                <input type="text" ngModel name="description" class="form-control" placeholder="Add description" value={{val}}>
+            </div>
+
+            <div class="col-md-1">
                 <label for="" class="form-label">Rate</label>
                 <input type="text" ngModel name="rate" class="form-control" placeholder="Enter the rate" value={{val}}>
             </div>
 
-             <div class="col-md-2">
-                    <input style="margin-top: 30px;color: white;" class="btn12" type="submit" value="+" >
+             <div class="col-md-1">
+                    <input style="margin-top: 30px;color: white;width: 50px;" class="btn12" type="submit" (click)="Clear()" value="+" >
                 </div> 
            
         </div>
@@ -302,15 +320,16 @@
       </form>
       <table style="margin-top:20px" class="table">
           <thead>
-              <th style="border-top: none;border-right: none;">
-                  Destination Id
-              </th>
+            
               <th style="border-top: none;border-right: none;">
                   Stay ID
               </th>
               <th style="border-top: none;border-right: none;">
                  Meal Type
               </th>
+              <th style="border-top: none;border-right: none;">
+                Description
+            </th>
               <th style="border-top: none;border-right: none;">
                   Rate
               </th>
@@ -320,13 +339,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let meal of newMeal;let i=index">
-                <td style="border-top: none;border-right: none;">
-                    {{meal.destinationId}}
-                </td>
+                
                 <td style="border-top: none;border-right: none;"> {{meal.stayId}} </td>
-                <td style="border-top: none;border-right: none;"> {{meal.name}} </td>
+                <td style="border-top: none;border-right: none;"> {{meal.mealsType}} </td>
+                <td style="border-top: none;border-right: none;">
+                    {{meal.description}}
+                </td>
                 <td style="border-top: none;border-right: none;"> {{meal.rate}} </td>
-                <td style="border-top: none;border-right: none;"> <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button> </td>
+                <td style="border-top: none;border-right: none;"> <button (click)="deleteMeal(i)" class="btn btn-outline-danger">-</button> </td>
             </tr>
         </tbody>
       </table>
@@ -346,7 +366,7 @@
         <div class="row">
             <div class="col-md-2">
                 <label for="destination" class="form-label">Destination</label>
-                <select name="destination" style="height: 35px;margin-top: 10px;" class="form-select" (ngModelChange)="getSubDestinations($event)" [(ngModel)]="OnOptionSelect" id="destination" #destination required value={{val}} >
+                <select name="destination" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" (ngModelChange)="getSubDestinations($event)" [(ngModel)]="OnOptionSelect" id="destination" #destination required value={{val}} >
                     <option></option>
                     <option *ngFor="let desti of destination_select" [ngValue]=desti>{{desti.name}}</option>
 
@@ -354,7 +374,7 @@
             </div>
             <div class="col-md-2">
                 <label for="subdId" class="form-label">Sub Destination</label>
-                <select name="subdestination" style="height: 35px;margin-top: 10px;" class="form-select" [(ngModel)]="onOptionSubdestination" id="subdestination" #subdestination required value={{val}} >
+                <select name="subdestination" style="height: 35px;margin-top: 10px;font-size:14px" class="form-select" [(ngModel)]="onOptionSubdestination" id="subdestination" #subdestination required value={{val}} >
                         <option></option>
                         <option *ngFor="let subd of subdestinationOptions" [ngValue]=subd>{{subd.name}}</option>
                     </select>
@@ -417,7 +437,7 @@
                 <td style="border-top: none;border-right: none;"> {{sights.endTime}} </td>
                 <td style="border-top: none;border-right: none;"> {{sights.rate}} </td>
                 <td style="border-top: none;border-right: none;">
-                    <button (click)="deleteTodo(i)" class="btn btn-outline-danger">-</button>
+                    <button (click)="deleteSights(i)" class="btn btn-outline-danger">-</button>
                 </td>
             </tr>
         </tbody>

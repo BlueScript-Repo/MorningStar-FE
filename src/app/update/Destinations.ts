@@ -5,5 +5,5 @@ export class Destinations{
     public notes:string ="";
     public pinCode: string="";
     public policies: string="";
-    public subDestination: string=""
+    public description: string=""
 }

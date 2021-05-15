@@ -1,0 +1,47 @@
+<div style="margin-top: 0%;" class="navigation-menu">
+    <div class="container-fluid">
+        <div class="menu-mobile-effect navbar-toggle button-collapse" data-activates="mobile-demo">
+            <span style="background-color: #111"class="icon-bar"></span>
+            <span style="background-color: #111" class="icon-bar"></span>
+            <span style="background-color: #111" class="icon-bar"></span>
+        </div>
+        
+        <div style="margin-bottom: -50px;" class="sm-logo">
+            <a href="" title="Travel" rel="home">
+                <img src="assets/log1.png" alt="Logo" width="274" height="10" class="logo_transparent_static">
+                <img src="assets/log1.png" alt="Sticky logo" width="274" height="130" class="logo_sticky">
+            </a>
+        </div>
+                <nav class="width-navigation">
+                    <ul class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
+                        <li class="">
+                            <a style="text-decoration:none" routerLink="LandingPage" >Home</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a style="text-decoration:none" routerLink="customPackage" >Customize Package</a>
+                        </li>
+                        
+                        <li><a style="text-decoration:none" routerLink="deals">Deals</a></li>
+                        <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="Inquiries">Inquiries</a></li>
+                        <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" routerLink="AgentInquiries">Inquiries</a></li>
+                        <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li>
+                        <li><a style="text-decoration:none" routerLink="packageList">Search</a></li>
+
+                        <li class="menu-item-has-children">
+                            <a style="text-decoration:none" routerLink="updatePage" >Upload Data</a>
+                        </li>
+                        <li class="menu-item-has-children">
+                            <a style="text-decoration:none" routerLink="uploadProduct" >Upload Product</a>
+                        </li>
+                        <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                        <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                        <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                        <li *ngIf="authenticate.Role==null"><a style="text-decoration:none" routerLink="LoginPage">Log In</a></li>
+                        <li class="menu-right">
+
+                        </li>
+                    </ul>
+                </nav>
+        
+    </div>
+</div>

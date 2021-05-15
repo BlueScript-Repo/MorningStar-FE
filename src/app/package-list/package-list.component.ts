@@ -225,4 +225,18 @@ filterData:FilterData={
     this.router.navigate(["/customPackage"]);
   }
 
+
+
+// name='';
+// products1:any={};
+//   search1(val:any){
+//     console.log(val.value);
+//     this.name=val.value;
+//     return this.http.getProduct(this.name).subscribe((res=>{
+//       this.products1=res;
+//       console.log(this.products1);
+      
+//     }))
+//   }
+
 }

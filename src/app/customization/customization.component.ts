@@ -403,6 +403,75 @@ closeModal1(){
 
 
 
-
-
+        next(){
+          document.getElementById('next1')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form1')[0].classList.add('active');
+            document.getElementsByClassName('Form2')[0].classList.add('active');
+            document.getElementById('progress')?.classList.add('active');
+          })
+        }
+       
+        back(){
+          document.getElementById('back1')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form2')[0].classList.remove('active');
+            document.getElementsByClassName('Form1')[0].classList.remove('active');
+            document.getElementById('progress')?.classList.remove('active');
+          })
+        }
+        next1(){
+          document.getElementById('next2')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form2')[0].classList.add('active1');
+            document.getElementsByClassName('Form3')[0].classList.add('active');
+            document.getElementById('progress')?.classList.add('active1');
+          })
+        }
+        back1(){
+          document.getElementById('back2')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form3')[0].classList.remove('active');
+            document.getElementsByClassName('Form2')[0].classList.remove('active1');
+            document.getElementById('progress')?.classList.remove('active1');
+          })
+        }
+        next2(){
+          document.getElementById('next3')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form3')[0].classList.add('active1');
+            document.getElementsByClassName('Form4')[0].classList.add('active');
+            document.getElementById('progress')?.classList.add('active2');
+          })
+        }
+        back2(){
+          document.getElementById('back3')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form4')[0].classList.remove('active');
+            document.getElementsByClassName('Form3')[0].classList.remove('active1');
+            document.getElementById('progress')?.classList.remove('active2');
+          })
+        }
+        next3(){
+          document.getElementById('next4')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form4')[0].classList.add('active1');
+            document.getElementsByClassName('Form5')[0].classList.add('active');
+            document.getElementById('progress')?.classList.add('active3');
+          })
+        }
+        back3(){
+          document.getElementById('back4')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form5')[0].classList.remove('active');
+            document.getElementsByClassName('Form4')[0].classList.remove('active1');
+            document.getElementById('progress')?.classList.remove('active3');
+          })
+        }
+        next4(){
+          document.getElementById('next5')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form5')[0].classList.add('active1');
+            document.getElementsByClassName('Form6')[0].classList.add('active');
+            document.getElementById('progress')?.classList.add('active4');
+          })
+        }
+        back4(){
+          document.getElementById('back5')?.addEventListener('click',function(){
+            document.getElementsByClassName('Form6')[0].classList.remove('active');
+            document.getElementsByClassName('Form5')[0].classList.remove('active1');
+            document.getElementById('progress')?.classList.remove('active4');
+          })
+        }
 }

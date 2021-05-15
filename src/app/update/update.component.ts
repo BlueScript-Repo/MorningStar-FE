@@ -30,6 +30,7 @@ export class UpdateComponent implements OnInit {
     var note=destinationForm.notes;
     var pin=destinationForm.pincode;
     var policy=destinationForm.policies;
+    var desc=destinationForm.description;
 console.log(destinationForm);
     this.newDestination.push({
       // key:"",
@@ -38,7 +39,7 @@ console.log(destinationForm);
       notes:note,
       pinCode:pin,
       policies:policy,
-      subDestination:''
+      description:desc
     })
     count='';
     console.log(this.newDestination);
@@ -68,7 +69,6 @@ var desc=subdestinationForm.Description
 console.log(subdestinationForm);
 
 this.newSubdestinations.push({
-  key:'',
   description:desc,
   destinationId:desti.key,
   name:subd,
@@ -86,20 +86,19 @@ var subdes=stayForm.subd;
 var name=stayForm.name;
 var Type=stayForm.stayType;
 var AcNonAc=stayForm.acNonAc;
-var StayRating=stayForm.rating
+var StayRating=stayForm.rating;
+var desc=stayForm.description;
 console.log(stayForm);
 
 this.newStay.push({
-  destinationId:desti.key,
   subDestinationId:subdes.key,
-  key:"",
-  name:name,
-  note:"",
+  stayName:name,
+  description:desc,
   acNonAc:AcNonAc,
   rating:StayRating,
   stayType:Type
 })
-console.log(this.newStay);
+console.log("ARRAY OF STAY"+JSON.stringify(this.newStay));
 }
 
 
@@ -112,11 +111,12 @@ var desti=mealForm.destination;
 var stayID=mealForm.StayId;
 var MealType=mealForm.mealType;
 var Rate=mealForm.rate;
+var desc=mealForm.description
 console.log(mealForm);
 
 this.newMeal.push({
-  destinationId:desti.key,
-  name:MealType,
+  description:desc,
+  mealsType:MealType,
   rate:Rate,
   stayId:stayID.key
 })
@@ -137,10 +137,10 @@ addSight(sightForm:any){
 
 this.newSights.push({
   destinationId:desti.key,
-  endTime:startdate,
+  endTime:"",
   name:sight,
   rate:Rate,
-  startTime:endDate,
+  startTime:"",
   subDestinationId:subDesti.key
 })
 console.log(this.newSights);
@@ -200,7 +200,7 @@ getStayAndSights(key: any) {
       this.sights = res;
     });
     console.log(key.key);
-    console.log(key.value);
+    console.log(key.name);
 }
 postStay(){
 this.http.postStay(this.newStay).subscribe((response)=>{
@@ -226,11 +226,19 @@ postSight(){
     
   })
 }
-deleteTodo(id: number) {
-  this.newMeal = this.newMeal.filter((v, i) => i != id);
-  this.newDestination = this.newDestination.filter((v, i) => i != id);
-  this.newSubdestinations = this.newSubdestinations.filter((v, i) => i != id);
-  this.newStay = this.newStay.filter((v, i) => i != id);
+deleteSights(id: number) {
   this.newSights = this.newSights.filter((v, i) => i != id);
+}
+deleteDestination(id:number){
+  this.newDestination = this.newDestination.filter((v, i) => i != id);
+}
+deleteSubdestions(id:number){
+  this.newSubdestinations = this.newSubdestinations.filter((v, i) => i != id);
+}
+deleteStay(id:number){
+  this.newStay = this.newStay.filter((v, i) => i != id);
+}
+deleteMeal(id:number){
+  this.newMeal = this.newMeal.filter((v, i) => i != id);
 }
 }
