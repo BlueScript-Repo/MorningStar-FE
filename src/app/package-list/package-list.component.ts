@@ -26,16 +26,16 @@ productCode:CodeArr[]=[];
 // Filter code
 
 filter:Filter={
-  PriceRangeStart:'',
-  PriceRangeEnd:'',
+  PriceRangeStart:0,
+  PriceRangeEnd:0,
   packageType:'',
   packageCategory:'',
   packageInclusion:''
   // package1:{},
 }
 type='';
-RangeStart='';
-RangeEnd='';
+RangeStart=0;
+RangeEnd=0;
 category='';
 inclusion='';
 filters(val:any){
@@ -74,32 +74,32 @@ filters(val:any){
    this.type="domestic,international";
  }
  if(val.below10000==true && val.from10000to20000==false && val.from20000to40000==false){
-  this.RangeStart='0';
-  this.RangeEnd='10,000';
+  this.RangeStart=0;
+  this.RangeEnd=10000;
  }
  else if(val.below10000==false && val.from10000to20000==true && val.from20000to40000==false){
-  this.RangeStart='10,000';
-  this.RangeEnd='20,000';
+  this.RangeStart=10000;
+  this.RangeEnd=20000;
  }
  else if(val.below10000==false && val.from10000to20000==false && val.from20000to40000==true){
-  this.RangeStart='20,000';
-  this.RangeEnd='40,000';
+  this.RangeStart=20000;
+  this.RangeEnd=40000;
  }
  else if(val.below10000==true && val.from10000to20000==true && val.from20000to40000==false){
-  this.RangeStart='0';
-  this.RangeEnd='20,000';
+  this.RangeStart=0;
+  this.RangeEnd=20000;
  }
  if(val.below10000==true && val.from10000to20000==false && val.from20000to40000==true){
-  this.RangeStart='0';
-  this.RangeEnd='40,000';
+  this.RangeStart=0;
+  this.RangeEnd=40000;
  }
  else if(val.below10000==false && val.from10000to20000==true && val.from20000to40000==true){
-  this.RangeStart='10,000';
-  this.RangeEnd='40,000';
+  this.RangeStart=10000;
+  this.RangeEnd=40000;
  }
  else if(val.below10000==true && val.from10000to20000==true && val.from20000to40000==true){
-  this.RangeStart='0';
-  this.RangeEnd='40,000';
+  this.RangeStart=0;
+  this.RangeEnd=40000;
  }
 
 // Inclusion
@@ -145,12 +145,12 @@ filters(val:any){
 
 filterData:FilterData={
   
-   priceRangeStart:'',
-   priceRangeEnd:'',
-   PackageType:'',
-   PackageCategory:'',
-   PackageInclusions:'',
-   packageKeyword:''
+   priceRangeStart:0,
+   priceRangeEnd:0,
+   productType:'',
+   productCategory:'',
+  //  PackageInclusions:'',
+  keyword:''
 }
 
   search(searchForm:any){
@@ -160,18 +160,18 @@ filterData:FilterData={
     this.filterData={
     priceRangeStart:this.filter.PriceRangeStart,
     priceRangeEnd:this.filter.PriceRangeEnd,
-    PackageType:this.filter.packageType,
-    PackageCategory:this.filter.packageCategory,
-    PackageInclusions:this.filter.packageInclusion,
-    packageKeyword:this.keyword
+    productType:this.filter.packageType,
+    productCategory:this.filter.packageCategory,
+    // PackageInclusions:this.filter.packageInclusion,
+    keyword:this.keyword
   }
     console.log(this.filterData);
     
     console.log("Calling Keyword: " + this.keyword);
-    this.http.postdemo(this.filterData).subscribe((res=>{
-    console.log(res);
-    }));
-      return this.http.getProduct(this.keyword).subscribe((res=>{
+    // this.http.postdemo(this.filterData).subscribe((res=>{
+    // console.log(res);
+    // }));
+      return this.http.getProduct(this.filterData).subscribe((res=>{
       console.log(res);
         if (Object.keys(res).length===0) {
           this.key=Object.keys(this.products).length;

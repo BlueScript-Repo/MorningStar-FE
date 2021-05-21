@@ -179,9 +179,11 @@ bucketName:any;
 
 
   getProduct(data:any){
-    let urlproduct=this.baseUrl+"Products/key/"+data;
+    let urlproduct=this.baseUrl+"Products/search";
     console.log(urlproduct);
-    return this.http.get(urlproduct)
+    return this.http.post(urlproduct,data);
+    // console.log();
+    
   }
 
   uploadProduct(data:any){

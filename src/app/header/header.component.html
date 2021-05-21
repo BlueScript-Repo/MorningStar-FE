@@ -29,10 +29,10 @@
                             <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li>
                             <!-- <li><a style="text-decoration:none" routerLink="packageList">Search</a></li> -->
     
-                            <li class="menu-item-has-children">
+                            <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
                                 <a style="text-decoration:none" routerLink="updatePage" >Upload Data</a>
                             </li>
-                            <li class="menu-item-has-children">
+                            <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
                                 <a style="text-decoration:none" routerLink="uploadProduct" >Upload Product</a>
                             </li>
                             <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
