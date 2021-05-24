@@ -52,6 +52,7 @@ const route:Routes=[
   {path:"Inquiries",component:InquiryComponent,canActivate:[AuthGuard]},
   {path:"AgentInquiries",component:InquiryComponent,canActivate:[AgentGuard]},
   {path:"agentRegister",component:AgentRegisterComponent,canActivate:[AuthGuard]},
+  {path:'SearchDestination',component:SearchCustomizationComponent}
 ] 
   
 

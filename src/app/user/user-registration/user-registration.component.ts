@@ -47,6 +47,7 @@ user:string='';
 
   token:any={};
   role:any;
+  AgentId:any;
   Authorization:any;
 rolestorage:any;
   authenticate(user:any){
@@ -62,6 +63,9 @@ rolestorage:any;
       this.token=result;
       console.log(this.token.jwtToken);
       this.role=result.role;
+      this.AgentId=result.agentId;
+      console.log(this.AgentId);
+      localStorage.setItem('agentId',this.AgentId);      
       console.log(this.role);
       localStorage.setItem('token', this.token.jwtToken);
       localStorage.setItem('role',this.role);
@@ -72,7 +76,7 @@ rolestorage:any;
           console.log("Hiii welcome to login");
           
     // this.http.setRole(this.rolestorage)
-    this.router.navigate(["/HomePage"]);
+    this.router.navigate(["/LandingPage"]);
       }
      
     });

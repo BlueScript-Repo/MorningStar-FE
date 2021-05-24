@@ -12,7 +12,7 @@ export class PackageServiceService {
   productDetails:any;
   role:any
   isAuthenticated:boolean=false;
-
+agentID:any;
 token = localStorage.getItem('token');
 bucketName:any;
   constructor(private http: HttpClient) {}
@@ -197,10 +197,11 @@ bucketName:any;
     console.log("Calling function getDetails ");
     return this.http.get(geturl);
   }
-
+  
   getInquiry(){
-    let inquiry=this.baseUrl+"ProductInquiry/agentId?agentId=AID324353WGX"
-   console.log("Calling Inquiry");
+    this.agentID=localStorage.getItem('agentId');
+    let inquiry=this.baseUrl+"ProductInquiry/agentId?agentId="+this.agentID;
+   console.log("Calling Inquiry for agentId "+this.agentID);
    return this.http.get(inquiry)
   }
   getInquiryAll(){
@@ -256,4 +257,16 @@ bucketName:any;
   //   return this.http.request(req);
   
   // }
+
+  searchDestination(val:any){
+    let searchApi=this.baseUrl+"destination/search/"+val;
+    console.log("calling search Destination");
+    return this.http.get(searchApi);
+  }
+  updateStatus(val:any,inquiryId:any){
+    console.log(inquiryId);
+    let updateUrl=this.baseUrl+"ProductInquiry?productInquiryId="+inquiryId;
+    console.log("Calling update Api");    
+    return this.http.put(updateUrl, val);
+  }
 }

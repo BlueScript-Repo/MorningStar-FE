@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from './../user/user.service'
 import {Router} from '@angular/router';
 @Component({
   selector: 'app-landing-page',
@@ -7,10 +8,15 @@ import {Router} from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,public authenticate:UserService) { }
 
   ngOnInit(): void {
+  if(this.role!='AGENT' && this.role!='USER' && this.role!='ADMIN'){
+    this.value='null';
   }
+  }
+  role=localStorage.getItem('role');
+  value='';
   customOptions: any = {
     loop: true,
     mouseDrag: true,

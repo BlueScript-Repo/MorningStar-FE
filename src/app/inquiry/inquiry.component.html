@@ -6,23 +6,26 @@
         </div>
      </div>
      </div>
-     <div class="container">
+     <div class="containerTable">
         <div class="mt-5 mb-3" style="text-align:left">
             <h3 class="title_primary fs-4" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Inquiry</h3>
         </div>
         <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
 
             <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
-                <th style="text-align:center;border: none" >
+                <th style="text-align:center;border: none;width: 150px;" >
                     Client Name
                 </th>
-                <th style="text-align:center;border: none">Email Id</th>
-                <th style="text-align:center;border: none">Contact Number</th>
-                <th style="text-align:center;border: none">City</th>
-                <th style="text-align:center;border: none">Product Code</th>
+                <th style="text-align:center;border: none;width: 150px;">Email Id</th>
+                <th style="text-align:center;border: none;width: 150px;">Contact Number</th>
+                <th style="text-align:center;border: none;width: 150px;">City</th>
+                <th style="text-align:center;border: none;width: 150px;">Product Code</th>
+                <th style="text-align:center;border: none;width: 150px;">Action</th>
+                <th style="text-align: center;border: none;width: 150px;">Remark</th>
+                <th  style="text-align: center;border: none;width: 150px;">Update</th>
             </thead>
             <tbody>
-                <tr class="td1" *ngFor="let i of Inquiries">
+                <tr class="td1" *ngFor="let i of Inquiries;let j=index">
                     <td style="text-align:center;border: none">
                         {{i.name}}
                     </td>
@@ -33,15 +36,30 @@
                         {{i.contactNo}}
                     </td>
                     <td style="text-align:center;border: none">
-                        {{i.userCity}}
+                        {{i.city}}
                     </td>
                     <td style="text-align:center;border: none">
                         <form #detail="ngForm" (ngSubmit)="getDetails(detail.value)">
-                            <input style="visibility:hidden;display:none" type="text" ngModel={{i.productCode}} value="{{i.productCode}}" name="product" >
+                            <input style="visibility:hidden;display:none" class="form-control" type="text" ngModel={{i.productCode}} value="{{i.productCode}}" name="product" >
                         <button class="btn1" style="background:transparent;border:none;text-decoration:underline" >{{i.productCode}}</button>
                     </form>
                     </td>
+                    <!-- <form #status="ngForm" (ngSubmit)="UpdateStatus(status.value)"> -->
+                    <td style="text-align:center;border: none">
+                        <select class="form-select" #status style="height:30px;font-size: 16px;">
+                            <option selected>IN PROCESS</option>
+                            <option *ngFor="let i of action">{{i}}</option> 
+                        </select>
+                    </td>
+                    <td style="text-align:center;border: none;padding-left: 20px;">
+                        <input class="form-control" #remark style="height:30px;font-size: 16px;" placeholder="Your Remarks here!">
+                    </td>
+                    <td style="text-align:center;border: none">
+                        <button style="text-align: center;" (click)="UpdateStatus(status.value,remark.value,j)" class="btn121" >Update</button>
+                    </td>
+                <!-- </form> -->
                 </tr>
+
             </tbody>
         </table>  
      </div>

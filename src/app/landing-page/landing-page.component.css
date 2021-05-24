@@ -147,3 +147,165 @@ p {
 }
 
 
+
+.home_top{
+  display: flex;
+  padding: 30px;
+}
+.cont{
+  padding: 2%;
+}
+.loyalty{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_landing_page{
+	margin-left: 90px;
+	margin-right: 90px;
+}
+.deal_card:hover{
+    transform: scale(1.1,1.1);
+    transition:all 0.5s;
+}
+figure{
+    overflow:hidden;
+}
+
+
+.wrapper{
+    width: 30%;
+}
+.wrapper .search-input{
+    background: #fff;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+  }
+  
+  .search-input input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  }
+  
+  button{
+     
+  }
+  .search-input .icon button{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    color: #ffd200;
+    cursor: pointer;
+    padding-right: 40px;
+  }
+  
+  .search-input .icon button:hover{
+      color: rgb(89, 214, 255);
+  }  
+
+  .content-list-tour:hover{
+    transform:scale(1.01);
+    box-shadow:10px 10px 30px rgba(0,0,0,0.4);
+    transition:all 0.5s;
+  }
+
+  /* Testimonial */
+  .rating-num{
+    text-align: center;
+    padding: 2px;
+  }
+
+  
+
+
+  body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+a{
+  text-decoration:none; 
+  border-bottom:2px solid;
+}
+
+.box{
+    padding:50px 50px;
+    align-content:center;
+  
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    /* padding-bottom: 30px; */
+    padding:10px 10px;
+    margin:5px 5px;
+   /* border: 2px solid black;*/
+   height: 250px;
+    width: 250px;
+    box-shadow:2px 2px 10px rgba(0,0,0,0.4)
+}
+.text{
+    margin:50px 0px;
+}
+
+
+
+.round-icon {
+  font-size: 50px;
+  padding-bottom: 5px;
+  
+}
+
+.green-dot {
+  color: #4CAF50
+}
+
+body {
+  background: #222225;
+  color: white
+}
+
+
+
+
+p {
+  font-size: 1.2rem
+}
+
+@media only screen and (max-width: 600px) {
+
+  p {
+      font-size: 12px
+  }
+}
+
+.container1 {
+  margin-top: 50px;
+
+}
+.item_rating{
+  display: flex;
+  justify-content: center;
+  padding-left: 50%;
+  padding-top: 10px;
+  margin-bottom: 130px;
+}
+
+

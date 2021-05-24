@@ -5,3 +5,19 @@
     background: black;
     color:goldenrod
 }
+.btn121{
+    background:transparent ;
+    border:2px solid #ffd200;
+    width:100px;
+    height:30px;
+    margin-top: 0px;
+    border-radius:0px;
+    color: #ffd200;
+}
+.btn121:hover{
+    background:#ffd200 ;
+    color: #fff;
+}
+.containerTable{
+    margin: 20px;
+}

@@ -17,11 +17,11 @@
 
  .search-input{
      margin: 90px auto;
-    background: #fff;
+    background: transparent;
     width: 45%;
     border-radius: 5px;
     position: relative;
-    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+    /* box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12); */
   }
   
   .search-input input{
@@ -31,10 +31,10 @@
     border: none;
     border-radius: 5px;
     padding: 0 60px 0 20px;
-    font-size: 18px;
-    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+    font-size: 22px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.5);
   }
-  
+
   button{
       background-color: #fff;
       border: none;
@@ -57,3 +57,43 @@
   .search-input .icon button:hover{
       color: rgb(89, 214, 255);
   }
+  li{
+      list-style-type: none;
+      /* transition: all 1s; */
+      padding-bottom: 15px;
+      padding-top: 15px;
+      font-size:20px;
+      padding-left: 25px;
+      background: transparent;
+      position: relative;
+      margin-top: 0px;
+      width: 100%;
+      border-bottom: 1px solid lightgrey; 
+      border-radius:10px;
+  }
+  li .right{
+      font-size: 16px;
+      padding-right:20px;
+      color: transparent;
+      text-decoration-line: underline;
+      text-decoration-style: dotted;
+  }
+  ul{
+      background:transparent;
+      position: relative;
+      margin-left: -20px;
+    transition: all 0.5s;
+    }
+  li:hover{
+      border-bottom: none; 
+      background: #3cff941e;
+    border: 1px solid #008f70;
+    cursor: pointer;
+  }
+  li:hover .right{
+    color: green;
+  }
+.data{
+    display:flex;
+    justify-content:space-between;
+}

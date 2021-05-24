@@ -30,9 +30,9 @@ role:any;
     // agentId:'',
     contactNo:'',
     productCode:'',
-    userCity:'',
-    userEmail:'',
-    userName:''
+    city:'',
+    emaiId:'',
+    name:''
   }
   Inquiry(InquiryForm:any){
     let user=InquiryForm.name;
@@ -46,9 +46,9 @@ role:any;
       // agentId:"",
     contactNo:Contact,
     productCode:code,
-    userCity:City,
-    userEmail:email,
-    userName:user
+    city:City,
+    emaiId:email,
+    name:user
     }
     alert("Your Inquiry has been successfully sent to the Inquiry List")
     console.log(this.inquery);

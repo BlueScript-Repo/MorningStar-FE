@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PackageServiceService} from './../package-service.service';
 
 @Component({
   selector: 'app-search-customization',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchCustomizationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:PackageServiceService) { }
 
   ngOnInit(): void {
   }
+  destinations:any={};
+  searchApi(val:any){
+    console.log(val.value);
+    let keyword=val.value;
+    this.http.searchDestination(keyword).subscribe((res)=>{
+      console.log(res);
+      this.destinations=res;
+    })
+    console.log(this.destinations);
+    
+  }
 
+  GetDestination(value:any){
+    console.log(value); 
+  }
 }

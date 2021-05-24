@@ -8,7 +8,7 @@ import {UserService} from './../user/user.service'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  role:any;
+  // role:any;
   constructor(public authenticate1:PackageServiceService,public authenticate:UserService,) { }
   rolestorage:any;
   ngOnInit(): void {
