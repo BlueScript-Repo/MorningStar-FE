@@ -1,5 +1,4 @@
 <div class="container">
-  <form #image="ngForm" (ngSubmit)="getImg(image.value)">
     <div class="row">
     <div class="col-md-12">
       <h1>Upload Image</h1>
@@ -7,12 +6,38 @@
   </div>
   <div class="container row">
     <div class="col-md-6">
-      <!-- <img [src]="urllink" alt=""> -->
-      <input type="filex" name="image" ngModel (change)="onFileChange($event)" id="">
+      <input type="file" style="height: 44px;" name="image" class="upload-box mb-3" ngModel (change)="onFileChange($event)" id="">
     </div>
+    <p *ngFor="let i of images">{{i.name}}</p>
+    <select class="form-select mb-3" #main style="height: 35px;font-size: 14px;" aria-label="SubDestination">
+      <option selected></option>
+      <option>Landing Page</option>
+      <option>Deals Page</option>
+      <option>PackageList Page</option>
+      <option>Login Page</option>
+    </select>
+    <select class="form-select mb-3" #sub style="height: 35px;font-size: 14px;" aria-label="SubDestination">
+      <option selected></option>
+      <option>Trending Domestic Destination</option>
+      <option>Trending International Destination</option>
+      <option>Explore by Themes</option>
+      <option>Popular</option>
+      <option>Deals For every Pocket</option>
+      <option>Deals for Domestic Packages</option>
+      <option>Deals for International Packages</option>
+      <option>Exotic Deals</option>
+      <option>Header</option>
+      <option>Signin</option>
+      <option>Signup</option>
+    </select>
+    <select class="form-select mb-3" #nextSub style="height: 35px;font-size: 14px;" aria-label="SubDestination">
+      <option selected></option>
+      <option>Left</option>
+      <option>Right</option>
+    </select>
+    <button style="width:150px;height: 40px;font-size: 16px;" (click)="getData(main,sub,nextSub)" >Done</button>
     <div class="col-md-6">
-      <input type="submit" (click)="onUpload()" value="Upload" class="btn btn-outline-danger">
+      <input style="width:150px;height: 40px;font-size: 16px;" type="submit" value="Upload" (click)="onUpload()" class="btn btn-outline-danger">
     </div>
   </div>
-</form>
 </div>

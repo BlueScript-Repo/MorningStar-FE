@@ -21,3 +21,19 @@
 .containerTable{
     margin: 20px;
 }
+.bookingHeading{
+    display: none;
+    visibility: hidden;
+}
+.bookingHeading.active1{
+    display: block;
+    visibility:visible;
+}
+.bookingInput{
+    display: none;
+    visibility: hidden;
+}
+.bookingInput.active{
+    display:block;
+    visibility:visible;
+}

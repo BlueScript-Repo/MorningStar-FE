@@ -14,7 +14,22 @@ export class PackageListComponent implements OnInit {
   constructor(private http:PackageServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    this.getImages();
   }
+  bucketName:any='';
+  mainPage='PackageList Page';
+  section="Header";
+  Header:any=[];
+getImages(){
+  this.bucketName=this.mainPage+"/"+this.section;
+  this.http.getImages(this.bucketName).subscribe(res=>{
+    console.log(res);
+    this.Header=res;
+  })
+
+}
+
+
   role=localStorage.getItem('role');
   products:any={};
   key=10;

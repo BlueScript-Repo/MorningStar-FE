@@ -60,7 +60,31 @@ details:any = {};
   productCode='';
   inquiryId="";
   newInquiries:any={}
-  UpdateStatus(status:any,remark:any,id:any){
+  updateStatus='';
+  bookStatus:any='';
+  amount=0;
+  booked(val:any,j:any){
+    this.updateStatus=val.target.value;
+    if(this.updateStatus=='BOOKED'){
+      this.bookStatus='BOOKED';
+    document.getElementById("Status"+j)?.addEventListener("click",function(){
+      document.getElementsByClassName('bookingInput')[j].classList.add('active');
+    })
+    document.getElementById("Status")?.addEventListener("click",function(){
+      document.getElementsByClassName('bookingHeading')[j].classList.add('active1');
+    })  
+  }
+  else{
+    document.getElementById("Status"+j)?.addEventListener("click",function(){
+      document.getElementsByClassName('bookingInput')[j].classList.remove('active');
+    })
+    document.getElementById("Status"+j)?.addEventListener("click",function(){
+      document.getElementsByClassName('bookingHeading')[j].classList.remove('active1');
+    })  
+  }
+    console.log(val.target.value)
+  }
+  UpdateStatus(status:any,remark:any,amount:any,id:any){
     console.log(status,remark);  
     console.log(this.Inquiries[0]);
     this.productCode=this.Inquiries[id].productCode;
@@ -68,9 +92,14 @@ details:any = {};
       this.inquiryId=this.Inquiries[id].productInquiryId;
       console.log(this.email);
       console.log(this.productCode);
-    
+    if(this.bookStatus=='BOOKED'){
+      this.amount=amount;
+    }
+    else{
+      this.amount=0;
+    }
     this.newInquiries={
-      bookingAmount:10000,
+      bookingAmount:this.amount,
       bookingDate:"24 May",
       emailId:this.email,
       inquiryStatus:status,

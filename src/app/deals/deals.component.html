@@ -16,10 +16,10 @@
         <div class="row mb-5">
           <div class="col-sm-6">
             <div class="row">
-                <div class="col-6 col-sm-6">
+                <div *ngFor="let i of everyPocketLeft" class="col-6 col-sm-6">
                     <figure style="margin-left: 0;margin-top: 0;">
                         <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                            <img src="assets/Deals/deals1.jpg" style="height: 350px;width: 100%;" class="card-img" alt="...">
+                            <img src={{i}} style="height: 350px;width: 100%;" class="card-img" alt="...">
                             <div class="card-img-overlay">
                                 <div style="transform: rotate(-10deg);" class="shortcode_title title-center title-decoration-bottom-center">
                                     <p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:125px;font-family: 'Satisfy', cursive;">Deals Below...</p>
@@ -29,7 +29,7 @@
                         </div>
                     </figure>
                 </div>
-                <div class="col-6 col-sm-6">
+                <!-- <div class="col-6 col-sm-6">
                     <figure style="margin-left: 0;margin-top: 0;">
                     <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
                         <img src="assets/Deals/deals5.jpg" style="height: 350px;width: 100%;" class="card-img" alt="...">
@@ -68,12 +68,13 @@
                     </div>
                     </figure>
                 </div>
-              </div>
+              </div> -->
+          </div>
           </div>
           <div class="col-sm-6">
             <figure style="margin-left: 0;margin-top: 0;margin-bottom: 0;height: 732px;">
             <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                <img src="assets/Deals/deals2.jpg" style="height: 818px;width: 100%;" class="card-img" alt="...">
+                <img src={{everyPocketRight}} style="height: 818px;width: 100%;" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <div style="transform: rotate(-10deg);" class="shortcode_title title-center title-decoration-bottom-center">
                         <p class="card-title fs-2" style="text-align:center;margin-left: -40px;margin-top:290px;font-family: 'Satisfy', cursive;">Deals Above...</p>
@@ -94,10 +95,10 @@
 
 <div class="carousel">
     <owl-carousel-o id="deals_Section" style="padding-left: 75px;margin-top: -20px;margin-left: 90px;" [options]="customOptions">
-        <ng-template carouselSlide> 
+        <ng-template *ngFor="let i of Domestic" carouselSlide> 
                     <figure style="margin-left: 0;margin-top: 0;border-radius:0px">
             <div style="background:transparent;border:1px solid #fff;margin-right: 20px;" class="card deal_card1 text-white">
-            <img src="assets/Goa5.jpg" style="height: 330px;width: 100%;" class="card-img" alt="...">
+            <img src={{i}} style="height: 330px;width: 100%;" class="card-img" alt="...">
             <div class="card-img-overlay">
                     <h5 class="card-title fs-1" style="text-align:center;letter-spacing:2px;margin-left: -0px;margin-top:120%;font-family: 'Varela Round', sans-serif;">Goa</h5>
                 
@@ -106,7 +107,7 @@
         </div>
     </figure>
     </ng-template>  
-            <ng-template carouselSlide>
+            <!-- <ng-template carouselSlide>
                     <figure style="margin-left: 0;margin-top: 0;border-radius:0px">
             <div style="background:transparent;border:1px solid #fff;margin-right: 20px;" class="card deal_card1 text-white">
                 <img src="assets/Lonavala.jpg" style="height: 330px;width: 100%;" class="card-img" alt="...">
@@ -194,7 +195,7 @@
             </div>
             </div>
 </figure>
-        </ng-template>  
+        </ng-template>   -->
         </owl-carousel-o>
 </div>
    
@@ -203,10 +204,10 @@
         <h3 class="title_primary fs-2" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span> Deals for International Packages</h3>
     </div>
     <owl-carousel-o id="deals_Section" style="padding-left: 75px;margin-top: -20px;margin-left: 90px;" [options]="customOptions">
-        <ng-template carouselSlide> 
+        <ng-template *ngFor="let i of International" carouselSlide> 
                     <figure style="margin-left: 0;margin-top: 0;border-radius:0px">
             <div style="background:transparent;border:1px solid #fff;margin-right: 20px;" class="card deal_card1 text-white">
-            <img src="assets/Deals/Bali.jpg" style="height: 330px;width: 100%;" class="card-img" alt="...">
+            <img src={{i}} style="height: 330px;width: 100%;" class="card-img" alt="...">
             <div class="card-img-overlay">
                     <h5 class="card-title fs-1" style="text-align:center;letter-spacing:2px;margin-left: -0px;margin-top:120%;font-family: 'Varela Round', sans-serif;">Bali</h5>
                 
@@ -215,7 +216,7 @@
         </div>
     </figure>
     </ng-template>  
-            <ng-template carouselSlide>
+            <!-- <ng-template carouselSlide>
                     <figure style="margin-left: 0;margin-top: 0;border-radius:0px">
             <div style="background:transparent;border:1px solid #fff;margin-right: 20px;" class="card deal_card1 text-white">
                 <img src="assets/Deals/NewYork.jpg" style="height: 330px;width: 100%;" class="card-img" alt="...">
@@ -328,7 +329,7 @@
             </div>
             </div>
 </figure>
-        </ng-template>  
+        </ng-template>   -->
         </owl-carousel-o>
 </div>
         
@@ -342,7 +343,7 @@
         <div class="col-md-6">
             <figure style="margin-left: 0;margin-top: 0;">
                 <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                    <img src="assets/Deals/GrandHyatt.jpg" style="height: 370px;width: 100%;" class="card-img" alt="...">
+                    <img src={{ExoticDealsLeft}} style="height: 370px;width: 100%;" class="card-img" alt="...">
                     <div class="card-img-overlay">
                          <div class="shortcode_title title-center title-decoration-bottom-center">
                                 <p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Satisfy', cursive;">Grand Hyatt Goa</p>
@@ -354,10 +355,10 @@
         </div>
         <div class="col-md-6">
             <div class="row">
-                <div class="col-md-6">
+                <div *ngFor="let i of ExoticDealsRight" class="col-md-6">
                     <figure style="margin-left: 0;margin-top: 0;">
                     <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                        <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
+                        <img src={{i}} style="height: 175px;width: 100%;" class="card-img" alt="...">
                         <div class="card-img-overlay">
                              <div class="shortcode_title title-center title-decoration-bottom-center">
                                     <p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:90px;font-family: 'Satisfy', cursive;">Vilamendhoo Resort</p>
@@ -367,7 +368,7 @@
                     </div>
                     </figure>
                 </div>
-                <div class="col-md-6">
+                <!-- <div class="col-md-6">
                                         <figure style="margin-left: 0;margin-top: 0;">
                                             <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
                                                 <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
@@ -408,7 +409,7 @@
                         </div>
                         </figure>
                     
-                </div>
+                </div> -->
             </div>
         </div>
         

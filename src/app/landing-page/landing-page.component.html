@@ -398,6 +398,12 @@
          </div>
 
 
+
+
+
+
+
+
     <!-- Trending Domestic Destinations -->
 
     <div class="padding-top-6x padding-bottom-6x section-background">
@@ -408,16 +414,16 @@
             <div style="margin-top: 30px;" class="row wrapper-tours-slider">
 
                         <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
-                        <ng-template carouselSlide> 
+                        <ng-template *ngFor='let i of domestic' carouselSlide> 
                             <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                            <img src="assets/Goa1.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                            <img src={{i}} style="height: 320px;width: 95%;" class="card-img" alt="...">
                             <div class="card-img-overlay">
                             <h5 class="card-title fs-3" style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">GOA</h5>
                             <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
                             <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
                             </div>
                         </div></ng-template>  
-                        <ng-template carouselSlide>
+                        <!-- <ng-template carouselSlide>
                             <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
                                 <img src="assets/OOty.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
                                 <div class="card-img-overlay">
@@ -512,7 +518,7 @@
                             </div>
                             </div>
 
-                        </ng-template>  
+                        </ng-template>   -->
                         </owl-carousel-o>
                 
             </div>
@@ -526,16 +532,16 @@
             <div style="margin-top: 30px;" class="row wrapper-tours-slider">
 
                         <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
-                        <ng-template carouselSlide> 
+                        <ng-template *ngFor="let i of international" carouselSlide> 
                             <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                            <img src="assets/Deals/Bali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                            <img src={{i}} style="height: 320px;width: 95%;" class="card-img" alt="...">
                             <div class="card-img-overlay">
                             <h5 class="card-title fs-3" style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">BALI</h5>
                             <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
                             <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
                             </div>
                         </div></ng-template>  
-                        <ng-template carouselSlide>
+                        <!-- <ng-template carouselSlide>
                             <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
                                 <img src="assets/Deals/NewYork.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
                                 <div class="card-img-overlay">
@@ -630,7 +636,7 @@
                             </div>
                             </div>
 
-                        </ng-template>  
+                        </ng-template>   -->
                         </owl-carousel-o>
                 
             </div>
@@ -646,15 +652,15 @@
             <div style="margin-top: 30px;" class="row wrapper-tours-slider">
 
                         <owl-carousel-o id="exploreByTheme" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions1">
-                        <ng-template carouselSlide> 
+                        <ng-template *ngFor="let i of Themes" carouselSlide> 
                             <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/scenic.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                                <img src={{i}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
                                 <div class="card-body">
                                   <p class="card-text" style="text-align:center;">Scenic Tours</p>
                                 </div>
                               </div>
                             </ng-template>  
-                        <ng-template carouselSlide>
+                        <!-- <ng-template carouselSlide>
                             <div class="card" style="width:120px;border: 1px solid #fff;">
                                 <img src="assets/couple.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
                                 <div class="card-body">
@@ -757,7 +763,7 @@
                                 </div>
                               </div>
 
-                        </ng-template>  
+                        </ng-template>   -->
                         </owl-carousel-o>
                 
             </div>
@@ -774,10 +780,10 @@
             <div class="row mb-5">
               <div class="col-sm-6">
                 <div class="row">
-                    <div class="col-6 col-sm-6">
+                    <div style="margin-top:5px" *ngFor="let i of leftSubsection" class="col-6 col-sm-6">
                         <figure style="margin-left: 0;margin-top: 0;">
                             <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                                <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
+                                <img src={{i}} style="height: 175px;width: 100%;" class="card-img" alt="...">
                                 <div class="card-img-overlay">
                                      <div class="shortcode_title title-center title-decoration-bottom-center">
                                             <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
@@ -787,7 +793,7 @@
                             </div>
                         </figure>
                     </div>
-                    <div class="col-6 col-sm-6">
+                    <!-- <div class="col-6 col-sm-6">
                         <figure style="margin-left: 0;margin-top: 0;">
                             <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
                                 <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
@@ -825,13 +831,13 @@
                                         </div></div>
                             </div>
                         </figure>
-                    </div>
+                    </div> -->
                   </div>
               </div>
               <div class="col-sm-6">
                 <figure style="margin-left: 0;margin-top: 0;margin-bottom: 0;height: 380px;">
                 <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                    <img src="assets/Deals/GrandHyatt.jpg" style="height: 380px;width: 100%;" class="card-img" alt="...">
+                    <img src={{rightSubsection}} style="height: 380px;width: 100%;" class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <div class="shortcode_title title-center title-decoration-bottom-center">
                                <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Satisfy', cursive;">Grand Hyatt Goa</p>

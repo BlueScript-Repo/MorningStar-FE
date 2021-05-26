@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from './../user/user.service'
 import {Router} from '@angular/router';
+import {PackageServiceService} from './../package-service.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -8,12 +9,64 @@ import {Router} from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(public router: Router,public authenticate:UserService) { }
+  constructor(public router: Router,public authenticate:UserService,public http:PackageServiceService) { }
 
   ngOnInit(): void {
   if(this.role!='AGENT' && this.role!='USER' && this.role!='ADMIN'){
     this.value='null';
   }
+  this.GetImages();
+  }
+  domestic:any=[];
+  international:any=[];
+  Themes:any=[];
+  leftSubsection:any=[];
+  rightSubsection:any=[];
+  BucketName1:any={};
+  BucketName2:any={};
+  BucketName3:any={};
+  BucketName4:any={};
+  BucketName5:any={};
+  pageName="Landing Page";
+  section1="Trending Domestic Destination";
+  section2="Trending International Destination";
+  section3="Explore by Themes";
+  section4="Popular";
+  subsection1="Left";
+  subsection2="Right";
+  GetImages(){
+    this.BucketName1=this.pageName+"/"+this.section1;
+    this.http.getImages(this.BucketName1).subscribe(res=>{
+      console.log("Calling Domestic destinations");
+      this.domestic=res;
+      console.log(this.domestic);
+      
+    })
+    this.BucketName2=this.pageName+"/"+this.section2;
+    this.http.getImages(this.BucketName2).subscribe(res=>{
+            console.log("Calling Internation destinations");
+      this.international=res;
+      console.log(this.international);
+    })
+    this.BucketName3=this.pageName+"/"+this.section3;
+    this.http.getImages(this.BucketName3).subscribe(res=>{
+            console.log("Calling themes");
+      this.Themes=res;
+      console.log(this.Themes);
+    })
+    this.BucketName4=this.pageName+"/"+this.section4+"/"+this.subsection1;
+    this.http.getImages(this.BucketName4).subscribe(res=>{
+            console.log("Calling left subsection");
+      this.leftSubsection=res;
+      console.log(this.leftSubsection);
+    })
+    this.BucketName5=this.pageName+"/"+this.section4+"/"+this.subsection2;
+    this.http.getImages(this.BucketName5).subscribe(res=>{
+            console.log("Calling right subsection");
+            console.log(res);
+      this.rightSubsection=res;
+      console.log(this.rightSubsection);
+    })
   }
   role=localStorage.getItem('role');
   value='';

@@ -13,7 +13,32 @@ import { style } from '@angular/animations';
 export class UserRegistrationComponent implements OnInit {
 
   constructor(private userService: UserService,private router:Router,private http:PackageServiceService) { } 
-user:string='';
+
+  bucketName:any={};
+  mainPage="Login Page";
+  section1="Signin";
+  section2="Signup";
+  signin:any=[];
+  signup:any=[];
+  getImages(){
+    this.bucketName=this.mainPage+"/"+this.section1;
+    this.http.getImages(this.bucketName).subscribe(res=>{
+      console.log(res);
+      this.signin=res;
+    })
+    this.bucketName=this.mainPage+"/"+this.section2;
+    this.http.getImages(this.bucketName).subscribe(res=>{
+      console.log(res);
+      this.signup=res;
+    })
+  }  
+  
+  ngOnInit(): void {
+    this.getImages();
+    this.user=this.userService.userName
+    console.log(this.user);
+  } 
+  user:string='';
   userRegistration : UserRegistration={
 
     email:'',
@@ -81,10 +106,7 @@ rolestorage:any;
      
     });
   } 
-  ngOnInit(): void {
-    this.user=this.userService.userName
-    console.log(this.user);
-  } 
+  
   toggle(){
     var element=document.getElementById("sign-up-btn");
     // style=window.getComputedStyle(element);
