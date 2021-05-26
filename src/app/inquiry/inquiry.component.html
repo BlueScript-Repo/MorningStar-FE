@@ -46,20 +46,23 @@
                     </td>
                     <!-- <form #status="ngForm" (ngSubmit)="UpdateStatus(status.value)"> -->
                     <td style="text-align:center;border: none">
-                        <select class="form-select" #status style="height:30px;font-size: 16px;">
+                        <select id="Status{{j}}" (change)="booked($event,j)" class="form-select" #status style="height:30px;font-size: 16px;">
                             <option selected>IN PROCESS</option>
-                            <option *ngFor="let i of action">{{i}}</option> 
+                            <option>BOOKED</option> 
+                            <option>HOLD</option> 
+                            <option>DROP</option> 
                         </select>
                     </td>
-                    <td style="text-align:center;border: none;padding-left: 20px;">
-                        <input class="form-control" #remark style="height:30px;font-size: 16px;" placeholder="Your Remarks here!">
+                    <td style="text-align:center;border: none;padding-left: 40px;display: flex;">
+                        <input class="form-control" #remark style="height:30px;font-size: 16px;width: 200px;" placeholder="Your Remarks here!">
+                        <input type="number" #amount class="form-control bookingInput" style="height:30px;font-size: 16px;width: 200px;margin-left: 20px;" placeholder="booking amount...">     
                     </td>
+                   
                     <td style="text-align:center;border: none">
-                        <button style="text-align: center;" (click)="UpdateStatus(status.value,remark.value,j)" class="btn121" >Update</button>
+                        <button style="text-align: center;" (click)="UpdateStatus(status.value,remark.value,amount.value,j)" class="btn121" >Update</button>
                     </td>
                 <!-- </form> -->
                 </tr>
-
             </tbody>
         </table>  
      </div>
