@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {CodeArr} from "./CodeArr";
 import {Filter} from './Filter';
 import {FilterData} from './FilterData';
+import {Type} from './Type';
 @Component({
   selector: 'app-package-list',
   templateUrl: './package-list.component.html',
@@ -14,25 +15,35 @@ export class PackageListComponent implements OnInit {
   constructor(private http:PackageServiceService,private router:Router) { }
 
   ngOnInit(): void {
-    this.getImages();
+    this.package={
+      productType:localStorage.getItem('productType')
+    }
+    if(this.package.productType){
+      this.GetPackagefromType();
+      console.log(this.package);
+      localStorage.removeItem('productType');
+    }
   }
+
+  package:Type={
+    productType:''
+  }
+  GetPackagefromType(){
+    return this.http.getProduct(this.package).subscribe((res=>{
+      console.log(res);
+      this.products=res;
+      this.key=Object.keys(this.products).length;
+      // this.total="Total "+ this.key+" results found";
+    }))
+  }
+
   bucketName:any='';
   mainPage='PackageList Page';
   section="Header";
   Header:any=[];
-getImages(){
-  this.bucketName=this.mainPage+"/"+this.section;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
-    this.Header=res;
-  })
-
-}
-
-
-  role=localStorage.getItem('role');
-  products:any={};
-  key=10;
+role=localStorage.getItem('role');
+products:any={};
+key=10;
 keyword="";
 total:any;
 searchData:any;
@@ -46,17 +57,16 @@ filter:Filter={
   packageType:'',
   packageCategory:'',
   packageInclusion:''
-  // package1:{},
 }
 type='';
-RangeStart=0;
+RangeStart=1;
 RangeEnd=0;
 category='';
 inclusion='';
 filters(val:any){
  console.log(val);
  if(val.family==true && val.adventure==false && val.couple==false){
-  this.category="family"
+  this.category="Family"
  }
  else if(val.family==false && val.adventure==true && val.couple==false){
   this.category="Adventure"
@@ -66,30 +76,30 @@ filters(val:any){
 
  }
  else if(val.family==true && val.adventure==true && val.couple==false){
-  this.category="family,adventure"
+  this.category="Family,adventure"
 
  }
  if(val.family==true && val.adventure==false && val.couple==true){
-  this.category="family,couple"
+  this.category="Family,couple"
 
  }
  else if(val.family==false && val.adventure==true && val.couple==true){
   this.category="adventure,couple"
  }
  else if(val.family==true && val.adventure==true && val.couple==true){
-  this.category="family,adventure,couple"
+  this.category="Family,adventure,couple"
  }
  if(val.india==true && val.overseas==false){
-   this.type='domestic';
+   this.type='Domestic';
  }
  else if(val.overseas==true && val.india==false){
    this.type="international";
  }
  else if(val.overseas==true && val.india==true){
-   this.type="domestic,international";
+   this.type="Domestic,international";
  }
  if(val.below10000==true && val.from10000to20000==false && val.from20000to40000==false){
-  this.RangeStart=0;
+  this.RangeStart=1;
   this.RangeEnd=10000;
  }
  else if(val.below10000==false && val.from10000to20000==true && val.from20000to40000==false){
@@ -101,11 +111,11 @@ filters(val:any){
   this.RangeEnd=40000;
  }
  else if(val.below10000==true && val.from10000to20000==true && val.from20000to40000==false){
-  this.RangeStart=0;
+  this.RangeStart=1;
   this.RangeEnd=20000;
  }
  if(val.below10000==true && val.from10000to20000==false && val.from20000to40000==true){
-  this.RangeStart=0;
+  this.RangeStart=1;
   this.RangeEnd=40000;
  }
  else if(val.below10000==false && val.from10000to20000==true && val.from20000to40000==true){
@@ -113,8 +123,12 @@ filters(val:any){
   this.RangeEnd=40000;
  }
  else if(val.below10000==true && val.from10000to20000==true && val.from20000to40000==true){
-  this.RangeStart=0;
+  this.RangeStart=1;
   this.RangeEnd=40000;
+ }
+ else if(val.above40000==true){
+   this.RangeStart=40000;
+   this.RangeEnd=1000000;
  }
 
 // Inclusion
@@ -164,7 +178,6 @@ filterData:FilterData={
    priceRangeEnd:0,
    productType:'',
    productCategory:'',
-  //  PackageInclusions:'',
   keyword:''
 }
 
@@ -239,19 +252,5 @@ filterData:FilterData={
   nav(){
     this.router.navigate(["/customPackage"]);
   }
-
-
-
-// name='';
-// products1:any={};
-//   search1(val:any){
-//     console.log(val.value);
-//     this.name=val.value;
-//     return this.http.getProduct(this.name).subscribe((res=>{
-//       this.products1=res;
-//       console.log(this.products1);
-      
-//     }))
-//   }
 
 }
