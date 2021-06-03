@@ -186,6 +186,24 @@ bucketName:any;
     
   }
 
+
+  getDomesticPackages(data:any){
+    let urlproduct=this.baseUrl+"Products/search";
+    console.log(urlproduct);
+    return this.http.post(urlproduct,data);
+    // console.log();
+    
+  }
+  getInternationalPackages(data:any){
+    let urlproduct=this.baseUrl+"Products/search";
+    console.log(urlproduct);
+    return this.http.post(urlproduct,data);
+    // console.log();
+    
+  }
+
+
+
   uploadProduct(data:any){
     let uploadUrl=this.baseUrl+"Products";
     console.log(data);
@@ -303,4 +321,16 @@ path:any='';
    let url=this.baseUrl+"awsS3Files/bulk?bucketName="+data;
    return this.http.get(url);
  }
+
+ postimages(file:any,name:string,price:string,bucketName:any){
+  let url=this.baseUrl+"landingPageSection1?price="+price+"&name="+name+"&bucketName="+bucketName;
+  const formdata: FormData= new FormData();
+  formdata.append('file',file);
+  const req=new HttpRequest('POST',url,formdata,{
+    reportProgress:true,
+    responseType:'text'
+  });
+  return this.http.request(req);
+ }
+
 }

@@ -48,7 +48,7 @@ export class AddProductComponent implements OnInit {
     type:new FormControl(''),
     subd:new FormControl(''),
     hotel:new FormControl(''),
-    ProductType: new FormControl(''),
+    ProductPriceType: new FormControl(''),
     adult: new FormControl(''),
     child: new FormControl(''),
     infant: new FormControl(''),
@@ -56,7 +56,8 @@ export class AddProductComponent implements OnInit {
     exclusion: new FormControl(''),
     days: new FormControl(''),
     description: new FormControl(''),
-    productCodeMorningStar:new FormControl('')
+    productCodeMorningStar:new FormControl(''),
+    producttype:new FormControl('')
   });
   getsubd(sub:any){
     let subd=sub;
@@ -89,7 +90,7 @@ export class AddProductComponent implements OnInit {
       adultPrice:adlt,
       childrenPrice:chld,
       infantPrice:ifnt,
-      productType:prtyp
+      type:prtyp
     })
     console.log(this.productPrice);
     
@@ -107,7 +108,7 @@ export class AddProductComponent implements OnInit {
     this.productExclusion.push({
       exclusionText:exclusn
     })
-    console.log(this.productInclusion);
+    console.log(this.productExclusion);
     
   }
   ShowDay(day:any,desc:any){
@@ -171,7 +172,7 @@ export class AddProductComponent implements OnInit {
       productName:this.Product.value.name,
       productPrice:this.productPrice,
       productSubDestination:this.productSubDestination,
-      productType:this.Product.value.type
+      productType:this.Product.value.producttype
     }
     console.log(this.upload);
     this.http.uploadProduct(this.upload).subscribe(res=>{

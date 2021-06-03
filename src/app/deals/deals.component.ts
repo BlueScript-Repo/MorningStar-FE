@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PackageServiceService} from './../package-service.service'
+import {PackageServiceService} from './../package-service.service';
+import {CMSServiceService} from './../cms-service.service';
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
@@ -7,7 +8,7 @@ import {PackageServiceService} from './../package-service.service'
 })
 export class DealsComponent implements OnInit {
 
-  constructor(public http:PackageServiceService) { }
+  constructor(public http:PackageServiceService,private imgService:CMSServiceService) { }
 
   ngOnInit(): void {
     this.getImages();
@@ -15,49 +16,41 @@ export class DealsComponent implements OnInit {
   Domestic:any=[];
   International:any=[];
   everyPocketLeft:any=[];
-  ExoticDealsLeft:any=[];
-  ExoticDealsRight:any=[];
+  ExoticDeals:any=[];
   everyPocketRight:any=[];
-  bucketName:any={};
-  mainPage="Deals Page";
-  section1="Deals for Domestic Packages";
-  section2="Deals For every Pocket";
-  section3="Deals for International Packages";
-  section4="Exotic Deals";
-  subsection="Left";
-  subsection1="Right";
 
 getImages(){
-  this.bucketName=this.mainPage+"/"+this.section1;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
+  this.imgService.getDealPageSection1().subscribe(res=>{
     this.Domestic=res;
+    console.log(this.Domestic);
+    
   })
 
-  this.bucketName=this.mainPage+"/"+this.section2+"/"+this.subsection;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
-    this.everyPocketLeft=res;
-  })
-  this.bucketName=this.mainPage+"/"+this.section2+"/"+this.subsection1;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
-    this.everyPocketRight=res;
-  })
-  this.bucketName=this.mainPage+"/"+this.section3;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
+  this.imgService.getDealPageSection2().subscribe(res=>{
     this.International=res;
+    console.log(this.International);
+    
   })
-  this.bucketName=this.mainPage+"/"+this.section4+"/"+this.subsection1;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
-    this.ExoticDealsRight=res;
+
+  this.imgService.getDealPageSection3().subscribe(res=>{
+    this.ExoticDeals=res;
+    console.log(this.ExoticDeals);
+    
   })
-  this.bucketName=this.mainPage+"/"+this.section4+"/"+this.subsection;
-  this.http.getImages(this.bucketName).subscribe(res=>{
-    console.log(res);
-    this.ExoticDealsLeft=res;
+
+  this.imgService.getDealPageSubSection1().subscribe(res=>{
+  this.everyPocketLeft=res;
+  console.log(this.everyPocketLeft);
+  
+  })
+  this.imgService.getDealPageSubSection1().subscribe(res=>{
+    this.everyPocketLeft=res;
+    console.log(this.everyPocketLeft);
+  })
+  
+  this.imgService.getDealPageSubSection2().subscribe(res=>{
+    this.everyPocketRight=res;
+    console.log(this.everyPocketRight);
   })
 }
 

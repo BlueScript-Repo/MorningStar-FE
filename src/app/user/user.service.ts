@@ -18,13 +18,7 @@ export class UserService {
        this.usersUrl='http://morningstarweb-env.eba-pb7idjdb.ap-south-1.elasticbeanstalk.com/';
    }  
 
-   setRole(data:any){
-     this.Role=data;
-   }
-
-   getRole(){
-     return this.Role;
-   }
+  
 
   createUser(userRegistration: UserRegistration) {
    

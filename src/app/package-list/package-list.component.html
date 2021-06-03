@@ -77,6 +77,12 @@
 														<input class="form-check-input" name="from20000to40000" ngModel type="checkbox" id="inlineCheckbox3" value="option3" >
 														<label class="form-check-label" for="inlineCheckbox3">₹20000-40000</label>
 													  </div>
+
+													  <div class="form-check" style="padding-bottom: 10px;">
+														<input class="form-check-input" name="above40000" ngModel type="checkbox" id="inlineCheckbox3" value="option3" >
+														<label class="form-check-label" for="inlineCheckbox3">Above 40000 </label>
+													  </div>
+
 														<div class="btn-group">
 															<a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 																more
@@ -224,7 +230,9 @@
 								</div>
 						</div>
 						<div class="site-main col-md-8 alignright">
-							<h1>{{total}}</h1>
+							<div *ngIf="key!=0" class="mb-3" style="text-align:left">
+								<h2 class="title_primary fs-2" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Total {{key}} results are found....</h2>
+							</div>
 							<ul class="tours products wrapper-tours-slider">
 								<li *ngFor="let i of products" class="item-list-tour col-md-12 ">
 									<div class="product content-list-tour">
@@ -233,8 +241,8 @@
 												<img width="430" height="305" src="assets/tour/430x305/tour-1.jpg" alt="Discover Brazil" title="Discover Brazil">
 											</a>
 											<div class="group-icon">
-												<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>
-												<a href="tours.html" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rail Tour"><i class="flaticon-cart-1"></i></a>
+												<a data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>
+												<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Rail Tour"><i class="flaticon-cart-1"></i></a>
 											</div>
 										</div>
 										<div class="wrapper_content">

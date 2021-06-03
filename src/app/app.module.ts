@@ -34,6 +34,8 @@ import { AgentGuard } from './agent.guard';
 import { UserGuard } from './user.guard';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SearchCustomizationComponent } from './search-customization/search-customization.component';
+import {DomesticPackagesComponent} from './domestic-packages/domestic-packages.component'
+import {InternationalPackagesComponent} from './international-packages/international-packages.component'
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
@@ -52,7 +54,10 @@ const route:Routes=[
   {path:"Inquiries",component:InquiryComponent,canActivate:[AuthGuard]},
   {path:"AgentInquiries",component:InquiryComponent,canActivate:[AgentGuard]},
   {path:"agentRegister",component:AgentRegisterComponent,canActivate:[AuthGuard]},
-  {path:'SearchDestination',component:SearchCustomizationComponent}
+  {path:'SearchDestination',component:SearchCustomizationComponent},
+  {path:"CMS",component:SiteImagesComponent},
+  {path:"domestic",component:DomesticPackagesComponent},
+  {path:"international",component:InternationalPackagesComponent},
 ] 
   
 
@@ -76,7 +81,9 @@ const route:Routes=[
     ProductDetailsComponent,
     InquiryComponent,
     FilterPipe,
-    SearchCustomizationComponent
+    SearchCustomizationComponent,
+    DomesticPackagesComponent,
+    InternationalPackagesComponent    
 
   ],
   imports: [

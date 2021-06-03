@@ -1,401 +1,401 @@
 <div class="navbarTop">
-    <div class="site wrapper-content">
-    <div class="home-content" role="main">
-        <div class="wrapper-bg-video">
-            <video id="video" poster="assets/video_slider.jpg" playsinline autoplay oncanplay="this.muted=true" loop>
-                <!-- <source src="http://physcode.com/video/330149744.mp4" type="video/mp4"> -->
-            </video>
-            <div class="content-slider">
-                <p>Find your special tour today </p>
-                <h2>With Morning Star Holidays </h2>
-                <!-- <p><a href="" class="btn btn-slider">VIEW TOURS </a></p> -->
-                <div style="padding-top:20px;padding-left: 3%;" class="container-fluid row">
-                    <form #searchForm="ngForm">
-                    <div align="center" style="margin-top: -10px;margin-bottom: 50px;" class="col-md-12">
-                        <div class="wrapper">
-                          <div class="search-input">
-                            <a href="" target="_blank" hidden></a>
-                            <input ngModel type="text" name=Package (click)="nav()" placeholder="Search your packages.....">
-                            <div class="icon">
-                                    <button><i class="fas fa-search"></i></button>
-                            </div>
+  <div class="site wrapper-content">
+  <div class="home-content" role="main">
+      <div class="wrapper-bg-video">
+          <video id="video" poster="assets/video_slider.jpg" playsinline autoplay oncanplay="this.muted=true" loop>
+              <!-- <source src="http://physcode.com/video/330149744.mp4" type="video/mp4"> -->
+          </video>
+          <div class="content-slider">
+              <p>Find your special tour today </p>
+              <h2>With Morning Star Holidays </h2>
+              <!-- <p><a href="" class="btn btn-slider">VIEW TOURS </a></p> -->
+              <div style="padding-top:20px;padding-left: 3%;" class="container-fluid row">
+                  <form #searchForm="ngForm">
+                  <div align="center" style="margin-top: -10px;margin-bottom: 50px;" class="col-md-12">
+                      <div class="wrapper">
+                        <div class="search-input">
+                          <a href="" target="_blank" hidden></a>
+                          <input ngModel type="text" name=Package (click)="nav()" placeholder="Search your packages.....">
+                          <div class="icon">
+                                  <button><i class="fas fa-search"></i></button>
                           </div>
-                        </div>  
-                      </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                        </div>
+                      </div>  
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
 <div class="container-fluid">
 
-    <!-- Why Choose Us -->
-    <div *ngIf="value=='null'" class="two-column-respon mg-top-6x mg-bt-6x">
-        <div style="margin-top: -20px;" class="row">
-            <div class="col-sm-12 mg-btn-6x">
-                <div class="shortcode_title title-center title-decoration-bottom-center">
-                    <h3 style="text-align:center" class="title_primary">WHY CHOOSE US?</h3><span class="line_after_title"></span>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="wpb_column col-sm-3">
-                <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                    <div class="boxes-icon circle" style="font-size:30px;width:60px; height:60px;line-height:60px">
-                        <span class="inner-icon"><i class="vc_icon_element-icon flaticon-transport-6"></i></span>
-                    </div>
-                    <div class="content-inner">
-                        <div class="sc-heading article_heading">
-                            <h4 class="heading__primary">Diverse Destinations</h4></div>
-                        <div class="desc-icon-box">
-                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wpb_column col-sm-3">
-                <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                    <div class="boxes-icon " style="font-size:30px;width:60px; height:60px;line-height:60px">
-                        <span class="inner-icon"><i class="vc_icon_element-icon flaticon-sand"></i></span>
-                    </div>
-                    <div class="content-inner">
-                        <div class="sc-heading article_heading">
-                            <h4 class="heading__primary">Value for Money</h4></div>
-                        <div class="desc-icon-box">
-                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wpb_column col-sm-3">
-                <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                    <div class="boxes-icon " style="font-size:30px;width:60px; height:60px;line-height:60px">
-                        <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
-                    </div>
-                    <div class="content-inner">
-                        <div class="sc-heading article_heading">
-                            <h4 class="heading__primary">Beautiful Places</h4></div>
-                        <div class="desc-icon-box">
-                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wpb_column col-sm-3">
-                <div class="widget-icon-box widget-icon-box-base iconbox-center">
-                    <div class="boxes-icon circle" style="font-size:30px;width:60px; height:60px;line-height:60px">
-                        <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travelling"></i></span>
-                    </div>
-                    <div class="content-inner">
-                        <div class="sc-heading article_heading">
-                            <h4 class="heading__primary">Passionate Travel</h4></div>
-                        <div class="desc-icon-box">
-                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div *ngIf="authenticate.Role=='AGENT' ">
-        <div style="padding-left: 50px;" class="container-fluid home_top">
-            <img src="assets/homeimg.jpg" style="width:16%" alt="">
-            <div style="padding-top:7%;padding-left: 2%;width: 23%;" class="username">
-             <h1 style="font-weight: 500;">Hello AGENT...!!</h1>
-             <p style="color: grey;">Welcome to the Morning Star Holidays</p>
-            </div>
-           
+  <!-- Why Choose Us -->
+  <div *ngIf="value=='null'" class="two-column-respon mg-top-6x mg-bt-6x">
+      <div style="margin-top: -20px;" class="row">
+          <div class="col-sm-12 mg-btn-6x">
+              <div class="shortcode_title title-center title-decoration-bottom-center">
+                  <h3 style="text-align:center" class="title_primary">WHY CHOOSE US?</h3><span class="line_after_title"></span>
+              </div>
           </div>
-          <div style="padding-left: 100px;" class="row container-fluid cont">
-            <div class="col-md-8">
-             <div class="mb-3" style="text-align:left">
-               <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
-           </div>
-           <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
+      </div>
+      <div class="row">
+          <div class="wpb_column col-sm-3">
+              <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                  <div class="boxes-icon circle" style="font-size:30px;width:60px; height:60px;line-height:60px">
+                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-transport-6"></i></span>
+                  </div>
+                  <div class="content-inner">
+                      <div class="sc-heading article_heading">
+                          <h4 class="heading__primary">Diverse Destinations</h4></div>
+                      <div class="desc-icon-box">
+                          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="wpb_column col-sm-3">
+              <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                  <div class="boxes-icon " style="font-size:30px;width:60px; height:60px;line-height:60px">
+                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-sand"></i></span>
+                  </div>
+                  <div class="content-inner">
+                      <div class="sc-heading article_heading">
+                          <h4 class="heading__primary">Value for Money</h4></div>
+                      <div class="desc-icon-box">
+                          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="wpb_column col-sm-3">
+              <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                  <div class="boxes-icon " style="font-size:30px;width:60px; height:60px;line-height:60px">
+                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
+                  </div>
+                  <div class="content-inner">
+                      <div class="sc-heading article_heading">
+                          <h4 class="heading__primary">Beautiful Places</h4></div>
+                      <div class="desc-icon-box">
+                          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="wpb_column col-sm-3">
+              <div class="widget-icon-box widget-icon-box-base iconbox-center">
+                  <div class="boxes-icon circle" style="font-size:30px;width:60px; height:60px;line-height:60px">
+                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travelling"></i></span>
+                  </div>
+                  <div class="content-inner">
+                      <div class="sc-heading article_heading">
+                          <h4 class="heading__primary">Passionate Travel</h4></div>
+                      <div class="desc-icon-box">
+                          <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div *ngIf="authenticate.Role=='AGENT' ">
+      <div style="padding-left: 50px;" class="container-fluid home_top">
+          <img src="assets/homeimg.jpg" style="width:16%" alt="">
+          <div style="padding-top:7%;padding-left: 2%;width: 23%;" class="username">
+           <h1 style="font-weight: 500;">Hello AGENT...!!</h1>
+           <p style="color: grey;">Welcome to the Morning Star Holidays</p>
+          </div>
          
-             <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
-                
-                 <th style="text-align:center;border: none">Email Id</th>
-                 <th style="text-align:center;border: none">Status</th>
-                 <th style="text-align:center;border: none">City</th>
-                 <th style="text-align:center;border: none">Product Name</th>
-             </thead>
-             <tbody>
-                <tr>
+        </div>
+        <div style="padding-left: 100px;" class="row container-fluid cont">
+          <div class="col-md-8">
+           <div class="mb-3" style="text-align:left">
+             <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
+         </div>
+         <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
+       
+           <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
+              
+               <th style="text-align:center;border: none">Email Id</th>
+               <th style="text-align:center;border: none">Status</th>
+               <th style="text-align:center;border: none">City</th>
+               <th style="text-align:center;border: none">Product Name</th>
+           </thead>
+           <tbody>
+              <tr>
+               <td style="text-align:center;border: none">
+               abc@gmail.com
+             </td>
+             <td style="text-align:center;border: none">
+               pending
+             </td>
+             <td style="text-align:center;border: none">
+               AKot
+             </td>
+             <td style="text-align:center;border: none">
+              Magical Maldives
+             </td>
+               </tr>
+               <tr>
                  <td style="text-align:center;border: none">
-                 abc@gmail.com
+                 xyz@gmail.com
                </td>
                <td style="text-align:center;border: none">
-                 pending
+                 Completed
                </td>
                <td style="text-align:center;border: none">
-                 AKot
+                 Pune
                </td>
                <td style="text-align:center;border: none">
-                Magical Maldives
+                 Australia
                </td>
                  </tr>
                  <tr>
                    <td style="text-align:center;border: none">
-                   xyz@gmail.com
+                   pqr@gmail.com
                  </td>
                  <td style="text-align:center;border: none">
-                   Completed
+                   pending
                  </td>
                  <td style="text-align:center;border: none">
-                   Pune
+                   Nagpur
                  </td>
                  <td style="text-align:center;border: none">
-                   Australia
+                  Miraculous Norway
                  </td>
                    </tr>
                    <tr>
                      <td style="text-align:center;border: none">
-                     pqr@gmail.com
+                     abc@gmail.com
                    </td>
                    <td style="text-align:center;border: none">
                      pending
                    </td>
                    <td style="text-align:center;border: none">
-                     Nagpur
+                     AKot
                    </td>
                    <td style="text-align:center;border: none">
-                    Miraculous Norway
+                    Bali
+                   </td>
+                     </tr>
+           </tbody>
+       </table>  
+          </div>
+          <div class="col-md-4">
+           <div class="mb-3" style="text-align:left">
+             <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Loyalty Score</h3>
+         </div>
+           <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
+             <div class="card-body loyalty">
+               <div>
+               <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
+               <p style="text-align:center;">Your Loyalty Score is 101.00</p>
+               <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
+             </div>
+             </div>
+           </div>
+            </div>
+            </div>
+  </div>
+      
+      <div *ngIf="authenticate.Role=='ADMIN' ">
+        <div style="padding-left: 50px;" class="container-fluid home_top">
+              <img src="assets/homeimg.jpg" style="width:16%" alt="">
+              <div style="padding-top:7%;padding-left: 2%;width: 23%;" class="username">
+               <h1 style="font-weight: 500;">Hello ADMIN...!!</h1>
+               <p style="color: grey;">Welcome to the Morning Star Holidays</p>
+              </div>
+             
+            </div>
+            <div style="padding-left: 100px;" class="row container-fluid cont">
+              <div class="col-md-8">
+               <div class="mb-3" style="text-align:left">
+                 <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
+             </div>
+             <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
+           
+               <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
+                  
+                   <th style="text-align:center;border: none">Email Id</th>
+                   <th style="text-align:center;border: none">Status</th>
+                   <th style="text-align:center;border: none">City</th>
+                   <th style="text-align:center;border: none">Product Name</th>
+               </thead>
+               <tbody>
+                  <tr>
+                   <td style="text-align:center;border: none">
+                   abc@gmail.com
+                 </td>
+                 <td style="text-align:center;border: none">
+                   pending
+                 </td>
+                 <td style="text-align:center;border: none">
+                   AKot
+                 </td>
+                 <td style="text-align:center;border: none">
+                  Magical Maldives
+                 </td>
+                   </tr>
+                   <tr>
+                     <td style="text-align:center;border: none">
+                     xyz@gmail.com
+                   </td>
+                   <td style="text-align:center;border: none">
+                     Completed
+                   </td>
+                   <td style="text-align:center;border: none">
+                     Pune
+                   </td>
+                   <td style="text-align:center;border: none">
+                     Australia
                    </td>
                      </tr>
                      <tr>
                        <td style="text-align:center;border: none">
-                       abc@gmail.com
+                       pqr@gmail.com
                      </td>
                      <td style="text-align:center;border: none">
                        pending
                      </td>
                      <td style="text-align:center;border: none">
-                       AKot
+                       Nagpur
                      </td>
                      <td style="text-align:center;border: none">
-                      Bali
+                      Miraculous Norway
                      </td>
                        </tr>
-             </tbody>
-         </table>  
-            </div>
-            <div class="col-md-4">
-             <div class="mb-3" style="text-align:left">
-               <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Loyalty Score</h3>
-           </div>
-             <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
-               <div class="card-body loyalty">
-                 <div>
-                 <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
-                 <p style="text-align:center;">Your Loyalty Score is 101.00</p>
-                 <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
-               </div>
-               </div>
+                       <tr>
+                         <td style="text-align:center;border: none">
+                         abc@gmail.com
+                       </td>
+                       <td style="text-align:center;border: none">
+                         pending
+                       </td>
+                       <td style="text-align:center;border: none">
+                         AKot
+                       </td>
+                       <td style="text-align:center;border: none">
+                        Bali
+                       </td>
+                         </tr>
+               </tbody>
+           </table>  
+              </div>
+              <div class="col-md-4">
+               <div class="mb-3" style="text-align:left">
+                 <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Loyalty Score</h3>
              </div>
+               <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
+                 <div class="card-body loyalty">
+                   <div>
+                   <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
+                   <p style="text-align:center;">Your Loyalty Score is 101.00</p>
+                   <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
+                 </div>
+                 </div>
+               </div>
+                </div>
+                </div>
               </div>
-              </div>
-    </div>
-        
-        <div *ngIf="authenticate.Role=='ADMIN' ">
+              
+       <div *ngIf="authenticate.Role=='USER' ">
           <div style="padding-left: 50px;" class="container-fluid home_top">
-                <img src="assets/homeimg.jpg" style="width:16%" alt="">
-                <div style="padding-top:7%;padding-left: 2%;width: 23%;" class="username">
-                 <h1 style="font-weight: 500;">Hello ADMIN...!!</h1>
-                 <p style="color: grey;">Welcome to the Morning Star Holidays</p>
-                </div>
-               
+              <img src="assets/homeimg.jpg" style="width:16%" alt="">
+              <div style="padding-top:7%;padding-left: 2%;width: 23%;" class="username">
+               <h1 style="font-weight: 500;">Hello User...!!</h1>
+               <p style="color: grey;">Welcome to the Morning Star Holidays</p>
               </div>
-              <div style="padding-left: 100px;" class="row container-fluid cont">
-                <div class="col-md-8">
-                 <div class="mb-3" style="text-align:left">
-                   <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
-               </div>
-               <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
              
-                 <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
-                    
-                     <th style="text-align:center;border: none">Email Id</th>
-                     <th style="text-align:center;border: none">Status</th>
-                     <th style="text-align:center;border: none">City</th>
-                     <th style="text-align:center;border: none">Product Name</th>
-                 </thead>
-                 <tbody>
-                    <tr>
+            </div>
+            <div style="padding-left: 100px;" class="row container-fluid cont">
+              <div class="col-md-8">
+               <div class="mb-3" style="text-align:left">
+                 <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
+             </div>
+             <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
+           
+               <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
+                  
+                   <th style="text-align:center;border: none">Email Id</th>
+                   <th style="text-align:center;border: none">Status</th>
+                   <th style="text-align:center;border: none">City</th>
+                   <th style="text-align:center;border: none">Product Name</th>
+               </thead>
+               <tbody>
+                  <tr>
+                   <td style="text-align:center;border: none">
+                   abc@gmail.com
+                 </td>
+                 <td style="text-align:center;border: none">
+                   pending
+                 </td>
+                 <td style="text-align:center;border: none">
+                   AKot
+                 </td>
+                 <td style="text-align:center;border: none">
+                  Magical Maldives
+                 </td>
+                   </tr>
+                   <tr>
                      <td style="text-align:center;border: none">
-                     abc@gmail.com
+                     xyz@gmail.com
                    </td>
                    <td style="text-align:center;border: none">
-                     pending
+                     Completed
                    </td>
                    <td style="text-align:center;border: none">
-                     AKot
+                     Pune
                    </td>
                    <td style="text-align:center;border: none">
-                    Magical Maldives
+                     Australia
                    </td>
                      </tr>
                      <tr>
                        <td style="text-align:center;border: none">
-                       xyz@gmail.com
+                       pqr@gmail.com
                      </td>
                      <td style="text-align:center;border: none">
-                       Completed
+                       pending
                      </td>
                      <td style="text-align:center;border: none">
-                       Pune
+                       Nagpur
                      </td>
                      <td style="text-align:center;border: none">
-                       Australia
+                      Miraculous Norway
                      </td>
                        </tr>
                        <tr>
                          <td style="text-align:center;border: none">
-                         pqr@gmail.com
+                         abc@gmail.com
                        </td>
                        <td style="text-align:center;border: none">
                          pending
                        </td>
                        <td style="text-align:center;border: none">
-                         Nagpur
+                         AKot
                        </td>
                        <td style="text-align:center;border: none">
-                        Miraculous Norway
+                        Bali
                        </td>
                          </tr>
-                         <tr>
-                           <td style="text-align:center;border: none">
-                           abc@gmail.com
-                         </td>
-                         <td style="text-align:center;border: none">
-                           pending
-                         </td>
-                         <td style="text-align:center;border: none">
-                           AKot
-                         </td>
-                         <td style="text-align:center;border: none">
-                          Bali
-                         </td>
-                           </tr>
-                 </tbody>
-             </table>  
-                </div>
-                <div class="col-md-4">
-                 <div class="mb-3" style="text-align:left">
-                   <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Loyalty Score</h3>
-               </div>
-                 <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
-                   <div class="card-body loyalty">
-                     <div>
-                     <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
-                     <p style="text-align:center;">Your Loyalty Score is 101.00</p>
-                     <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
-                   </div>
-                   </div>
-                 </div>
-                  </div>
-                  </div>
-                </div>
-                
-         <div *ngIf="authenticate.Role=='USER' ">
-            <div style="padding-left: 50px;" class="container-fluid home_top">
-                <img src="assets/homeimg.jpg" style="width:16%" alt="">
-                <div style="padding-top:7%;padding-left: 2%;width: 23%;" class="username">
-                 <h1 style="font-weight: 500;">Hello User...!!</h1>
-                 <p style="color: grey;">Welcome to the Morning Star Holidays</p>
-                </div>
-               
+               </tbody>
+           </table>  
               </div>
-              <div style="padding-left: 100px;" class="row container-fluid cont">
-                <div class="col-md-8">
-                 <div class="mb-3" style="text-align:left">
-                   <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
-               </div>
-               <table style="text-align: center;border: 1px solid #fff;" class="table table-light">
-             
-                 <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
-                    
-                     <th style="text-align:center;border: none">Email Id</th>
-                     <th style="text-align:center;border: none">Status</th>
-                     <th style="text-align:center;border: none">City</th>
-                     <th style="text-align:center;border: none">Product Name</th>
-                 </thead>
-                 <tbody>
-                    <tr>
-                     <td style="text-align:center;border: none">
-                     abc@gmail.com
-                   </td>
-                   <td style="text-align:center;border: none">
-                     pending
-                   </td>
-                   <td style="text-align:center;border: none">
-                     AKot
-                   </td>
-                   <td style="text-align:center;border: none">
-                    Magical Maldives
-                   </td>
-                     </tr>
-                     <tr>
-                       <td style="text-align:center;border: none">
-                       xyz@gmail.com
-                     </td>
-                     <td style="text-align:center;border: none">
-                       Completed
-                     </td>
-                     <td style="text-align:center;border: none">
-                       Pune
-                     </td>
-                     <td style="text-align:center;border: none">
-                       Australia
-                     </td>
-                       </tr>
-                       <tr>
-                         <td style="text-align:center;border: none">
-                         pqr@gmail.com
-                       </td>
-                       <td style="text-align:center;border: none">
-                         pending
-                       </td>
-                       <td style="text-align:center;border: none">
-                         Nagpur
-                       </td>
-                       <td style="text-align:center;border: none">
-                        Miraculous Norway
-                       </td>
-                         </tr>
-                         <tr>
-                           <td style="text-align:center;border: none">
-                           abc@gmail.com
-                         </td>
-                         <td style="text-align:center;border: none">
-                           pending
-                         </td>
-                         <td style="text-align:center;border: none">
-                           AKot
-                         </td>
-                         <td style="text-align:center;border: none">
-                          Bali
-                         </td>
-                           </tr>
-                 </tbody>
-             </table>  
-                </div>
-                <div class="col-md-4">
-                 <div class="mb-3" style="text-align:left">
-                   <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Loyalty Score</h3>
-               </div>
-                 <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
-                   <div class="card-body loyalty">
-                     <div>
-                     <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
-                     <p style="text-align:center;">Your Loyalty Score is 101.00</p>
-                     <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
-                   </div>
-                   </div>
+              <div class="col-md-4">
+               <div class="mb-3" style="text-align:left">
+                 <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Loyalty Score</h3>
+             </div>
+               <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
+                 <div class="card-body loyalty">
+                   <div>
+                   <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
+                   <p style="text-align:center;">Your Loyalty Score is 101.00</p>
+                   <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
                  </div>
-                  </div>
-                  </div>
-         </div>
+                 </div>
+               </div>
+                </div>
+                </div>
+       </div>
 
 
 
@@ -404,515 +404,531 @@
 
 
 
-    <!-- Trending Domestic Destinations -->
 
-    <div class="padding-top-6x padding-bottom-6x section-background">
-        <div class="container_landing_page">
-            <div class="mb-3" style="text-align:left">
-                <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>TRENDING DOMESTIC DESTINATION</h3>
-            </div>
-            <div style="margin-top: 30px;" class="row wrapper-tours-slider">
 
-                        <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
-                        <ng-template *ngFor='let i of domestic' carouselSlide> 
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                            <img src={{i}} style="height: 320px;width: 95%;" class="card-img" alt="...">
-                            <div class="card-img-overlay">
-                            <h5 class="card-title fs-3" style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">GOA</h5>
-                            <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                            <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
-                            </div>
-                        </div></ng-template>  
-                        <!-- <ng-template carouselSlide>
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/OOty.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">OOTY</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Manali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">MANALI</h4>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                            <img src="assets/mahabaleshwar.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
-                            <div class="card-img-overlay">
-                        <div class="overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">Mahabaleshwar</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
-                            </div>
-                        </div>
-                        </div>
-                    </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card card2 text-white">
-                                <img src="assets/Mumbai.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">MUMBAI</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>6,999</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                             <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Goa1.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">GOA</h5>
-                                <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
-                                </div>
-                                </div>
-                           
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                           
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/OOty.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">OOTY</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Manali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">MANALI</h4>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/mahabaleshwar.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
-                                <div class="card-img-overlay">
-                            <div class="overlay">
-                                    <h5 class="card-title fs-3" style="text-align:center;margin-left: -40px;">Mahabaleshwar</h5>
-                                    <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                    <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
-                                </div>
-                            </div>
-                            </div>
 
-                        </ng-template>   -->
-                        </owl-carousel-o>
-                
-            </div>
-        </div>
-    </div>
-    <div class="section-white padding-top-6x padding-bottom-6x tours-type">
-        <div style="padding-top:100px" class="container_landing_page"  >
-            <div class="mb-3" style="text-align:left">
-                <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>TRENDING INTERNATIONAL DESTINATION</h3>
-            </div>
-            <div style="margin-top: 30px;" class="row wrapper-tours-slider">
 
-                        <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
-                        <ng-template *ngFor="let i of international" carouselSlide> 
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                            <img src={{i}} style="height: 320px;width: 95%;" class="card-img" alt="...">
-                            <div class="card-img-overlay">
-                            <h5 class="card-title fs-3" style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">BALI</h5>
-                            <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                            <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
-                            </div>
-                        </div></ng-template>  
-                        <!-- <ng-template carouselSlide>
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Deals/NewYork.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">NEW YORK</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Deals/Switzerland.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">SWITZERLAND</h4>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                            <img src="assets/Deals/Maldives.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
-                            <div class="card-img-overlay">
-                        <div class="overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">MALDIVES</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
-                            </div>
-                        </div>
-                        </div>
-                    </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card card2 text-white">
-                                <img src="assets/Deals/bangkok.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">BANGKOK</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>6,999</p>
-                                </div>
-                            </div>
+       
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                             <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Deals/Bali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">BALI</h5>
-                                <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
-                                </div>
-                                </div>
-                           
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                           
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Deals/NewYork.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">NEW YORK</h5>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Deals/Switzerland.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">SWITZERLAND</h4>
-                                <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
-                                </div>
-                            </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                                <img src="assets/Deals/Maldives.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
-                                <div class="card-img-overlay">
-                            <div class="overlay">
-                                    <h5 class="card-title fs-3" style="text-align:center;margin-left: -40px;">MALDIVES</h5>
-                                    <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
-                                    <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
-                                </div>
-                            </div>
-                            </div>
 
-                        </ng-template>   -->
-                        </owl-carousel-o>
-                
-            </div>
-            </div>
-    </div>
 
-    <!-- Explore By themes -->
-    <div class="section-white padding-top-6x padding-bottom-6x tours-type">
-        <div style="padding-top:100px" class="container_landing_page"  >
-            <div class="mb-3" style="text-align:left">
-                <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>EXPLORE BY THEMES</h3>
-            </div>
-            <div style="margin-top: 30px;" class="row wrapper-tours-slider">
+  <!-- Trending Domestic Destinations -->
 
-                        <owl-carousel-o id="exploreByTheme" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions1">
-                        <ng-template *ngFor="let i of Themes" carouselSlide> 
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src={{i}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Scenic Tours</p>
-                                </div>
+  <div class="padding-top-6x padding-bottom-6x section-background">
+    
+      <div class="container_landing_page">
+          <div class="mb-3" style="text-align:left">
+              <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>TRENDING DOMESTIC DESTINATION</h3>
+          </div>
+          <div style="margin-top: 30px;" class="row wrapper-tours-slider">
+           
+                      <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
+                      <ng-template *ngFor='let i of domestic' carouselSlide> 
+                        
+                          <a style="cursor: pointer;" (click)="Navigate()"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                          <img src={{i.s3url}} style="height: 320px;width: 95%;" class="card-img" alt="...">
+                          <div class="card-img-overlay">
+                          <h5 class="card-title fs-3" style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">{{i.nameOnImage}}</h5>
+                          <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                          <p  style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>{{i.priceOnImage}}</p>
+                          </div>
+                      </div>
+                    </a></ng-template>  
+                      <!-- <ng-template carouselSlide>
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/OOty.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">OOTY</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
                               </div>
-                            </ng-template>  
-                        <!-- <ng-template carouselSlide>
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/couple.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Honeymoon</p>
-                                </div>
-                              </div>
+                          </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/hiking.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Hiking & Trekking</p>
-                                </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Manali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">MANALI</h4>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
                               </div>
+                          </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/bikes.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Motorcycle Tours</p>
-                                </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                          <img src="assets/mahabaleshwar.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
+                          <div class="card-img-overlay">
+                      <div class="overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">Mahabaleshwar</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
+                          </div>
+                      </div>
+                      </div>
+                  </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card card2 text-white">
+                              <img src="assets/Mumbai.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">MUMBAI</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>6,999</p>
                               </div>
-                    </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/beach.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Beaches</p>
-                                </div>
-                              </div>
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/solo.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Solo</p>
-                                </div>
-                              </div>
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                           
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/18-35 years.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">18-35 yrs</p>
-                                </div>
-                              </div>
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/religiou.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Religious</p>
-                                </div>
-                              </div>
+                          </div>
 
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Adventure.jpeg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Adventure</p>
-                                </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                           <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Goa1.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">GOA</h5>
+                              <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
                               </div>
-
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/scenic.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Scenic Tours</p>
-                                </div>
                               </div>
-
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/hiking.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Hiking & Trekking</p>
-                                </div>
+                         
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                         
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/OOty.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">OOTY</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
                               </div>
+                          </div>
 
-
-                        </ng-template>  
-                        <ng-template carouselSlide>
-                            
-                            <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src="assets/Themes/bikes.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
-                                <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">Motorcycle Tours</p>
-                                </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Manali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">MANALI</h4>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
                               </div>
+                          </div>
 
-                        </ng-template>   -->
-                        </owl-carousel-o>
-                
-            </div>
-            </div>
-    </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/mahabaleshwar.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
+                              <div class="card-img-overlay">
+                          <div class="overlay">
+                                  <h5 class="card-title fs-3" style="text-align:center;margin-left: -40px;">Mahabaleshwar</h5>
+                                  <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                                  <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
+                              </div>
+                          </div>
+                          </div>
+
+                      </ng-template>   -->
+                      </owl-carousel-o>
+          </div>
+      </div>
+  </div>
+  <div class="section-white padding-top-6x padding-bottom-6x tours-type">
+      <div style="padding-top:100px" class="container_landing_page"  >
+          <div class="mb-3" style="text-align:left">
+              <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>TRENDING INTERNATIONAL DESTINATION</h3>
+          </div>
+          <div style="margin-top: 30px;" class="row wrapper-tours-slider">
+
+                      <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
+                      <ng-template *ngFor="let i of international" carouselSlide> 
+                         <a style="cursor: pointer;" (click)="navigateToInternational()"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                          <img src={{i.s3url}} style="height: 320px;width: 95%;" class="card-img" alt="...">
+                          <div class="card-img-overlay">
+                          <h5 class="card-title fs-3" style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">{{i.nameOnImage}}</h5>
+                          <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                          <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>{{i.priceOnImage}}</p>
+                          </div>
+                      </div>
+                    </a></ng-template>  
+                      <!-- <ng-template carouselSlide>
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Deals/NewYork.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">NEW YORK</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
+                              </div>
+                          </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Deals/Switzerland.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">SWITZERLAND</h4>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
+                              </div>
+                          </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                          <img src="assets/Deals/Maldives.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
+                          <div class="card-img-overlay">
+                      <div class="overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">MALDIVES</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
+                          </div>
+                      </div>
+                      </div>
+                  </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card card2 text-white">
+                              <img src="assets/Deals/bangkok.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">BANGKOK</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>6,999</p>
+                              </div>
+                          </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                           <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Deals/Bali.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">BALI</h5>
+                              <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>5,700</p>
+                              </div>
+                              </div>
+                         
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                         
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Deals/NewYork.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h5 class="card-title fs-3"  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;">NEW YORK</h5>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;" >Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
+                              </div>
+                          </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Deals/Switzerland.jpg" style="height: 320px;width: 95%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                              <h4  style="text-align:center;letter-spacing:2px;margin-left: -10px;margin-top:5%;font-family: 'Varela Round', sans-serif;" class="card-title fs-3">SWITZERLAND</h4>
+                              <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                              <p style="margin-left: 20px;" class="card-text fs-3"><span>₹</span>43,900</p>
+                              </div>
+                          </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                              <img src="assets/Deals/Maldives.jpg" style="height: 320px;width: 95%;" class="card-img" alt="..img " alt="...">
+                              <div class="card-img-overlay">
+                          <div class="overlay">
+                                  <h5 class="card-title fs-3" style="text-align:center;margin-left: -40px;">MALDIVES</h5>
+                                  <p class="card-text"  style="margin-left: 20px;margin-top:190px;">Starting from</p>
+                                  <p style="margin-left: 20px;" class="card-text fs-3" ><span>₹</span>43,900</p>
+                              </div>
+                          </div>
+                          </div>
+
+                      </ng-template>   -->
+                      </owl-carousel-o>
+              
+          </div>
+          </div>
+  </div>
+
+  <!-- Explore By themes -->
+  <div class="section-white padding-top-6x padding-bottom-6x tours-type">
+      <div style="padding-top:100px" class="container_landing_page"  >
+          <div class="mb-3" style="text-align:left">
+              <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>EXPLORE BY THEMES</h3>
+          </div>
+          <div style="margin-top: 30px;" class="row wrapper-tours-slider">
+
+                      <owl-carousel-o id="exploreByTheme" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions1">
+                      <ng-template *ngFor="let i of Themes" carouselSlide> 
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src={{i.s3url}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">{{i.nameOnImage}}</p>
+                              </div>
+                            </div>
+                          </ng-template>  
+                      <!-- <ng-template carouselSlide>
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/couple.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Honeymoon</p>
+                              </div>
+                            </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/hiking.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Hiking & Trekking</p>
+                              </div>
+                            </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/bikes.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Motorcycle Tours</p>
+                              </div>
+                            </div>
+                  </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/beach.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Beaches</p>
+                              </div>
+                            </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/solo.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Solo</p>
+                              </div>
+                            </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                         
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/18-35 years.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">18-35 yrs</p>
+                              </div>
+                            </div>
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/religiou.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Religious</p>
+                              </div>
+                            </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Adventure.jpeg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Adventure</p>
+                              </div>
+                            </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/scenic.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Scenic Tours</p>
+                              </div>
+                            </div>
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/hiking.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Hiking & Trekking</p>
+                              </div>
+                            </div>
+
+
+                      </ng-template>  
+                      <ng-template carouselSlide>
+                          
+                          <div class="card" style="width:120px;border: 1px solid #fff;">
+                              <img src="assets/Themes/bikes.jpg" style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <div class="card-body">
+                                <p class="card-text" style="text-align:center;">Motorcycle Tours</p>
+                              </div>
+                            </div>
+
+                      </ng-template>   -->
+                      </owl-carousel-o>
+              
+          </div>
+          </div>
+  </div>
 
 <!-- Popular -->
 <div class="section-white padding-top-6x padding-bottom-6x tours-type">
-    <div style="margin-top: 10px;" class="container_landing_page"  >
-        <div class="mt-5 mb-3" style="text-align:left">
-            <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>POPULAR</h3>
-        </div>
-        <!-- <div class="container"> -->
-            <div class="row mb-5">
-              <div class="col-sm-6">
-                <div class="row">
-                    <div style="margin-top:5px" *ngFor="let i of leftSubsection" class="col-6 col-sm-6">
-                        <figure style="margin-left: 0;margin-top: 0;">
-                            <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                                <img src={{i}} style="height: 175px;width: 100%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                                            <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
-                                            <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
-                                            <span style="margin-top:-75px;" class="line_after_title"></span>
-                                        </div></div>
-                            </div>
-                        </figure>
-                    </div>
-                    <!-- <div class="col-6 col-sm-6">
-                        <figure style="margin-left: 0;margin-top: 0;">
-                            <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                                <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                                            <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
-                                            <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
-                                            <span style="margin-top:-75px;" class="line_after_title"></span>
-                                        </div></div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="col-6 col-sm-6 mt-3">
-                        <figure style="margin-left: 0;margin-top: 0;">
-                            <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                                <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                                            <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
-                                            <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
-                                            <span style="margin-top:-75px;" class="line_after_title"></span>
-                                        </div></div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="col-6 col-sm-6 mt-3">
-                        <figure style="margin-left: 0;margin-top: 0;">
-                            <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                                <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
-                                <div class="card-img-overlay">
-                                     <div class="shortcode_title title-center title-decoration-bottom-center">
-                                            <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:90px;font-family: 'Satisfy', cursive;">Vilamendhoo Resort</p>
-                                            <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Maldives</h5>
-                                            <span style="margin-top:-75px;" class="line_after_title"></span>
-                                        </div></div>
-                            </div>
-                        </figure>
-                    </div> -->
+  <div style="margin-top: 10px;" class="container_landing_page"  >
+      <div class="mt-5 mb-3" style="text-align:left">
+          <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>POPULAR</h3>
+      </div>
+      <!-- <div class="container"> -->
+          <div class="row mb-5">
+            <div class="col-sm-6">
+              <div class="row">
+                  <div style="margin-top:5px" *ngFor="let i of leftSubsection" class="col-6 col-sm-6">
+                      <figure style="margin-left: 0;margin-top: 0;">
+                          <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
+                              <img src={{i.s3url}} style="height: 175px;width: 100%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                                   <div class="shortcode_title title-center title-decoration-bottom-center">
+                                          <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">{{i.nameOnImage}} </p>
+                                          <span style="margin-top:-75px;" class="line_after_title"></span>
+                                      </div></div>
+                          </div>
+                      </figure>
                   </div>
-              </div>
-              <div class="col-sm-6">
-                <figure style="margin-left: 0;margin-top: 0;margin-bottom: 0;height: 380px;">
-                <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                    <img src={{rightSubsection}} style="height: 380px;width: 100%;" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <div class="shortcode_title title-center title-decoration-bottom-center">
-                               <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Satisfy', cursive;">Grand Hyatt Goa</p>
-                               <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">GOA</h5>
-                               <span style="margin-top:-75px;" class="line_after_title"></span>
-                           </div></div>
+                  <!-- <div class="col-6 col-sm-6">
+                      <figure style="margin-left: 0;margin-top: 0;">
+                          <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
+                              <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                                   <div class="shortcode_title title-center title-decoration-bottom-center">
+                                          <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
+                                          <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
+                                          <span style="margin-top:-75px;" class="line_after_title"></span>
+                                      </div></div>
+                          </div>
+                      </figure>
+                  </div>
+                  <div class="col-6 col-sm-6 mt-3">
+                      <figure style="margin-left: 0;margin-top: 0;">
+                          <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
+                              <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                                   <div class="shortcode_title title-center title-decoration-bottom-center">
+                                          <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
+                                          <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
+                                          <span style="margin-top:-75px;" class="line_after_title"></span>
+                                      </div></div>
+                          </div>
+                      </figure>
+                  </div>
+                  <div class="col-6 col-sm-6 mt-3">
+                      <figure style="margin-left: 0;margin-top: 0;">
+                          <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
+                              <img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
+                              <div class="card-img-overlay">
+                                   <div class="shortcode_title title-center title-decoration-bottom-center">
+                                          <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:90px;font-family: 'Satisfy', cursive;">Vilamendhoo Resort</p>
+                                          <h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Maldives</h5>
+                                          <span style="margin-top:-75px;" class="line_after_title"></span>
+                                      </div></div>
+                          </div>
+                      </figure>
+                  </div> -->
                 </div>
-                </figure>
-              </div>
             </div>
-        </div>
+            <div *ngFor="let i of rightSubsection" class="col-sm-6">
+              <figure style="margin-left: 0;margin-top: 0;margin-bottom: 0;height: 380px;">
+              <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
+                  <img src={{i.s3url}} style="height: 380px;width: 100%;" class="card-img" alt="...">
+                  <div class="card-img-overlay">
+                      <div class="shortcode_title title-center title-decoration-bottom-center">
+                             <p class="card-title fs-2" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Satisfy', cursive;">{{i.nameOnImage}}</p>
+                             <span style="margin-top:-75px;" class="line_after_title"></span>
+                         </div></div>
+              </div>
+              </figure>
+            </div>
+          </div>
+      </div>
 </div>
 
 <!-- Testimonial -->
 <div style="margin-top:0px;" class="section-white padding-bottom-6x">
-    <div class="container_landing_page">
-        <div align="center" class="row">
-             <div class="col-md-8">
-                <div class="mt-5 mb-3" style="text-align:center">
-                    <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>TESTIMONIAL</h3>
-                </div>
-                
-        <div class="container1">
-             <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">    
-                         <div style="padding-bottom: 190px;" class="box-part text-center">
-                  <div style="padding-top: 20px;" class="round-icon"> <img src="https://i.imgur.com/S6SGKFQ.png" width="80px" height="20px"> </div>
-                  <div><h4 class="rating-num"> 4/5</h4> 1,050 reviews</div>
-                        <div class="item_rating" >
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                      </div>
-                </div>
-            </div>
-    
+  <div class="container_landing_page">
+      <div align="center" class="row">
+           <div class="col-md-8">
+              <div class="mt-5 mb-3" style="text-align:center">
+                  <h3 class="title_primary fs-3" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>TESTIMONIAL</h3>
+              </div>
+              
+      <div class="container1">
+           <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">    
+                       <div style="padding-bottom: 190px;" class="box-part text-center">
+                <div style="padding-top: 20px;" class="round-icon"> <img src="https://i.imgur.com/S6SGKFQ.png" width="80px" height="20px"> </div>
+                <div><h4 class="rating-num"> 4/5</h4> 1,050 reviews</div>
+                      <div class="item_rating" >
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star-o"></i>
+                    </div>
+              </div>
+          </div>
   
-    
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">    
-            <div style="padding-bottom: 190px;" class="box-part text-center">   
-            <div style="padding-top: 25px;" class="round-icon"> <img src="https://i.imgur.com/8lJt6UN.png" width="60px" height="60px"> </div>
-              <p class="sm-text-1 grey-text mb-0"></p> 
-              <div style="padding-top: 7px;"><h4 class="rating-num"> 4/5</h4> </div>   
-              <div> 1,050 reviews </div>
-            
-                  <div style="padding-top:15px" class="item_rating" >
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-o"></i>
-                  </div>        
-            </div>
-            </div>
+
   
-        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">    
+          <div style="padding-bottom: 190px;" class="box-part text-center">   
+          <div style="padding-top: 25px;" class="round-icon"> <img src="https://i.imgur.com/8lJt6UN.png" width="60px" height="60px"> </div>
+            <p class="sm-text-1 grey-text mb-0"></p> 
+            <div style="padding-top: 7px;"><h4 class="rating-num"> 4/5</h4> </div>   
+            <div> 1,050 reviews </div>
+          
+                <div style="padding-top:15px" class="item_rating" >
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                </div>        
+          </div>
+          </div>
+
       </div>
     </div>
-  
-  
-          <div style="margin-top: 8.5%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">    
-            <div style="padding-bottom: 7px;" class="box-part text-center">
-              <div class="round-icon"> <img src="assets/reviews.png" width="80px" height="20px"> </div>
-              
-              
+  </div>
+
+
+        <div style="margin-top: 8%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">    
+          <div style="padding-bottom: 7px;" class="box-part text-center">
+            <div class="round-icon"> <img src="assets/reviews.png" width="250px" height="250px"> </div>
             
-          </div>
-          </div>
-    </div> 
-  </div>
-  </div>
+            
+          
+        </div>
+        </div>
+  </div> 
 </div>
-        
-    </div>
-    </div>
 </div>
+</div>
+      
+  
