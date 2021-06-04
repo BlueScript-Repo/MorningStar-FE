@@ -167,12 +167,12 @@ filters(val:any){
    packageInclusion:this.inclusion
   //  package1:this.searchData
  }
- console.log(this.filter);
+//  console.log(this.filter);
  
 }
 
 
-filterData:FilterData={
+filterData:any={
   
    priceRangeStart:0,
    priceRangeEnd:0,
@@ -193,8 +193,9 @@ filterData:FilterData={
     // PackageInclusions:this.filter.packageInclusion,
     keyword:this.keyword
   }
+    Object.keys(this.filterData).forEach((key) => (this.filterData[key] == '' || this.filterData[key]==0) && delete this.filterData[key]);
+    console.log(JSON.stringify(this.filterData));
     console.log(this.filterData);
-    
     console.log("Calling Keyword: " + this.keyword);
     // this.http.postdemo(this.filterData).subscribe((res=>{
     // console.log(res);

@@ -25,23 +25,8 @@
 			  </div>
 			<section class="content-area">
 				<div class="container">
-		<ng-template #elseBlock>
-			<div class="container">
-				<div class="row">
-					<div align="center" class="col-md-12">
-						<img style="width: 300px;" src="assets/productList/Oops.jpg" alt="">
-	
-					</div>
-				</div>
-				<h1>Oops!!!....The package you are looking for is seems to be unavailable. Wanna Customize your Dream Package</h1>
-				<div class="row">
-					<div align="center" class="col-md-12">
-						<button (click)="nav()" class="btn12" >Customize Package</button>
-					</div>
-				</div>
-			</div>
-		</ng-template>
-					<div *ngIf="key!=0 else elseBlock" class="row">
+		
+					<div class="row">
 						<div class="col-md-4">
 							<div  class="container">
 								<div align="center" class="row">
@@ -230,10 +215,22 @@
 								</div>
 						</div>
 						<div class="site-main col-md-8 alignright">
-							<div *ngIf="key!=0" class="mb-3" style="text-align:left">
-								<h2 class="title_primary fs-2" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>Total {{key}} results are found....</h2>
+							<div class="mb-3" style="text-align:left">
+								<h2 *ngIf="key!=0" class="title_primary fs-2" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span *ngIf="key!=0" style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>{{total}}</h2>
 							</div>
-							<ul class="tours products wrapper-tours-slider">
+							<ng-template #elseBlock>
+								<div class="container">
+									<div class="row">
+										<div align="center" class="col-md-12">
+											<img style="width: 300px;" src="assets/productList/Oops.jpg" alt="">
+						
+										</div>
+									</div>
+									<h1>Oops!!!....The package you are looking for seems to be unavailable </h1>
+									
+								</div>
+							</ng-template>
+							<ul  *ngIf="key!=0 else elseBlock" class="tours products wrapper-tours-slider">
 								<li *ngFor="let i of products" class="item-list-tour col-md-12 ">
 									<div class="product content-list-tour">
 										<div class="post_images">
