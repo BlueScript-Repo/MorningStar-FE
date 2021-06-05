@@ -98,7 +98,7 @@ const route:Routes=[
     HttpClientModule,
     BrowserAnimationsModule,
     CommonModule,
-    RouterModule.forRoot(route)
+    RouterModule.forRoot(route,{useHash:true})
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
