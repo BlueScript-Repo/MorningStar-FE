@@ -4,14 +4,14 @@
 			<div class="top_site_main" style="background-image:url(assets/header_search.jpg);background-size: cover;">
 				<div class="banner-wrapper container article_heading">
 				  
-				  <h1 style="color: #fff;text-align: center;font-size: 24px;font-weight: bold;letter-spacing: 2px;margin-top: 40px;">SEARCH YOUR TOUR</h1></div>
+				  <h1 style="color: #fff;text-align: center;font-family: 'Noto Sans JP', sans-serif;font-size: 24px;font-weight: bold;letter-spacing: 2px;margin-top: 40px;">SEARCH YOUR TOUR</h1></div>
 				  <div style="padding-left:0px;margin: 10px;" class="row">
 					<form #searchForm="ngForm" (ngSubmit)="search(searchForm.value)">
 					<div align="center" style="margin-top: -10px;margin-bottom: 50px;" class="col-md-12">
 						<div class="wrapper">
 						  <div class="search-input">
 							<a href="" target="_blank" hidden></a>
-							<input ngModel type="text" name=Package placeholder="Type to search....">
+							<input ngModel type="text" name=Package style="font-family: 'Noto Sans JP', sans-serif;" placeholder="Type to search....">
 							<div>
 							</div>
 							<div class="icon">
@@ -68,16 +68,7 @@
 														<label class="form-check-label" for="inlineCheckbox3">Above 40000 </label>
 													  </div>
 
-														<div class="btn-group">
-															<a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-																more
-															  </a>
-														<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-														  <li><a class="dropdown-item" href="#">Menu item</a></li>
-														  <li><a class="dropdown-item" href="#">Menu item</a></li>
-														  <li><a class="dropdown-item" href="#">Menu item</a></li>
-														</ul>
-													  </div>
+														
 												</div>
 										  </div>
 										</div>
@@ -97,16 +88,7 @@
 														<input class="form-check-input" name="overseas" ngModel type="checkbox" id="inlineCheckbox5" value="option2">
 														<label class="form-check-label" for="inlineCheckbox5">Overseas</label>
 													  </div>
-													  <div class="btn-group">
-														<a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-															more
-														  </a>
-													<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-													  <li><a class="dropdown-item" href="#">Menu item</a></li>
-													  <li><a class="dropdown-item" href="#">Menu item</a></li>
-													  <li><a class="dropdown-item" href="#">Menu item</a></li>
-													</ul>
-												  </div>
+													  
 											</div>
 										  </div>
 										</div>
@@ -130,52 +112,11 @@
 													<input class="form-check-input" name="couple" ngModel type="checkbox" id="inlineCheckbox8" value="option8" >
 													<label class="form-check-label" for="inlineCheckbox8">Couple</label>
 												  </div>
-												  <div class="btn-group">
-													<a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-														more
-													  </a>
-												<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												</ul>
-											  </div>
+												  
 											</div>
 										  </div>
 										</div>
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="panelsStayOpen-headingFour">
-											  <p class="accordion-button collapsed fs-4" style="border: 0px solid white;color: black;" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
-												Trip Must Have
-											  </p>
-											</h2>
-											<div id="panelsStayOpen-collapseFour" style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFour">
-											  <div class="accordion-body" style="margin-top: -5px;padding-left: 10%;">
-												<div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="shoppingMall" ngModel type="checkbox" id="inlineCheckbox9" value="option9">
-													<label class="form-check-label" for="inlineCheckbox9">Shopping Mall </label>
-												  </div>
-												  <div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name ngModel type="checkbox" id="inlineCheckbox10" value="option10">
-													<label class="form-check-label" name="coffee" for="inlineCheckbox10">Coffee Plantation</label>
-												  </div>
-												  <div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" ngModel type="checkbox" id="inlineCheckbox11" value="option11" >
-													<label class="form-check-label" name="Museum" for="inlineCheckbox11">Museum</label>
-												  </div>
-												  <div class="btn-group">
-													<a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-														more
-													  </a>
-												<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												</ul>
-											  </div>
-											</div>
-											</div>
-										  </div>
+										
 										  <div class="accordion-item">
 											<h2 class="accordion-header" id="panelsStayOpen-headingFive">
 											  <p class="accordion-button collapsed fs-4" style="border: 0px solid white;color: black;" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
@@ -196,16 +137,7 @@
 													<input class="form-check-input" name="flight" ngModel type="checkbox" id="inlineCheckbox14" value="option14" >
 													<label class="form-check-label" for="inlineCheckbox14">Flight</label>
 												  </div>
-												  <div class="btn-group">
-													<a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-													  more
-													</a>
-												<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												  <li><a class="dropdown-item" href="#">Menu item</a></li>
-												</ul>
-											  </div>
+												 
 											</div>
 											</div>
 										  </div>
@@ -216,7 +148,7 @@
 						</div>
 						<div class="site-main col-md-8 alignright">
 							<div class="mb-3" style="text-align:left">
-								<h2 *ngIf="key!=0" class="title_primary fs-2" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span *ngIf="key!=0" style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>{{total}}</h2>
+								<h2 *ngIf="key!=0" class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span *ngIf="key!=0" style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>{{total}}</h2>
 							</div>
 							<ng-template #elseBlock>
 								<div class="container">
@@ -245,7 +177,7 @@
 										<div class="wrapper_content">
 											<div class="content-left">
 												<div class="post_title"><h4>
-													<a class="fs-3" style="font-weight: 500;" rel="bookmark">{{i.productName}}</a>
+													<a class="fs-3" style="font-family: 'Noto Sans JP', sans-serif;font-weight: 500;" rel="bookmark">{{i.productName}}</a>
 												</h4></div>
 												<div class="description">
 													<p>{{i.description}}</p>
@@ -262,7 +194,7 @@
 														<i class="fa fa-star-o"></i>
 													</div>
 												</div> -->
-												<span style="padding-top: 30px;margin-top:15px;font-size: 18px;" class="price">RS.{{i.productRate}}/-</span>
+												<span style="padding-top: 30px;margin-top:15px;font-family: 'Noto Sans JP', sans-serif;font-size: 18px;" class="price">RS.{{i.productRate}}/-</span>
 												<form #list="ngForm" (ngSubmit)="getData(list.value)">
 													<input style="visibility:hidden" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
 													<button style="width: 100px;" type="submit" class="btn12">Read More</button>
@@ -277,7 +209,7 @@
 							<hr>
 							<div style="margin-top: 20px;height: 300px;" class="carousel2">
 								<div class="mt-5 mb-3" style="text-align:left">
-									<h3 class="title_primary fs-2" style="font-family: 'Varela Round', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Exotic offers for you!!</h3>
+									<h3 class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Exotic offers for you!!</h3>
 								</div>
 							
 								<div class="row">
@@ -287,8 +219,8 @@
 												<img src="assets/Deals/GrandHyatt.jpg" style="height: 370px;width: 100%;" class="card-img" alt="...">
 												<div class="card-img-overlay">
 													 <div class="shortcode_title title-center title-decoration-bottom-center">
-															<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Satisfy', cursive;">Grand Hyatt Goa</p>
-															<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">GOA</h5>
+															<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Noto Sans JP', sans-serif;">Grand Hyatt Goa</p>
+															<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Noto Sans JP', sans-serif;font-weight:bold">GOA</h5>
 															<span style="margin-top:-75px;" class="line_after_title"></span>
 														</div></div>
 											</div>
@@ -302,8 +234,8 @@
 													<img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
 													<div class="card-img-overlay">
 														 <div class="shortcode_title title-center title-decoration-bottom-center">
-																<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:90px;font-family: 'Satisfy', cursive;">Vilamendhoo Resort</p>
-																<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Maldives</h5>
+																<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:90px;font-family: 'Noto Sans JP', sans-serif;">Vilamendhoo Resort</p>
+																<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Noto Sans JP', sans-serif;font-weight:bold">Maldives</h5>
 																<span style="margin-top:-75px;" class="line_after_title"></span>
 															</div></div>
 												</div>
@@ -315,8 +247,8 @@
 																			<img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
 																			<div class="card-img-overlay">
 																				 <div class="shortcode_title title-center title-decoration-bottom-center">
-																						<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
-																						<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
+																						<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Noto Sans JP', sans-serif;">Destiny Farmstay </p>
+																						<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Noto Sans JP', sans-serif;font-weight:bold">Ooty</h5>
 																						<span style="margin-top:-75px;" class="line_after_title"></span>
 																					</div></div>
 																		</div>
@@ -329,8 +261,8 @@
 														<img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
 														<div class="card-img-overlay">
 															 <div class="shortcode_title title-center title-decoration-bottom-center">
-																	<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Beleza By The Beach </p>
-																	<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Goa</h5>
+																	<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Noto Sans JP', sans-serif;">Beleza By The Beach </p>
+																	<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Noto Sans JP', sans-serif;font-weight:bold">Goa</h5>
 																	<span style="margin-top:-75px;" class="line_after_title"></span>
 																</div></div>
 													</div>
@@ -343,8 +275,8 @@
 														<img src="assets/Deals/DestinyFarmstayOoty.jpg" style="height: 175px;width: 100%;" class="card-img" alt="...">
 														<div class="card-img-overlay">
 															 <div class="shortcode_title title-center title-decoration-bottom-center">
-																	<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Satisfy', cursive;">Destiny Farmstay </p>
-																	<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Varela Round', sans-serif;font-weight:bold">Ooty</h5>
+																	<p class="card-title fs-5" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Noto Sans JP', sans-serif;">Destiny Farmstay </p>
+																	<h5 class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0%;font-family: 'Noto Sans JP', sans-serif;font-weight:bold">Ooty</h5>
 																	<span style="margin-top:-75px;" class="line_after_title"></span>
 																</div></div>
 													</div>

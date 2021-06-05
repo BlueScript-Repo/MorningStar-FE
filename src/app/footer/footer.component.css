@@ -60,14 +60,14 @@ a{
 
 
 .segement-one h3{
-    font-family: Courgette;
+    font-family: 'Noto Sans JP', sans-serif;
     color: #fff;
     letter-spacing: 3px;
     margin:10px 0;
 }
 
 .segement-two h2{
-    font-family: Poppins;
+   font-family: 'Noto Sans JP', sans-serif;
     color: #fff;
     text-transform: uppercase;
 }
@@ -96,7 +96,7 @@ a{
 
 .segement-three h2{
     color:#fff;
-    font-family: Poppins;
+   font-family: 'Noto Sans JP', sans-serif;
     text-transform: uppercase;
 }
 
@@ -122,7 +122,7 @@ padding: 40px 12px;
 
 .segement-four h2{
     color: #fff;
-   font-family: Poppins;
+  font-family: 'Noto Sans JP', sans-serif;
    text-transform: uppercase;
 }
 

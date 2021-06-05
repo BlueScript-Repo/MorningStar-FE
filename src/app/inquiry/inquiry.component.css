@@ -1,3 +1,4 @@
+
 .btn1:hover{
     color:rgb(11, 186, 255)
 }
@@ -6,7 +7,7 @@
     color:goldenrod
 }
 .btn121{
-    background:transparent ;
+    background:#fff ;
     border:2px solid #ffd200;
     width:100px;
     height:30px;
@@ -36,4 +37,18 @@
 .bookingInput.active{
     display:block;
     visibility:visible;
+}
+.btn122{
+   
+        background:white ;
+        border:2px solid #ffd200;
+        width:100px;
+        height:30px;
+        margin-top: 0px;
+        border-radius:0px;
+        color: #ffd200;
+}
+.btn122:hover{
+    background:#ffd200 ;
+    color: #fff;
 }

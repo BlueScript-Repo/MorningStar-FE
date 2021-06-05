@@ -1,3 +1,6 @@
+*{
+    font-family: 'Noto Sans JP', sans-serif;
+}
 .button_link{
     background:#ffd200 ;
 }
@@ -83,6 +86,7 @@ padding: 40px 12px;
     border:2px solid #ffd200;
     width:100px;
     height:40px;
+    font-family: 'Noto Sans JP', sans-serif;
     margin-top: 0px;
     border-radius:0px;
     color: #fff;
@@ -99,6 +103,7 @@ padding: 40px 12px;
 ::-webkit-file-upload-button{
     color: #ffd200;
     background-color:#fff;
+    font-family: 'Noto Sans JP', sans-serif;
     padding: 5px;
     border: none;
     border-radius: 50px;
@@ -109,6 +114,7 @@ padding: 40px 12px;
 }
 ::-webkit-file-upload-button:hover{
 background:#ffd200;
+font-family: 'Noto Sans JP', sans-serif;
 color:#fff;
 cursor:pointer;
 }

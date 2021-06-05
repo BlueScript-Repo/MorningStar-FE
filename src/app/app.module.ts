@@ -39,7 +39,7 @@ import {InternationalPackagesComponent} from './international-packages/internati
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
-  {path:'customPackage',component: CustomizationComponent},
+  // {path:'customPackage',component: CustomizationComponent},
   {path:'LoginPage',component: UserRegistrationComponent},
   {path:'updatePage',component: UpdateComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
