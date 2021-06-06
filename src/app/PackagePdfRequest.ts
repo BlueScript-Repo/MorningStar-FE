@@ -1,4 +1,3 @@
-import { DailyItinerary } from './DailyItinerary';
 
 export class PackagePdfRequest {
   destination: string = '';
@@ -8,5 +7,5 @@ export class PackagePdfRequest {
   minimumNumberOfPax: string = '';
   roomType: string = '';
   travelDate: string = '';
-  dayIternares: DailyItinerary[] = [];
+  dayIternares: any[] = [];
 }

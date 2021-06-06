@@ -2,8 +2,11 @@
   <div class="site wrapper-content">
   <div class="home-content" role="main">
       <div class="wrapper-bg-video">
-        <img src="assets/header1.jpg" style="width: 100%; height:800px" alt="">
-          <div class="content-slider">
+        <div class="wrapper-bg-video">
+          <video poster="assets/video_slider.jpg" playsinline autoplay muted="true" loop>
+              <!-- <source src="http://physcode.com/video/330149744.mp4" type="video/mp4"> -->
+          </video>
+            <div class="content-slider">
               <p class="fs-3" style="font-family: 'Noto Sans JP', sans-serif;">Find your special tour today </p>
               <h3 style="font-size:44px;color:white;font-family: 'Noto Sans JP', sans-serif;">With Morning Star Holidays </h3>
               <!-- <p><a href="" class="btn btn-slider">VIEW TOURS </a></p> -->
@@ -24,6 +27,8 @@
               </div>
           </div>
       </div>
+          
+      </div>
 <div class="container-fluid">
 
   <!-- Why Choose Us -->
@@ -39,7 +44,7 @@
           <div class="wpb_column col-sm-3">
               <div class="widget-icon-box widget-icon-box-base iconbox-center">
                   <div class="boxes-icon circle" style="font-size:30px;width:60px; height:60px;line-height:60px">
-                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-transport-6"></i></span>
+                      <span style="font-size:20px;" class="inner-icon"><i class="fas fa-map-marked-alt"></i></span>
                   </div>
                   <div class="content-inner">
                       <div class="sc-heading article_heading">
@@ -53,7 +58,7 @@
           <div class="wpb_column col-sm-3">
               <div class="widget-icon-box widget-icon-box-base iconbox-center">
                   <div class="boxes-icon " style="font-size:30px;width:60px; height:60px;line-height:60px">
-                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-sand"></i></span>
+                      <span style="font-size:20px;" class="inner-icon"><i class="fas fa-wallet"></i></span>
                   </div>
                   <div class="content-inner">
                       <div class="sc-heading article_heading">
@@ -67,7 +72,7 @@
           <div class="wpb_column col-sm-3">
               <div class="widget-icon-box widget-icon-box-base iconbox-center">
                   <div class="boxes-icon " style="font-size:30px;width:60px; height:60px;line-height:60px">
-                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travel-2"></i></span>
+                      <span style="font-size:20px;" class="inner-icon"><i class="fas fa-umbrella-beach"></i></span>
                   </div>
                   <div class="content-inner">
                       <div class="sc-heading article_heading">
@@ -81,7 +86,7 @@
           <div class="wpb_column col-sm-3">
               <div class="widget-icon-box widget-icon-box-base iconbox-center">
                   <div class="boxes-icon circle" style="font-size:30px;width:60px; height:60px;line-height:60px">
-                      <span class="inner-icon"><i class="vc_icon_element-icon flaticon-travelling"></i></span>
+                      <span style="font-size:20px;" class="inner-icon"><i class="fas fa-suitcase-rolling"></i></span>
                   </div>
                   <div class="content-inner">
                       <div class="sc-heading article_heading">
@@ -433,7 +438,7 @@
                       <ng-template *ngFor='let i of domestic' carouselSlide> 
                         
                           <a style="cursor: pointer;" (click)="Navigate()"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                          <img src={{i.s3url}} style="height: 320px;width: 95%;" class="card-img" alt="...">
+                          <img src={{i.s3url}} style="height: 320px;width: 95%;" loading="lazy" class="card-img" alt="...">
                           <div class="card-img-overlay">
                           <h5 class="card-title" style="text-align:center;letter-spacing:1px;font-size: 22px;margin-left: -10px;margin-top:5%;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}}</h5>
                           <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
@@ -456,7 +461,7 @@
                       <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
                       <ng-template *ngFor="let i of international" carouselSlide> 
                          <a style="cursor: pointer;" (click)="navigateToInternational()"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
-                          <img src={{i.s3url}} style="height: 320px;width: 95%;" class="card-img" alt="...">
+                          <img src={{i.s3url}} style="height: 320px;width: 95%;" loading="lazy" class="card-img" alt="...">
                           <div class="card-img-overlay">
                           <h5 class="card-title" style="text-align:center;letter-spacing:1px;font-size: 22px;margin-left: -10px;margin-top:5%;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}}</h5>
                           <p class="card-text" style="margin-left: 20px;margin-top:190px;">Starting from</p>
@@ -482,7 +487,7 @@
                       <owl-carousel-o id="exploreByTheme" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions1">
                       <ng-template *ngFor="let i of Themes" carouselSlide> 
                           <div class="card" style="width:120px;border: 1px solid #fff;">
-                              <img src={{i.s3url}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" class="card-img-top card_img" alt="...">
+                              <img src={{i.s3url}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" loading="lazy" class="card-img-top card_img" alt="...">
                               <div class="card-body">
                                 <p class="card-text" style="text-align:center;">{{i.nameOnImage}}</p>
                               </div>
@@ -508,7 +513,7 @@
                   <div style="margin-top:5px" *ngFor="let i of leftSubsection" class="col-6 col-sm-6">
                       <figure style="margin-left: 0;margin-top: 0;">
                           <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                              <img src={{i.s3url}} style="height: 175px;width: 100%;" class="card-img" alt="...">
+                              <img src={{i.s3url}} style="height: 175px;width: 100%;" loading="lazy" class="card-img" alt="...">
                               <div class="card-img-overlay">
                                    <div class="shortcode_title title-center title-decoration-bottom-center">
                                           <p class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:95px;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}} </p>
@@ -523,7 +528,7 @@
             <div *ngFor="let i of rightSubsection" class="col-sm-6">
               <figure style="margin-left: 0;margin-top: 0;margin-bottom: 0;height: 380px;">
               <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
-                  <img src={{i.s3url}} style="height: 380px;width: 100%;" class="card-img" alt="...">
+                  <img src={{i.s3url}} style="height: 380px;width: 100%;" loading="lazy" class="card-img" alt="...">
                   <div class="card-img-overlay">
                       <div class="shortcode_title title-center title-decoration-bottom-center">
                              <p class="card-title fs-3" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:285px;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}}</p>

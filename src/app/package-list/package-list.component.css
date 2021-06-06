@@ -103,3 +103,9 @@ margin-bottom: -10px;
     background-color:rgb(65, 125, 255);;
     border-radius:0%;
   }
+  .btn1234{
+    color: #ffd200;
+  }
+  .btn1234:hover{
+    color: rgb(65, 125, 255);
+  }

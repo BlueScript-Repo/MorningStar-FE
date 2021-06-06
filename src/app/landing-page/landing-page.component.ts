@@ -10,33 +10,89 @@ import {CMSServiceService} from "./../cms-service.service";
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(public router: Router,public authenticate:UserService,public http:PackageServiceService,public imgService:CMSServiceService) { }
+  imageList:any=[];
+
+
+  constructor(public router: Router,public authenticate:UserService,public http:PackageServiceService,public imgService:CMSServiceService) { 
+
+    for (let i = 0; i < 10; i++) {
+      const url = 'https://loremflickr.com/640/480?random=' + (i +1);
+      this.imageList[i] = {
+        url: url,
+        show: false
+    };
+    console.log(this.imageList);
+    
+  }
+  
+  }
 
   ngOnInit(): void {
+    
   if(this.role!='AGENT' && this.role!='USER' && this.role!='ADMIN'){
     this.value='null';
   }
   this.GetImages();
   }
   domestic:any=[];
+  domesticImages:any=[];
   international:any=[];
+  internationalImages:any=[];
   Themes:any=[];
+  ThemesImages:any=[];
   leftSubsection:any=[];
   rightSubsection:any=[];
   GetImages(){
     this.imgService.getLandingPageSection1().subscribe(res=>{
       this.domestic=res;
       console.log(this.domestic);
+      for (let i = 0; i < this.domestic.length; i++) {
+        const name = this.domestic[i].nameOnImage;
+        const price=this.domestic[i].priceOnImage;
+        const Url=this.domestic[i].s3url;
+        this.domesticImages[i]={
+          nameOnImage:name,
+          priceOnImage:price,
+          s3url:Url,
+          show: false
+        }
+        console.log(this.domesticImages);
+        
+      }
       
     })
     this.imgService.getLandingPageSection2().subscribe(res=>{
       this.international=res;
       console.log(this.international);
+      for (let i = 0; i < this.international.length; i++) {
+        const name = this.international[i].nameOnImage;
+        const price=this.international[i].priceOnImage;
+        const Url=this.international[i].s3url;
+        this.internationalImages[i]={
+          nameOnImage:name,
+          priceOnImage:price,
+          s3url:Url,
+          show: false
+        }
+        console.log(this.internationalImages);
+        
+      }
       
     })
     this.imgService.getLandingPageSection3().subscribe(res=>{
       this.Themes=res;
       console.log(this.Themes);
+      for (let i = 0; i < this.Themes.length; i++) {
+        const name = this.Themes[i].nameOnImage;
+        const price=this.Themes[i].priceOnImage;
+        const Url=this.Themes[i].s3url;
+        this.ThemesImages[i]={
+          nameOnImage:name,
+          priceOnImage:price,
+          s3url:Url,
+          show: true
+        }
+      }
       
     })
     this.imgService.getLandingPageSubSection1().subscribe(res=>{

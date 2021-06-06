@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectedOption } from './../SelectedOption';
 import { PackageServiceService } from './../package-service.service';
-import { DailyItinerary } from './../DailyItinerary';
-import { Package } from './../Package';
 import { PackagePdfRequest } from './../PackagePdfRequest';
 import {DataList} from './DataList';
 import { FormGroup, FormControl } from '@angular/forms';
@@ -31,8 +28,8 @@ subDestinations:any={}
   optionSelectedMealOptions: any = {};
   checkInDate:any={};
   checkOutDate:any={};
-  dailyItinerary: DailyItinerary[] = [];
-  package: Package = {
+  dailyItinerary: any[] = [];
+  package: any = {
     agent: '',
     airTickets: '',
     price: '',

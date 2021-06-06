@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { SiteImagesService } from '../site-images.service';
 import {PackageServiceService} from './../package-service.service'
 import {Files} from './Files';
 import {Upload} from './Upload';
@@ -12,7 +11,7 @@ import {CMSServiceService} from './../cms-service.service';
 })
 export class SiteImagesComponent implements OnInit {
 
-  constructor(private siteImagesService : SiteImagesService, private http:PackageServiceService,private imgService:CMSServiceService) { }
+  constructor( private http:PackageServiceService,private imgService:CMSServiceService) { }
   File:any={};
   images:any=[];
   FileName:any='';

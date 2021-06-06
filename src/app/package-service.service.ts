@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpRequest,HttpResponse} from '@angular/common/http';
-import { Package } from './Package';
 import { PackagePdfRequest } from './PackagePdfRequest';
 import { Observable } from 'rxjs';
 import { HttpEvent } from '@angular/common/http';
@@ -88,7 +87,7 @@ bucketName:any;
     return this.http.get(url4, this.httpOptions);
   }
 
-  createPackage(userPackage: Package) {
+  createPackage(userPackage: any) {
     const headers = new HttpHeaders().set(
       'Content-Type',
       'application/json; charset=utf-8'

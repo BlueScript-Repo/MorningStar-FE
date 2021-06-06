@@ -164,10 +164,12 @@
 							</ng-template>
 							<ul  *ngIf="key!=0 else elseBlock" class="tours products wrapper-tours-slider">
 								<li *ngFor="let i of products" class="item-list-tour col-md-12 ">
-									<div class="product content-list-tour">
+									<form #list="ngForm" (ngSubmit)="getData(list.value)">
+										<input style="visibility:hidden" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
+										<div class="product content-list-tour">
 										<div class="post_images">
-											<a href="single-tour.html">
-												<img width="430" height="305" src="assets/tour/430x305/tour-1.jpg" alt="Discover Brazil" title="Discover Brazil">
+											<a>
+												<img width="430" height="305" src="assets/header1.jpg" alt="Discover Brazil" title="Discover Brazil">
 											</a>
 											<div class="group-icon">
 												<a data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>
@@ -177,7 +179,7 @@
 										<div class="wrapper_content">
 											<div class="content-left">
 												<div class="post_title"><h4>
-													<a class="fs-3" style="font-family: 'Noto Sans JP', sans-serif;font-weight: 500;" rel="bookmark">{{i.productName}}</a>
+													<button type="submit" class="fs-3 btn1234" style="font-family: 'Noto Sans JP', sans-serif;font-weight: 500;" rel="bookmark">{{i.productName}}</button>
 												</h4></div>
 												<div class="description">
 													<p>{{i.description}}</p>
@@ -195,14 +197,13 @@
 													</div>
 												</div> -->
 												<span style="padding-top: 30px;margin-top:15px;font-family: 'Noto Sans JP', sans-serif;font-size: 18px;" class="price">RS.{{i.productRate}}/-</span>
-												<form #list="ngForm" (ngSubmit)="getData(list.value)">
-													<input style="visibility:hidden" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
 													<button style="width: 100px;" type="submit" class="btn12">Read More</button>
 											
-											</form>
+											
 										</div>
 										</div>
 									</div>
+								</form>
 								</li>
 								
 							</ul>

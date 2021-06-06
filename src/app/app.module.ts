@@ -14,15 +14,10 @@ import { UpdateComponent } from './update/update.component'
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 import { AuthInterceptor } from './user/AuthInterceptor';
 import { PackageListComponent } from './package-list/package-list.component';
-import { PackageDetailsComponent } from './package-details/package-details.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
 import { DealsComponent } from './deals/deals.component';
-import { PackageComponent } from './package/package.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { SiteImagesComponent } from './site-images/site-images.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -32,10 +27,7 @@ import { CommonModule } from '@angular/common';
 import { AuthGuard } from './auth.guard';
 import { AgentGuard } from './agent.guard';
 import { UserGuard } from './user.guard';
-import { FilterPipe } from './pipes/filter.pipe';
-import { SearchCustomizationComponent } from './search-customization/search-customization.component';
-import {DomesticPackagesComponent} from './domestic-packages/domestic-packages.component'
-import {InternationalPackagesComponent} from './international-packages/international-packages.component'
+import {DeferLoadModule} from "@trademe/ng-defer-load";
 
 const route:Routes=[
   {path: 'LandingPage', component: LandingPageComponent},
@@ -43,9 +35,7 @@ const route:Routes=[
   {path:'LoginPage',component: UserRegistrationComponent},
   {path:'updatePage',component: UpdateComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'/LandingPage',pathMatch:'full'},
-  {path:'HomePage',component: HomePageComponent},
   {path:"deals",component:DealsComponent},
-  {path:"package",component:PackageComponent},
   {path:"packageList",component:PackageListComponent},
   {path:"uploadProduct",component:AddProductComponent,canActivate:[AuthGuard]},
   {path:"productDetails",component:ProductDetailsComponent},
@@ -54,10 +44,7 @@ const route:Routes=[
   {path:"Inquiries",component:InquiryComponent,canActivate:[AuthGuard]},
   {path:"AgentInquiries",component:InquiryComponent,canActivate:[AgentGuard]},
   {path:"agentRegister",component:AgentRegisterComponent,canActivate:[AuthGuard]},
-  {path:'SearchDestination',component:SearchCustomizationComponent},
   {path:"CMS",component:SiteImagesComponent},
-  {path:"domestic",component:DomesticPackagesComponent},
-  {path:"international",component:InternationalPackagesComponent},
 ] 
   
 
@@ -72,27 +59,19 @@ const route:Routes=[
     UpdateComponent,
     UserRegistrationComponent,
     PackageListComponent,
-    PackageDetailsComponent,
-    HomePageComponent,
     DealsComponent,
-    PackageComponent,
     AddProductComponent,
     SiteImagesComponent,
     ProductDetailsComponent,
     InquiryComponent,
-    FilterPipe,
-    SearchCustomizationComponent,
-    DomesticPackagesComponent,
-    InternationalPackagesComponent    
 
   ],
   imports: [
-    MatDialogModule,
     ReactiveFormsModule,
-    MatSliderModule,
     CarouselModule ,
     OwlModule,
     BrowserModule,
+    DeferLoadModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
