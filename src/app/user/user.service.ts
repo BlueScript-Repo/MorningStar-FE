@@ -9,7 +9,7 @@ import { UserRegistration } from './UserRegistration';
 })
 export class UserService {
   isAuthenticated:boolean=false;
-  Role:any=localStorage.getItem('role');
+  Role:any='';
   private usersUrl!: string; 
 
   userName="Mayur Bhakare";

@@ -41,7 +41,7 @@
                             <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
                             <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
                             <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
-                            <li *ngIf="authenticate.Role==null"><a style="text-decoration:none" routerLink="LoginPage">Log In</a></li>
+                            <li *ngIf="authenticate.Role==''"><a style="text-decoration:none" routerLink="LoginPage">Log In</a></li>
                             <li class="menu-right">
 
                             </li>

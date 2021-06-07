@@ -245,7 +245,8 @@ filterData:any={
       this.http.setArray(this.productDetails);  
     }
     else {
-      this.router.navigate(["/LoginPage"])
+      this.router.navigate(["/productDetails"])
+      this.http.setArray(this.productDetails);
     }
   })
   
