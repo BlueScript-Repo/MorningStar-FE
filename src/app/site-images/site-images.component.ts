@@ -229,6 +229,34 @@ delete(id:any,name:string){
       console.log(res);
     })
   }
+  else if(this.bucket=='deals-page/deals-for-domestic-packages'){
+    this.imgService.DeleteDealsPageSection1(this.bucket,this.file).subscribe(res=>{
+      console.log(res);
+    })
+  }
+  else if(this.bucket=='deals-page/deals-for-international-packages'){
+    this.imgService.DeleteDealsPageSection2(this.bucket,this.file).subscribe(res=>{
+      console.log(res);
+    })
+  }
+
+  else if(this.bucket=='deals-page/deals-for-every-pocket/left'){
+    this.imgService.DeleteDealsPageSubSection1(this.bucket,this.file).subscribe(res=>{
+      console.log(res);
+    })
+  }
+  else if(this.bucket=='deals-page/deals-for-every-pocket/right'){
+    this.imgService.DeleteDealsPageSubSection2(this.bucket,this.file).subscribe(res=>{
+      console.log(res);
+    })
+  }
+
+  else if(this.bucket=='deals-page/exotic-deals'){
+    this.imgService.DeleteDealsPageSection3(this.bucket,this.file).subscribe(res=>{
+      console.log(res);
+    })
+  }
+
 }
 
 

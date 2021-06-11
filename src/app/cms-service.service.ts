@@ -198,6 +198,36 @@ export class CMSServiceService {
         return this.http.get(url);
       }
 
+      DeleteDealsPageSection1(bucketName:any,fileName:any){
+        let url=this.baseUrl+"DealsPageSection1?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
+      DeleteDealsPageSection2(bucketName:any,fileName:any){
+        let url=this.baseUrl+"DealsPageSection2?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
+      DeleteDealsPageSection3(bucketName:any,fileName:any){
+        let url=this.baseUrl+"DealsPageSection3?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
+      DeleteDealsPageSubSection1(bucketName:any,fileName:any){
+        let url=this.baseUrl+"DealsPageSubSection1?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
+      DeleteDealsPageSubSection2(bucketName:any,fileName:any){
+        let url=this.baseUrl+"DealsPageSubSection2?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
       getDealPageSubSection1(){
         let url=this.baseUrl+"DealsPageSubSection1/bulk";
         console.log("Calling Getting section1 images");        
