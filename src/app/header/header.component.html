@@ -17,16 +17,17 @@
                     <nav class="width-navigation">
                         <ul style="color: #ffd200" class="nav navbar-nav menu-main-menu side-nav" id="mobile-demo">
                             <li class="">
-                                <a style="text-decoration:none" routerLink="LandingPage" >Home</a>
+                                <a style="text-decoration:none" routerLink="landing/landingPage" >Home</a>
                             </li>
                             <!-- <li class="menu-item-has-children">
                                 <a style="text-decoration:none" routerLink="customPackage" >Customize Package</a>
                             </li> -->
                             
-                            <li><a style="text-decoration:none" routerLink="deals">Deals</a></li>
-                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="Inquiries">Inquiries</a></li>
-                            <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" routerLink="AgentInquiries">Inquiries</a></li>
-                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="agentRegister">Agent</a></li>
+                            <li><a style="text-decoration:none" routerLink="dealsPage/deal">Deals</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="AdminInquiryPage/inquiries">Inquiries</a></li>
+                            <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" routerLink="AgentInquiryPage/inquiries">Inquiries</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="agent/newagent">Create Agent</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" routerLink="agent/Listagent">Agent List</a></li>
                             <!-- <li><a style="text-decoration:none" routerLink="packageList">Search</a></li> -->
     
                             <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
@@ -41,6 +42,7 @@
                             <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
                             <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
                             <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                            <li *ngIf="authenticate.Role==null"><a style="text-decoration:none" routerLink="admin/register">Log In</a></li>
                             <li *ngIf="authenticate.Role==''"><a style="text-decoration:none" routerLink="admin/register">Log In</a></li>
                             <li class="menu-right">
 

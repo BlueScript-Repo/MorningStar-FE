@@ -332,4 +332,18 @@ path:any='';
   return this.http.request(req);
  }
 
+ getAgentList()
+  {
+   let agentlisturl=this.baseUrl+"agent/bulkAgent";
+   console.log("ListOf Agents");
+   return this.http.get(agentlisturl);
+  }
+
+  deleteAgent(agentId:any)
+  {
+    let deleteAgentUrl=this.baseUrl+"agent/"+agentId;
+    console.log("deleteAgentUrl"+deleteAgentUrl);
+    return this.http.delete(deleteAgentUrl);
+  }
+
 }

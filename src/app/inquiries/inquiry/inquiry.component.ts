@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import {PackageServiceService} from './../package-service.service'
+import {PackageServiceService} from './../../package-service.service'
 @Component({
   selector: 'app-inquiry',
   templateUrl: './inquiry.component.html',

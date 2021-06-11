@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {PackageServiceService} from './../package-service.service'
+import {PackageServiceService} from './../../package-service.service'
 import {Router} from "@angular/router";
-import {CodeArr} from "./CodeArr";
-import {Filter} from './Filter';
-import {FilterData} from './FilterData';
-import {Type} from './Type';
 @Component({
-  selector: 'app-package-list',
-  templateUrl: './package-list.component.html',
-  styleUrls: ['./package-list.component.css']
+  selector: 'app-packagelist',
+  templateUrl: './packagelist.component.html',
+  styleUrls: ['./packagelist.component.css']
 })
-export class PackageListComponent implements OnInit {
+export class PackagelistComponent implements OnInit {
 
   constructor(private http:PackageServiceService,private router:Router) { }
 
@@ -25,7 +21,7 @@ export class PackageListComponent implements OnInit {
     }
   }
 
-  package:Type={
+  package:any={
     productType:''
   }
   GetPackagefromType(){
@@ -47,11 +43,11 @@ key=10;
 keyword="";
 total:any;
 searchData:any;
-productCode:CodeArr[]=[];
+productCode:any[]=[];
 
 // Filter code
 
-filter:Filter={
+filter:any={
   PriceRangeStart:0,
   PriceRangeEnd:0,
   packageType:'',

@@ -1,3 +1,25 @@
+<section class="content-area single-woo-tour">
+  <div class="container123">
+    <div class="popup center">
+      <div class="icon">
+        <i class="fa fa-check"></i>
+      </div>
+      <div class="title mb-3 mt-3">
+        Registered!!!!
+      </div>
+      <div class="description">
+        You have Regested your account successfully 
+      </div>
+      <div class="dismiss-btn">
+        <button id="dismiss-popup-btn" (mouseenter)="closeModal()">
+          close
+        </button>
+      </div>
+    </div>
+    <!-- Modal Ends -->
+ 
+
+
 <div style="padding-top: 150px;padding-bottom: 100px;" class="navbarTop body html">
     <div  *ngIf="role=='USER'" >
         <div style="padding-top: 150px;padding-bottom: 100px"class="container">
@@ -12,7 +34,7 @@
         </div>
     </div>
                 
-    <div *ngIf="role=='ADMIN'" class="site wrapper-content">
+    <div style="margin-top: -80px;" *ngIf="role=='ADMIN'" class="site wrapper-content">
     <div class="wrapper">
       <div class="title">
 Agent  Register</div>
@@ -46,8 +68,11 @@ Agent  Register</div>
             <input type="password" name="confirm" ngModel class="form-control" id="currentpassword" placeholder="Confirm your Password">
           </div>
           <div align="center" class="field mt-5">
-            <input style="width: 250px;" type="submit" value="Register">
+            <input style="width: 250px;" type="submit" value="Register" id="open-popup-btn" (mouseenter)="modal()" >
           </div>
+          <!-- <div *ngFor="let item of Agent;">
+            <h4>{{item.id}}</h4>
+          </div> -->
   
       </form>
 
@@ -55,3 +80,5 @@ Agent  Register</div>
 </div>
 </div>
 </div>
+  </div>
+</section>

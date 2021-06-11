@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from './../user/user.service'
+import {UserService} from './../../user/user.service'
 import {Router} from '@angular/router';
-import {PackageServiceService} from './../package-service.service';
-import {CMSServiceService} from "./../cms-service.service";
+import {PackageServiceService} from './../../package-service.service';
+import {CMSServiceService} from "./../../cms-service.service";
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
+  selector: 'app-landingpage',
+  templateUrl: './landingpage.component.html',
+  styleUrls: ['./landingpage.component.css']
 })
-export class LandingPageComponent implements OnInit {
+export class LandingpageComponent implements OnInit {
 
   imageList:any=[];
 
@@ -174,21 +174,20 @@ export class LandingPageComponent implements OnInit {
     },
   }
   nav(){
-    this.router.navigate(['/packageList']);
+    this.router.navigate(['/ProductList/list']);
   }
 productType:any='';
   Navigate(){
     this.productType='domestic';
     localStorage.setItem('productType',this.productType);
-    this.router.navigate(['/packageList']);
+    this.router.navigate(['/ProductList/list']);
     console.log(this.productType);
     
   }
   navigateToInternational(){
     this.productType='international';
-    this.router.navigate(['/packageList']);
+    this.router.navigate(['/ProductList/list']);
     localStorage.setItem('productType',this.productType);
     console.log(this.productType);
   }
 }
-

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AgentRegisterComponent } from './agent-register.component';
+import { NewagentComponent } from './newagent.component';
 
-describe('AgentRegisterComponent', () => {
-  let component: AgentRegisterComponent;
-  let fixture: ComponentFixture<AgentRegisterComponent>;
+describe('NewagentComponent', () => {
+  let component: NewagentComponent;
+  let fixture: ComponentFixture<NewagentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AgentRegisterComponent ]
+      declarations: [ NewagentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AgentRegisterComponent);
+    fixture = TestBed.createComponent(NewagentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

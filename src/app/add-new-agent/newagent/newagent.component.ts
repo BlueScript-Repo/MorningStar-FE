@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from './../user/user.service';
-import {PackageServiceService} from './../package-service.service';
-import {Agents} from './Agent';
+import {UserService} from './../../user/user.service';
+import {PackageServiceService} from './../../package-service.service';
 @Component({
-  selector: 'app-agent-register',
-  templateUrl: './agent-register.component.html',
-  styleUrls: ['./agent-register.component.css']
+  selector: 'app-newagent',
+  templateUrl: './newagent.component.html',
+  styleUrls: ['./newagent.component.css']
 })
-export class AgentRegisterComponent implements OnInit {
-show="true";
+export class NewagentComponent implements OnInit {
+
+  show="true";
   constructor(private http:UserService,private service:PackageServiceService) { }
 
-  agents:Agents={
+  agents:any={
     confirmPassword:'',
     contactNo:'',
     // departmentId:'',
@@ -44,8 +44,7 @@ key=10;
       this.key=10;
       console.log("key is " + this.key);
       
-    }
- 
+    } 
 
   }
 
@@ -68,6 +67,16 @@ key=10;
    })
       
   }
-
-
+  modal(){
+   var element= document.getElementById("open-popup-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup")[0].classList.add("active");
+    });
+   }
+   closeModal(){
+     
+    document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup")[0].classList.remove("active");
+    });
+   }
+ 
 }

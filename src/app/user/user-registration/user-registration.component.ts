@@ -101,7 +101,7 @@ rolestorage:any;
           console.log("Hiii welcome to login");
           
     // this.http.setRole(this.rolestorage)
-    this.router.navigate(["/LandingPage"]);
+    this.router.navigate(["/landing/landingPage"]);
       }
      
     });

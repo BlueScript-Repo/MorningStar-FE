@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PackageServiceService} from './../package-service.service';
-import {CMSServiceService} from './../cms-service.service';
+import {PackageServiceService} from './../../package-service.service';
+import {CMSServiceService} from './../../cms-service.service';
 @Component({
   selector: 'app-deals',
   templateUrl: './deals.component.html',
@@ -89,3 +89,4 @@ getImages(){
   
 
 }
+
