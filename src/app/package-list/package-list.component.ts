@@ -230,24 +230,27 @@ filterData:any={
     this.http.getProductDetails(this.productCode).subscribe(res=>{
     this.productDetails=res;
     console.log(this.productDetails);
-    if (this.role=='ADMIN'){
-      
-    this.router.navigate(["/productDetails"]);
+    this.router.navigate(["/productDetails"])
     this.http.setArray(this.productDetails);
 
-    }
-    else if(this.role=='USER'){
-      this.router.navigate(["/UserproductDetails"]);
-      this.http.setArray(this.productDetails);  
-    }
-    else if(this.role=='AGENT'){
-      this.router.navigate(["/AgentProductDetails"]);
-      this.http.setArray(this.productDetails);  
-    }
-    else {
-      this.router.navigate(["/productDetails"])
-      this.http.setArray(this.productDetails);
-    }
+    // if (this.role=='ADMIN'){
+      
+    // this.router.navigate(["/productDetails"]);
+    // this.http.setArray(this.productDetails);
+
+    // }
+    // else if(this.role=='USER'){
+    //   this.router.navigate(["/UserproductDetails"]);
+    //   this.http.setArray(this.productDetails);  
+    // }
+    // else if(this.role=='AGENT'){
+    //   this.router.navigate(["/AgentProductDetails"]);
+    //   this.http.setArray(this.productDetails);  
+    // }
+    // else {
+    //   this.router.navigate(["/productDetails"])
+    //   this.http.setArray(this.productDetails);
+    // }
   })
   
   }

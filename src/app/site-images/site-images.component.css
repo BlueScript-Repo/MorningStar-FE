@@ -118,3 +118,23 @@ font-family: 'Noto Sans JP', sans-serif;
 color:#fff;
 cursor:pointer;
 }
+
+.product{
+    transition: all 0.5s;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    border: 1px solid #f1f1f1;
+  }
+  .image{
+      padding-right: 30px;
+    
+  }
+  .delete{
+      padding-right: 30px
+  }
+  .product:hover{
+    box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.2);
+    transform: scale(1.03,1.03);
+    transition: all 0.5s;
+  }

@@ -15,15 +15,8 @@ export class LandingPageComponent implements OnInit {
 
   constructor(public router: Router,public authenticate:UserService,public http:PackageServiceService,public imgService:CMSServiceService) { 
 
-    for (let i = 0; i < 10; i++) {
-      const url = 'https://loremflickr.com/640/480?random=' + (i +1);
-      this.imageList[i] = {
-        url: url,
-        show: false
-    };
-    console.log(this.imageList);
-    
-  }
+   
+  
   
   }
 
@@ -45,62 +38,67 @@ export class LandingPageComponent implements OnInit {
   GetImages(){
     this.imgService.getLandingPageSection1().subscribe(res=>{
       this.domestic=res;
+      this.domestic=this.domestic.reverse();
       console.log(this.domestic);
-      for (let i = 0; i < this.domestic.length; i++) {
-        const name = this.domestic[i].nameOnImage;
-        const price=this.domestic[i].priceOnImage;
-        const Url=this.domestic[i].s3url;
-        this.domesticImages[i]={
-          nameOnImage:name,
-          priceOnImage:price,
-          s3url:Url,
-          show: false
-        }
-        console.log(this.domesticImages);
+      // for (let i = 0; i < this.domestic.length; i++) {
+      //   const name = this.domestic[i].nameOnImage;
+      //   const price=this.domestic[i].priceOnImage;
+      //   const Url=this.domestic[i].s3url;
+      //   this.domesticImages[i]={
+      //     nameOnImage:name,
+      //     priceOnImage:price,
+      //     s3url:Url,
+      //     show: false
+      //   }
+      //   console.log(this.domesticImages);
         
-      }
+      // }
       
     })
     this.imgService.getLandingPageSection2().subscribe(res=>{
       this.international=res;
+      this.international=this.international.reverse();
       console.log(this.international);
-      for (let i = 0; i < this.international.length; i++) {
-        const name = this.international[i].nameOnImage;
-        const price=this.international[i].priceOnImage;
-        const Url=this.international[i].s3url;
-        this.internationalImages[i]={
-          nameOnImage:name,
-          priceOnImage:price,
-          s3url:Url,
-          show: false
-        }
-        console.log(this.internationalImages);
+      // for (let i = 0; i < this.international.length; i++) {
+      //   const name = this.international[i].nameOnImage;
+      //   const price=this.international[i].priceOnImage;
+      //   const Url=this.international[i].s3url;
+      //   this.internationalImages[i]={
+      //     nameOnImage:name,
+      //     priceOnImage:price,
+      //     s3url:Url,
+      //     show: false
+      //   }
+      //   console.log(this.internationalImages);
         
-      }
+      // }
       
     })
     this.imgService.getLandingPageSection3().subscribe(res=>{
       this.Themes=res;
+      this.Themes=this.Themes.reverse();
       console.log(this.Themes);
-      for (let i = 0; i < this.Themes.length; i++) {
-        const name = this.Themes[i].nameOnImage;
-        const price=this.Themes[i].priceOnImage;
-        const Url=this.Themes[i].s3url;
-        this.ThemesImages[i]={
-          nameOnImage:name,
-          priceOnImage:price,
-          s3url:Url,
-          show: true
-        }
-      }
+      // for (let i = 0; i < this.Themes.length; i++) {
+      //   const name = this.Themes[i].nameOnImage;
+      //   const price=this.Themes[i].priceOnImage;
+      //   const Url=this.Themes[i].s3url;
+      //   this.ThemesImages[i]={
+      //     nameOnImage:name,
+      //     priceOnImage:price,
+      //     s3url:Url,
+      //     show: true
+      //   }
+      // }
       
     })
     this.imgService.getLandingPageSubSection1().subscribe(res=>{
       this.leftSubsection=res;
+      this.leftSubsection=this.leftSubsection.reverse();
       console.log(this.leftSubsection);
     })
     this.imgService.getLandingPageSubSection2().subscribe(res=>{
       this.rightSubsection=res;
+      this.rightSubsection=this.rightSubsection.reverse();
       console.log(this.rightSubsection);
     })
   }

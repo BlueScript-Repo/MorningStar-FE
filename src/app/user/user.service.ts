@@ -9,7 +9,7 @@ import { UserRegistration } from './UserRegistration';
 })
 export class UserService {
   isAuthenticated:boolean=false;
-  Role:any='';
+  Role:any=localStorage.getItem('role');
   private usersUrl!: string; 
 
   userName="Mayur Bhakare";
@@ -46,5 +46,6 @@ export class UserService {
       localStorage.removeItem('token')
       console.log("After Logout"+this.Role);
       localStorage.removeItem('user')
+      this.Role='';
     }
 }
