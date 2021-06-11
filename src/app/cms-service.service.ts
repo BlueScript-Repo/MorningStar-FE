@@ -136,25 +136,60 @@ export class CMSServiceService {
         return this.http.get(url);
       }
 
+
+      DeleteLandingPageSection1(bucketName:any,fileName:any){
+        let url=this.baseUrl+"landingPageSection1?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
+
+
       getLandingPageSection2(){
         let url=this.baseUrl+"landingPageSection2/bulk";
         console.log("Calling Getting section1 images");        
         return this.http.get(url);
       }
+
+      DeleteLandingPageSection2(bucketName:any,fileName:any){
+        let url=this.baseUrl+"landingPageSection2?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
       getLandingPageSection3(){
         let url=this.baseUrl+"landingPageSection3/bulk";
         console.log("Calling Getting section1 images");        
         return this.http.get(url);
-      } 
+      }
+      
+      DeleteLandingPageSection3(bucketName:any,fileName:any){
+        let url=this.baseUrl+"landingPageSection3?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+      
       getLandingPageSubSection1(){
         let url=this.baseUrl+"landingPageSubSection1/bulk";
         console.log("Calling Getting section1 images");        
         return this.http.get(url);
       }
+
+      DeleteLandingPageSubsection1(bucketName:any,fileName:any){
+        let url=this.baseUrl+"landingPageSubSection1?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
+      }
+
       getLandingPageSubSection2(){
         let url=this.baseUrl+"landingPageSubSection2/bulk";
         console.log("Calling Getting section1 images");        
         return this.http.get(url);
+      }
+
+      DeleteLandingPageSubsection2(bucketName:any,fileName:any){
+        let url=this.baseUrl+"landingPageSubSection2?bucketName="+bucketName+"&fileName="+fileName;
+        console.log("Calling delete section1 images");        
+        return this.http.delete(url);
       }
       
       getDealPageSection1(){
@@ -185,6 +220,8 @@ export class CMSServiceService {
         console.log("Calling Getting section1 images");        
         return this.http.get(url);
       }
+
+      
 
 
     }
