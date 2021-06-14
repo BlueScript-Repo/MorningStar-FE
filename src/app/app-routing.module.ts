@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: 'agent',loadChildren:()=>import("./add-new-agent/add-new-agent.module").then(mod=>mod.AddNewAgentModule),canActivate:[AuthGuard]},
   {path: 'AdminInquiryPage',loadChildren:()=>import("./inquiries/inquiries.module").then(mod=>mod.InquiriesModule),canActivate:[AuthGuard]},
   {path: 'AgentInquiryPage',loadChildren:()=>import("./inquiries/inquiries.module").then(mod=>mod.InquiriesModule),canActivate:[AgentGuard]},
-  {path: 'ProductList',loadChildren:()=>import("./product-list/product-list.module").then(mod=>mod.ProductListModule)}
+  {path: 'ProductList',loadChildren:()=>import("./product-list/product-list.module").then(mod=>mod.ProductListModule)},
+  {path: 'productUpload',loadChildren:()=>import("./package/package.module").then(mod=>mod.PackageModule)}
 ];
 
 @NgModule({

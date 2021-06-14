@@ -20,8 +20,6 @@ import { SiteImagesComponent } from './site-images/site-images.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CommonModule } from '@angular/common';  
 import { AuthGuard } from './auth.guard';
-import { AgentGuard } from './agent.guard';
-import { UserGuard } from './user.guard';
 import {DeferLoadModule} from "@trademe/ng-defer-load";
 
 const route:Routes=[
@@ -30,7 +28,7 @@ const route:Routes=[
   {path:"uploadProduct",component:AddProductComponent,canActivate:[AuthGuard]},
   {path:"productDetails",component:ProductDetailsComponent},
   {path:"CMS",component:SiteImagesComponent},
-] 
+]
   
 
 @NgModule({

@@ -1,48 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, FormArray, Validators, FormControl} from '@angular/forms';
-import {Subdestination} from './Subdestinations';
-import {SubdestinationHotel} from './SubdestinationHotel';
-import {Price} from './Price';
-import {Inclusion} from "./Inclusion";
-import {Exclusion} from "./Exclusion";
-import {Day} from './Day';
-import {UploadData} from './UploadData';
-import {PackageServiceService} from '././../package-service.service';
-import {Images} from './MultiImages';
-@Component({ 
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+import {FormGroup, FormControl,FormBuilder, FormArray, Validators} from '@angular/forms';
+import {PackageServiceService} from '././../../package-service.service';
+
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-export class AddProductComponent implements OnInit {
-  subdestinations:Subdestination[]=[];
-  subdestinationOptions:Subdestination[]=[];
-  productSubDestination:SubdestinationHotel[]=[];
-  productPrice:Price[] = [];
-  productInclusion:Inclusion[] = [];
-  productExclusion:Exclusion[] = [];
-  productDays:Day[] = [];
-  service:any={
-    hotel:false,
-      sights:false,
-      transfer:false,
-      meal:false,
-      visa:false
-  };
+export class ProductComponent implements OnInit {
+
+  subdestinations:any[]=[];
+  subdestinationOptions:any[]=[];
+  productSubDestination:any[]=[];
+  productPrice:any[] = [];
+  productInclusion:any[] = [];
+  productExclusion:any[] = [];
+  productDays:any[] = [];
   upload:any = {
     description:'',
     destination:'',
     duration:'',
     productCategory:'',
-    tag:'',
     productDays:[],
     productExclusion:[],
     productInclusion:[],
     productName:'',
     productPrice:[],
     productSubDestination:[],
-    productType:'',
-    services:this.service
+    productType:''
   };
   constructor(private http:PackageServiceService) { }
   
@@ -66,14 +51,7 @@ export class AddProductComponent implements OnInit {
     days: new FormControl(''),
     description: new FormControl(''),
     productCodeMorningStar:new FormControl(''),
-    producttype:new FormControl(''),
-    tag:new FormControl(''),
-    hotelcheck:new FormControl(false),
-    sightscheck:new FormControl(false),
-    Transfercheck:new FormControl(false),
-    mealcheck:new FormControl(false),
-    visacheck:new FormControl(false)
-
+    producttype:new FormControl('')
   });
   getsubd(sub:any){
     let subd=sub;
@@ -177,18 +155,10 @@ export class AddProductComponent implements OnInit {
 }
   Submit(){
     console.log(this.Product.value);
-    this.service={
-      hotel:this.Product.value.hotelcheck,
-      sights:this.Product.value.sightscheck,
-      transfer:this.Product.value.Transfercheck,
-      meal:this.Product.value.mealcheck,
-      visa:this.Product.value.visacheck
-    }
     this.upload={
       description:this.Product.value.Description,
       destination:this.Product.value.destination,
       duration:this.Product.value.duration,
-      tag:this.Product.value.tag,
       productCategory:this.Product.value.category,
       productDays:this.productDays,
       productExclusion:this.productExclusion,
@@ -196,8 +166,7 @@ export class AddProductComponent implements OnInit {
       productName:this.Product.value.name,
       productPrice:this.productPrice,
       productSubDestination:this.productSubDestination,
-      productType:this.Product.value.producttype,
-      services:this.service
+      productType:this.Product.value.producttype
     }
     console.log(this.upload);
     this.http.uploadProduct(this.upload).subscribe(res=>{
