@@ -8,6 +8,7 @@
 
 <table class="table" class="table table-bordered  table-hover" style=" padding: 30px; " >
     <thead class="thead-dark" style="background-color:black; font-size: larger; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"> 
+        <th scope="col" >#</th>
         <th scope="col" >Agent ID</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
@@ -18,6 +19,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of listall;let j=index" >
+            <th scope="row">{{j+1}}</th>
             <th scope="row">{{item.agentId}}</th>
             <th>{{item.firstName}}</th>
             <th>{{item.lastName}}</th>
