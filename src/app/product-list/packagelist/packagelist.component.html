@@ -24,10 +24,10 @@
 				</div>
 			  </div>
 			<section class="content-area">
-				<div class="container">
+				<div class="containerList">
 		
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div  class="container">
 								<div align="center" class="row">
 									<div style="margin-top: -5px;" class="col-sm-6">
@@ -80,15 +80,11 @@
 										  </h2>
 										  <div id="panelsStayOpen-collapseTwo"  style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
 											<div class="accordion-body" style="margin-top: -5px;padding-left: 10%;">
-													<div class="form-check" style="padding-bottom: 10px;">
-														<input class="form-check-input" name="india" ngModel type="checkbox" id="inlineCheckbox4" value="option1">
-														<label class="form-check-label" for="inlineCheckbox4">Domestic </label>
+													<div class="form-check" *ngFor='let i of packagetype' style="padding-bottom: 10px;">
+														<input class="form-check-input" name="{{i.name}}" [(ngModel)]='i.isselected' type="checkbox" id="{{i.id}}" (change)="onchange()" value="option1">
+														<label class="form-check-label" for="{{i.id}}">{{i.name}} </label>
 													  </div>
-													  <div class="form-check" style="padding-bottom: 10px;">
-														<input class="form-check-input" name="overseas" ngModel type="checkbox" id="inlineCheckbox5" value="option2">
-														<label class="form-check-label" for="inlineCheckbox5">International</label>
-													  </div>
-													  
+													 
 											</div>
 										  </div>
 										</div>
@@ -100,19 +96,10 @@
 										  </h2>
 										  <div id="panelsStayOpen-collapseThree" style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
 											<div class="accordion-body" style="margin-top: -5px;padding-left: 10%;">
-												<div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="family" ngModel type="checkbox" id="inlineCheckbox6" value="option6">
-													<label class="form-check-label" for="inlineCheckbox6">Family Holidays </label>
+												<div class="form-check" *ngFor="let j of packageCategory" style="padding-bottom: 10px;">
+													<input class="form-check-input" name="{{j.name}}" [(ngModel)]='j.isselected'  type="checkbox" id="{{j.name}}" (change)="onchange()" value="{{j.name}}">
+													<label class="form-check-label" for="{{j.name}}">{{j.name}} </label>
 												  </div>
-												  <div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="adventure" ngModel type="checkbox" id="inlineCheckbox7" value="option7">
-													<label class="form-check-label" for="inlineCheckbox7">Adventure</label>
-												  </div>
-												  <div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="couple" ngModel type="checkbox" id="inlineCheckbox8" value="option8" >
-													<label class="form-check-label" for="inlineCheckbox8">Couple</label>
-												  </div>
-												  
 											</div>
 										  </div>
 										</div>
@@ -146,7 +133,7 @@
 									</form>
 								</div>
 						</div>
-						<div class="site-main col-md-8 alignright">
+						<div class="site-main col-md-9 alignright">
 							<div class="mb-3" style="text-align:left">
 								<h2 *ngIf="key!=0" class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span *ngIf="key!=0" style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>{{total}}</h2>
 							</div>
@@ -163,30 +150,82 @@
 								</div>
 							</ng-template>
 							<ul  *ngIf="key!=0 else elseBlock" class="tours products wrapper-tours-slider">
-								<li *ngFor="let i of products" class="item-list-tour col-md-12 ">
+								<li style="margin-top: -20px;height: 100%;" *ngFor="let i of products" class="item-list-tour col-md-12 ">
 									<form #list="ngForm" (ngSubmit)="getData(list.value)">
 										<input style="visibility:hidden" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
-										<div class="product content-list-tour">
-										<div class="post_images">
+										<div  class="product content-list-tour">
+										<div  class="post_images">
 											<a>
-												<img width="430" height="305" src="assets/header1.jpg" alt="Discover Brazil" title="Discover Brazil">
+												<img width="400" height="285" src="assets/header1.jpg" alt="Discover Brazil" title="Discover Brazil">
 											</a>
-											<div class="group-icon">
-												<a data-toggle="tooltip" data-placement="top" title="" class="frist" data-original-title="Escorted Tour"><i class="flaticon-airplane-4"></i></a>
-												<a data-toggle="tooltip" data-placement="top" title="" data-original-title="Rail Tour"><i class="flaticon-cart-1"></i></a>
-											</div>
+										
 										</div>
 										<div class="wrapper_content">
 											<div class="content-left">
-												<div class="post_title"><h4>
+												<div style="margin-top: -30px;" class="post_title"><h4>
 													<button type="submit" class="fs-3 btn1234" style="font-family: 'Noto Sans JP', sans-serif;font-weight: 500;" rel="bookmark">{{i.productName}}</button>
-												</h4></div>
-												<div class="description">
-													<p>{{i.description}}</p>
-					
+													<span style="margin-left: 20px;" class="post_date">{{i.duration}}</span></h4></div>
+												<div class="subdestination">
+													<div class="row1 mt-3 mb-5">
+														<p style="font-size:12px;color: grey;margin-left: 10px;" *ngFor="let subd of i.subDestinations">{{subd.subDestinationName}}</p>
+													</div>
 												</div>
-												<span class="post_date">{{i.duration}}</span></div>
-											<div class="content-right">
+
+													<div class="mt-3">
+														Serivces Included:
+													<div class="services" *ngFor="let j of i.servicesIncluded">
+														<div class="row">
+															<div style="margin-top:10px" class="col-md-2">
+																<div style="margin-right: 0px;" *ngIf="j=='Hotel'">
+																	<div class="hotel">
+																		<i class="fas fa-hotel" style="margin-right: 10px;"></i><p style="margin-top:-5px ;"> Hotel </p>
+																	</div>
+																</div>
+															</div>
+															<div style="margin-top:-15px;margin-left: 10px;" class="col-md-2">
+																<div *ngIf="j=='Meal'">
+																	<div class="hotel">
+																		<i class="fas fa-utensils" style="margin-right: 10px;"></i><p style="margin-top:-5px ;"> Meal</p>
+																	</div>
+																</div>
+															</div>
+															
+															<div style="margin-top:-25px;margin-left: 5px;" class="col-md-3">
+																<div *ngIf="j=='Sightseeing'">
+																	<div class="hotel">
+																		<i class="fas fa-umbrella-beach" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Sightseeing</p>
+																	</div>
+																</div>
+															</div>
+															
+															<div style="margin-top:-35px;margin-left: 10px;" class="col-md-2">
+																<div *ngIf="j=='Transfer'">
+																	<div class="hotel">
+																		<i class="fas fa-bus-alt" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Transfer</p> 
+																	</div>
+																</div>	
+															</div>
+															
+															<div style="margin-top:-40px;margin-left: 10px;" class="col-md-2">
+																<div *ngIf="j=='Visa'">
+																	<div class="hotel">
+																		<i class="fab fa-cc-visa" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Visa</p>
+																	</div>
+																</div>
+															</div>
+															
+														</div>														
+													</div>
+													</div>
+
+													<!-- <div class="services" *ngIf="i.servicesIncluded=='Hotel,Meal,Sightseeing,Transfer'">
+														Services includes: working
+													</div> -->
+													<!-- <div class="services" *ngIf="i.servicesIncluded=='Hotel,Meal,Sightseeing'">
+														Services includes: working2
+													</div> -->
+												</div>
+											<div style="margin-top: -20px;" class="content-right">
 												<!-- <div class="item_rating">
 													<div class="item_rating">
 														<i class="fa fa-star"></i>
@@ -196,6 +235,7 @@
 														<i class="fa fa-star-o"></i>
 													</div>
 												</div> -->
+												<p style="font-size: 10px;color:grey">Starting price per Adult</p>
 												<span style="padding-top: 30px;margin-top:15px;font-family: 'Noto Sans JP', sans-serif;font-size: 18px;" class="price">RS.{{i.productRate}}/-</span>
 													<button style="width: 100px;" type="submit" class="btn12">Read More</button>
 											

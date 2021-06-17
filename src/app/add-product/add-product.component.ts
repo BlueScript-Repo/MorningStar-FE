@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, FormArray, Validators, FormControl} from '@angular/forms';
 import {Subdestination} from './Subdestinations';
+import {Service} from './Services';
 import {SubdestinationHotel} from './SubdestinationHotel';
 import {Price} from './Price';
 import {Inclusion} from "./Inclusion";
 import {Exclusion} from "./Exclusion";
 import {Day} from './Day';
-import {UploadData} from './UploadData';
 import {PackageServiceService} from '././../package-service.service';
-import {Images} from './MultiImages';
 @Component({ 
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -22,19 +20,13 @@ export class AddProductComponent implements OnInit {
   productInclusion:Inclusion[] = [];
   productExclusion:Exclusion[] = [];
   productDays:Day[] = [];
-  service:any={
-    hotel:false,
-      sights:false,
-      transfer:false,
-      meal:false,
-      visa:false
-  };
+  UserService:Service[]=[]
+  
   upload:any = {
     description:'',
     destination:'',
     duration:'',
     productCategory:'',
-    tag:'',
     productDays:[],
     productExclusion:[],
     productInclusion:[],
@@ -42,39 +34,28 @@ export class AddProductComponent implements OnInit {
     productPrice:[],
     productSubDestination:[],
     productType:'',
-    services:this.service
+    servicesIncluded:'',
+    tag:'',
+    theme:''
   };
   constructor(private http:PackageServiceService) { }
-  
-  
-  Product=new FormGroup({
-    name:new FormControl('',Validators.required),
-    duration:new FormControl(''),
-    category: new FormControl(''),
-    destination: new FormControl(''),
-    subdestination: new FormControl(''),
-    Description: new FormControl(''),
-    type:new FormControl(''),
-    subd:new FormControl(''),
-    hotel:new FormControl(''),
-    ProductPriceType: new FormControl(''),
-    adult: new FormControl(''),
-    child: new FormControl(''),
-    infant: new FormControl(''),
-    inclusion:new FormControl(''),
-    exclusion: new FormControl(''),
-    days: new FormControl(''),
-    description: new FormControl(''),
-    productCodeMorningStar:new FormControl(''),
-    producttype:new FormControl(''),
-    tag:new FormControl(''),
-    hotelcheck:new FormControl(false),
-    sightscheck:new FormControl(false),
-    Transfercheck:new FormControl(false),
-    mealcheck:new FormControl(false),
-    visacheck:new FormControl(false)
 
-  });
+  getService(){
+    this.UserService=[
+      {id:1,name:"Hotel",isSelected:false},
+      {id:2,name:"Sightseeing",isSelected:false},
+      {id:3,name:"Transfer",isSelected:false},
+      {id:4,name:"Meal",isSelected:false},
+      {id:5,name:"Visa",isSelected:false},
+    ]
+    console.log(this.UserService);
+    
+  }
+  Onchange(){
+    console.log(this.UserService);
+    
+  }
+
   getsubd(sub:any){
     let subd=sub;
     console.log(subd);
@@ -139,7 +120,10 @@ export class AddProductComponent implements OnInit {
   }
  
   ngOnInit(): void {
-  }
+    this.getService();
+ }
+
+
   deletePrice(id:number){
     this.productPrice = this.productPrice.filter((v, i) => i != id);
   }
@@ -175,29 +159,25 @@ export class AddProductComponent implements OnInit {
   // console.log("Selected File is "+this.selectedFile);
   console.log(this.images);
 }
-  Submit(){
-    console.log(this.Product.value);
-    this.service={
-      hotel:this.Product.value.hotelcheck,
-      sights:this.Product.value.sightscheck,
-      transfer:this.Product.value.Transfercheck,
-      meal:this.Product.value.mealcheck,
-      visa:this.Product.value.visacheck
-    }
+  Submit(val:any){
+    console.log(val);
+    let service=this.UserService.filter(x=>x.isSelected==true).map(x=>x.name).join('|');
+    console.log(service);
     this.upload={
-      description:this.Product.value.Description,
-      destination:this.Product.value.destination,
-      duration:this.Product.value.duration,
-      tag:this.Product.value.tag,
-      productCategory:this.Product.value.category,
+      description:val.Description,
+      destination:val.destination,
+      duration:val.duration,
+      tag:val.tag,
+      productCategory:val.category,
       productDays:this.productDays,
       productExclusion:this.productExclusion,
       productInclusion:this.productInclusion,
-      productName:this.Product.value.name,
+      productName:val.name,
       productPrice:this.productPrice,
       productSubDestination:this.productSubDestination,
-      productType:this.Product.value.producttype,
-      services:this.service
+      productType:val.producttype,
+      servicesIncluded:service,
+      theme:val.category
     }
     console.log(this.upload);
     this.http.uploadProduct(this.upload).subscribe(res=>{

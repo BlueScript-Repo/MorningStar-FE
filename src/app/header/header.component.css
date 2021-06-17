@@ -1,3 +1,30 @@
 *{
     font-family: 'Noto Sans JP', sans-serif;
 }
+.width-navigation{
+    margin-left: 180px;
+}
+@media (max-width: 1191px){
+    li{
+        margin-right: -15px;
+    }
+    li a{
+        font-size: 13px;
+    }
+    img{
+        width: 210px;
+    }
+}
+
+@media (max-width: 992px){
+    img{
+        margin-top: -20px;
+        margin-bottom: 50px;
+        padding-left: 30px;
+        text-align: center;
+    }
+    .buttons{
+        margin-bottom: -10px;
+        margin-left: 20px;
+    }
+}

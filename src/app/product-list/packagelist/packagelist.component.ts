@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {PackageServiceService} from './../../package-service.service'
 import {Router} from "@angular/router";
+import {Filter} from './Filter'
 @Component({
   selector: 'app-packagelist',
   templateUrl: './packagelist.component.html',
   styleUrls: ['./packagelist.component.css']
 })
+
 export class PackagelistComponent implements OnInit {
 
   constructor(private http:PackageServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    this.gettype();
+    this.getCategory();
     this.package={
       productType:localStorage.getItem('productType')
     }
@@ -32,6 +36,31 @@ export class PackagelistComponent implements OnInit {
       // this.total="Total "+ this.key+" results found";
     }))
   }
+  packagetype:Filter[]=[];
+  packageCategory:Filter[]=[];
+  gettype(){
+    this.packagetype=[
+      {id:1,name:"Domestic",isselected:false},
+      {id:2,name:"International",isselected:false}
+    ]
+  }
+  getCategory(){
+    this.packageCategory=[
+      {id:1,name:"Family",isselected:false},
+      {id:2,name:"Couple",isselected:false},
+      {id:3,name:"Adventure",isselected:false},
+      {id:4,name:"Solo",isselected:false}
+      // {id:1,name:"Beaches",isselected:false},
+      // {id:1,name:"Scenic",isselected:false},
+    ]
+  }
+  onchange(){
+    console.log(this.packagetype);
+    console.log(this.packageCategory);
+  }
+
+
+
 
   bucketName:any='';
   mainPage='PackageList Page';
@@ -39,6 +68,7 @@ export class PackagelistComponent implements OnInit {
   Header:any=[];
 role=localStorage.getItem('role');
 products:any={};
+packages:any={};
 key=10;
 keyword="";
 total:any;
@@ -60,40 +90,11 @@ RangeEnd=0;
 category='';
 inclusion='';
 filters(val:any){
- console.log(val);
- if(val.family==true && val.adventure==false && val.couple==false){
-  this.category="Family"
- }
- else if(val.family==false && val.adventure==true && val.couple==false){
-  this.category="Adventure"
- }
- else if(val.family==false && val.adventure==false && val.couple==true){
-  this.category="couple"
-
- }
- else if(val.family==true && val.adventure==true && val.couple==false){
-  this.category="Family,adventure"
-
- }
- if(val.family==true && val.adventure==false && val.couple==true){
-  this.category="Family,couple"
-
- }
- else if(val.family==false && val.adventure==true && val.couple==true){
-  this.category="adventure,couple"
- }
- else if(val.family==true && val.adventure==true && val.couple==true){
-  this.category="Family,adventure,couple"
- }
- if(val.india==true && val.overseas==false){
-   this.type='Domestic';
- }
- else if(val.overseas==true && val.india==false){
-   this.type="international";
- }
- else if(val.overseas==true && val.india==true){
-   this.type="Domestic,international";
- }
+  this.category=this.packageCategory.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
+  this.type=this.packagetype.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
+  console.log("Product Type is "+this.type);
+  console.log("Category is "+this.category);
+  console.log(val);
  if(val.below10000==true && val.from10000to20000==false && val.from20000to40000==false){
   this.RangeStart=1;
   this.RangeEnd=10000;
@@ -103,7 +104,7 @@ filters(val:any){
   this.RangeEnd=20000;
  }
  else if(val.below10000==false && val.from10000to20000==false && val.from20000to40000==true){
-  this.RangeStart=20000;
+  this.RangeStart=20000;  
   this.RangeEnd=40000;
  }
  else if(val.below10000==true && val.from10000to20000==true && val.from20000to40000==false){
@@ -176,7 +177,7 @@ filterData:any={
    productCategory:'',
   keyword:''
 }
-
+  services:any=[]
   search(searchForm:any){
     console.log(searchForm); 
     this.searchData=searchForm; 
@@ -206,6 +207,18 @@ filterData:any={
         }
       else{ 
       this.products=res;
+      
+      for (let i = 0; i < this.products.length; i++) {
+          let service = this.products[i].servicesIncluded;
+         if(service!=null){
+          this.services=service.split('|').sort();
+          console.log(this.products);
+          this.products[i].servicesIncluded=this.services;
+          console.log(this.services);
+          console.log(this.products);  
+         }
+      }
+      console.log(this.products);
       this.key=Object.keys(this.products).length;
       this.productCode=this.products[0].productCode;
       console.log(this.key);
