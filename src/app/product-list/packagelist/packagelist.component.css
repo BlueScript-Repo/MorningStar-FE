@@ -109,3 +109,21 @@ margin-bottom: -10px;
   .btn1234:hover{
     color: rgb(65, 125, 255);
   }
+  .containerList{
+    margin-left: 80px;
+    
+    margin-right: 80px;
+  }
+  .hotel{
+    display: flex;
+  }
+  .row1{
+    display: flex;
+  }
+  .hotel i{
+    color: rgb(0, 174, 255);
+    font-size: 14px;
+  }
+  .post_images{
+    
+  }
