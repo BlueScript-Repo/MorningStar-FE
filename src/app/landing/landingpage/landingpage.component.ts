@@ -27,6 +27,11 @@ export class LandingpageComponent implements OnInit {
   }
   this.GetImages();
   }
+
+
+  getData(){
+    alert('Clicked on solo')
+  }
   domestic:any=[];
   domesticImages:any=[];
   international:any=[];
@@ -177,6 +182,7 @@ export class LandingpageComponent implements OnInit {
     this.router.navigate(['/ProductList/list']);
   }
 productType:any='';
+productCategory:any='';
   Navigate(){
     this.productType='domestic';
     localStorage.setItem('productType',this.productType);
@@ -189,5 +195,12 @@ productType:any='';
     this.router.navigate(['/ProductList/list']);
     localStorage.setItem('productType',this.productType);
     console.log(this.productType);
+  }
+  getCategory(val:any){
+    console.log(val);
+    this.productCategory=val.category;
+    console.log(this.productCategory);
+    localStorage.setItem('category',this.productCategory);
+    this.router.navigate(['/ProductList/list']); 
   }
 }

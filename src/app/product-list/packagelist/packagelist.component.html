@@ -75,7 +75,7 @@
 										<div class="accordion-item">
 										  <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
 											<a class="accordion-button collapsed fs-4" style="border: 0px solid white;color: black;" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-											  Destination
+											  Tour Type
 											</a>
 										  </h2>
 										  <div id="panelsStayOpen-collapseTwo"  style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
@@ -91,7 +91,7 @@
 										<div class="accordion-item">
 										  <h2 class="accordion-header" id="panelsStayOpen-headingThree">
 											<p class="accordion-button collapsed fs-4" style="border: 0px solid white;color: black;" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-											 Tour Type
+											 Tour Category
 											</p>
 										  </h2>
 										  <div id="panelsStayOpen-collapseThree" style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingThree">
@@ -112,19 +112,26 @@
 											</h2>
 											<div id="panelsStayOpen-collapseFive" style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingFive">
 											  <div class="accordion-body" style="margin-top: -5px;padding-left: 10%;">
-												<div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="accomodation" ngModel type="checkbox" id="inlineCheckbox12" value="option12">
-													<label class="form-check-label" for="inlineCheckbox12">Accommodation </label>
+												<div class="form-check" *ngFor="let k of ServicesIncludes" style="padding-bottom: 10px;">
+													<input class="form-check-input" name="{{k.name}}" [(ngModel)]='k.isselected'  type="checkbox" id="{{k.name}}" (change)="onchange()" value="{{k.name}}">
+													<label class="form-check-label" for="{{k.name}}">{{k.name}} </label>
 												  </div>
-												  <div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="meal" ngModel type="checkbox" id="inlineCheckbox13" value="option13">
-													<label class="form-check-label" for="inlineCheckbox13">Meal</label>
+											</div>
+											</div>
+										  </div>
+
+										  <div class="accordion-item">
+											<h2 class="accordion-header" id="panelsStayOpen-headingSix">
+											  <p class="accordion-button collapsed fs-4" style="border: 0px solid white;color: black;" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+												Tags
+											  </p>
+											</h2>
+											<div id="panelsStayOpen-collapseFive" style="border: 0px solid white;border-bottom: 1px solid lightgrey;" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingSix">
+											  <div class="accordion-body" style="margin-top: -5px;padding-left: 10%;">
+												<div class="form-check" *ngFor="let m of recommend" style="padding-bottom: 10px;">
+													<input class="form-check-input" name="{{m.name}}" [(ngModel)]='m.isselected'  type="checkbox" id="{{m.name}}" (change)="onchange()" value="{{m.name}}">
+													<label class="form-check-label" for="{{m.name}}">{{m.name}} </label>
 												  </div>
-												  <div class="form-check" style="padding-bottom: 10px;">
-													<input class="form-check-input" name="flight" ngModel type="checkbox" id="inlineCheckbox14" value="option14" >
-													<label class="form-check-label" for="inlineCheckbox14">Flight</label>
-												  </div>
-												 
 											</div>
 											</div>
 										  </div>

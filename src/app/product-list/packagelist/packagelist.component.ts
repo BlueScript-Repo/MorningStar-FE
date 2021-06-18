@@ -15,33 +15,84 @@ export class PackagelistComponent implements OnInit {
   ngOnInit(): void {
     this.gettype();
     this.getCategory();
+    this.getInclusions();
+    this.getTags();
     this.package={
       productType:localStorage.getItem('productType')
+    }
+    this.Category={
+      productCategory:localStorage.getItem('category')
     }
     if(this.package.productType){
       this.GetPackagefromType();
       console.log(this.package);
       localStorage.removeItem('productType');
     }
+    if(this.Category.productCategory){
+      this.getPackageFromCategory();
+      console.log(this.Category);
+      localStorage.removeItem('category');
+    }
   }
 
   package:any={
     productType:''
   }
+  Category:any={
+    productCategory:''
+  }
   GetPackagefromType(){
     return this.http.getProduct(this.package).subscribe((res=>{
       console.log(res);
       this.products=res;
+      for (let i = 0; i < this.products.length; i++) {
+        let service = this.products[i].servicesIncluded;
+       if(service!=null){
+        this.services=service.split('|').sort();
+        console.log(this.products);
+        this.products[i].servicesIncluded=this.services;
+        console.log(this.services);
+        console.log(this.products); 
+       }
+      }
       this.key=Object.keys(this.products).length;
-      // this.total="Total "+ this.key+" results found";
+      this.total="Total "+ this.key+" results found";
     }))
+  }
+
+  getPackageFromCategory(){
+    return this.http.getProduct(this.Category).subscribe(res=>{
+      console.log(res);
+      this.products=res;
+      for (let i = 0; i < this.products.length; i++) {
+        let service = this.products[i].servicesIncluded;
+       if(service!=null){
+        this.services=service.split('|').sort();
+        console.log(this.products);
+        this.products[i].servicesIncluded=this.services;
+        console.log(this.services);
+        console.log(this.products); 
+       }
+      }
+      this.key=Object.keys(this.products).length;
+      this.total="Total "+ this.key+" results found";
+    })
   }
   packagetype:Filter[]=[];
   packageCategory:Filter[]=[];
+  ServicesIncludes:Filter[]=[];
+  recommend:Filter[]=[];
   gettype(){
     this.packagetype=[
       {id:1,name:"Domestic",isselected:false},
       {id:2,name:"International",isselected:false}
+    ]
+  }
+  getTags() {
+    this.recommend=[
+      {id:1,name:"Best Seller",isselected:false},
+      {id:1,name:"MSH Recommended",isselected:false},
+      {id:1,name:"Popular",isselected:false},
     ]
   }
   getCategory(){
@@ -54,9 +105,20 @@ export class PackagelistComponent implements OnInit {
       // {id:1,name:"Scenic",isselected:false},
     ]
   }
+
+  getInclusions() {
+    this.ServicesIncludes=[
+      {id:1,name:"Hotel",isselected:false},
+      {id:2,name:"Sightseeing",isselected:false},
+      {id:3,name:"Transfer",isselected:false},
+      {id:4,name:"Meal",isselected:false},
+      {id:5,name:"Visa",isselected:false}
+    ]
+  }
   onchange(){
     console.log(this.packagetype);
     console.log(this.packageCategory);
+    console.log(this.ServicesIncludes);
   }
 
 
@@ -85,15 +147,19 @@ filter:any={
   packageInclusion:''
 }
 type='';
-RangeStart=1;
+RangeStart=0;
 RangeEnd=0;
 category='';
 inclusion='';
+tags='';
 filters(val:any){
   this.category=this.packageCategory.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
   this.type=this.packagetype.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
+  this.inclusion=this.ServicesIncludes.filter(x=>x.isselected==true).map(x=>x.name).join('|').toString();
+  this.tags=this.recommend.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
   console.log("Product Type is "+this.type);
   console.log("Category is "+this.category);
+  console.log("Services Included is "+this.inclusion);
   console.log(val);
  if(val.below10000==true && val.from10000to20000==false && val.from20000to40000==false){
   this.RangeStart=1;
@@ -128,33 +194,6 @@ filters(val:any){
    this.RangeEnd=1000000;
  }
 
-// Inclusion
-
- if(val.accomodation==true && val.meal==false && val.flight==false){
-  this.inclusion="accomodation"
- }
- else if(val.accomodation==false && val.meal==true && val.flight==false){
-  this.inclusion="meal"
- }
- else if(val.accomodation==false && val.meal==false && val.flight==true){
-  this.inclusion="flight"
-
- }
- else if(val.accomodation==true && val.meal==true && val.flight==false){
-  this.inclusion="accomodation,meal"
-
- }
- if(val.accomodation==true && val.meal==false && val.flight==true){
-  this.inclusion=="accomodation,flight"
-
- }
- else if(val.accomodation==false && val.meal==true && val.flight==true){
-  this.inclusion="meal,flight"
- }
- else if(val.accomodation==true && val.meal==true && val.flight==true){
-  this.inclusion="accomodation,meal,flight"
- }
-
 
  this.filter={
    PriceRangeStart:this.RangeStart,
@@ -162,7 +201,6 @@ filters(val:any){
    packageType:this.type,
    packageCategory:this.category,
    packageInclusion:this.inclusion
-  //  package1:this.searchData
  }
 //  console.log(this.filter);
  
@@ -187,7 +225,8 @@ filterData:any={
     priceRangeEnd:this.filter.PriceRangeEnd,
     productType:this.filter.packageType,
     productCategory:this.filter.packageCategory,
-    // PackageInclusions:this.filter.packageInclusion,
+    servicesIncluded:this.filter.packageInclusion,
+    tag:this.tags,
     keyword:this.keyword
   }
     Object.keys(this.filterData).forEach((key) => (this.filterData[key] == '' || this.filterData[key]==0) && delete this.filterData[key]);

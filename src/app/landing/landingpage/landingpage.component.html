@@ -489,7 +489,12 @@
                             <div class="card" style="width:120px;border: 1px solid #fff;">
                                 <img src={{i.s3url}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" loading="lazy" class="card-img-top card_img" alt="...">
                                 <div class="card-body">
-                                  <p class="card-text" style="text-align:center;">{{i.nameOnImage}}</p>
+                                  <form #Category='ngForm' (ngSubmit)="getCategory(Category.value)">
+                                    <input style="display:none;visibility:hidden" type="text" ngModel={{i.nameOnImage}} name=category value="{{i.nameOnImage}}">
+                                    <div style="display: flex;align-items: center;justify-content: center;">
+                                      <button class="card-text" style="text-align:center;" >{{i.nameOnImage}}</button>
+                                    </div>
+                                  </form>
                                 </div>
                               </div>
                             </ng-template>  
