@@ -20,12 +20,25 @@ export class ProductDetailsComponent implements OnInit {
 role:any;
 
   ngOnInit(): void {
-    this.productDetails=this.http.getArray()
+    this.productDetails=this.http.getArray();
+    this.Code=this.productDetails.productCode;
+    console.log(this.Code);
+    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
+    this.images=[
+      {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_1.jpg"},
+      {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_2.jpg"},
+      {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_3.jpg"},
+      {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_4.jpg"},
+      {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_5.jpg"}
+    ];
     console.log("In details component calling array: "+JSON.stringify(this.productDetails));
     this.role=localStorage.getItem('role');
     console.log(this.role);
     
   }
+  Code:any='';
+  images:any=[];
+  pdf:any="";
   inquery:InquiryDetails={
     // agentId:'',
     contactNo:'',
@@ -55,7 +68,6 @@ role:any;
     return this.http.postInquiry(this.inquery).subscribe(response =>{
       console.log(response);
     })
-    alert("Your Inquiry has been successfully sent to the Inquiry List")
   }
   deal1(dealForm1:any){
     let deal=dealForm1.deal_Percent;

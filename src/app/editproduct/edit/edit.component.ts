@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PackageServiceService} from './../../package-service.service';
 import {Subdestination} from './Subdestinations';
 import {Service} from './Services';
 import {SubdestinationHotel} from './SubdestinationHotel';
@@ -6,13 +7,41 @@ import {Price} from './Price';
 import {Inclusion} from "./Inclusion";
 import {Exclusion} from "./Exclusion";
 import {Day} from './Day';
-import {PackageServiceService} from '././../package-service.service';
-@Component({ 
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+
+@Component({
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class EditComponent implements OnInit {
+  constructor(private http:PackageServiceService) { }
+  ngOnInit(): void {
+    this.getService();
+    this.productDetails=this.http.getArray();
+    console.log(this.productDetails);  
+    console.log(this.productDetails.productSubDestinations);  
+    this.productSubDestination=this.productDetails.productSubDestinations;
+    this.subdestinationOptions=this.productDetails.productSubDestinations;
+    this.subdestinations=this.productDetails.productSubDestinations;
+    this.productPrice=this.productDetails.productPrice;
+    this.productExclusion=this.productDetails.productExclusion;
+    this.productInclusion=this.productDetails.productInclusion;
+    this.productDays=this.productDetails.productDays;
+    let service=this.productDetails.servicesIncluded;
+    this.service=service.split("|");
+    console.log(this.service);
+    for (let i = 0; i < this.service.length; i++) {
+      this.UserService.filter(x=>x.name==this.service[i]).map(x=>x.isSelected=true);
+      
+    }
+    // this.service=this.UserService.split("|");
+    // let service=this.UserService.split("|")
+    // this.cities=this.subdestinations[this.subdestinations.length-1].subDestinationName;
+    // console.log(this.cities);
+  }
+
+  cities:any='';
+  service:any=[];
   subdestinations:Subdestination[]=[];
   subdestinationOptions:Subdestination[]=[];
   productSubDestination:SubdestinationHotel[]=[];
@@ -38,8 +67,9 @@ export class AddProductComponent implements OnInit {
     tag:'',
     theme:''
   };
-  constructor(private http:PackageServiceService) { }
+  
 
+ productDetails:any={};
   getService(){
     this.UserService=[
       {id:1,name:"Hotel",isSelected:false},
@@ -47,7 +77,7 @@ export class AddProductComponent implements OnInit {
       {id:3,name:"Transfer",isSelected:false},
       {id:4,name:"Meal",isSelected:false},
       {id:5,name:"Visa",isSelected:false},
-    ]
+    ];
     console.log(this.UserService);
     
   }
@@ -60,7 +90,7 @@ export class AddProductComponent implements OnInit {
     let subd=sub;
     console.log(subd);
     this.subdestinations.push({
-      name:subd
+      subDestinationName:subd
     })
     console.log(this.subdestinations);
     sub=" ";
@@ -119,11 +149,7 @@ export class AddProductComponent implements OnInit {
     
   }
  
-  ngOnInit(): void {
-    this.getService();
- }
-
-
+  
   deletePrice(id:number){
     this.productPrice = this.productPrice.filter((v, i) => i != id);
   }
@@ -178,23 +204,23 @@ export class AddProductComponent implements OnInit {
       productType:val.producttype,
       servicesIncluded:service,
       theme:val.category
-    }
+    } 
       console.log(this.upload);
-    //   this.http.uploadProduct(this.upload).subscribe(res=>{
-    //   console.log(res);
-    //   this.productCode=res;
-    //   console.log(this.productCode.productCode);
-    //   localStorage.setItem('productCode', this.productCode.productCode);
-    //   let bucket=localStorage.getItem('productCode');
-    //   console.log("bucket "+bucket);
-    //   for (var i = 0; i < this.images.length; i++) {
-    //     const img=this.images[i];
-    //     this.http.postImage(img).subscribe(res => {
-    //       console.log("value is "+  JSON.stringify(res));
-    //     })
-    //       console.log("images are: "+img);
-    //   }
-    // })
+      this.http.uploadProduct(this.upload).subscribe(res=>{
+      console.log(res);
+      this.productCode=res;
+      console.log(this.productCode.productCode);
+      localStorage.setItem('productCode', this.productCode.productCode);
+      let bucket=localStorage.getItem('productCode');
+      console.log("bucket "+bucket);
+      for (var i = 0; i < this.images.length; i++) {
+        const img=this.images[i];
+        this.http.postImage(img).subscribe(res => {
+          console.log("value is "+  JSON.stringify(res));
+        })
+          console.log("images are: "+img);
+      }
+    })
     
     
     // this.upload=[];

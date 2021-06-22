@@ -100,7 +100,6 @@ rolestorage:any;
           this.userService.auth()
           console.log("Hiii welcome to login");
           
-    // this.http.setRole(this.rolestorage)
     this.router.navigate(["/landing/landingPage"]);
       }
      

@@ -27,6 +27,9 @@ export class LandingpageComponent implements OnInit {
   }
   this.GetImages();
   }
+  getDomestic(val:any){
+    alert("hiiii")
+  }
 
 
   getData(){
@@ -183,17 +186,21 @@ export class LandingpageComponent implements OnInit {
   }
 productType:any='';
 productCategory:any='';
-  Navigate(){
+  Navigate(destination:any){
+    console.log(destination);
     this.productType='domestic';
     localStorage.setItem('productType',this.productType);
+    localStorage.setItem('package',destination);
     this.router.navigate(['/ProductList/list']);
     console.log(this.productType);
     
   }
-  navigateToInternational(){
+  navigateToInternational(InternationalDestination:any){
     this.productType='international';
-    this.router.navigate(['/ProductList/list']);
     localStorage.setItem('productType',this.productType);
+    console.log(InternationalDestination);
+    localStorage.setItem('package',InternationalDestination);
+    this.router.navigate(['/ProductList/list']);
     console.log(this.productType);
   }
   getCategory(val:any){

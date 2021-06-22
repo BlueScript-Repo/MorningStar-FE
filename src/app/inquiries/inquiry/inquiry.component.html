@@ -41,7 +41,7 @@
                     </td>
                     <td style="text-align:center;border: none">
                         <form #detail="ngForm" (ngSubmit)="getDetails(detail.value)">
-                            <input style="visibility:hidden;display:none" class="form-control" type="text" ngModel={{i.productCode}} value="{{i.productCode}}" name="product" >
+                            <input style="visibility:hidden;display:none" class="form-control" #code type="text" ngModel={{i.productCode}} value="{{i.productCode}}" name="product" >
                         <button class="btn1" style="background:transparent;border:none;text-decoration:underline" >{{i.productCode}}</button>
                     </form>
                     </td>
@@ -63,7 +63,9 @@
                         <button style="text-align: center;" (click)="UpdateStatus(status.value,remark.value,amount.value,j)" class="btn121" >Update</button>
                     </td>
                     <td style="text-align:center;border: none">
-                        <button style="text-align: center;" class="btn122" >Download</button>
+                        <div style="margin-top: 5px;">
+                            <a href="{{pdf}}" style="text-align: center;" (click)="DownloadPdf(code.value)" class="btn122" >Download</a>
+                        </div>
                     </td>
                 <!-- </form> -->
                 </tr>

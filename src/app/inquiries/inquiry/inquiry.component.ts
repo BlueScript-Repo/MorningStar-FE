@@ -11,8 +11,10 @@ export class InquiryComponent implements OnInit {
   constructor(private http:PackageServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
     this.getProductInquiry();
   }
+  pdf:any='';
   action=["HOLD","DROP","BOOKED"];
   role=localStorage.getItem('role');
 Inquiries:any = {};
@@ -115,5 +117,12 @@ details:any = {};
  
   deleteTodo(id: number) {
       
+  }
+  Code:any='';
+  DownloadPdf(code:any){
+    console.log("Working");
+    this.Code=code; 
+    console.log(this.Code);
+    
   }
 }

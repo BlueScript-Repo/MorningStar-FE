@@ -42,9 +42,10 @@
    
         background:white ;
         border:2px solid #ffd200;
-        width:100px;
+        width:120px;
+        padding: 3px;
         height:30px;
-        margin-top: 0px;
+        /* margin-top: 30px; */
         border-radius:0px;
         color: #ffd200;
 }

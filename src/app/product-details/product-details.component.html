@@ -99,6 +99,9 @@
                       </table>
                       <p>Ridiculus sociis dui eu vivamus tempor justo diam aliquam. Ipsum nunc purus, pede sed placerat sit habitasse potenti eleifend magna mus sociosqu hymenaeos cras metus mi donec tortor nisi leo dignissim turpis sit torquent.</p>
                       <p>Potenti mattis ad mollis eleifend Phasellus adipiscing ullamcorper interdum faucibus orci litora ornare aliquam. Ligula feugiat scelerisque. Molestie. Facilisi hac.</p>
+                      <div style="display:flex;text-align:center;justify-content:center">
+                      <a href={{pdf}} target="_blank" class="brochure">Get brochure</a>
+                    </div>
                     </div>
                     <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab tabs_layout" id="tab-itinerary_tab">
                       <div *ngFor="let i of productDetails.productDays;let j=index" class="interary-item">
@@ -112,9 +115,15 @@
                             <li>Accumsan pharetra eros justo augue posuere felis elit cras montes fames.</li>
                             <li>Vulputate dictumst egestas etiam dictum varius.</li>
                           </ul>
+                         
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div *ngFor="let i of images" class="col-md-3 mt-3">
+                          <img src={{i.url}} alt="">
                         </div>
                       </div>
-                     
                     </div>
                   </div>
                 </div>							
@@ -164,6 +173,7 @@
                 </div>
               </div>
             </div>
+            
             </div>
 
             <div *ngIf="authenticate.Role=='USER'" class="col-md-4">
@@ -217,7 +227,8 @@
                 </div>
               </div>
             </div>
-            </div>
+            
+          </div>
 
 
             <div *ngIf="authenticate.Role==''" class="col-md-4">
@@ -271,7 +282,8 @@
                 </div>
               </div>
             </div>
-            </div>
+            
+          </div>
             
 
             <div *ngIf="authenticate.Role=='AGENT'" class="col-md-4">
@@ -326,6 +338,7 @@
               </div>
             </div>
             </div>
+            
           </div>
         
         </div>

@@ -17,13 +17,24 @@ export class SiteImagesComponent implements OnInit {
   FileName:any='';
   onFileChange(event:any){
     this.File = event.target.files[0];
-this.images.push(
-this.File
-)
-console.log(this.images[0].name);
-this.FileName=this.File.name;
-console.log("Selected File is "+this.File);
-console.log(this.File);
+    let fileSize=this.File.size/1024;
+    console.log(fileSize);
+    
+    if (fileSize>150) {
+  alert("The image size you have uploaded exceed 150kb")  
+  this.File={};   
+  this.FileName=''; 
+    }
+    else{
+      this.images.push(
+        this.File
+        )
+        console.log(this.images[0].name);
+        this.FileName=this.File.name;
+        console.log("Selected File is "+this.File);
+        console.log(this.File);
+    }
+
 }
   ngOnInit(): void {
   }

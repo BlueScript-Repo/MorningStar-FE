@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PackageServiceService} from './../../package-service.service'
 import {Router} from "@angular/router";
-import {Filter} from './Filter'
+import {Filter} from './Filter';
+import {UserService} from './../../user/user.service';
 @Component({
   selector: 'app-packagelist',
   templateUrl: './packagelist.component.html',
@@ -10,7 +11,7 @@ import {Filter} from './Filter'
 
 export class PackagelistComponent implements OnInit {
 
-  constructor(private http:PackageServiceService,private router:Router) { }
+  constructor(private http:PackageServiceService,private router:Router,public authenticate:UserService) { }
 
   ngOnInit(): void {
     this.gettype();
@@ -18,17 +19,20 @@ export class PackagelistComponent implements OnInit {
     this.getInclusions();
     this.getTags();
     this.package={
+      keyword:localStorage.getItem('package'),
       productType:localStorage.getItem('productType')
     }
     this.Category={
-      productCategory:localStorage.getItem('category')
+      theme:localStorage.getItem('category')
     }
+    console.log(this.Category );
     if(this.package.productType){
       this.GetPackagefromType();
       console.log(this.package);
       localStorage.removeItem('productType');
+      localStorage.removeItem('package');
     }
-    if(this.Category.productCategory){
+    if(this.Category.theme){
       this.getPackageFromCategory();
       console.log(this.Category);
       localStorage.removeItem('category');
@@ -36,10 +40,11 @@ export class PackagelistComponent implements OnInit {
   }
 
   package:any={
+    keyword:'',
     productType:''
   }
   Category:any={
-    productCategory:''
+    theme:''
   }
   GetPackagefromType(){
     return this.http.getProduct(this.package).subscribe((res=>{
@@ -155,7 +160,7 @@ tags='';
 filters(val:any){
   this.category=this.packageCategory.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
   this.type=this.packagetype.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
-  this.inclusion=this.ServicesIncludes.filter(x=>x.isselected==true).map(x=>x.name).join('|').toString();
+  this.inclusion=this.ServicesIncludes.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
   this.tags=this.recommend.filter(x=>x.isselected==true).map(x=>x.name).join(',').toString();
   console.log("Product Type is "+this.type);
   console.log("Category is "+this.category);
@@ -224,7 +229,7 @@ filterData:any={
     priceRangeStart:this.filter.PriceRangeStart,
     priceRangeEnd:this.filter.PriceRangeEnd,
     productType:this.filter.packageType,
-    productCategory:this.filter.packageCategory,
+    theme:this.filter.packageCategory,
     servicesIncluded:this.filter.packageInclusion,
     tag:this.tags,
     keyword:this.keyword
@@ -274,7 +279,7 @@ filterData:any={
   console.log(code1);
   this.productCode=val.code;
   console.log(this.productCode);
-
+    
     this.http.getProductDetails(this.productCode).subscribe(res=>{
     this.productDetails=res;
     console.log(this.productDetails);
@@ -304,6 +309,17 @@ filterData:any={
   }
   nav(){
     this.router.navigate(["/customPackage"]);
+  }
+
+  EditProduct(productcode:any){
+    console.log(productcode);
+    this.productCode=productcode;
+    this.http.getProductDetails(this.productCode).subscribe(res=>{
+      this.productDetails=res;
+      this.http.setArray(this.productDetails);
+      this.router.navigate(['/editproduct/edit'])
+    })
+
   }
 
 }

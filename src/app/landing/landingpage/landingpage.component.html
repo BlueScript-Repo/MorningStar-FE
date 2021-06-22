@@ -436,8 +436,8 @@
              
                         <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
                         <ng-template *ngFor='let i of domestic' carouselSlide> 
-                          
-                            <a style="cursor: pointer;" (click)="Navigate()"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                            <input style="display:none;visibility:hidden" type="text" ngModel={{i.nameOnImage}} #destination value="{{i.nameOnImage}}">
+                            <a style="cursor: pointer;" (click)="Navigate(destination.value)"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
                             <img src={{i.s3url}} style="height: 320px;width: 95%;" loading="lazy" class="card-img" alt="...">
                             <div class="card-img-overlay">
                             <h5 class="card-title" style="text-align:center;letter-spacing:1px;font-size: 22px;margin-left: -10px;margin-top:5%;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}}</h5>
@@ -460,7 +460,8 @@
   
                         <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
                         <ng-template *ngFor="let i of international" carouselSlide> 
-                           <a style="cursor: pointer;" (click)="navigateToInternational()"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
+                          <input style="display:none;visibility:hidden" type="text" ngModel={{i.nameOnImage}} #InternationalDestination value="{{i.nameOnImage}}">
+                          <a style="cursor: pointer;" (click)="navigateToInternational(InternationalDestination.value)"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
                             <img src={{i.s3url}} style="height: 320px;width: 95%;" loading="lazy" class="card-img" alt="...">
                             <div class="card-img-overlay">
                             <h5 class="card-title" style="text-align:center;letter-spacing:1px;font-size: 22px;margin-left: -10px;margin-top:5%;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}}</h5>
