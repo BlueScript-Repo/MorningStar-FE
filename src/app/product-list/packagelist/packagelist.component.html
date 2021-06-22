@@ -159,12 +159,15 @@
 							<ul  *ngIf="key!=0 else elseBlock" class="tours products wrapper-tours-slider">
 								<li style="margin-top: -20px;height: 100%;" *ngFor="let i of products" class="item-list-tour col-md-12 ">
 									<form #list="ngForm" (ngSubmit)="getData(list.value)">
-										<input style="visibility:hidden" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
+										<input style="visibility:hidden;" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
 										<div  class="product content-list-tour">
 										<div  class="post_images">
-											<a>
-												<img width="400" height="285" src="assets/header1.jpg" alt="Discover Brazil" title="Discover Brazil">
-											</a>
+											<div class="card bg-dark text-white">
+												<img src="assets/header1.jpg" class="card-img" alt="...">
+												<div class="card-img-overlay">
+												  <h5 *ngIf="i.tag" class="card-title tags">{{i.tag}}</h5>
+												</div>
+											  </div>
 										
 										</div>
 										<div class="wrapper_content">
@@ -245,6 +248,8 @@
 												<p style="font-size: 10px;color:grey">Starting price per Adult</p>
 												<span style="padding-top: 30px;margin-top:15px;font-family: 'Noto Sans JP', sans-serif;font-size: 18px;" class="price">RS.{{i.productRate}}/-</span>
 													<button style="width: 100px;" type="submit" class="btn12">Read More</button>
+													<input style="visibility:hidden;display:none;" #productcode type="text" ngModel={{i.productCode}} name=product value={{i.productCode}} class="form-control">
+													<button *ngIf="authenticate.Role=='ADMIN'" (click)="EditProduct(productcode.value)" style="width: 100px;" type="button" class="edit">Edit</button>
 											
 											
 										</div>
