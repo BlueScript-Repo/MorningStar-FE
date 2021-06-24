@@ -185,6 +185,11 @@ export class EditComponent implements OnInit {
   // console.log("Selected File is "+this.selectedFile);
   console.log(this.images);
 }
+code='';
+getProductCode(productcode:any){
+  console.log(productcode);
+  this.code=productcode;
+}
       Submit(val:any){
       console.log(val);
       let service=this.UserService.filter(x=>x.isSelected==true).map(x=>x.name).join('|');
@@ -203,7 +208,8 @@ export class EditComponent implements OnInit {
       productSubDestination:this.productSubDestination,
       productType:val.producttype,
       servicesIncluded:service,
-      theme:val.category
+      theme:val.category,
+      productCode:this.code
     } 
       console.log(this.upload);
       this.http.uploadProduct(this.upload).subscribe(res=>{
@@ -223,7 +229,7 @@ export class EditComponent implements OnInit {
     })
     
     
-    // this.upload=[];
+    this.upload=[];
   }
   
   

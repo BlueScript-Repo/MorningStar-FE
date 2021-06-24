@@ -180,24 +180,24 @@ export class AddProductComponent implements OnInit {
       theme:val.category
     }
       console.log(this.upload);
-    //   this.http.uploadProduct(this.upload).subscribe(res=>{
-    //   console.log(res);
-    //   this.productCode=res;
-    //   console.log(this.productCode.productCode);
-    //   localStorage.setItem('productCode', this.productCode.productCode);
-    //   let bucket=localStorage.getItem('productCode');
-    //   console.log("bucket "+bucket);
-    //   for (var i = 0; i < this.images.length; i++) {
-    //     const img=this.images[i];
-    //     this.http.postImage(img).subscribe(res => {
-    //       console.log("value is "+  JSON.stringify(res));
-    //     })
-    //       console.log("images are: "+img);
-    //   }
-    // })
+      this.http.uploadProduct(this.upload).subscribe(res=>{
+      console.log(res);
+      this.productCode=res;
+      console.log(this.productCode.productCode);
+      localStorage.setItem('productCode', this.productCode.productCode);
+      let bucket=localStorage.getItem('productCode');
+      console.log("bucket "+bucket);
+      for (var i = 0; i < this.images.length; i++) {
+        const img=this.images[i];
+        this.http.postImage(img).subscribe(res => {
+          console.log("value is "+  JSON.stringify(res));
+        })
+          console.log("images are: "+img);
+      }
+    })
     
     
-    // this.upload=[];
+    this.upload=[];
   }
   
   

@@ -103,7 +103,14 @@ rolestorage:any;
     this.router.navigate(["/landing/landingPage"]);
       }
      
-    });
+    },(error=>{
+      console.log("error is");
+      console.log(error);
+      console.log(error.status);
+      if (error.status!=200) {
+      alert("Oopps Something went wrong!!!!!");       
+      }
+    }));
   } 
   
   toggle(){

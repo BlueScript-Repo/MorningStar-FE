@@ -351,7 +351,8 @@
       </div>
       <!-- Modal Ends -->
     <div align="center" class="col-md-12">
-        <button style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" class="btn12">Submit</button>
+        <input style="display: none;visibility:hidden" type="text" name="{{productDetails.productCode}}" ngModel={{productDetails.productCode}} #productcode >
+        <button style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" (click)="getProductCode(productcode.value)" class="btn12">Submit</button>
     </div>
 </div>
 
