@@ -488,7 +488,7 @@
                         <owl-carousel-o id="exploreByTheme" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions1">
                         <ng-template *ngFor="let i of Themes" carouselSlide> 
                             <div class="card" style="width:120px;border: 1px solid #fff;">
-                                <img src={{i.s3url}} style="width: 100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" loading="lazy" class="card-img-top card_img" alt="...">
+                                <img src={{i.s3url}} style="width: 100px;height:100px;border: 1px solid #fff;border-radius: 100px;margin-left: 10px;" loading="lazy" class="card-img-top card_img" alt="...">
                                 <div class="card-body">
                                   <form #Category='ngForm' (ngSubmit)="getCategory(Category.value)">
                                     <input style="display:none;visibility:hidden" type="text" ngModel={{i.nameOnImage}} name=category value="{{i.nameOnImage}}">
