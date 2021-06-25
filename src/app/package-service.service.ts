@@ -209,6 +209,13 @@ bucketName:any;
     return this.http.post(uploadUrl,data);
   }
 
+  editProduct(data:any,editData:any){
+    let editUrl=this.baseUrl+"Products/productCode?productCode="+data;
+    console.log(data);
+    return this.http.put(editUrl,editData);
+    
+  }
+
   getProductDetails(productCode:any){
     let geturl=this.baseUrl+"Products/productCode?productCode="+productCode;
     console.log("Calling function getDetails ");

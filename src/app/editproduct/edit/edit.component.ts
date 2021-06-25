@@ -26,7 +26,16 @@ export class EditComponent implements OnInit {
     this.productPrice=this.productDetails.productPrice;
     this.productExclusion=this.productDetails.productExclusion;
     this.productInclusion=this.productDetails.productInclusion;
-    this.productDays=this.productDetails.productDays;
+    for (let i = 0; i < this.productDetails.productDays.length; i++) {
+      this.productDays.push({
+        day:this.productDetails.productDays[i].day,
+        dayDescription:this.productDetails.productDays[i].dayDescription
+     })       
+    }
+    console.log(this.productDays);
+    
+    this.productDetails.productDays;
+    console.log(this.productDays);
     let service=this.productDetails.servicesIncluded;
     this.service=service.split("|");
     console.log(this.service);
@@ -209,10 +218,10 @@ getProductCode(productcode:any){
       productType:val.producttype,
       servicesIncluded:service,
       theme:val.category,
-      productCode:this.code
+      // productCode:this.code
     } 
       console.log(this.upload);
-      this.http.uploadProduct(this.upload).subscribe(res=>{
+      this.http.editProduct(this.code,this.upload).subscribe(res=>{
       console.log(res);
       this.productCode=res;
       console.log(this.productCode.productCode);

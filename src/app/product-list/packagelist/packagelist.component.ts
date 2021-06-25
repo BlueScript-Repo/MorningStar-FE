@@ -105,9 +105,12 @@ export class PackagelistComponent implements OnInit {
       {id:1,name:"Family",isselected:false},
       {id:2,name:"Couple",isselected:false},
       {id:3,name:"Adventure",isselected:false},
-      {id:4,name:"Solo",isselected:false}
-      // {id:1,name:"Beaches",isselected:false},
-      // {id:1,name:"Scenic",isselected:false},
+      {id:4,name:"Solo",isselected:false},
+      {id:5,name:"Beaches",isselected:false},
+      {id:6,name:"Scenic",isselected:false},
+      {id:7,name:"Biking Tours",isselected:false},
+      {id:8,name:"Trekking",isselected:false},
+      {id:9,name:"Religious",isselected:false},
     ]
   }
 
