@@ -131,6 +131,7 @@ margin-bottom: -10px;
   }
   .hotel{
     display: flex;
+    margin-bottom: 10px;
   }
   .row1{
     display: flex;
@@ -180,4 +181,7 @@ margin-bottom: -10px;
   top: 0;
   border-left: 50px solid #ffd200;
   z-index: 999;
+}
+.services{
+  display: flex;
 }

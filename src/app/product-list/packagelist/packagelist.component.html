@@ -172,59 +172,47 @@
 										</div>
 										<div class="wrapper_content">
 											<div class="content-left">
-												<div style="margin-top: -30px;" class="post_title"><h4>
+												<div style="margin-top: -50px;" class="post_title"><h4>
 													<button type="submit" class="fs-3 btn1234" style="font-family: 'Noto Sans JP', sans-serif;font-weight: 500;" rel="bookmark">{{i.productName}}</button>
 													<span style="margin-left: 20px;" class="post_date">{{i.duration}}</span></h4></div>
-												<div class="subdestination">
-													<div class="row1 mt-3 mb-5">
-														<p style="font-size:12px;color: grey;margin-left: 10px;" *ngFor="let subd of i.subDestinations">{{subd.subDestinationName}}</p>
+												<div style="margin-top:-10px;margin-bottom: 15px;" class="subdestination">
+													<div class="row1">
+														<p style="font-size:12px;color: grey;margin-left: 10px;margin-top:5px;margin-bottom: 15px;" *ngFor="let subd of i.subDestinations">{{subd.subDestinationName}}</p>
 													</div>
 												</div>
 
-													<div class="mt-3">
-														Serivces Included:
+													<div style="margin-top: -20px;" class="">
+														<p style="margin-top: 10px;"> Serivces Included:</p>
 													<div class="services" *ngFor="let j of i.servicesIncluded">
-														<div class="row">
-															<div style="margin-top:10px" class="col-md-2">
 																<div style="margin-right: 0px;" *ngIf="j=='Hotel'">
 																	<div class="hotel">
 																		<i class="fas fa-hotel" style="margin-right: 10px;"></i><p style="margin-top:-5px ;"> Hotel </p>
 																	</div>
 																</div>
-															</div>
-															<div style="margin-top:-15px;margin-left: 10px;" class="col-md-2">
 																<div *ngIf="j=='Meal'">
 																	<div class="hotel">
 																		<i class="fas fa-utensils" style="margin-right: 10px;"></i><p style="margin-top:-5px ;"> Meal</p>
 																	</div>
 																</div>
-															</div>
 															
-															<div style="margin-top:-25px;margin-left: 5px;" class="col-md-3">
 																<div *ngIf="j=='Sightseeing'">
 																	<div class="hotel">
 																		<i class="fas fa-umbrella-beach" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Sightseeing</p>
 																	</div>
 																</div>
-															</div>
 															
-															<div style="margin-top:-35px;margin-left: 10px;" class="col-md-2">
 																<div *ngIf="j=='Transfer'">
 																	<div class="hotel">
 																		<i class="fas fa-bus-alt" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Transfer</p> 
 																	</div>
 																</div>	
-															</div>
 															
-															<div style="margin-top:-40px;margin-left: 10px;" class="col-md-2">
 																<div *ngIf="j=='Visa'">
 																	<div class="hotel">
 																		<i class="fab fa-cc-visa" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Visa</p>
 																	</div>
 																</div>
-															</div>
 															
-														</div>														
 													</div>
 													</div>
 
