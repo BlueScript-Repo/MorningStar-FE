@@ -18,7 +18,10 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.getService();
     this.productDetails=this.http.getArray();
-    console.log(this.productDetails);  
+    console.log(this.productDetails);
+    console.log(this.productDetails.productCode);
+    this.Code=this.productDetails.productCode;
+    localStorage.setItem("code",this.Code);
     console.log(this.productDetails.productSubDestinations);  
     this.productSubDestination=this.productDetails.productSubDestinations;
     this.subdestinationOptions=this.productDetails.productSubDestinations;
@@ -41,12 +44,12 @@ export class EditComponent implements OnInit {
     console.log(this.service);
     for (let i = 0; i < this.service.length; i++) {
       this.UserService.filter(x=>x.name==this.service[i]).map(x=>x.isSelected=true);
-      
     }
     // this.service=this.UserService.split("|");
     // let service=this.UserService.split("|")
     // this.cities=this.subdestinations[this.subdestinations.length-1].subDestinationName;
     // console.log(this.cities);
+
   }
 
   cities:any='';
@@ -59,7 +62,7 @@ export class EditComponent implements OnInit {
   productExclusion:Exclusion[] = [];
   productDays:Day[] = [];
   UserService:Service[]=[]
-  
+  Code:any='';
   upload:any = {
     description:'',
     destination:'',
@@ -185,6 +188,7 @@ export class EditComponent implements OnInit {
   productCode:any={};
   selectedFile:any=[];
   images:any=[];
+  imageName:string='';
   onFileChange(event:any){
       this.selectedFile = event.target.files[0];
   this.images.push(
@@ -225,12 +229,11 @@ getProductCode(productcode:any){
       console.log(res);
       this.productCode=res;
       console.log(this.productCode.productCode);
-      localStorage.setItem('productCode', this.productCode.productCode);
-      let bucket=localStorage.getItem('productCode');
-      console.log("bucket "+bucket);
+      console.log("bucket "+this.Code);
       for (var i = 0; i < this.images.length; i++) {
         const img=this.images[i];
-        this.http.postImage(img).subscribe(res => {
+        this.imageName="day_"+[i+1]+".jpg";
+        this.http.postImage(img,this.imageName).subscribe(res => {
           console.log("value is "+  JSON.stringify(res));
         })
           console.log("images are: "+img);

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Destinations} from './Destinations';
 import {Subdestination} from './Subdestination'
-import {PackageServiceService} from './../package-service.service';
+import {PackageServiceService} from './../../package-service.service';
 import {DestOption} from './DestOption';
 import {Stay} from './Stay';
 import {Meal} from './Meal';
 import {Sightseeing} from './Sightseeing';
-import {SelectedOption} from './../SelectedOption';
+import {SelectedOption} from './../../SelectedOption';
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',

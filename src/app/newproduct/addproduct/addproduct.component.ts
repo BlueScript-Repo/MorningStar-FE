@@ -6,13 +6,13 @@ import {Price} from './Price';
 import {Inclusion} from "./Inclusion";
 import {Exclusion} from "./Exclusion";
 import {Day} from './Day';
-import {PackageServiceService} from '././../package-service.service';
-@Component({ 
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+import {PackageServiceService} from '././../../package-service.service';
+@Component({
+  selector: 'app-addproduct',
+  templateUrl: './addproduct.component.html',
+  styleUrls: ['./addproduct.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddproductComponent implements OnInit {
   subdestinations:Subdestination[]=[];
   subdestinationOptions:Subdestination[]=[];
   productSubDestination:SubdestinationHotel[]=[];
@@ -150,10 +150,11 @@ export class AddProductComponent implements OnInit {
   productCode:any={};
   selectedFile:any=[];
   images:any=[];
+  imageName:any="";
   onFileChange(event:any){
       this.selectedFile = event.target.files[0];
   this.images.push(
-  this.selectedFile
+  this.selectedFile,
   )
   console.log(this.images[0].name);
   // console.log("Selected File is "+this.selectedFile);
@@ -189,7 +190,8 @@ export class AddProductComponent implements OnInit {
       console.log("bucket "+bucket);
       for (var i = 0; i < this.images.length; i++) {
         const img=this.images[i];
-        this.http.postImage(img).subscribe(res => {
+        this.imageName="day_"+[i+1]+".jpg";
+        this.http.postImage(img,this.imageName).subscribe(res => {
           console.log("value is "+  JSON.stringify(res));
         })
           console.log("images are: "+img);

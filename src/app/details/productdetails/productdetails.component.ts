@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {PackageServiceService} from './../package-service.service';
+import {PackageServiceService} from './../../package-service.service';
 import {InquiryDetails} from './InquiryDetails';
-import {UserService} from './../user/user.service'
+import {UserService} from './../../user/user.service'
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.css']
+  selector: 'app-productdetails',
+  templateUrl: './productdetails.component.html',
+  styleUrls: ['./productdetails.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductdetailsComponent implements OnInit {
 
   constructor(private http:PackageServiceService,public authenticate:UserService) { } 
 
@@ -22,8 +22,6 @@ role:any;
   ngOnInit(): void {
     this.productDetails=this.http.getArray();
     this.Code=this.productDetails.productCode;
-    console.log(this.Code);
-    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
     this.images=[
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_1.jpg"},
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_2.jpg"},
@@ -31,6 +29,9 @@ role:any;
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_4.jpg"},
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_5.jpg"}
     ];
+    console.log(this.Code);
+    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
+    
     console.log("In details component calling array: "+JSON.stringify(this.productDetails));
     this.role=localStorage.getItem('role');
     console.log(this.role);

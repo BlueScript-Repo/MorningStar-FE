@@ -1,22 +1,23 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {PackageServiceService} from './../package-service.service'
-import {Files} from './Files';
 import {Upload} from './Upload';
-import {CMSServiceService} from './../cms-service.service';
+import {CMSServiceService} from './../../cms-service.service';
 @Component({
-  selector: 'app-site-images',
-  templateUrl: './site-images.component.html',
-  styleUrls: ['./site-images.component.css']
+  selector: 'app-uploadimages',
+  templateUrl: './uploadimages.component.html',
+  styleUrls: ['./uploadimages.component.css']
 })
-export class SiteImagesComponent implements OnInit {
+export class UploadimagesComponent implements OnInit {
 
-  constructor( private http:PackageServiceService,private imgService:CMSServiceService) { }
+  constructor( private imgService:CMSServiceService) { }
   File:any={};
+  File1:any={};
   images:any=[];
   FileName:any='';
   onFileChange(event:any){
     this.File = event.target.files[0];
+    this.File1 = new FormData();
+    this.File1.append('file',this.File,'Image1.jpg');
+    console.log(this.File1);
     let fileSize=this.File.size/1024;
     console.log(fileSize);
     
@@ -27,11 +28,11 @@ export class SiteImagesComponent implements OnInit {
     }
     else{
       this.images.push(
-        this.File
+        this.File1
         )
         console.log(this.images[0].name);
         this.FileName=this.File.name;
-        console.log("Selected File is "+this.File);
+        console.log("Selected File is "+this.File1);
         console.log(this.File);
     }
 
@@ -60,7 +61,7 @@ export class SiteImagesComponent implements OnInit {
     name:Name,
     price:Price,
     file:this.File,
-    fileName:this.FileName
+    fileName:this.FileName,
     }
     )
     console.log(this.uploadData);
@@ -75,6 +76,7 @@ export class SiteImagesComponent implements OnInit {
       const image1= this.uploadData[i].file;
       const price1 = this.uploadData[i].price;
       const name1 = this.uploadData[i].name;
+      
       if (this.bucketName=='landing-page/trending-domestic-destinations') {
       this.imgService.ForLandingSection1(image1,name1,price1,this.bucketName).subscribe(data =>{
         console.log(data);  

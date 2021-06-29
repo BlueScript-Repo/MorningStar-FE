@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { PackageServiceService } from './../package-service.service';
-import { PackagePdfRequest } from './../PackagePdfRequest';
+import { PackageServiceService } from './../../package-service.service';
+import { PackagePdfRequest } from './../../PackagePdfRequest';
 import {DataList} from './DataList';
 import { FormGroup, FormControl } from '@angular/forms';
-import {UserService} from './../user/user.service'
+import {UserService} from './../../user/user.service'
+
 @Component({
-  selector: 'app-customization',
-  templateUrl: './customization.component.html',
-  styleUrls: ['./customization.component.css']
+  selector: 'app-productcustomization',
+  templateUrl: './productcustomization.component.html',
+  styleUrls: ['./productcustomization.component.css']
 })
-export class CustomizationComponent implements OnInit {
-  
+export class ProductcustomizationComponent implements OnInit {
+
   constructor(private packageService: PackageServiceService,public authenticate:UserService) {}
   //MorningStar Changes
   userdata: any = {};

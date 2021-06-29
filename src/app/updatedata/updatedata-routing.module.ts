@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AddpackageComponent} from './addpackage/addpackage.component';
+import {UpdateComponent} from './update/update.component';
 
 const routes: Routes = [
-  {path: 'newproduct', component: AddpackageComponent}
+  {path: 'update',component: UpdateComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PackageRoutingModule{}
+export class UpdatedataRoutingModule { }

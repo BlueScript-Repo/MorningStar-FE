@@ -1,0 +1,349 @@
+<div class="site wrapper-content">
+    <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;">
+      <div class="banner-wrapper container article_heading">
+        <h2 class="heading_primary" style="font-family: 'Noto Sans JP', sans-serif;">Discover {{productDetails.destination}}</h2></div>
+    </div>
+    <section class="content-area single-woo-tour">
+      <div class="container">
+        
+        <div class="tb_single_tour product">
+          <div class="top_content_single row">
+            <div class="row">
+              <div style="margin-right: -10px;" class="col-md-8">
+                <div style="width: 100%" class="images images_single_left">
+  
+              
+                  <div class="title-single">								
+                    
+                  </div>
+                  <div class="tour_after_title">
+                    <div class="meta_date">
+                      <span>{{productDetails.duration}}</span>
+                    </div>
+                    <div class="meta_values">
+                      <span>Category:</span>
+                      <div class="value">
+                        <a href="tours.html" rel="tag">{{productDetails.productCategory}}</a>,
+                        <!-- <a href="tours.html" rel="tag">Rail Tour</a> -->
+                      </div>
+                    </div>
+                    <div class="tour-share">
+                      <strong>Code: </strong>{{productDetails.productCode}}
+                    </div>
+                  </div>
+                  <div id="slider" class="flexslider">
+                    <ul class="slides">
+                      <li>
+                        <a href="" class="swipebox" title=""><img width="950" height="700" src="assets/header1.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="" title="" draggable="false"></a>
+                      </li>
+                     
+                    </ul>
+                  </div>
+                  
+                  <div class="clear"></div>
+                  <div class="">
+                    <ul class="nav nav-tabs tabs wc-tabs navs_container mt-5" id="myTab" role="tablist">
+                      <li class="description_tab nav-item active" role="presentation">
+                        <!-- <a href="#tab-description" role="tab" data-toggle="tab">Description</a> -->
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#tab-description" type="button" role="tab" aria-selected="true">Description</button>
+                      </li>
+                      <li class="itinerary_tab_tab nav-item" style="margin-left: 20px;" role="presentation">
+                        <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
+                        <button class="nav-link" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#tab-itinerary_tab" type="button" role="tab" aria-selected="true">Daily Itinerary</button>
+                      </li>									
+                    </ul>
+                    <div class="tab-content">
+                      <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab active tabs_layout" id="tab-description">
+                        <p class="fs-3 mt-5"> Product Description</p>
+                        <p>{{productDetails.description}}</p>
+                        <!-- <p>Felis venenatis metus placerat taciti malesuada ultricies bibendum nunc hymenaeos orci erat mollis pretium ligula ligulamus pellentesque urna. Sagittis bibendum justo congue facilisi. Aliquam potenti sagittis etiam facilisis vehicula. Id.</p> -->
+                        <table class="tours-tabs_table">
+                          <tbody>
+                          <tr>
+                            <td><strong>DEPARTURE/RETURN LOCATION</strong></td>
+                            <td>San Francisco International Airport</td>
+                          </tr>
+                          <tr>
+                            <td><strong>DEPARTURE TIME</strong></td>
+                            <td>Please arrive at least&nbsp;2 hours before the flight.</td>
+                          </tr>
+                          <tr>
+                            <td><strong>INCLUDED</strong></td>
+                            <td>
+                              <table>
+                                <tbody>
+                                <tr *ngFor="let i of productDetails.productInclusion">
+                                  <td><i class="fa fa-check icon-tick icon-tick--on"></i>{{i.inclusionText}}
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><b>NOT INCLUDED</b></td>
+                            <td>
+                              <table>
+                                <tbody>
+                                <tr *ngFor="let i of productDetails.productExclusion">
+                                  <td>
+                                    <i class="fa fa-times icon-tick icon-tick--off"></i>{{i.exclusionText}}
+                                  </td>
+                                </tr>
+                               
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                        <p>Ridiculus sociis dui eu vivamus tempor justo diam aliquam. Ipsum nunc purus, pede sed placerat sit habitasse potenti eleifend magna mus sociosqu hymenaeos cras metus mi donec tortor nisi leo dignissim turpis sit torquent.</p>
+                        <p>Potenti mattis ad mollis eleifend Phasellus adipiscing ullamcorper interdum faucibus orci litora ornare aliquam. Ligula feugiat scelerisque. Molestie. Facilisi hac.</p>
+                        <div style="display:flex;text-align:center;justify-content:center">
+                        <a href={{pdf}} target="_blank" class="brochure">Get brochure</a>
+                      </div>
+                      </div>
+                      <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab tabs_layout" id="tab-itinerary_tab">
+                        <div *ngFor="let i of productDetails.productDays;let j=index" class="interary-item">
+                          <div class="item_content">
+                          <p ><span style="margin-left:-100px;margin-top:20px" class="icon-left">{{j+1}}</span></p>
+                          <h2><strong>{{i.day}}:Description</strong></h2>
+                            <p> {{i.dayDescription}}</p>
+                            <ul>
+                              <li>Pretium vitae tempus sem enim enim.</li>
+                              <li>Tempus, leo, taciti augue aliquam hendrerit.</li>
+                              <li>Accumsan pharetra eros justo augue posuere felis elit cras montes fames.</li>
+                              <li>Vulputate dictumst egestas etiam dictum varius.</li>
+                            </ul>
+                           
+                          </div>
+                          
+                        </div>
+                        <div class="row">
+                          <div *ngFor="let i of images" class="col-md-3 mt-3">
+                            <img src={{i.url}} alt="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>							
+                </div>
+              </div>
+              <div *ngIf="authenticate.Role=='ADMIN'" class="col-md-4">
+                <div class="summary entry-summary description_single" style="width: 100%">
+                <div class="affix-sidebar">
+                  <div class="entry-content-tour">
+                    <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
+                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                    </p>
+                    <div class="clear"></div>
+                    <div style="padding-top: 50px;padding-bottom: 50px;" class="booking">
+                      <div class="">
+                        <div class="form-block__title">
+                          <h4>Deal</h4>
+                        </div>
+                        <form  id="tourBookingForm" #dealForm="ngForm" (ngSubmit)="deal(dealForm.value)">
+                         
+                          
+                          <div class="">
+                            <input name="deal_Percent" ngModel value="" placeholder="Apply Deal" type="text">
+                          </div>
+                         
+                          <div class="">
+                            <input style="visibility:hidden;display: none;" name="productCode" ngModel={{productDetails.productCode}} value="{{productDetails.productCode}}" placeholder="Phone" type="text">
+                          </div>
+                          <!-- <div class="">
+                            <input type="text" ngModel name="date" value="" placeholder="Date Book" class="hasDatepicker">
+                          </div> -->
+                          
+                          <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                          </div>
+                          <input class="btn-booking btn" value="Apply Deal" type="submit">
+                        </form>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="widget-area align-left col-sm-3">	
+                  </div>
+                </div>
+              </div>
+              
+              </div>
+  
+              <div *ngIf="authenticate.Role=='USER'" class="col-md-4">
+                <div class="summary entry-summary description_single" style="width: 100%">
+                <div class="affix-sidebar">
+                  <div class="entry-content-tour">
+                    <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
+                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                    </p>
+                    <div class="clear"></div>
+                    <div class="booking">
+                      <div class="">
+                        <div class="form-block__title">
+                          <h4>Book the tour</h4>
+                        </div>
+                        <form id="tourBookingForm" #InquiryForm="ngForm" (ngSubmit)="Inquiry(InquiryForm.value)">
+                          <div class="">
+                            <input name="name" ngModel value="" placeholder="User name" type="text">
+                          </div>
+                          
+                          <div class="">
+                            <input name="email" ngModel value="" placeholder="Email" type="text">
+                          </div>
+                          <div class="">
+                            <input name="phone" ngModel value="" placeholder="Phone" type="text">
+                          </div>
+                          <div class="">
+                            <input name="city" ngModel value="" placeholder="City" type="text">
+                          </div>
+                          <div class="">
+                            <input style="visibility:hidden;display: none;" name="productCode" ngModel={{productDetails.productCode}} value="{{productDetails.productCode}}" placeholder="Phone" type="text">
+                          </div>
+                          <div class="">
+                            <input type="text" ngModel name="date" value="" placeholder="Date Book" class="hasDatepicker">
+                          </div>
+                          
+                          <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                          </div>
+                          <input class="btn-booking btn" value="Inquire now" type="submit">
+                        </form>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="widget-area align-left col-sm-3">	
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+  
+  
+              <div *ngIf="authenticate.Role==''" class="col-md-4">
+                <div class="summary entry-summary description_single" style="width: 100%">
+                <div class="affix-sidebar">
+                  <div class="entry-content-tour">
+                    <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
+                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                    </p>
+                    <div class="clear"></div>
+                    <div class="booking">
+                      <div class="">
+                        <div class="form-block__title">
+                          <h4>Book the tour</h4>
+                        </div>
+                        <form id="tourBookingForm" #InquiryForm="ngForm" (ngSubmit)="Inquiry(InquiryForm.value)">
+                          <div class="">
+                            <input name="name" ngModel value="" placeholder="User name" type="text">
+                          </div>
+                          
+                          <div class="">
+                            <input name="email" ngModel value="" placeholder="Email" type="text">
+                          </div>
+                          <div class="">
+                            <input name="phone" ngModel value="" placeholder="Phone" type="text">
+                          </div>
+                          <div class="">
+                            <input name="city" ngModel value="" placeholder="City" type="text">
+                          </div>
+                          <div class="">
+                            <input style="visibility:hidden;display: none;" name="productCode" ngModel={{productDetails.productCode}} value="{{productDetails.productCode}}" placeholder="Phone" type="text">
+                          </div>
+                          <div class="">
+                            <input type="text" ngModel name="date" value="" placeholder="Date Book" class="hasDatepicker">
+                          </div>
+                          
+                          <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                          </div>
+                          <input class="btn-booking btn" value="Inquire now" type="submit">
+                        </form>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="widget-area align-left col-sm-3">	
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+              
+  
+              <div *ngIf="authenticate.Role=='AGENT'" class="col-md-4">
+                <div class="summary entry-summary description_single" style="width: 100%">
+                <div class="affix-sidebar">
+                  <div class="entry-content-tour">
+                    <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
+                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                    </p>
+                    <div class="clear"></div>
+                    <div style="padding-top: 50px;padding-bottom: 50px;" class="booking">
+                      <div class="">
+                        <div class="form-block__title">
+                          <h4>Book the tour</h4>
+                        </div>
+                        <form id="tourBookingForm" #dealForm1="ngForm" (ngSubmit)="deal1(dealForm1.value)">
+                          <!-- <div class="">
+                            <input name="name" ngModel value="" placeholder="User name" type="text">
+                          </div> -->
+                          
+                          <div class="">
+                            <input name="deal_Percent" ngModel value="" placeholder="Apply Deal" type="text">
+                          </div>
+                          <!-- <div class="">
+                            <input name="phone" ngModel value="" placeholder="Phone" type="text">
+                          </div>
+                          <div class="">
+                            <input name="city" ngModel value="" placeholder="City" type="text">
+                          </div> -->
+                          <div class="">
+                            <input style="visibility:hidden;display: none;" name="productCode" ngModel={{productDetails.productCode}} value="{{productDetails.productCode}}" placeholder="Phone" type="text">
+                          </div>
+                          <!-- <div class="">
+                            <input type="text" ngModel name="date" value="" placeholder="Date Book" class="hasDatepicker">
+                          </div> -->
+                          
+                          <div class="spinner">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                          </div>
+                          <input class="btn-booking btn" value="Apply Deal" type="submit">
+                        </form>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="widget-area align-left col-sm-3">	
+                  </div>
+                </div>
+              </div>
+              </div>
+              
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  

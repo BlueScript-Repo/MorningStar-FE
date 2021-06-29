@@ -249,11 +249,11 @@ bucketName:any;
   //   return this.http.post(url,data);
   // }
 
-  postImage(file: any):Observable<HttpEvent<{}>>{
+  postImage(file: any,imgname: string):Observable<HttpEvent<{}>>{
      const formdata: FormData= new FormData();
-   this.bucketName=localStorage.getItem('productCode');
+   this.bucketName=localStorage.getItem('code');
     console.log("In service "+this.bucketName);
-     formdata.append('file',file);
+     formdata.append('file',file,imgname);
     let url=this.baseUrl+"awsS3Files?bucketName="+this.bucketName;
     const req= new HttpRequest('POST',url,formdata,{
       reportProgress:true,

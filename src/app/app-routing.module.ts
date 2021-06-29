@@ -13,8 +13,11 @@ const routes: Routes = [
   {path: 'AdminInquiryPage',loadChildren:()=>import("./inquiries/inquiries.module").then(mod=>mod.InquiriesModule),canActivate:[AuthGuard]},
   {path: 'AgentInquiryPage',loadChildren:()=>import("./inquiries/inquiries.module").then(mod=>mod.InquiriesModule),canActivate:[AgentGuard]},
   {path: 'ProductList',loadChildren:()=>import("./product-list/product-list.module").then(mod=>mod.ProductListModule)},
-  {path: 'productUpload',loadChildren:()=>import("./package/package.module").then(mod=>mod.PackageModule)},
-  {path: 'editproduct',loadChildren:()=>import("./editproduct/editproduct.module").then(mod=>mod.EditproductModule),canActivate:[AuthGuard]}
+  {path: 'editproduct',loadChildren:()=>import("./editproduct/editproduct.module").then(mod=>mod.EditproductModule),canActivate:[AuthGuard]},
+  {path: 'newproduct',loadChildren:()=>import("./newproduct/newproduct.module").then(mod=>mod.NewproductModule),canActivate:[AuthGuard]},
+  {path:'updatedata',loadChildren:()=>import("./updatedata/updatedata.module").then(mod=>mod.UpdatedataModule)},
+  {path:'CMS',loadChildren:()=>import("./cms/cms.module").then(mod=>mod.CmsModule),canActivate:[AuthGuard]},
+  {path:'details',loadChildren:()=>import("./details/details.module").then(mod=>mod.DetailsModule)}
 ];
 
 @NgModule({

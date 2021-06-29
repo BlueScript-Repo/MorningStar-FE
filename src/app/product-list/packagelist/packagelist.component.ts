@@ -286,12 +286,12 @@ filterData:any={
     this.http.getProductDetails(this.productCode).subscribe(res=>{
     this.productDetails=res;
     console.log(this.productDetails);
-    this.router.navigate(["/productDetails"])
+    this.router.navigate(["/details/productdetails"])
     this.http.setArray(this.productDetails);
 
     // if (this.role=='ADMIN'){
       
-    // this.router.navigate(["/productDetails"]);
+    // this.router.navigate(["/details/productdetails"]);
     // this.http.setArray(this.productDetails);
 
     // }
@@ -304,7 +304,7 @@ filterData:any={
     //   this.http.setArray(this.productDetails);  
     // }
     // else {
-    //   this.router.navigate(["/productDetails"])
+    //   this.router.navigate(["/details/productdetails"])
     //   this.http.setArray(this.productDetails);
     // }
   })

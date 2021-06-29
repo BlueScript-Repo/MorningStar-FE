@@ -31,17 +31,17 @@
                             <!-- <li><a style="text-decoration:none" routerLink="packageList">Search</a></li> -->
     
                             <!-- <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="updatePage" >Upload Data</a>
+                                <a style="text-decoration:none" routerLink="updatedata/update" >Upload Data</a>
                             </li> -->
                             <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="uploadProduct" >Upload Product</a>
+                                <a style="text-decoration:none" routerLink="newproduct/new" >Upload Product</a>
                             </li>
                             <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
-                                <a style="text-decoration:none" routerLink="CMS" >CMS</a>
+                                <a style="text-decoration:none" routerLink="CMS/uploadimages" >CMS</a>
                             </li>
-                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
-                            <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
-                            <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="LoginPage">Log Out</a></li>
+                            <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="admin/register">Log Out</a></li>
+                            <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="admin/register">Log Out</a></li>
+                            <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="admin/register">Log Out</a></li>
                             <li *ngIf="authenticate.Role==null"><a style="text-decoration:none" routerLink="admin/register">Log In</a></li>
                             <li *ngIf="authenticate.Role==''"><a style="text-decoration:none" routerLink="admin/register">Log In</a></li>
                             <li class="menu-right">
