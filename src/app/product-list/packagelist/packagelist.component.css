@@ -185,3 +185,17 @@ margin-bottom: -10px;
 .services{
   display: flex;
 }
+
+.clone{
+  background:transparent ;
+  border:2px solid #664AFF;
+  width:160px;
+  height:40px;
+  margin-top: 20px;
+  border-radius:0px;
+  color:blue; 
+}
+.clone:hover{
+  background:  blue;
+  color: #fff
+}

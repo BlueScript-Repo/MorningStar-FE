@@ -14,6 +14,7 @@ export class PackageServiceService {
 agentID:any;
 token = localStorage.getItem('token');
 bucketName:any;
+
   constructor(private http: HttpClient) {}
 
     setArray(data:any){
@@ -22,6 +23,27 @@ bucketName:any;
     getArray(){
       return this.productDetails;
     }
+      // decision(value:any){
+      //   let result = this.baseUrl +''
+      
+      // }
+      setName(value:any)
+      {
+        this.productDetails = value;
+        // if(value == true)
+        // {
+        //    "Edit";
+        // }
+        // else{
+        //    "Clone"
+        // }
+      }
+
+    getName() 
+     {
+       return this.productDetails;
+     }
+
     setRole(data:any){
       this.role=data;
     }
@@ -34,6 +56,11 @@ bucketName:any;
           Authorization:`Bearer `+this.token
         })
       } 
+
+     
+    
+      
+
 
   baseUrl =
     'http://morningstarweb-env.eba-pb7idjdb.ap-south-1.elasticbeanstalk.com/';

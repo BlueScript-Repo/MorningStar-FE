@@ -16,6 +16,9 @@ import {Day} from './Day';
 export class EditComponent implements OnInit {
   constructor(private http:PackageServiceService) { }
   ngOnInit(): void {
+    this.http.getName();
+    
+    console.log("productdetails" + this.productDetails);
     this.getService();
     this.productDetails=this.http.getArray();
     console.log(this.productDetails);
@@ -198,6 +201,9 @@ export class EditComponent implements OnInit {
   // console.log("Selected File is "+this.selectedFile);
   console.log(this.images);
 }
+
+
+
 code='';
 getProductCode(productcode:any){
   console.log(productcode);
