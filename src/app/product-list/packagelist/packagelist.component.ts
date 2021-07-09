@@ -335,14 +335,15 @@ filterData:any={
   //   })
   // }
   
-  EditProduct(productcode:any){
+  EditProduct(productcode:any,edit:any) {
+    console.log(edit);
     console.log(productcode);
     this.productCode=productcode;
     this.http.getProductDetails(this.productCode).subscribe(res=>{
       this.productDetails=res;
-      console.log("result============"+res);
+      console.log("result============"+JSON.stringify(res));
       this.http.setArray(this.productDetails);
-      console.log("array"+   this.http.setName(this.productDetails));
+      this.http.setName(edit);
       this.router.navigate(['/editproduct/edit'])
     })
   
@@ -354,16 +355,13 @@ filterData:any={
  
            
   
-   CloneProduct(productcode:any){
-   
-    // console.log("Productcode===="+productcode);
+   CloneProduct(productcode:any,clone:any){
+      console.log("calling clone :"+clone);
      this.productCode=productcode;
-    // console.log("Product===="+this.productCode);
     this.http.getProductDetails(this.productCode).subscribe(result=>{
       this.productDetails=result;
-     /// console.log("result============"+result)
-      console.log("arrayset"+ this.http.setName(this.productDetails));
-       this.http.setName(this.productDetails);
+      this.http.setArray(this.productDetails);
+       this.http.setName(clone);
       this.router.navigate(['/editproduct/edit'])
 
       

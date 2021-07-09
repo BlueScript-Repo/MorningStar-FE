@@ -241,9 +241,10 @@
 
 
 													<input style="visibility:hidden;display:none;" #productcode type="text" ngModel={{i.productCode}} name=product value={{i.productCode}} class="form-control">
-													<button *ngIf="authenticate.Role=='ADMIN' " (click)="EditProduct(productcode.value)" style="width: 100px;" type="button" class="edit">Edit</button>
-													<input style="visibility:hidden;display:none;" #productclone type="text" ngModel={{i.productCode}} name=productClone value={{i.productCode}} class="form-control">
-													<button *ngIf="authenticate.Role=='ADMIN'" (click)="CloneProduct(productcode.value)" style="width: 100px" class="clone" type="button">Clone</button>
+													<input style="visibility:hidden;display:none;" #productedit type="text" ngModel=edit name=productedit value=edit class="form-control">
+													<button *ngIf="authenticate.Role=='ADMIN' " (click)="EditProduct(productcode.value,productedit.value)" style="width: 100px;" type="button" class="edit">Edit</button>
+													<input style="visibility:hidden;display:none;" #productclone type="text" ngModel=clone name=productClone value=clone class="form-control">
+													<button *ngIf="authenticate.Role=='ADMIN'" (click)="CloneProduct(productcode.value,productclone.value)" style="width: 100px" class="clone" type="button">Clone</button>
 													
 													
 													

@@ -9,6 +9,7 @@ import { HttpEvent } from '@angular/common/http';
 })
 export class PackageServiceService {
   productDetails:any;
+  choice:any='';
   role:any
   isAuthenticated:boolean=false;
 agentID:any;
@@ -23,25 +24,15 @@ bucketName:any;
     getArray(){
       return this.productDetails;
     }
-      // decision(value:any){
-      //   let result = this.baseUrl +''
-      
-      // }
+   
       setName(value:any)
       {
-        this.productDetails = value;
-        // if(value == true)
-        // {
-        //    "Edit";
-        // }
-        // else{
-        //    "Clone"
-        // }
+        this.choice = value;
       }
 
     getName() 
      {
-       return this.productDetails;
+       return this.choice;
      }
 
     setRole(data:any){

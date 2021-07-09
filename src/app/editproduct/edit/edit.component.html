@@ -1,6 +1,7 @@
 <div class="top_site_main" style="background-image:url(assets/banner/top-heading.jpg);background-size: cover;padding-top: 90px;padding-bottom: 50px;">
     <div class="banner-wrapper container article_heading">
-<h1 class="heading_primary">Edit Product</h1></div>
+<h1 *ngIf="choice=='edit'" class="heading_primary">Edit Product</h1>
+<h1 *ngIf="choice=='clone'" class="heading_primary">Clone Product</h1></div>
 </div>
 <div style="padding-top: 30px;padding-bottom: 50px;" class="container">
     <form #uploadForm="ngForm" (ngSubmit)="Submit(uploadForm.value)" class="form mb-5 mt-3" action="">
@@ -343,9 +344,12 @@
         <div class="title mb-3 mt-3">
           Done!!!!
         </div>
-        <div class="description">
-          Your product is created successfully. 
+        <div *ngIf="choice=='edit'" class="description">
+          Your product is Edited successfully. 
         </div>
+        <div *ngIf="choice=='clone'" class="description">
+            Your product is cloned successfully. 
+          </div>
         <div class="dismiss-btn">
           <button type="button" id="dismiss-popup-btn" (mouseenter)="closeModal()">
             close
@@ -355,7 +359,8 @@
       <!-- Modal Ends -->
     <div align="center" class="col-md-12">
         <input style="display: none;visibility:hidden" type="text" name="{{productDetails.productCode}}" ngModel={{productDetails.productCode}} #productcode >
-        <button style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" (click)="getProductCode(productcode.value)" class="btn12">Submit</button>
+        <button *ngIf="choice=='edit'" style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" (click)="getProductCode(productcode.value)" class="btn12">Edit Product</button>
+        <button *ngIf="choice=='clone'" style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" (click)="getProductCode(productcode.value)" class="btn12">Clone Product</button>
     </div>
 </div>
 

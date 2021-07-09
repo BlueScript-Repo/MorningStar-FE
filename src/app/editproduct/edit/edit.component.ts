@@ -16,9 +16,8 @@ import {Day} from './Day';
 export class EditComponent implements OnInit {
   constructor(private http:PackageServiceService) { }
   ngOnInit(): void {
-    this.http.getName();
-    
-    console.log("productdetails" + this.productDetails);
+   this.choice=this.http.getName();
+   console.log(this.choice);
     this.getService();
     this.productDetails=this.http.getArray();
     console.log(this.productDetails);
@@ -26,12 +25,20 @@ export class EditComponent implements OnInit {
     this.Code=this.productDetails.productCode;
     localStorage.setItem("code",this.Code);
     console.log(this.productDetails.productSubDestinations);  
-    this.productSubDestination=this.productDetails.productSubDestinations;
+    // this.productSubDestination=this.productDetails.productSubDestinations;
     this.subdestinationOptions=this.productDetails.productSubDestinations;
     this.subdestinations=this.productDetails.productSubDestinations;
     this.productPrice=this.productDetails.productPrice;
     this.productExclusion=this.productDetails.productExclusion;
     this.productInclusion=this.productDetails.productInclusion;
+    for (let i = 0; i < this.productDetails.productSubDestinations.length; i++) {
+      this.productSubDestination.push({
+        productType:this.productDetails.productSubDestinations[i].productType,
+        hotelName:this.productDetails.productSubDestinations[i].hotelName,
+        subDestinationName:this.productDetails.productSubDestinations[i].subDestinationName
+      }
+      )
+    }
     for (let i = 0; i < this.productDetails.productDays.length; i++) {
       this.productDays.push({
         day:this.productDetails.productDays[i].day,
@@ -39,7 +46,6 @@ export class EditComponent implements OnInit {
      })       
     }
     console.log(this.productDays);
-    
     this.productDetails.productDays;
     console.log(this.productDays);
     let service=this.productDetails.servicesIncluded;
@@ -48,13 +54,9 @@ export class EditComponent implements OnInit {
     for (let i = 0; i < this.service.length; i++) {
       this.UserService.filter(x=>x.name==this.service[i]).map(x=>x.isSelected=true);
     }
-    // this.service=this.UserService.split("|");
-    // let service=this.UserService.split("|")
-    // this.cities=this.subdestinations[this.subdestinations.length-1].subDestinationName;
-    // console.log(this.cities);
-
   }
 
+  choice:any='';
   cities:any='';
   service:any=[];
   subdestinations:Subdestination[]=[];
@@ -109,7 +111,7 @@ export class EditComponent implements OnInit {
     })
     console.log(this.subdestinations);
     sub=" ";
-    this.subdestinationOptions=this.subdestinations;
+    // this.subdestinationOptions=this.subdestinations;
   }
 
   showSubdestination(type:any,subdesti:any,hot:any){
@@ -230,21 +232,46 @@ getProductCode(productcode:any){
       theme:val.category,
       // productCode:this.code
     } 
-      console.log(this.upload);
-      this.http.editProduct(this.code,this.upload).subscribe(res=>{
-      console.log(res);
-      this.productCode=res;
-      console.log(this.productCode.productCode);
-      console.log("bucket "+this.Code);
+      if(this.choice=='clone'){
+        // alert('Your product is being cloned successfully')
+        console.log(this.upload);
+        this.http.uploadProduct(this.upload).subscribe(res=>{
+          console.log(res);
+          this.productCode=res;
+          console.log("ProductCode : " +JSON.stringify(this.productCode));
+          
+        console.log(this.productCode.productCode);
+       console.log("bucket "+this.Code);
       for (var i = 0; i < this.images.length; i++) {
-        const img=this.images[i];
-        this.imageName="day_"+[i+1]+".jpg";
-        this.http.postImage(img,this.imageName).subscribe(res => {
-          console.log("value is "+  JSON.stringify(res));
+      const img=this.images[i];
+      this.imageName="day_"+[i+1]+".jpg";
+      this.http.postImage(img,this.imageName).subscribe(res => {
+        console.log("value is "+  JSON.stringify(res));
+      })
+        console.log("images are: "+img);
+    }
         })
-          console.log("images are: "+img);
+        console.log("Clone");
       }
-    })
+      if(this.choice=='edit'){
+    this.http.editProduct(this.code,this.upload).subscribe(res=>{
+    console.log(res);
+    this.productCode=res;
+          console.log("ProductCode : " +JSON.stringify(this.productCode));
+          console.log(this.productCode.productCode);
+    console.log("bucket "+this.Code);
+    for (var i = 0; i < this.images.length; i++) {
+      const img=this.images[i];
+      this.imageName="day_"+[i+1]+".jpg";
+      this.http.postImage(img,this.imageName).subscribe(res => {
+        console.log("value is "+  JSON.stringify(res));
+      })
+        console.log("images are: "+img);
+    }
+   })
+        console.log("Edited");
+      }
+   
     
     
     this.upload=[];
