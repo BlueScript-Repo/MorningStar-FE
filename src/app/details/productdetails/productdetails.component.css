@@ -41,3 +41,39 @@
 .brochure:hover {
     background-color:rgb(0, 230, 230)
 }
+
+/* Help */
+
+
+.icon-background {
+    color: #c0ffc0;
+}
+
+
+
+
+
+.box-part{
+    background:#FFF;
+    border-radius:2px;
+    /* padding-bottom: 30px; */
+    padding:6px 6px;
+    margin:5px 5px;
+    border: 2px solid lightgray; 
+   height: 380px;
+    width: 350px;
+    padding-left: 100px;
+    /* box-shadow:2px 2px 10px rgba(0,0,0,0.4) */
+}
+.text{
+    margin:30px 0px;
+    text-shadow: blue;
+}
+
+.segement-one {
+    font-family: 'Noto Sans JP', sans-serif;
+    color:black;
+    letter-spacing: 3px;
+    margin:10px 0;
+}
+
