@@ -59,6 +59,29 @@
         </div>
       </div>
       <!-- Modal Ends -->
+
+
+
+<!-- Modal -->
+<div class="popup1 center">
+  <div class="icon">
+    <i class="fa fa-check"></i>
+  </div>
+  <div class="title mb-3 mt-3">
+    Registered!!!!
+  </div>
+  <div class="description">
+    OOps something went wrong
+  </div>
+  <div class="dismiss-btn">
+    <button id="dismiss-popup1-btn" (mouseenter)="closeModal1()">
+      close
+    </button>
+  </div>
+</div>
+<!-- Modal Ends -->
+
+
       <div class="forms-container">
         <div class="signin-signup">
           <form class="sign-in-form" #user="ngForm" (ngSubmit)="authenticate(user.value)">
@@ -71,7 +94,8 @@
               <i class="fas fa-lock"></i>
               <input type="password" name="password" id="password" ngModel placeholder="Password" />
             </div>
-            <input type="submit" value="Login" class="btn solid" />
+            <input type="submit" value="Login" class="btn solid" id="open-popup1-btn"/>
+            <!-- <button type="button" >asdasd</button> -->
             <div class="social-media">
              
             

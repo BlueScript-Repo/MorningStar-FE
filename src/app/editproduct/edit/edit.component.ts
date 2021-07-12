@@ -28,9 +28,33 @@ export class EditComponent implements OnInit {
     // this.productSubDestination=this.productDetails.productSubDestinations;
     this.subdestinationOptions=this.productDetails.productSubDestinations;
     this.subdestinations=this.productDetails.productSubDestinations;
-    this.productPrice=this.productDetails.productPrice;
-    this.productExclusion=this.productDetails.productExclusion;
-    this.productInclusion=this.productDetails.productInclusion;
+    // this.productPrice=this.productDetails.productPrice;
+
+    for (let i = 0; i < this.productDetails.productPrice.length; i++) {
+        this.productPrice.push({
+          adultPrice:this.productDetails.productPrice[i].adultPrice,
+          childrenPrice:this.productDetails.productPrice[i].childrenPrice,
+          infantPrice:this.productDetails.productPrice[i].infantPrice,
+          type: this.productDetails.productPrice[i].type,
+
+        })      
+    }
+
+    // this.productExclusion=this.productDetails.productExclusion;
+   
+    for (let i=0;i<this.productDetails.productExclusion.length;i++){
+      this.productExclusion.push({
+        exclusionText:this.productDetails.productExclusion[i].exclusionText
+      })
+    }
+
+    for (let i=0;i<this.productDetails.productInclusion.length;i++){
+      this.productInclusion.push({
+        inclusionText:this.productDetails.productInclusion[i].inclusionText
+      })
+    }
+
+    // this.productInclusion=this.productDetails.productInclusion;
     for (let i = 0; i < this.productDetails.productSubDestinations.length; i++) {
       this.productSubDestination.push({
         productType:this.productDetails.productSubDestinations[i].productType,
@@ -111,7 +135,7 @@ export class EditComponent implements OnInit {
     })
     console.log(this.subdestinations);
     sub=" ";
-    // this.subdestinationOptions=this.subdestinations;
+    this.subdestinationOptions=this.subdestinations;
   }
 
   showSubdestination(type:any,subdesti:any,hot:any){
@@ -173,6 +197,8 @@ export class EditComponent implements OnInit {
   deleteSubdestination(id:any){
 
     this.subdestinations = this.subdestinations.filter((v, i) => i != id);
+    this.subdestinationOptions=this.subdestinations;
+
   }
   deleteSubdest(id:any){
     this.productSubDestination = this.productSubDestination.filter((v, i) => i != id);
@@ -232,6 +258,8 @@ getProductCode(productcode:any){
       theme:val.category,
       // productCode:this.code
     } 
+    console.log(this.upload);
+    
       if(this.choice=='clone'){
         // alert('Your product is being cloned successfully')
         console.log(this.upload);

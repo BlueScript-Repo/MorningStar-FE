@@ -63,7 +63,22 @@ export class UserRegistrationComponent implements OnInit {
     };
     this.userService.createUser(this.userRegistration).subscribe((res)=>{
       console.log(res);
-    });
+    },(error=>{
+      this.errcode=error.status;
+      console.log(this.errcode);
+      
+      console.log("error is");
+      console.log(error);
+      console.log(error.status);
+      if (error.status!=200) {
+      //  alert(error.status);
+       this.errcode=error.status;
+       const container = document.querySelector('.popup1');
+       container?.classList.toggle('active');
+    }
+    })
+    );
+
   } 
   userLogin: UserLogin={
     userName:'',
@@ -75,6 +90,7 @@ export class UserRegistrationComponent implements OnInit {
   AgentId:any;
   Authorization:any;
 rolestorage:any;
+errcode:any=0;
   authenticate(user:any){
     this.userLogin={
       userName: user.userName,
@@ -96,20 +112,29 @@ rolestorage:any;
       localStorage.setItem('role',this.role);
       this.rolestorage=localStorage.getItem('role')
       console.log(this.rolestorage);
+      
         if (this.token.jwtToken) {
           this.userService.auth()
           console.log("Hiii welcome to login");
+          this.errcode=200;
+          console.log(this.errcode);
           
     this.router.navigate(["/landing/landingPage"]);
       }
      
     },(error=>{
+      this.errcode=error.status;
+      console.log(this.errcode);
+      
       console.log("error is");
       console.log(error);
       console.log(error.status);
       if (error.status!=200) {
-      alert("Oopps Something went wrong!!!!!");       
-      }
+      //  alert(error.status);
+       this.errcode=error.status;
+       const container = document.querySelector('.popup1');
+       container?.classList.toggle('active');
+    }
     }));
   } 
   
@@ -136,9 +161,20 @@ rolestorage:any;
   });
  }
  closeModal(){
-   
   document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
     document.getElementsByClassName("popup")[0].classList.remove("active");
+  });
+ }
+
+
+// modal1(){
+//   const container = document.querySelector('.container');
+//    container?.classList.toggle('active');
+//   }
+ closeModal1(){
+   
+  document.getElementById("dismiss-popup1-btn")?.addEventListener("click",function(){
+    document.getElementsByClassName("popup1")[0].classList.remove("active");
   });
  }
   
