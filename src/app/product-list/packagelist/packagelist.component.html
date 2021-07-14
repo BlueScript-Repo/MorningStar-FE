@@ -162,8 +162,8 @@
 										<input style="visibility:hidden;" type="text" ngModel={{i.productCode}} name=code value={{i.productCode}} class="form-control">
 										<div  class="product content-list-tour">
 										<div  class="post_images">
-											<div class="card bg-dark text-white">
-												<img src="assets/header1.jpg" class="card-img" alt="...">
+											<div style="height: 250px;" class="card text-white">
+												<img src="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/{{i.productCode}}/day_1.jpg" style="height: 250px;" class="card-img" alt="...">
 												<div class="card-img-overlay">
 												  <h5 *ngIf="i.tag" class="card-title tags">{{i.tag}}</h5>
 												</div>
