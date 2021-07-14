@@ -357,10 +357,32 @@
         </div>
       </div>
       <!-- Modal Ends -->
+
+
+
+      <!-- Modal -->
+<div class="popup1 center">
+    <div class="icon">
+      <i class="far fa-frown"></i>
+    </div>
+    <div class="title mb-3 mt-3">
+      OOPs!!!!
+    </div>
+    <div class="description">
+      Seems something went wrong . Please try again.
+    </div>
+    <div class="dismiss-btn">
+      <button id="dismiss-popup1-btn" (mouseenter)="closeModal1()">
+        close
+      </button>
+    </div>
+  </div>
+  <!-- Modal Ends -->
+
     <div align="center" class="col-md-12">
         <input style="display: none;visibility:hidden" type="text" name="{{productDetails.productCode}}" ngModel={{productDetails.productCode}} #productcode >
-        <button *ngIf="choice=='edit'" style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" (click)="getProductCode(productcode.value)" class="btn12">Edit Product</button>
-        <button *ngIf="choice=='clone'" style="width: 100px;" id="open-popup-btn" (mouseenter)="modal()" (click)="getProductCode(productcode.value)" class="btn12">Clone Product</button>
+        <button *ngIf="choice=='edit'" style="width: 100px;" id="open-popup-btn" (click)="getProductCode(productcode.value)" class="btn12">Edit Product</button>
+        <button *ngIf="choice=='clone'" style="width: 100px;" id="open-popup-btn" (click)="getProductCode(productcode.value)" class="btn12">Clone Product</button>
     </div>
 </div>
 

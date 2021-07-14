@@ -47,7 +47,7 @@ key=10;
     } 
 
   }
-
+  errCode:any=0;
   createAgent(agentForm:any){
     console.log("calling agent form ");
    console.log(agentForm);
@@ -64,18 +64,44 @@ key=10;
    console.log(this.agents);
    return this.service.postAgent(this.agents).subscribe(res=>{
      console.log(res);
+     this.errCode=200;
+     console.log("Error code is");
+     
+     console.log(this.errCode);
+     if (this.errCode==200){
+      const container = document.querySelector('.popup');
+       container?.classList.toggle('active');
+       console.log("Error code is equals to 200");
+    }
+
+
+   },(error)=>{
+    console.log(error);
+    this.errCode=error.status;
+    console.log(this.errCode);
+    if (this.errCode!=200) {
+      const container = document.querySelector('.popup1');
+      container?.classList.toggle('active');
+      console.log("Error code is not equals to 200");   
+    } 
    })
       
   }
-  modal(){
-   var element= document.getElementById("open-popup-btn")?.addEventListener("click",function(){
-      document.getElementsByClassName("popup")[0].classList.add("active");
-    });
-   }
+  // modal(){
+  //  var element= document.getElementById("open-popup-btn")?.addEventListener("click",function(){
+  //     document.getElementsByClassName("popup")[0].classList.add("active");
+  //   });
+  //  }
    closeModal(){
      
     document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
       document.getElementsByClassName("popup")[0].classList.remove("active");
+    });
+   }
+   closeModal1(){
+   
+    document.getElementById("dismiss-popup1-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup1")[0].classList.remove("active");
     });
    }
  

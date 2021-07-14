@@ -1,4 +1,5 @@
 <section class="content-area single-woo-tour">
+  <!-- MODAL BEGINS  -->
   <div class="container123">
     <div class="popup center">
       <div class="icon">
@@ -18,6 +19,26 @@
     </div>
     <!-- Modal Ends -->
  
+
+  
+      <!-- Modal -->
+<div class="popup1 center">
+  <div class="icon">
+    <i class="far fa-frown"></i>
+  </div>
+  <div class="title mb-3 mt-3">
+    OOPs!!!!
+  </div>
+  <div class="description">
+    Seems something went wrong . Please try again.
+  </div>
+  <div class="dismiss-btn">
+    <button id="dismiss-popup1-btn" (mouseenter)="closeModal1()">
+      close
+    </button>
+  </div>
+</div>
+<!-- Modal Ends -->  
 
 
 <div style="padding-top: 150px;padding-bottom: 100px;" class="navbarTop body html">
@@ -41,34 +62,34 @@ Agent  Register</div>
     <form #agentForm="ngForm" (ngSubmit)="createAgent(agentForm.value)" class="row g-3 mt-5 mb-5">
         <div class="col-md-6">
           <label for="fname" class="form-label">First Name</label>
-          <input type="fname" name="first" ngModel class="form-control" id="fname" placeholder="Enter First Name">
+          <input style="font-size: 14px;" type="fname" name="first" ngModel class="form-control" id="fname" placeholder="Enter First Name">
         </div>
         <div class="col-md-6">
           <label for="lname" class="form-label">Last Name</label>
-          <input type="text" name="last" ngModel class="form-control" id="lname" placeholder="Last Name">
+          <input style="font-size: 14px;" type="text" name="last" ngModel class="form-control" id="lname" placeholder="Last Name">
         </div>
         <div class="col-12">
           <label for="email" class="form-label">Email</label>
-          <input type="email" name="email" ngModel class="form-control" id="email" placeholder="Enter your email address">
+          <input style="font-size: 14px;" type="email" name="email" ngModel class="form-control" id="email" placeholder="Enter your email address">
         </div>
         <div class="col-12">
           <label for="contact" class="form-label">Contact Number</label>
-          <input type="text" name="contact" ngModel class="form-control" id="contact" placeholder="Enter your Contact Number ">
+          <input style="font-size: 14px;" type="text" name="contact" ngModel class="form-control" id="contact" placeholder="Enter your Contact Number ">
         </div>
         <div class="col-12">
             <label for="working" class="form-label">Working Area</label>
-            <input type="text" name="working" ngModel class="form-control" id="working" placeholder="Enter your working area ">
+            <input style="font-size: 14px;" type="text" name="working" ngModel class="form-control" id="working" placeholder="Enter your working area ">
           </div>
         <div class="col-md-6">
           <label for="Password" class="form-label">Password</label>
-          <input type="password" ngModel name="Password" class="form-control" id="password" placeholder="Enter your Password">
+          <input style="font-size: 14px;" type="password" ngModel name="Password" class="form-control" id="password" placeholder="Enter your Password">
         </div>
         <div class="col-md-6">
             <label for="Password" class="form-label">Confirm Password</label>
-            <input type="password" name="confirm" ngModel class="form-control" id="currentpassword" placeholder="Confirm your Password">
+            <input style="font-size: 14px;" type="password" name="confirm" ngModel class="form-control" id="currentpassword" placeholder="Confirm your Password">
           </div>
           <div align="center" class="field mt-5">
-            <input style="width: 250px;" type="submit" value="Register" id="open-popup-btn" (mouseenter)="modal()" >
+            <input style="width: 250px;" type="submit" value="Register" id="open-popup-btn" >
           </div>
           <!-- <div *ngFor="let item of Agent;">
             <h4>{{item.id}}</h4>

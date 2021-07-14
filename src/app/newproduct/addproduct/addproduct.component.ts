@@ -160,6 +160,10 @@ export class AddproductComponent implements OnInit {
   // console.log("Selected File is "+this.selectedFile);
   console.log(this.images);
 }
+
+
+
+errCode:any=0;
       Submit(val:any){
       console.log(val);
       let service=this.UserService.filter(x=>x.isSelected==true).map(x=>x.name).join('|');
@@ -188,6 +192,11 @@ export class AddproductComponent implements OnInit {
       localStorage.setItem('productCode', this.productCode.productCode);
       let bucket=localStorage.getItem('productCode');
       console.log("bucket "+bucket);
+      this.errCode=200;
+      console.log("Error code is");
+      
+      console.log(this.errCode);
+      
       for (var i = 0; i < this.images.length; i++) {
         const img=this.images[i];
         this.imageName="day_"+[i+1]+".jpg";
@@ -196,8 +205,23 @@ export class AddproductComponent implements OnInit {
         })
           console.log("images are: "+img);
       }
+
+      if (this.errCode==200){
+        const container = document.querySelector('.popup');
+         container?.classList.toggle('active');
+         console.log("Error code is equals to 200");
+      }
+    },(error) =>{
+      console.log(error);
+          this.errCode=error.status;
+          console.log(this.errCode);
+          
     })
-    
+    if (this.errCode!=200) {
+      const container = document.querySelector('.popup1');
+      container?.classList.toggle('active');
+      console.log("Error code is not equals to 200");     
+    }
     
     this.upload=[];
   }
@@ -219,6 +243,12 @@ export class AddproductComponent implements OnInit {
      
     document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
       document.getElementsByClassName("popup")[0].classList.remove("active");
+    });
+   }
+   closeModal1(){
+   
+    document.getElementById("dismiss-popup1-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup1")[0].classList.remove("active");
     });
    }
    
