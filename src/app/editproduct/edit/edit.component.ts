@@ -237,6 +237,12 @@ getProductCode(productcode:any){
   console.log(productcode);
   this.code=productcode;
 }
+
+
+
+
+
+      errCode:any=0;
       Submit(val:any){
       console.log(val);
       let service=this.UserService.filter(x=>x.isSelected==true).map(x=>x.name).join('|');
@@ -270,6 +276,11 @@ getProductCode(productcode:any){
           
         console.log(this.productCode.productCode);
        console.log("bucket "+this.Code);
+       this.errCode=200;
+       console.log("Error code is");
+       
+       console.log(this.errCode);
+       
       for (var i = 0; i < this.images.length; i++) {
       const img=this.images[i];
       this.imageName="day_"+[i+1]+".jpg";
@@ -277,9 +288,28 @@ getProductCode(productcode:any){
         console.log("value is "+  JSON.stringify(res));
       })
         console.log("images are: "+img);
+       
     }
-        })
+    if (this.errCode==200){
+      const container = document.querySelector('.popup');
+       container?.classList.toggle('active');
+       console.log("Error code is equals to 200");
+    }
+        },(error=>{
+          console.log(error);
+          this.errCode=error.status;
+          console.log(this.errCode);
+          if (this.errCode!=200) {
+            const container = document.querySelector('.popup1');
+            container?.classList.toggle('active');
+            console.log("Error code is not equals to 200");     
+         }
+        }))
         console.log("Clone");
+        
+        
+
+
       }
       if(this.choice=='edit'){
     this.http.editProduct(this.code,this.upload).subscribe(res=>{
@@ -288,6 +318,7 @@ getProductCode(productcode:any){
           console.log("ProductCode : " +JSON.stringify(this.productCode));
           console.log(this.productCode.productCode);
     console.log("bucket "+this.Code);
+    this.errCode=200;
     for (var i = 0; i < this.images.length; i++) {
       const img=this.images[i];
       this.imageName="day_"+[i+1]+".jpg";
@@ -296,7 +327,21 @@ getProductCode(productcode:any){
       })
         console.log("images are: "+img);
     }
-   })
+    if (this.errCode==200){
+      const container = document.querySelector('.popup');
+       container?.classList.toggle('active');
+       console.log("Error code is equals to 200");
+    }
+   },(error=>{
+    console.log(error);
+    this.errCode=error.status;
+    console.log(this.errCode);
+    if (this.errCode!=200) {
+      const container = document.querySelector('.popup1');
+      container?.classList.toggle('active');
+      console.log("Error code is not equals to 200");     
+   }
+  }))
         console.log("Edited");
       }
    
@@ -313,17 +358,24 @@ getProductCode(productcode:any){
 
   }
 
-  modal(){
-    document.getElementById("open-popup-btn")?.addEventListener("click",function(){
-      document.getElementsByClassName("popup")[0].classList.add("active");
-    });
-   }
+  // modal(){
+  //   document.getElementById("open-popup-btn")?.addEventListener("click",function(){
+  //     document.getElementsByClassName("popup")[0].classList.add("active");
+  //   });
+  //  }
    closeModal(){
      
     document.getElementById("dismiss-popup-btn")?.addEventListener("click",function(){
       document.getElementsByClassName("popup")[0].classList.remove("active");
     });
    }
+
+   closeModal1(){
    
+    document.getElementById("dismiss-popup1-btn")?.addEventListener("click",function(){
+      document.getElementsByClassName("popup1")[0].classList.remove("active");
+    });
+   }
+    
 
 }
