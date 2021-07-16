@@ -282,6 +282,23 @@ bucketName:any;
     this.bucketName=localStorage.removeItem('productCode');
   
   } 
+
+
+  postImage1(file: any,imgname: string):Observable<HttpEvent<{}>>{
+    const formdata: FormData= new FormData();
+  this.bucketName=localStorage.getItem('productCode');
+   console.log("In service "+this.bucketName);
+    formdata.append('file',file,imgname);
+   let url=this.baseUrl+"awsS3Files?bucketName="+this.bucketName;
+   const req= new HttpRequest('POST',url,formdata,{
+     reportProgress:true,
+     responseType:'text'
+   });
+   console.log("In service2 "+this.bucketName);
+   return this.http.request(req);
+   this.bucketName=localStorage.removeItem('productCode');
+ 
+ } 
   // postImage(formData: any):Observable<HttpEvent<{}>>{
   //  // const formdata: FormData= new FormData();
   //  this.bucketName=localStorage.getItem('productCode');
