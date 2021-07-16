@@ -200,12 +200,11 @@ errCode:any=0;
       for (var i = 0; i < this.images.length; i++) {
         const img=this.images[i];
         this.imageName="day_"+[i+1]+".jpg";
-        this.http.postImage(img,this.imageName).subscribe(res => {
+        this.http.postImage1(img,this.imageName).subscribe(res => {
           console.log("value is "+  JSON.stringify(res));
         })
           console.log("images are: "+img);
       }
-
       if (this.errCode==200){
         const container = document.querySelector('.popup');
          container?.classList.toggle('active');
@@ -215,13 +214,13 @@ errCode:any=0;
       console.log(error);
           this.errCode=error.status;
           console.log(this.errCode);
-          
+          if (this.errCode!=200) {
+            const container = document.querySelector('.popup1');
+            container?.classList.toggle('active');
+            console.log("Error code is not equals to 200");     
+          } 
     })
-    if (this.errCode!=200) {
-      const container = document.querySelector('.popup1');
-      container?.classList.toggle('active');
-      console.log("Error code is not equals to 200");     
-    }
+  
     
     this.upload=[];
   }
