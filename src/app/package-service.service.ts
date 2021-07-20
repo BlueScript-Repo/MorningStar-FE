@@ -388,4 +388,11 @@ path:any='';
     return this.http.delete(deleteAgentUrl);
   }
 
+
+  getLoyaltiPoints(user:any){
+    let url=this.baseUrl+"LoyaltyDetails/userId?userId="+user;
+    return this.http.get(url);
+  }
+
+
 }

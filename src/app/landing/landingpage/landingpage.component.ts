@@ -21,15 +21,36 @@ export class LandingpageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user=localStorage.getItem('user');
+    console.log(this.user);
+    this.loyaltypoints();
     
   if(this.role!='AGENT' && this.role!='USER' && this.role!='ADMIN'){
     this.value='null';
   }
   this.GetImages();
   }
+
+
+
+  user:any='';
+  loyalti:any;
+  loyaltypoints(){
+    this.http.getLoyaltiPoints(this.user).subscribe(res=>{
+        this.loyalti=res;
+        console.log(this.loyalti);
+        
+    })
+  }
+
+
+
+
+
   getDomestic(val:any){
     alert("hiiii")
   }
+
 
 
   getData(){
@@ -209,5 +230,12 @@ productCategory:any='';
     console.log(this.productCategory);
     localStorage.setItem('category',this.productCategory);
     this.router.navigate(['/ProductList/list']); 
+  }
+
+  
+  getTags(tags:any){
+    console.log(tags);
+    this.http.setName(tags);
+    this.router.navigate(['/ProductList/list']);
   }
 }

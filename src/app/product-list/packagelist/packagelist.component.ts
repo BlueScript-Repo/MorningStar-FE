@@ -26,6 +26,13 @@ export class PackagelistComponent implements OnInit {
       theme:localStorage.getItem('category')
     }
     console.log(this.Category );
+    this.tag={
+      tag:this.http.getName()
+    }
+    console.log(this.tag);
+    if(this.tag.tag){
+      this.GetPackagefromTags()
+    }
     if(this.package.productType){
       this.GetPackagefromType();
       console.log(this.package);
@@ -43,9 +50,16 @@ export class PackagelistComponent implements OnInit {
     keyword:'',
     productType:''
   }
+
+  tag:any={
+    tag:""
+  }
+
   Category:any={
     theme:''
   }
+  
+
   GetPackagefromType(){
     return this.http.getProduct(this.package).subscribe((res=>{
       console.log(res);
@@ -64,6 +78,28 @@ export class PackagelistComponent implements OnInit {
       this.total="Total "+ this.key+" results found";
     }))
   }
+
+
+  GetPackagefromTags(){
+    return this.http.getProduct(this.tag).subscribe((res=>{
+      console.log(res);
+      this.products=res;
+      for (let i = 0; i < this.products.length; i++) {
+        let service = this.products[i].servicesIncluded;
+       if(service!=null){
+        this.services=service.split('|').sort();
+        console.log(this.products);
+        this.products[i].servicesIncluded=this.services;
+        console.log(this.services);
+        console.log(this.products); 
+       }
+      }
+      this.key=Object.keys(this.products).length;
+      this.total="Total "+ this.key+" results found";
+    }))
+  }
+
+
 
   getPackageFromCategory(){
     return this.http.getProduct(this.Category).subscribe(res=>{

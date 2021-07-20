@@ -390,8 +390,8 @@
                  <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
                    <div class="card-body loyalty">
                      <div>
-                     <h2 style="font-size: 40px;text-align:center;" class="card-text">101.00</h2>
-                     <p style="text-align:center;">Your Loyalty Score is 101.00</p>
+                     <h2 style="font-size: 40px;text-align:center;" class="card-text">{{loyalti.loyaltyPoints}}.00</h2>
+                     <p style="text-align:center;">Your Loyalty Score is {{loyalti.loyaltyPoints}}.00</p>
                      <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
                    </div>
                    </div>
@@ -510,10 +510,10 @@
   <div class="section-white padding-top-6x padding-bottom-6x tours-type">
     <div style="margin-top: 10px;" class="container_landing_page"  >
         <div class="mt-5 mb-3" style="text-align:left">
-            <h3 class=" fs-3 mb-5" style="font-weight: bold;font-family: 'Noto Sans JP', sans-serif;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>POPULAR</h3>
+            <h3 class=" fs-3 mb-5" style="font-weight: bold;font-family: 'Noto Sans JP', sans-serif;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Hot Deals</h3>
         </div>
         <!-- <div class="container"> -->
-            <div class="row mb-5">
+            <!-- <div class="row mb-5">
               <div class="col-sm-6">
                 <div class="row">
                     <div style="margin-top:5px" *ngFor="let i of leftSubsection" class="col-6 col-sm-6">
@@ -544,21 +544,43 @@
                 </figure>
               </div>
             </div>
+        </div> -->
+
+
+
+        <div class="row mb-5">
+          <div *ngFor="let i of leftSubsection" class="col-md-4">
+            <input style="display:none;visibility:hidden" type="text" ngModel={{i.nameOnImage}} name="tags" #tag value="{{i.nameOnImage}}">
+            <a class="tagbtn"(click)="getTags(tag.value)" >
+            <figure style="margin-left: 0;margin-top: 0;">
+              <div style="background:transparent;border:1px solid #fff;border:1px solid #fff;" class="card deal_card text-white">
+                  <img src={{i.s3url}} style="height: 325px;width: 100%;" loading="lazy" class="card-img" alt="...">
+                  <div class="card-img-overlay">
+                       <div class="shortcode_title title-center title-decoration-bottom-center">
+                              <p class="card-title fs-3 tags" style="text-align:center;letter-spacing: 2px;margin-left: -0px;margin-top:0px;font-family: 'Noto Sans JP', sans-serif;">{{i.nameOnImage}} </p>
+                              <!-- <span style="margin-top:-75px;" class="line_after_title"></span> -->
+                          </div></div>
+              </div>
+          </figure>
+        </a>
+          </div>
         </div>
+
+
+
   </div>
   
   <!-- Testimonial -->
-  <div style="margin-top:0px;" class="section-white padding-bottom-6x">
+  <div style="margin-top:90px;" class="section-white padding-bottom-6x">
     <div class="container_landing_page">
-        <div align="center" class="row">
-             <div class="col-md-8">
-                <div class="mt-5 mb-3" style="text-align:center">
-                    <h3 class=" fs-3 mb-5" style="font-weight: bold;font-family: 'Noto Sans JP', sans-serif;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>TESTIMONIAL</h3>
-                </div>
+      <div class="mt-5 mb-3" style="text-align:center">
+        <h3 class=" fs-3 mb-5" style="font-weight: bold;font-family: 'Noto Sans JP', sans-serif;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>TESTIMONIAL</h3>
+    </div>
+               
                 
         <div class="container1">
-             <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">    
+             <div align="center" class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">    
                          <div style="padding-bottom: 190px;" class="box-part text-center">
                   <div style="padding-top: 20px;" class="round-icon"> <img src="https://i.imgur.com/S6SGKFQ.png" width="80px" height="20px"> </div>
                   <div><h4 class="rating-num"> 4/5</h4> 1,050 reviews</div>
@@ -574,7 +596,7 @@
     
   
     
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">    
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">    
             <div style="padding-bottom: 190px;" class="box-part text-center">   
             <div style="padding-top: 25px;" class="round-icon"> <img src="https://i.imgur.com/8lJt6UN.png" width="60px" height="60px"> </div>
               <p class="sm-text-1 grey-text mb-0"></p> 
@@ -590,21 +612,21 @@
                   </div>        
             </div>
             </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">    
+              <div style="padding-bottom: 7px;" class="box-part text-center">
+                <div class="round-icon"> <img src="assets/reviews.png" width="250px" height="250px"> </div>
+                
+                
+              
+            </div>
+            </div>
   
         </div>
       </div>
-    </div>
   
   
-          <div style="margin-top: 8%;" class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">    
-            <div style="padding-bottom: 7px;" class="box-part text-center">
-              <div class="round-icon"> <img src="assets/reviews.png" width="250px" height="250px"> </div>
-              
-              
-            
-          </div>
-          </div>
-    </div> 
+         
   </div>
   </div>
   </div>
