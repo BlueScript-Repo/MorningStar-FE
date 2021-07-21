@@ -252,4 +252,29 @@ errCode:any=0;
    }
    
 
+
+
+   AdultPrice(val:any){
+    //  let correct_Way=/^[0-9]\d*$/;
+    // console.log(val.value);
+    // if(val){
+    //   console.log("error");
+    // }
+    // else{
+    //   console.log("works well");      
+    // }
+    console.log(val);
+    if (val.key==",") {
+      console.log("Only integers are allowed");
+    }
+    else{
+      console.log("Good");
+      
+    }
+    
+    
+   }
+
+
+
 }
