@@ -209,7 +209,7 @@
                 </div>
                
               </div>
-              <div style="padding-left: 100px;" class="row container-fluid cont">
+               <div style="padding-left: 100px;" class="row container-fluid cont">
                 <div class="col-md-8">
                  <div class="mb-3" style="text-align:left">
                    <h3 class=" fs-3 mb-5" style="font-weight: bold;font-family: 'Noto Sans JP', sans-serif;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
@@ -297,7 +297,7 @@
                    </div>
                  </div>
                   </div>
-                  </div>
+                  </div> 
                 </div>
                 
          <div *ngIf="authenticate.Role=='USER' ">
@@ -319,67 +319,18 @@
                  <thead style="background-color: #ffd200;border: 1px solid #fff;text-align:center;color: #fff">
                     
                      <th style="text-align:center;border: none">Email Id</th>
-                     <th style="text-align:center;border: none">Status</th>
+                     <!-- <th style="text-align:center;border: none">Status</th> -->
                      <th style="text-align:center;border: none">City</th>
+                     <th style="text-align:center;border: none">Contact No</th>
                      <th style="text-align:center;border: none">Product Name</th>
                  </thead>
                  <tbody>
-                    <tr>
-                     <td style="text-align:center;border: none">
-                     abc@gmail.com
-                   </td>
-                   <td style="text-align:center;border: none">
-                     pending
-                   </td>
-                   <td style="text-align:center;border: none">
-                     AKot
-                   </td>
-                   <td style="text-align:center;border: none">
-                    Magical Maldives
-                   </td>
-                     </tr>
-                     <tr>
-                       <td style="text-align:center;border: none">
-                       xyz@gmail.com
-                     </td>
-                     <td style="text-align:center;border: none">
-                       Completed
-                     </td>
-                     <td style="text-align:center;border: none">
-                       Pune
-                     </td>
-                     <td style="text-align:center;border: none">
-                       Australia
-                     </td>
-                       </tr>
-                       <tr>
-                         <td style="text-align:center;border: none">
-                         pqr@gmail.com
-                       </td>
-                       <td style="text-align:center;border: none">
-                         pending
-                       </td>
-                       <td style="text-align:center;border: none">
-                         Nagpur
-                       </td>
-                       <td style="text-align:center;border: none">
-                        Miraculous Norway
-                       </td>
-                         </tr>
-                         <tr>
-                           <td style="text-align:center;border: none">
-                           abc@gmail.com
-                         </td>
-                         <td style="text-align:center;border: none">
-                           pending
-                         </td>
-                         <td style="text-align:center;border: none">
-                           AKot
-                         </td>
-                         <td style="text-align:center;border: none">
-                          Bali
-                         </td>
-                           </tr>
+                    <tr *ngFor="let i of inquiry" >
+                   <td style="text-align:center;border: none"> {{i.emailId}} </td>
+                   <td style="text-align:center;border: none"> {{i.city}} </td>
+                   <td style="text-align:center;border: none"> {{i.contactNo}} </td>
+                   <td style="text-align:center;border: none"> {{i.productCode}} </td>
+                    </tr>
                  </tbody>
              </table>  
                 </div>
@@ -390,8 +341,8 @@
                  <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
                    <div class="card-body loyalty">
                      <div>
-                     <h2 style="font-size: 40px;text-align:center;" class="card-text">{{loyalti.loyaltyPoints}}.00</h2>
-                     <p style="text-align:center;">Your Loyalty Score is {{loyalti.loyaltyPoints}}.00</p>
+                     <!-- <h2 style="font-size: 40px;text-align:center;" class="card-text">{{loyalti.loyaltyPoints}}.00</h2> -->
+                     <!-- <p style="text-align:center;">Your Loyalty Score is {{loyalti.loyaltyPoints}}.00</p> -->
                      <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
                    </div>
                    </div>

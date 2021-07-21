@@ -45,15 +45,15 @@ details:any = {};
      this.details=data;
      console.log(this.details);
      if (this.role=='AGENT') {
-      this.router.navigate(["/AgentProductDetails"]);
+      this.router.navigate(["/details/productdetails"]);
       this.http.setArray(this.details);
      }
      else if(this.role=='ADMIN'){
-      this.router.navigate(["/productDetails"]);
+      this.router.navigate(["/details/productdetails"]);
       this.http.setArray(this.details);
      }
      else if(this.role=='USER'){
-      this.router.navigate(["/UserproductDetails"]);
+      this.router.navigate(["/details/productdetails"]);
       this.http.setArray(this.details);
      } 
    }) 

@@ -395,4 +395,10 @@ path:any='';
   }
 
 
+  getProductInquiryByEmail(user:any){
+    let url=this.baseUrl+"ProductInquiry/emailId?emailId="+user;
+    return this.http.get(url);
+  }
+
+
 }
