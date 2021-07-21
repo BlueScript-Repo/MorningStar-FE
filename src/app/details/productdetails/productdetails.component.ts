@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {PackageServiceService} from './../../package-service.service';
 import {InquiryDetails} from './InquiryDetails';
 import {UserService} from './../../user/user.service'
+
 @Component({
   selector: 'app-productdetails',
   templateUrl: './productdetails.component.html',
   styleUrls: ['./productdetails.component.css']
 })
+
 export class ProductdetailsComponent implements OnInit {
 
   constructor(private http:PackageServiceService,public authenticate:UserService) { } 
