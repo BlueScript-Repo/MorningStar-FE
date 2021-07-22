@@ -3,11 +3,17 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserLogin } from './UserLogin';
 import { UserRegistration } from './UserRegistration';
+import {JwtHelperService} from '@auth0/angular-jwt'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+
+  jwtHelper = new JwtHelperService();
+
+
   isAuthenticated:boolean=false;
   Role:any=localStorage.getItem('role');
   private usersUrl!: string; 
@@ -48,4 +54,9 @@ export class UserService {
       localStorage.removeItem('user')
       this.Role='';
     }
+
+
+    
+
+
 }
