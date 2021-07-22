@@ -390,7 +390,7 @@ path:any='';
 
 
   getLoyaltiPoints(user:any){
-    let url=this.baseUrl+"LoyaltyDetails/userId?userId="+user;
+    let url=this.baseUrl+"LoyaltyDetails/emailId?emailId="+user;
     return this.http.get(url);
   }
 

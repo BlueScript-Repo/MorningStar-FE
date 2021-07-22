@@ -22,9 +22,8 @@ export class LandingpageComponent implements OnInit {
 
   ngOnInit(): void {
     this.user=localStorage.getItem('user');
-    this.loyaltypoints();
     console.log(this.user);
-    // this.loyaltypoints();
+    this.loyaltypoints();
     
   if(this.role!='AGENT' && this.role!='USER' && this.role!='ADMIN'){
     this.value='null';

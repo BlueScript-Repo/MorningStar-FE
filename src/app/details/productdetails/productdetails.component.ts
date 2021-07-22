@@ -42,14 +42,7 @@ role:any;
   Code:any='';
   images:any=[];
   pdf:any="";
-  inquery:InquiryDetails={
-    // agentId:'',
-    contactNo:'',
-    productCode:'',
-    city:'',
-    emaiId:'',
-    name:''
-  }
+  inquery:InquiryDetails[]=[];
   Inquiry(InquiryForm:any){
     let user=InquiryForm.name;
     let email=InquiryForm.email;
@@ -58,14 +51,14 @@ role:any;
     let City=InquiryForm.city;
     let Date=InquiryForm.date;
     console.log(InquiryForm);
-    this.inquery={
+    this.inquery.push({
       // agentId:"",
     contactNo:Contact,
     productCode:code,
     city:City,
     emaiId:email,
     name:user
-    }
+    })
     alert("Your Inquiry has been successfully sent to the Inquiry List")
     console.log(this.inquery);
     return this.http.postInquiry(this.inquery).subscribe(response =>{
