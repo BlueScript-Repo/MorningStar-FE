@@ -21,41 +21,58 @@
     <div style="margin-top: 0px;" class="collapse active" id="Add" role="tabpanel" aria-labelledby="nav-homw-tab">
       <div class="card card-body">
        <form #submitForm=ngForm (ngSubmit)="UploadData(submitForm.value)">
-          <div style="padding-left: 50px;" class="row">
+          <div style="padding-left: 0px;" class="row">
             
              
-              <div class="col-md-3">
+              <div class="col-md-2">
                   <label for="" class="form-label">Name</label>
                   <input type="text" name="name" class="form-control" placeholder="Enter the name" ngModel>
                 </div>
   
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <label for="" class="form-label">Price</label>
                   <input type="text" class="form-control" name="price" placeholder="Enter the price" ngModel>
   
                   
               </div>
   
-              <div class="col-md-3">
-                  <label for="" class="form-label">Bucket Name</label>
-                  <select class="form-select mt-3" name="bucketName" style="height: 35px;font-size: 14px;" ngModel aria-label="SubDestination">
+              <div class="col-md-2">
+                  <label for="" class="form-label">Page Name</label>
+                  <select class="form-select mt-3" name="page" style="height: 35px;font-size: 14px;" ngModel aria-label="SubDestination">
                     <option selected></option>
-                    <option>landing-page/trending-domestic-destinations</option>
-                    <option>landing-page/trending-international-destinations</option>
-                    <option>landing-page/explore-by-themes</option>
-                    <option>landing-page/popular/left</option>
-                    <option>landing-page/popular/right</option>
-                    <option>deals-page/deals-for-domestic-packages</option>
-                    <option>deals-page/deals-for-international-packages</option>
-                    <option>deals-page/deals-for-every-pocket/left</option>
-                    <option>deals-page/deals-for-every-pocket/right</option>
-                    <option>deals-page/exotic-deals</option>
+                    <option>landing-page</option>
+                    <option>deals-page</option>
                     
                   </select>
                 </div>
-                <div class="col-md-3">
+
+                <div class="col-md-2">
+                  <label for="" class="form-label">Section</label>
+                  <select class="form-select mt-3" name="section" style="height: 35px;font-size: 14px;" ngModel aria-label="SubDestination">
+                    <option selected></option>
+                    <option>Section 1</option>
+                    <option>Section 2</option>
+                    <option>Section 3</option>
+                    <option>Section 4</option>
+                    <option>Section 5</option>
+                    
+                  </select>
+                </div>
+
+
+                <div class="col-md-2">
+                  <label for="" class="form-label">Page Name</label>
+                  <select class="form-select mt-3" name="subsection" style="height: 35px;font-size: 14px;" ngModel aria-label="SubDestination">
+                    <option selected></option>
+                    <option>Sub-Section 1</option>
+                    <option>Sub-Section 2</option>                    
+                  </select>
+                </div>
+
+
+                <div class="col-md-2">
                   <label for="country" class="form-label">Upload Image</label>
-                    <input type="file" style="height: 37.5px;" name="image" class="upload-box mb-3" ngModel (change)="onFileChange($event)" id="">
+                    <input type="file" style="height: 37.5px;width: 220px;" name="image" class="upload-box mb-3" ngModel (change)="onFileChange($event)" id="">
                 </div>
                 <div align="right" style="margin-left: -90px;" class="col-md-12">
           <input style="margin-top: 20px;" type="submit" value="Add" class="btn121">
@@ -89,9 +106,9 @@
             </thead>
             <tbody>
               <tr *ngFor="let i of uploadData;let j=index">
-                <td style="border-top: none;border-right: none;">{{i.name}}</td>
-                <td style="border-top: none;border-right: none;">{{i.price}}</td>
-                  <td style="border-top: none;border-right: none;">{{bucketName}}</td>
+                <td style="border-top: none;border-right: none;">{{i.nameOnImage}}</td>
+                <td style="border-top: none;border-right: none;">{{i.priceOnImage}}</td>
+                  <td style="border-top: none;border-right: none;">{{i.section}}</td>
                   <td style="border-top: none;border-right: none;">{{i.fileName}}</td>
                   <td style="border-top: none;border-right: none;">
                     <button (click)="deleteData(j)" class="btn btn-outline-danger">-</button>

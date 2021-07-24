@@ -4,7 +4,8 @@ import { UserLogin } from '../UserLogin';
 import { UserRegistration } from '../UserRegistration';
 import {Router} from "@angular/router";
 import {PackageServiceService} from './../../package-service.service'
-import { style } from '@angular/animations';
+import {JwtHelperService} from '@auth0/angular-jwt';
+
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
@@ -13,6 +14,10 @@ import { style } from '@angular/animations';
 export class UserRegistrationComponent implements OnInit {
 
   constructor(private userService: UserService,private router:Router,private http:PackageServiceService) { } 
+
+
+  jwtHelper = new JwtHelperService();
+
 
   bucketName:any={};
   mainPage="Login Page";
@@ -39,6 +44,7 @@ export class UserRegistrationComponent implements OnInit {
     console.log(this.user);
   } 
   user:string='';
+  expirey:any='';
   userRegistration : UserRegistration={
 
     email:'',
@@ -86,6 +92,7 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   token:any={};
+  jwtToken:any="";
   role:any;
   AgentId:any;
   Authorization:any;
@@ -112,6 +119,16 @@ errcode:any=0;
       localStorage.setItem('role',this.role);
       this.rolestorage=localStorage.getItem('role')
       console.log(this.rolestorage);
+      this.jwtToken = localStorage.getItem('token');
+      console.log("Jwt Token Is  :______________"+JSON.stringify(this.jwtToken));
+
+      const DecryptedToken=this.jwtHelper.decodeToken(this.jwtToken);
+      console.log(DecryptedToken);
+      this.expirey=DecryptedToken.exp;
+      console.log(this.expirey);
+      localStorage.setItem('expirationTime',this.expirey);
+      
+      this.userService.autologout(this.expirey);
       
         if (this.token.jwtToken) {
           this.userService.auth()

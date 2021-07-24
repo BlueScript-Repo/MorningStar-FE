@@ -1,6 +1,9 @@
 export interface Upload{
-    name:string;
-    price:string;
+    pageName:string;
+    section:string;
+    subSection:string;
+    nameOnImage:string;
     file:FormData;
+    priceOnImage:number;
     fileName:string;
 }

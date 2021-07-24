@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserLogin } from './UserLogin';
 import { UserRegistration } from './UserRegistration';
-import {JwtHelperService} from '@auth0/angular-jwt'
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class UserService {
 
   userName="Mayur Bhakare";
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router:Router) {
        this.usersUrl='http://morningstarweb-env.eba-pb7idjdb.ap-south-1.elasticbeanstalk.com/';
    }  
 
@@ -47,12 +48,40 @@ export class UserService {
     console.log("2"+this.Role);
   }
   
+
+  autologout(expiryTime:any){
+    console.log("In autologout");
+    setTimeout(() =>{
+      this.logOut();
+    },expiryTime)
+
+  }
+  expiryTime:any=0;
+  autoLogin(){
+    console.log("In autologin Function.......................");
+    let username=localStorage.getItem('user');
+    let token=localStorage.getItem('token');
+    let expiryTime=localStorage.getItem('expirationTime');
+    if(!username && !token && !expiryTime){
+      console.log("In if loop........................");
+      return;
+    }
+ 
+    console.log("Autologout function");
+    this.autologout(expiryTime);   
+    
+  }
+
     logOut(){
       this.Role=localStorage.removeItem('role');
       localStorage.removeItem('token')
       console.log("After Logout"+this.Role);
-      localStorage.removeItem('user')
+      localStorage.removeItem('user');
+      localStorage.removeItem('agentId');
+      localStorage.removeItem('expirationTime');
+      // localStorage.removeItem('code')
       this.Role='';
+    this.router.navigate(["/admin/register"])
     }
 
 
