@@ -83,60 +83,61 @@ export class UploadimagesComponent implements OnInit {
       const page1 = this.uploadData[i].pageName;
       const section1 = this.uploadData[i].section;
       const subSection1 = this.uploadData[i].subSection;
-      const name1 = this.uploadData[i].nameOnImage;
-      
-      if (this.bucketName=='landing-page/trending-domestic-destinations') {
-      this.imgService.ForLandingSection1(image1,name1,price1,this.bucketName).subscribe(data =>{
+      const name1 = this.uploadData[i].nameOnImage;     
+      this.imgService.UploadImages(image1,name1,price1,page1,section1,subSection1).subscribe(data =>{
         console.log(data);  
         })  
-      }
-      else if (this.bucketName=='landing-page/trending-international-destinations') {
-        this.imgService.ForLandingSection2(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-        }
-     else if (this.bucketName=='landing-page/explore-by-themes') {
-        this.imgService.ForLandingSection3(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-        }
-      else if (this.bucketName=='landing-page/popular/left') {
-        this.imgService.ForLandingSubsection1(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-        }
-      else if (this.bucketName=='landing-page/popular/right') {
-        this.imgService.ForLandingSubsection2(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-          }
-      else if (this.bucketName=='deals-page/deals-for-domestic-packages') {
-        this.imgService.ForDealSection1(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-          }
-      else if (this.bucketName=='deals-page/deals-for-international-packages') {
-        this.imgService.ForDealSection2(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-          }
-      else if (this.bucketName=='deals-page/exotic-deals') {
-        this.imgService.ForDealSection3(image1,name1,price1,this.bucketName).subscribe(data =>{
-          console.log(data);  
-          })  
-          }
+    //   else if (this.bucketName=='landing-page/trending-international-destinations') {
+    //     this.imgService.ForLandingSection2(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //     }
+    //  else if (this.bucketName=='landing-page/explore-by-themes') {
+    //     this.imgService.ForLandingSection3(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //     }
+    //   else if (this.bucketName=='landing-page/popular/left') {
+    //     this.imgService.ForLandingSubsection1(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //     }
+    //   else if (this.bucketName=='landing-page/popular/right') {
+    //     this.imgService.ForLandingSubsection2(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //       }
+    //   else if (this.bucketName=='deals-page/deals-for-domestic-packages') {
+    //     this.imgService.ForDealSection1(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //       }
+    //   else if (this.bucketName=='deals-page/deals-for-international-packages') {
+    //     this.imgService.ForDealSection2(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //       }
+    //   else if (this.bucketName=='deals-page/exotic-deals') {
+    //     this.imgService.ForDealSection3(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //       console.log(data);  
+    //       })  
+    //       }
 
-        else if (this.bucketName=='deals-page/deals-for-every-pocket/left') {
-            this.imgService.ForDealSubSection1(image1,name1,price1,this.bucketName).subscribe(data =>{
-              console.log(data);  
-              })  
-              } 
-              else if (this.bucketName=='deals-page/deals-for-every-pocket/right') {
-                this.imgService.ForDealSubSection2(image1,name1,price1,this.bucketName).subscribe(data =>{
-                  console.log(data);  
-                  })  
-                  }
+    //     else if (this.bucketName=='deals-page/deals-for-every-pocket/left') {
+    //         this.imgService.ForDealSubSection1(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //           console.log(data);  
+    //           })  
+    //           } 
+    //           else if (this.bucketName=='deals-page/deals-for-every-pocket/right') {
+    //             this.imgService.ForDealSubSection2(image1,name1,price1,this.bucketName).subscribe(data =>{
+    //               console.log(data);  
+    //               })  
+    //               }
     }
+
+    console.log(this.uploadData);
+    
+
     this.uploadData=[];
   }
   deleteData(id:any){

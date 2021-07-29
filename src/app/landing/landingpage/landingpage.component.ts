@@ -28,7 +28,7 @@ export class LandingpageComponent implements OnInit {
   if(this.role!='AGENT' && this.role!='USER' && this.role!='ADMIN'){
     this.value='null';
   }
-  this.GetImages();
+  this.GetAllImage();
   this.getUserInquiry();  
 }
 
@@ -65,73 +65,104 @@ export class LandingpageComponent implements OnInit {
   ThemesImages:any=[];
   leftSubsection:any=[];
   rightSubsection:any=[];
-  GetImages(){
-    this.imgService.getLandingPageSection1().subscribe(res=>{
-      this.domestic=res;
-      this.domestic=this.domestic.reverse();
-      console.log(this.domestic);
-      // for (let i = 0; i < this.domestic.length; i++) {
-      //   const name = this.domestic[i].nameOnImage;
-      //   const price=this.domestic[i].priceOnImage;
-      //   const Url=this.domestic[i].s3url;
-      //   this.domesticImages[i]={
-      //     nameOnImage:name,
-      //     priceOnImage:price,
-      //     s3url:Url,
-      //     show: false
-      //   }
-      //   console.log(this.domesticImages);
-        
-      // }
-      
-    })
-    this.imgService.getLandingPageSection2().subscribe(res=>{
-      this.international=res;
-      this.international=this.international.reverse();
-      console.log(this.international);
-      // for (let i = 0; i < this.international.length; i++) {
-      //   const name = this.international[i].nameOnImage;
-      //   const price=this.international[i].priceOnImage;
-      //   const Url=this.international[i].s3url;
-      //   this.internationalImages[i]={
-      //     nameOnImage:name,
-      //     priceOnImage:price,
-      //     s3url:Url,
-      //     show: false
-      //   }
-      //   console.log(this.internationalImages);
-        
-      // }
-      
-    })
-    this.imgService.getLandingPageSection3().subscribe(res=>{
-      this.Themes=res;
-      this.Themes=this.Themes.reverse();
-      console.log(this.Themes);
-      // for (let i = 0; i < this.Themes.length; i++) {
-      //   const name = this.Themes[i].nameOnImage;
-      //   const price=this.Themes[i].priceOnImage;
-      //   const Url=this.Themes[i].s3url;
-      //   this.ThemesImages[i]={
-      //     nameOnImage:name,
-      //     priceOnImage:price,
-      //     s3url:Url,
-      //     show: true
-      //   }
-      // }
-      
-    })
-    this.imgService.getLandingPageSubSection1().subscribe(res=>{
-      this.leftSubsection=res;
-      this.leftSubsection=this.leftSubsection.reverse();
-      console.log(this.leftSubsection);
-    })
-    this.imgService.getLandingPageSubSection2().subscribe(res=>{
-      this.rightSubsection=res;
-      this.rightSubsection=this.rightSubsection.reverse();
-      console.log(this.rightSubsection);
-    })
+  
+
+  
+  GetAllImage(){
+  this.imgService.GetImages("landing-page","Section 1","").subscribe(data =>{
+    this.domesticImages=data;
+    console.log(this.domesticImages);
+    
+  })
+  this.imgService.GetImages("landing-page","Section 2","").subscribe(data =>{
+    this.international=data;
+    this.international=this.international.reverse();
+    console.log(this.international);
+    
+  })
+  this.imgService.GetImages("landing-page","Section 3","").subscribe(data =>{
+    this.Themes=data;
+    this.Themes=this.Themes.reverse();
+    console.log(this.Themes);
+    
+  })  
+  this.imgService.GetImages("landing-page","Section 4","").subscribe(data =>{
+    this.leftSubsection=data;
+    this.leftSubsection=this.leftSubsection.reverse();
+    console.log(this.leftSubsection);
+    
+  })    
   }
+
+
+  
+  // GetImages(){
+  //   this.imgService.getLandingPageSection1().subscribe(res=>{
+  //     this.domestic=res;
+  //     this.domestic=this.domestic.reverse();
+  //     console.log(this.domestic);
+  //     // for (let i = 0; i < this.domestic.length; i++) {
+  //     //   const name = this.domestic[i].nameOnImage;
+  //     //   const price=this.domestic[i].priceOnImage;
+  //     //   const Url=this.domestic[i].s3url;
+  //     //   this.domesticImages[i]={
+  //     //     nameOnImage:name,
+  //     //     priceOnImage:price,
+  //     //     s3url:Url,
+  //     //     show: false
+  //     //   }
+  //     //   console.log(this.domesticImages);
+        
+  //     // }
+      
+  //   })
+  //   this.imgService.getLandingPageSection2().subscribe(res=>{
+  //     this.international=res;
+  //     this.international=this.international.reverse();
+  //     console.log(this.international);
+  //     // for (let i = 0; i < this.international.length; i++) {
+  //     //   const name = this.international[i].nameOnImage;
+  //     //   const price=this.international[i].priceOnImage;
+  //     //   const Url=this.international[i].s3url;
+  //     //   this.internationalImages[i]={
+  //     //     nameOnImage:name,
+  //     //     priceOnImage:price,
+  //     //     s3url:Url,
+  //     //     show: false
+  //     //   }
+  //     //   console.log(this.internationalImages);
+        
+  //     // }
+      
+  //   })
+  //   this.imgService.getLandingPageSection3().subscribe(res=>{
+  //     this.Themes=res;
+  //     this.Themes=this.Themes.reverse();
+  //     console.log(this.Themes);
+  //     // for (let i = 0; i < this.Themes.length; i++) {
+  //     //   const name = this.Themes[i].nameOnImage;
+  //     //   const price=this.Themes[i].priceOnImage;
+  //     //   const Url=this.Themes[i].s3url;
+  //     //   this.ThemesImages[i]={
+  //     //     nameOnImage:name,
+  //     //     priceOnImage:price,
+  //     //     s3url:Url,
+  //     //     show: true
+  //     //   }
+  //     // }
+      
+  //   })
+  //   this.imgService.getLandingPageSubSection1().subscribe(res=>{
+  //     this.leftSubsection=res;
+  //     this.leftSubsection=this.leftSubsection.reverse();
+  //     console.log(this.leftSubsection);
+  //   })
+  //   this.imgService.getLandingPageSubSection2().subscribe(res=>{
+  //     this.rightSubsection=res;
+  //     this.rightSubsection=this.rightSubsection.reverse();
+  //     console.log(this.rightSubsection);
+  //   })
+  // }
   role=localStorage.getItem('role');
   value='';
   customOptions: any = {

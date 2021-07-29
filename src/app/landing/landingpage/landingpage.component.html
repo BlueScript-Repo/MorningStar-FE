@@ -386,7 +386,7 @@
             <div style="margin-top: 30px;" class="row wrapper-tours-slider">
              
                         <owl-carousel-o id="trending" style="padding-left: 35px;margin-top: -20px;" [options]="customOptions">
-                        <ng-template *ngFor='let i of domestic' carouselSlide> 
+                        <ng-template *ngFor='let i of domesticImages' carouselSlide> 
                             <input style="display:none;visibility:hidden" type="text" ngModel={{i.nameOnImage}} #destination value="{{i.nameOnImage}}">
                             <a style="cursor: pointer;" (click)="Navigate(destination.value)"><div style="background:transparent;border:1px solid #fff" class="card card2 text-white">
                             <img src={{i.s3url}} style="height: 320px;width: 95%;" loading="lazy" class="card-img" alt="...">

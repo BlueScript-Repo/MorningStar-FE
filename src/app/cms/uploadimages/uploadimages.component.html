@@ -61,7 +61,7 @@
 
 
                 <div class="col-md-2">
-                  <label for="" class="form-label">Page Name</label>
+                  <label for="" class="form-label">Subsection Name</label>
                   <select class="form-select mt-3" name="subsection" style="height: 35px;font-size: 14px;" ngModel aria-label="SubDestination">
                     <option selected></option>
                     <option>Sub-Section 1</option>
@@ -108,7 +108,7 @@
               <tr *ngFor="let i of uploadData;let j=index">
                 <td style="border-top: none;border-right: none;">{{i.nameOnImage}}</td>
                 <td style="border-top: none;border-right: none;">{{i.priceOnImage}}</td>
-                  <td style="border-top: none;border-right: none;">{{i.section}}</td>
+                  <td style="border-top: none;border-right: none;">{{i.pageName}}/{{i.section}}/{{i.subSection}}</td>
                   <td style="border-top: none;border-right: none;">{{i.fileName}}</td>
                   <td style="border-top: none;border-right: none;">
                     <button (click)="deleteData(j)" class="btn btn-outline-danger">-</button>
