@@ -127,17 +127,11 @@
                       </div>
                       </div>
                       <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab tabs_layout" id="tab-itinerary_tab">
-                        <div *ngFor="let i of productDetails.productDays;let j=index" class="interary-item">
+                        <div *ngFor="let i of Days;let j=index" class="interary-item">
                           <div class="item_content">
                           <p ><span style="margin-left:-100px;margin-top:20px" class="icon-left">{{j+1}}</span></p>
-                          <h2><strong>{{i.day}}:Description</strong></h2>
+                          <h2><strong>{{i.day}}:  Description</strong></h2>
                             <p> {{i.dayDescription}}</p>
-                            <ul>
-                              <li>Pretium vitae tempus sem enim enim.</li>
-                              <li>Tempus, leo, taciti augue aliquam hendrerit.</li>
-                              <li>Accumsan pharetra eros justo augue posuere felis elit cras montes fames.</li>
-                              <li>Vulputate dictumst egestas etiam dictum varius.</li>
-                            </ul>
                            
                           </div>
                           

@@ -35,10 +35,19 @@ role:any;
     this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
     
     console.log("In details component calling array: "+JSON.stringify(this.productDetails));
+    for (let i = 0; i < this.productDetails.productDays.length; i++) {
+      this.Days.push(this.productDetails.productDays[i]);
+    }
+    console.log(this.Days);
+    this.Days.sort((a, b) => (a.day > b.day) ? 1 : -1);
+    console.log("After Sorting");
+    console.log(this.Days);
     this.role=localStorage.getItem('role');
     console.log(this.role);
     
   }
+
+  Days:any[]=[];
   Code:any='';
   images:any=[];
   pdf:any="";
