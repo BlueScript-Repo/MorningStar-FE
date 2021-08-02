@@ -284,7 +284,7 @@ bucketName:any;
   } 
 
 
-  postImage1(file: any,imgname: string):Observable<HttpEvent<{}>>{
+  postImage1(file: any,imgname: any):Observable<HttpEvent<{}>>{
     const formdata: FormData= new FormData();
   this.bucketName=localStorage.getItem('productCode');
    console.log("In service "+this.bucketName);
