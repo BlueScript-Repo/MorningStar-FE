@@ -22,17 +22,21 @@ export class ProductdetailsComponent implements OnInit {
 role:any;
 
   ngOnInit(): void {
+    this.Rate=this.http.getName();
+    console.log(this.Rate);
+    
     this.productDetails=this.http.getArray();
     this.Code=this.productDetails.productCode;
     this.images=[
-      {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_1.jpg"},
+      // {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_1.jpg"},
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_2.jpg"},
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_3.jpg"},
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_4.jpg"},
       {url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_5.jpg"}
     ];
+    this.image={url:"https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/day_1.jpg"};
     console.log(this.Code);
-    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
+    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/"+this.Code+".pdf"
     
     console.log("In details component calling array: "+JSON.stringify(this.productDetails));
     for (let i = 0; i < this.productDetails.productDays.length; i++) {
@@ -46,7 +50,8 @@ role:any;
     console.log(this.role);
     
   }
-
+  Rate:any;
+  image:any;
   Days:any[]=[];
   Code:any='';
   images:any=[];

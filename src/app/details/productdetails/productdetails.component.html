@@ -41,7 +41,7 @@
                       <div style="height: 500px;" id="carouselExampleInterval" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div style="height: 500px;" class="carousel-inner">
                           <div class="carousel-item active" data-bs-interval="4000">
-                            <img style="height: 500px;" src="assets/day_1.jpg" class="d-block w-100" alt="...">
+                            <img style="height: 500px;" src={{image.url}} class="d-block w-100" alt="...">
                           </div>
                           <div *ngFor="let i of images" class="carousel-item" data-bs-interval="4000">
                             <img style="height: 500px;" src={{i.url}} class="d-block w-100" alt="...">
@@ -151,7 +151,7 @@
                 <div class="affix-sidebar">
                   <div class="entry-content-tour">
                     <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
-                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                      <span class="text">Deal assign to :</span><span class="travel_tour-Price-amount amount">{{productDetails.productCode}}</span>
                     </p>
                     <div class="clear"></div>
                     <div style="padding-top: 50px;padding-bottom: 50px;" class="booking">
@@ -248,7 +248,7 @@
                 <div class="affix-sidebar">
                   <div class="entry-content-tour">
                     <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
-                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">{{Rate}}</span>
                     </p>
                     <div class="clear"></div>
                     <div class="booking">
@@ -305,7 +305,7 @@
                 <div class="affix-sidebar">
                   <div class="entry-content-tour">
                     <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
-                      <span class="text">Price:</span><span class="travel_tour-Price-amount amount">Price</span>
+                      <span class="text">Price : </span><span class="travel_tour-Price-amount amount"> {{Rate}}</span>
                     </p>
                     <div class="clear"></div>
                     <div class="booking">

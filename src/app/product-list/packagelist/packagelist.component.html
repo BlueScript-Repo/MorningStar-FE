@@ -235,6 +235,7 @@
 												</div> -->
 												<p style="font-size: 10px;color:grey">Starting price per Adult</p>
 												<span style="padding-top: 20px;margin-top:10px;font-family: 'Noto Sans JP', sans-serif;font-size: 18px;" class="price">RS.{{i.productRate}}/-</span>
+													<input style="visibility:hidden;display:none;" type="text" ngModel={{i.productRate}} value="{{i.productRate}}" name=rate>
 													<button style="width: 100px;" type="submit" class="btn12">Read More</button>
 													<!-- <form  id="EditForm" #Edit="ngForm" (ngSubmit)="EditProduct(EditForm.value)">	</form>
 													<form  id="CloneForm" #Clone="ngForm" (ngSubmit)="CloneProduct(CloneForm.value)"></form> -->
