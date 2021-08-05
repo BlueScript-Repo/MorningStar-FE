@@ -11,7 +11,7 @@ export class DealsComponent implements OnInit {
   constructor(public http:PackageServiceService,private imgService:CMSServiceService) { }
 
   ngOnInit(): void {
-    this.getImages();
+    // this.getImages();
   }
   Domestic:any=[];
   International:any=[];
@@ -19,40 +19,40 @@ export class DealsComponent implements OnInit {
   ExoticDeals:any=[];
   everyPocketRight:any=[];
 
-getImages(){
-  this.imgService.getDealPageSection1().subscribe(res=>{
-    this.Domestic=res;
-    console.log(this.Domestic);
+// getImages(){
+//   this.imgService.getDealPageSection1().subscribe(res=>{
+//     this.Domestic=res;
+//     console.log(this.Domestic);
     
-  })
+//   })
 
-  this.imgService.getDealPageSection2().subscribe(res=>{
-    this.International=res;
-    console.log(this.International);
+//   this.imgService.getDealPageSection2().subscribe(res=>{
+//     this.International=res;
+//     console.log(this.International);
     
-  })
+//   })
 
-  this.imgService.getDealPageSection3().subscribe(res=>{
-    this.ExoticDeals=res;
-    console.log(this.ExoticDeals);
+//   this.imgService.getDealPageSection3().subscribe(res=>{
+//     this.ExoticDeals=res;
+//     console.log(this.ExoticDeals);
     
-  })
+//   })
 
-  this.imgService.getDealPageSubSection1().subscribe(res=>{
-  this.everyPocketLeft=res;
-  console.log(this.everyPocketLeft);
+//   this.imgService.getDealPageSubSection1().subscribe(res=>{
+//   this.everyPocketLeft=res;
+//   console.log(this.everyPocketLeft);
   
-  })
-  this.imgService.getDealPageSubSection1().subscribe(res=>{
-    this.everyPocketLeft=res;
-    console.log(this.everyPocketLeft);
-  })
+//   })
+//   this.imgService.getDealPageSubSection1().subscribe(res=>{
+//     this.everyPocketLeft=res;
+//     console.log(this.everyPocketLeft);
+//   })
   
-  this.imgService.getDealPageSubSection2().subscribe(res=>{
-    this.everyPocketRight=res;
-    console.log(this.everyPocketRight);
-  })
-}
+//   this.imgService.getDealPageSubSection2().subscribe(res=>{
+//     this.everyPocketRight=res;
+//     console.log(this.everyPocketRight);
+//   })
+// }
 
   customOptions: any = {
     loop: true,

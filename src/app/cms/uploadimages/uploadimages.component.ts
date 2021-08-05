@@ -151,70 +151,16 @@ ImageData:any;
 getBucketName(bucketName:any){
   console.log(bucketName);
   this.bucket=bucketName;
+  let name=this.bucket.split('/');
+  console.log(name[1]);
+  this.imgService.GetImages(name[0],name[1],name[2]).subscribe(data=>{
+    console.log(data);
+    this.ImageData=data;
+    
+  })
   
-  if(this.bucket=='landing-page/trending-domestic-destinations'){
-    this.imgService.getLandingPageSection1().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='landing-page/trending-international-destinations'){
-    this.imgService.getLandingPageSection2().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='landing-page/explore-by-themes'){
-    this.imgService.getLandingPageSection3().subscribe(res=>{
-    this.ImageData=res;
-    console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='landing-page/popular/left'){
-    this.imgService.getLandingPageSubSection1().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='landing-page/popular/right'){
-    this.imgService.getLandingPageSubSection2().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='deals-page/deals-for-domestic-packages'){
-    this.imgService.getDealPageSection1().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='deals-page/deals-for-international-packages'){
-    this.imgService.getDealPageSection2().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
 
-  else if(this.bucket=='deals-page/deals-for-every-pocket/left'){
-    this.imgService.getDealPageSubSection1().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-  else if(this.bucket=='deals-page/deals-for-every-pocket/right'){
-    this.imgService.getDealPageSubSection2().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-
-  else if(this.bucket=='deals-page/exotic-deals'){
-    this.imgService.getDealPageSection3().subscribe(res=>{
-      this.ImageData=res;
-      console.log(this.ImageData);
-    })
-  }
-
+  
 }
 filename:any=[];
 file:any;
@@ -224,60 +170,64 @@ delete(id:any,name:string){
   this.filename=name.split("/");
   console.log(this.filename);
   this.file=this.filename.slice(-1)[0];
-  console.log(this.filename.slice(-1)[0]);
+  console.log(this.file);
   this.ImageData = this.ImageData.filter((v:any, i:any) => i != id);
-  if(this.bucket=='landing-page/trending-domestic-destinations'){
-  this.imgService.DeleteLandingPageSection1(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='landing-page/trending-international-destinations'){
-    this.imgService.DeleteLandingPageSection2(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='landing-page/explore-by-themes'){
-    this.imgService.DeleteLandingPageSection3(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='landing-page/popular/left'){
-    this.imgService.DeleteLandingPageSubsection1(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='landing-page/popular/right'){
-    this.imgService.DeleteLandingPageSubsection2(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='deals-page/deals-for-domestic-packages'){
-    this.imgService.DeleteDealsPageSection1(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='deals-page/deals-for-international-packages'){
-    this.imgService.DeleteDealsPageSection2(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
+  this.imgService.DeleteImages(this.bucket,this.file).subscribe(res=>{
+    console.log(res);
+  })
+  // this.ImageData = this.ImageData.filter((v:any, i:any) => i != id);
+  // if(this.bucket=='landing-page/trending-domestic-destinations'){
+  // this.imgService.DeleteLandingPageSection1(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='landing-page/trending-international-destinations'){
+  //   this.imgService.DeleteLandingPageSection2(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='landing-page/explore-by-themes'){
+  //   this.imgService.DeleteLandingPageSection3(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='landing-page/popular/left'){
+  //   this.imgService.DeleteLandingPageSubsection1(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='landing-page/popular/right'){
+  //   this.imgService.DeleteLandingPageSubsection2(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='deals-page/deals-for-domestic-packages'){
+  //   this.imgService.DeleteDealsPageSection1(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='deals-page/deals-for-international-packages'){
+  //   this.imgService.DeleteDealsPageSection2(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
 
-  else if(this.bucket=='deals-page/deals-for-every-pocket/left'){
-    this.imgService.DeleteDealsPageSubSection1(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
-  else if(this.bucket=='deals-page/deals-for-every-pocket/right'){
-    this.imgService.DeleteDealsPageSubSection2(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
+  // else if(this.bucket=='deals-page/deals-for-every-pocket/left'){
+  //   this.imgService.DeleteDealsPageSubSection1(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
+  // else if(this.bucket=='deals-page/deals-for-every-pocket/right'){
+  //   this.imgService.DeleteDealsPageSubSection2(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
 
-  else if(this.bucket=='deals-page/exotic-deals'){
-    this.imgService.DeleteDealsPageSection3(this.bucket,this.file).subscribe(res=>{
-      console.log(res);
-    })
-  }
+  // else if(this.bucket=='deals-page/exotic-deals'){
+  //   this.imgService.DeleteDealsPageSection3(this.bucket,this.file).subscribe(res=>{
+  //     console.log(res);
+  //   })
+  // }
 
 }
 
