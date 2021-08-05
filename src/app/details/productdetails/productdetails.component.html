@@ -73,7 +73,15 @@
                       <li class="itinerary_tab_tab nav-item" style="margin-left: 20px;" role="presentation">
                         <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
                         <button class="nav-link" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#tab-itinerary_tab" type="button" role="tab" aria-selected="true">Daily Itinerary</button>
-                      </li>									
+                      </li>		
+                      <li class="accommodations_tab_tab nav-item" style="margin-left: 40px;" role="accommodations">
+                        <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
+                        <button class="nav-link" id="accommodations-tab" data-bs-toggle="tab" data-bs-target="#tab-accommodations_tab" type="button" role="tab" aria-selected="true">Accommodations</button>
+                      </li>	
+                      <li class="packagePrice_tab_tab nav-item" style="margin-left: 40px;" role="packagePrice">
+                        <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
+                        <button class="nav-link" id="packagePrice-tab" data-bs-toggle="tab" data-bs-target="#tab-packagePrice_tab" type="button" role="tab" aria-selected="true">packagePrice</button>
+                      </li>							
                     </ul>
                     <div class="tab-content">
                       <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab active tabs_layout" id="tab-description">
@@ -120,8 +128,7 @@
                           </tr>
                           </tbody>
                         </table>
-                        <p>Ridiculus sociis dui eu vivamus tempor justo diam aliquam. Ipsum nunc purus, pede sed placerat sit habitasse potenti eleifend magna mus sociosqu hymenaeos cras metus mi donec tortor nisi leo dignissim turpis sit torquent.</p>
-                        <p>Potenti mattis ad mollis eleifend Phasellus adipiscing ullamcorper interdum faucibus orci litora ornare aliquam. Ligula feugiat scelerisque. Molestie. Facilisi hac.</p>
+                        
                         <div style="display:flex;text-align:center;justify-content:center">
                         <a href={{pdf}} target="_blank" class="brochure">Get brochure</a>
                       </div>
@@ -146,6 +153,10 @@
                   </div>							
                 </div>
               </div>
+
+
+              
+
               <div *ngIf="authenticate.Role=='ADMIN'" class="col-md-4">
                 <div class="summary entry-summary description_single" style="width: 100%">
                 <div class="affix-sidebar">

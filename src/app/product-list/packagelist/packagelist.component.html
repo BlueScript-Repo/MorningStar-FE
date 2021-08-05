@@ -181,35 +181,36 @@
 													</div>
 												</div>
 
-													<div style="margin-top: -20px;" class="">
-														<p style="margin-top: 10px;"> Serivces Included:</p>
-													<div class="services" *ngFor="let j of i.servicesIncluded">
-																<div style="margin-right: 0px;" *ngIf="j=='Hotel'">
+													
+														<p style="margin-top: 10px;"> Serivces Included:</p><br/>
+														<div style="margin-top: -30px;" class="row1">
+													 <div class="services" style="margin-top: 15px;" *ngFor="let j of i.servicesIncluded">
+																<div *ngIf="j=='Hotel'">
 																	<div class="hotel">
-																		<i class="fas fa-hotel" style="margin-right: 10px;"></i><p style="margin-top:-5px ;"> Hotel </p>
+																		<i class="fas fa-hotel" style="margin-right: 10px; font-size: 20px;"></i><p style="margin-top:-5px ;padding-right: 10px;"> Hotel </p>
 																	</div>
 																</div>
 																<div *ngIf="j=='Meal'">
 																	<div class="hotel">
-																		<i class="fas fa-utensils" style="margin-right: 10px;"></i><p style="margin-top:-5px ;"> Meal</p>
+																		<i class="fas fa-utensils" style="margin-right: 10px;font-size: 20px;"></i><p style="margin-top:-5px ;padding-right: 10px;"> Meal</p>
 																	</div>
 																</div>
 															
 																<div *ngIf="j=='Sightseeing'">
 																	<div class="hotel">
-																		<i class="fas fa-umbrella-beach" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Sightseeing</p>
+																		<i class="fas fa-umbrella-beach" style="margin-right: 10px;font-size: 20px;"></i> <p style="margin-top:-5px ;padding-right: 10px;">Sightseeing</p>
 																	</div>
 																</div>
 															
 																<div *ngIf="j=='Transfer'">
 																	<div class="hotel">
-																		<i class="fas fa-bus-alt" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Transfer</p> 
+																		<i class="fas fa-bus-alt" style="margin-right: 10px;font-size: 20px;"></i> <p style="margin-top:-5px ;padding-right: 10px;">Transfer</p> 
 																	</div>
 																</div>	
 															
 																<div *ngIf="j=='Visa'">
 																	<div class="hotel">
-																		<i class="fab fa-cc-visa" style="margin-right: 10px;"></i> <p style="margin-top:-5px ;">Visa</p>
+																		<i class="fas fa-passport" style="margin-right: 10px;font-size: 20px;"></i> <p style="margin-top:-5px ;">Visa</p>
 																	</div>
 																</div>
 															

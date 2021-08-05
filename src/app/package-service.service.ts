@@ -10,7 +10,7 @@ import { HttpEvent } from '@angular/common/http';
 export class PackageServiceService {
   productDetails:any;
   choice:any='';
-  role:any
+  role:any;
   isAuthenticated:boolean=false;
 agentID:any;
 token = localStorage.getItem('token');
@@ -19,7 +19,7 @@ bucketName:any;
   constructor(private http: HttpClient) {}
 
     setArray(data:any){
-      this.productDetails=data
+      this.productDetails = data;
     }
     getArray(){
       return this.productDetails;
@@ -253,7 +253,8 @@ bucketName:any;
   }
   postInquiry(data:any){
     let postInquiry=this.baseUrl+"ProductInquiry";
-    console.log(data);
+    console.log("data in"+data);
+    console.log("in post"+postInquiry);
     return this.http.post(postInquiry,data);
   }
   postAgent(data:any){
