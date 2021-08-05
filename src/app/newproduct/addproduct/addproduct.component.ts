@@ -152,12 +152,17 @@ export class AddproductComponent implements OnInit {
   images:any=[];
   imageName:any="";
   onFileChange(event:any){
+    
       this.selectedFile = event.target.files[0];
-  this.images.push(
+  
+      this.images.push(
   this.selectedFile,
   )
-  console.log(this.images[0].name);
-  // console.log("Selected File is "+this.selectedFile);
+  // for (let i = 0; i < this.images.length; i++) {
+  //   const element = this.images[i];
+  //   let name=this.images[i].name.split('.').slice(-1)[0];
+  //   console.log(name);
+  // }
   console.log(this.images);
 }
 
@@ -199,10 +204,24 @@ errCode:any=0;
       
       for (var i = 0; i < this.images.length; i++) {
         const img=this.images[i];
+        let name=this.images[i].name.split('.').slice(-1)[0];
+        console.log(name);
+        if (name=="pdf") {
+          
+          let code=localStorage.getItem('productCode');
+          let pdfName=code+".pdf";
+          console.log(code);
+          this.http.postImage1(img,pdfName).subscribe(res => {
+            console.log("value is "+  JSON.stringify(res));
+          })
+          console.log("Pdf is uploaded");
+        }
+        else{
         this.imageName="day_"+[i+1]+".jpg";
         this.http.postImage1(img,this.imageName).subscribe(res => {
           console.log("value is "+  JSON.stringify(res));
         })
+      }
           console.log("images are: "+img);
       }
       if (this.errCode==200){
