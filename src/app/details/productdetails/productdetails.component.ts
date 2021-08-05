@@ -60,6 +60,7 @@ role:any;
     let City=InquiryForm.city;
     let Date=InquiryForm.date;
     console.log(InquiryForm);
+   
     this.inquery.push({
       // agentId:"",
     contactNo:Contact,
@@ -67,11 +68,12 @@ role:any;
     city:City,
     emaiId:email,
     name:user
-    })
+    });
     alert("Your Inquiry has been successfully sent to the Inquiry List")
-    console.log(this.inquery);
+    console.log("thiss"+this.inquery);
+    // console.log("inquiry"+JSON.stringify(this.inquery));
     return this.http.postInquiry(this.inquery).subscribe(response =>{
-      console.log(response);
+      console.log("res"+response);
     })
   }
   deal1(dealForm1:any){
