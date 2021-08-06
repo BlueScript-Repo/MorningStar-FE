@@ -84,7 +84,11 @@ export class UserService {
     this.router.navigate(["/admin/register"])
     }
 
-
+    getNewPassword(email:string){
+      let pwd=this.usersUrl + "login/OTP?email="+email;
+      console.log("successful"+email);
+      return this.http.get(pwd);
+    }
     
 
 

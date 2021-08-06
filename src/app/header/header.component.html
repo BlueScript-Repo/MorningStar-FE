@@ -39,6 +39,7 @@
                             <li *ngIf="authenticate.Role=='ADMIN'" class="menu-item-has-children">
                                 <a style="text-decoration:none" routerLink="CMS/uploadimages" >CMS</a>
                             </li>
+                           
                             <li *ngIf="authenticate.Role=='ADMIN'"><a style="text-decoration:none" (click)="logout()" routerLink="admin/register">Log Out</a></li>
                             <li *ngIf="authenticate.Role=='USER'"><a style="text-decoration:none" (click)="logout()" routerLink="admin/register">Log Out</a></li>
                             <li *ngIf="authenticate.Role=='AGENT'"><a style="text-decoration:none" (click)="logout()" routerLink="admin/register">Log Out</a></li>

@@ -155,6 +155,12 @@ errcode:any=0;
     }));
   } 
   
+  forgetPassword()
+  {
+    console.log("fogot");
+    this.router.navigate(["/admin/forgot"]);
+  }
+
   toggle(){
     var element=document.getElementById("sign-up-btn");
     // style=window.getComputedStyle(element);
