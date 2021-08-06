@@ -381,8 +381,8 @@
 
   
   
-              <div *ngIf="authenticate.Role==''" >
-                <div class="summary entry-summary description_single">
+              <div class="col-md-4" *ngIf="authenticate.Role==null" >
+                <div class="summary entry-summary description_single" style="width: 100%;">
                 <div class="affix-sidebar">
                   <div class="entry-content-tour">
                     <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
