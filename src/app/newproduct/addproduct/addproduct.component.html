@@ -142,6 +142,11 @@
     </div>
 
     <div class="row mb-5 mt-3">
+        <div class="col-md-1">
+            <label for="srno" class="form-label">Sr No.</label>
+            <input type="number" name="ExSrNo" id="srno" #SubSr class="form-control input" placeholder="Sr No">
+
+        </div>
         <div class="col-md-3">
             <label class="form-label">Product Type</label>
             <select class="form-select" style="height: 35px;font-size: 14px;" #productType name="type" aria-label="Default select example">
@@ -151,7 +156,7 @@
                 <option>Luxury</option>
               </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label class="form-label">Sub Destination</label>
             <select class="form-select" style="height: 35px;font-size: 14px;" name="subd" #Subdestination aria-label="SubDestination">
                 <option selected></option>
@@ -165,11 +170,12 @@
             <input type="text"  class="form-control input" name="hotel" #hotel placeholder="Enter the Hotel">
         </div>
         <div style="margin-top:27px" class="col-md-2">
-            <button class="btn121" type="button" (click)="showSubdestination(productType.value,Subdestination.value,hotel.value)">Add</button>
+            <button class="btn121" type="button" (click)="showSubdestination(productType.value,Subdestination.value,hotel.value,SubSr.value)">Add</button>
         </div>
     </div>
    <table class="table">
     <thead>
+        <th style="border-top: none;border-right: none;">Serial No</th>
         <th style="border-top: none;border-right: none;">Product Type</th>
         <th style="border-top: none;border-right: none;">Sub Destination</th>
         <th style="border-top: none;border-right: none;">Hotels</th>
@@ -177,6 +183,7 @@
     </thead>   
 <tbody>
     <tr *ngFor="let j of productSubDestination;let i=index">
+        <td style="border-top: none;border-right: none;">{{j.serialNo}} </td>
         <td style="border-top: none;border-right: none;">
             {{j.productType}}
         </td>
@@ -194,6 +201,11 @@
         <h1 class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Price</h1>
     </div>
     <div class="row mb-3 mt-3">
+        <div class="col-md-1">
+            <label for="srno" class="form-label">Sr No.</label>
+            <input type="number" name="ExSrNo" id="srno" #PrcSr class="form-control input" placeholder="Sr No">
+
+        </div>
         <div class="col-md-3">
             <label class="form-label">Product Price Type</label>
             <select #proType class="form-select" style="height: 35px;font-size: 14px;" ngModel name="ProductPriceType" aria-label="Default select example">
@@ -211,17 +223,18 @@
             <label class="form-label">Child</label>
             <input type="number"  #Child name="child" class="form-control input" placeholder="Enter the Amount">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <label class="form-label">Infant</label>
             <input type="number"  #Infant name="infant" class="form-control input" placeholder="Enter the Amount">
         </div>
-        <div align="right" class="col-md-12 mt-3">
-            <button type="button" (click)="ShowData(proType.value,Adult.value,Child.value,Infant.value)" class="btn121"> Add</button>
+        <div align="right" class="col-md-12 mt-5">
+            <button type="button" (click)="ShowData(proType.value,Adult.value,Child.value,Infant.value,PrcSr.value)" class="btn121"> Add</button>
         </div>
         </div>
 
         <table class="table">
             <thead>
+                <th style="border-top: none;border-right: none;">Serial No</th>
                 <th style="border-top: none;border-right: none;">
                     Product Type
                 </th>
@@ -232,6 +245,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let j of productPrice;let i = index">
+                    <td style="border-top: none;border-right: none;">{{j.serialNo}} </td>
                     <td style="border-top: none;border-right: none;">{{j.type}} </td>
                     <td style="border-top: none;border-right: none;">{{j.adultPrice}} </td>
                     <td style="border-top: none;border-right: none;">{{j.childrenPrice}} </td>
@@ -249,21 +263,28 @@
         <h1 class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Inclusion</h1>
     </div>
     <div class="row mb-5">
-        <label for="inputEmail3" class="col-sm-2 col-form-label mt-3">Product Inclusion</label>
-    <div class="col-sm-8">
+        <div class="col-md-2">
+            <label for="srno1" class="form-label">Sr No.</label>
+            <input type="number" name="InSrNo" id="srno1" #IncSr class="form-control input" placeholder="Serial No">
+
+        </div>
+        <div class="col-sm-8">
+        <label for="inputEmail3" class="form-label">Product Inclusion</label>
         <textarea style="font-size:14px" class="form-control" name="inclusion" #inclusion id="exampleFormControlTextarea1" rows="2"></textarea>
     </div>
     <div class="col-sm-2">
-        <button type="button" (click)="ShowInclusion(inclusion.value)" class="btn121"> Add</button>
+        <button type="button" (click)="ShowInclusion(inclusion.value,IncSr.value)" class="btn121"> Add</button>
     </div>
     </div>
     <table style="border: none" class="table mb-5">
         <thead>
+            <th style="border-top: none;border-right: none;">Serial No.</th>
             <th style="border-top: none;border-right: none;">Product Inclusion</th>
             <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
         </thead>
         <tbody>
             <tr *ngFor="let t of productInclusion;let i=index">
+                <td style="border-top: none;border-right: none;">{{t.serialNo}}</td>
                 <td style="border-top: none;border-right: none;">{{t.inclusionText}}</td>
                 <td style="border-top: none;border-right: none;"><button (click)="deleteInclusion(i)" class="btn btn-outline-danger">-</button></td>
             </tr>
@@ -279,22 +300,29 @@
         <h1 class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Product Exclusion</h1>
     </div>
     <div class="row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label mt-3">Product Exclusion</label>
-    <div class="col-sm-8">
+        <div class="col-md-2">
+            <label for="srno" class="form-label">Sr No.</label>
+            <input type="number" name="ExSrNo" id="srno" #ExcSr class="form-control input" placeholder="Serial No">
+
+        </div>
+        <div class="col-sm-8">
+            <label for="inputEmail3" class="form-label">Product Exclusion</label>
         <textarea style="font-size:14px" class="form-control" name="exclusion" #exclusion id="exampleFormControlTextarea1" rows="2"></textarea>
     </div>
     <div class="col-sm-2">
-        <button type="button" (click)="ShowExclusion(exclusion.value)" class="btn121"> Add</button>
+        <button type="button" (click)="ShowExclusion(exclusion.value,ExcSr.value)" class="btn121 mt-5"> Add</button>
     </div>
     </div>
 
     <table style="border: none" class="table mt-5 mb-5">
         <thead>
+            <th style="border-top: none;border-right: none;">Serial No.</th>
             <th style="border-top: none;border-right: none;">Product Exclusion</th>
             <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
         </thead>
         <tbody>
             <tr *ngFor="let t of productExclusion;let i=index">
+                <td style="border-top: none;border-right: none;">{{t.serialNo}}</td>
                 <td style="border-top: none;border-right: none;">{{t.exclusionText}}</td>
                 <td style="border-top: none;border-right: none;"><button (click)="deleteExclusion(i)" class="btn btn-outline-danger">-</button></td>
             </tr>

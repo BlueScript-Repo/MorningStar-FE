@@ -32,6 +32,7 @@ export class EditComponent implements OnInit {
 
     for (let i = 0; i < this.productDetails.productPrice.length; i++) {
         this.productPrice.push({
+          serialNo:this.productDetails.productPrice[i].serialNo,
           adultPrice:this.productDetails.productPrice[i].adultPrice,
           childrenPrice:this.productDetails.productPrice[i].childrenPrice,
           infantPrice:this.productDetails.productPrice[i].infantPrice,
@@ -44,12 +45,14 @@ export class EditComponent implements OnInit {
    
     for (let i=0;i<this.productDetails.productExclusion.length;i++){
       this.productExclusion.push({
+        serialNo:this.productDetails.productExclusion[i].serialNo,
         exclusionText:this.productDetails.productExclusion[i].exclusionText
       })
     }
 
     for (let i=0;i<this.productDetails.productInclusion.length;i++){
       this.productInclusion.push({
+        serialNo:this.productDetails.productInclusion[i].serialNo,
         inclusionText:this.productDetails.productInclusion[i].inclusionText
       })
     }
@@ -57,6 +60,7 @@ export class EditComponent implements OnInit {
     // this.productInclusion=this.productDetails.productInclusion;
     for (let i = 0; i < this.productDetails.productSubDestinations.length; i++) {
       this.productSubDestination.push({
+        serialNo:this.productDetails.productSubDestinations[i].serialNo,
         productType:this.productDetails.productSubDestinations[i].productType,
         hotelName:this.productDetails.productSubDestinations[i].hotelName,
         subDestinationName:this.productDetails.productSubDestinations[i].subDestinationName
@@ -127,6 +131,7 @@ export class EditComponent implements OnInit {
     
   }
 
+  newSubd:any=[];
   getsubd(sub:any){
     let subd=sub;
     console.log(subd);
@@ -135,26 +140,31 @@ export class EditComponent implements OnInit {
     })
     console.log(this.subdestinations);
     sub=" ";
-    this.subdestinationOptions=this.subdestinations;
+    const ids = this.subdestinations.map((o:any) => o.subDestinationName)
+    this.newSubd=this.subdestinations.filter(({subDestinationName}:any, index:any) => !ids.includes(subDestinationName, index + 1));
+    
+    this.subdestinationOptions=this.newSubd;
   }
 
-  showSubdestination(type:any,subdesti:any,hot:any){
+  showSubdestination(type:any,subdesti:any,hot:any,srNo:any){
     let ptype=type;
     let subd=subdesti;
     let hotels=hot;    
     this.productSubDestination.push({
+      serialNo:srNo,
       productType:ptype,
       hotelName:hotels,
       subDestinationName:subd
     })
     console.log(this.productSubDestination);  
   }
-  ShowData(prType:any,Adlt:any,Chld:any,Infnt:any){
+  ShowData(prType:any,Adlt:any,Chld:any,Infnt:any,srno:any){
     let adlt=Adlt;
     let prtyp=prType;
     let chld=Chld
     let ifnt=Infnt
     this.productPrice.push({
+      serialNo:srno,
       adultPrice:adlt,
       childrenPrice:chld,
       infantPrice:ifnt,
@@ -163,17 +173,19 @@ export class EditComponent implements OnInit {
     console.log(this.productPrice);
     
   }
-  ShowInclusion(val:any){
+  ShowInclusion(val:any,srno:any){
     let inclusn=val;
     this.productInclusion.push({
+      serialNo:srno,
       inclusionText:inclusn
     })
     console.log(this.productInclusion);
     
   }
-  ShowExclusion(val:any){
+  ShowExclusion(val:any,srno:any){
     let exclusn=val;
     this.productExclusion.push({
+      serialNo:srno,
       exclusionText:exclusn
     })
     console.log(this.productExclusion);

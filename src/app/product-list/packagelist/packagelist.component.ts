@@ -14,6 +14,13 @@ export class PackagelistComponent implements OnInit {
   constructor(private http:PackageServiceService,private router:Router,public authenticate:UserService) { }
 
   ngOnInit(): void {
+    const arr = [{id: 2, name: 'one'}, {id: 2, name: 'two'}, {id: 1, name: 'three'}]
+
+const ids = arr.map(o => o.id)
+const filtered = arr.filter(({id}, index) => !ids.includes(id, index + 1))
+
+console.log(filtered)
+
     this.gettype();
     this.getCategory();
     this.getInclusions();
@@ -60,7 +67,7 @@ export class PackagelistComponent implements OnInit {
     theme:''
   }
   
-
+subd:any=[];
   GetPackagefromType(){
     return this.http.getProduct(this.package).subscribe((res=>{
       console.log(res);
@@ -69,18 +76,29 @@ export class PackagelistComponent implements OnInit {
         let service = this.products[i].servicesIncluded;
        if(service!=null){
         this.services=service.split('|').sort();
-        console.log(this.products);
+        // console.log(this.products);
         this.products[i].servicesIncluded=this.services;
         console.log(this.services);
-        console.log(this.products); 
+        // console.log(this.products); 
        }
       }
+      for (let i = 0; i < this.products.length; i++) {
+        this.subd=this.products[i].subDestinations; 
+        const ids = this.subd.map((o:any) => o.subDestinationName)
+        this.subd1=this.subd.filter(({subDestinationName}:any, index:any) => !ids.includes(subDestinationName, index + 1));
+        // console.log(filtered)
+        this.products[i].subDestinations=this.subd1;
+      }
+      console.log(this.subd);
+      
+      console.log(this.subd);
+      
       this.key=Object.keys(this.products).length;
       this.total="Total "+ this.key+" results found";
     }))
   }
 
-
+  subd1:any=[];
   GetPackagefromTags(){
     return this.http.getProduct(this.tag).subscribe((res=>{
       console.log(res);
@@ -89,12 +107,34 @@ export class PackagelistComponent implements OnInit {
         let service = this.products[i].servicesIncluded;
        if(service!=null){
         this.services=service.split('|').sort();
-        console.log(this.products);
+        // console.log(this.products);
         this.products[i].servicesIncluded=this.services;
         console.log(this.services);
         // console.log(this.products); 
        }
       }
+      for (let i = 0; i < this.products.length; i++) {
+        this.subd=this.products[i].subDestinations; 
+        const ids = this.subd.map((o:any) => o.subDestinationName)
+        this.subd1=this.subd.filter(({subDestinationName}:any, index:any) => !ids.includes(subDestinationName, index + 1));
+        // console.log(filtered)
+        this.products[i].subDestinations=this.subd1;
+      }
+      console.log(this.subd);
+      
+      // const arr = [{id: 2, name: 'one'}, {id: 2, name: 'two'}, {id: 1, name: 'three'}]
+
+      // const ids = this.subd.map((o:any) => o.subDestinationName)
+      // const filtered = this.subd.filter(({subDestinationName}:any, index:any) => !ids.includes(subDestinationName, index + 1))
+
+      // console.log(this.subd);
+
+      for (let i = 0; i < this.products.length; i++) {
+        this.subd = this.products[i].subDestinations; 
+      }
+
+
+
       this.key=Object.keys(this.products).length;
       this.total="Total "+ this.key+" results found";
     }))
@@ -110,12 +150,20 @@ export class PackagelistComponent implements OnInit {
         let service = this.products[i].servicesIncluded;
        if(service!=null){
         this.services=service.split('|').sort();
-        console.log(this.products);
+        // console.log(this.products);
         this.products[i].servicesIncluded=this.services;
         console.log(this.services);
         // console.log(this.products); 
        }
       }
+      for (let i = 0; i < this.products.length; i++) {
+        this.subd=this.products[i].subDestinations; 
+        const ids = this.subd.map((o:any) => o.subDestinationName)
+        this.subd1=this.subd.filter(({subDestinationName}:any, index:any) => !ids.includes(subDestinationName, index + 1));
+        // console.log(filtered)
+        this.products[i].subDestinations=this.subd1;
+      }
+      console.log(this.subd);
       this.key=Object.keys(this.products).length;
       this.total="Total "+ this.key+" results found";
     })
@@ -296,17 +344,25 @@ filterData:any={
           let service = this.products[i].servicesIncluded;
          if(service!=null){
           this.services=service.split('|').sort();
-          console.log(this.products);
+          // console.log(this.products);
           this.products[i].servicesIncluded=this.services;
           console.log(this.services);
           // console.log(this.products);  
          }
       }
-      console.log(this.products);
+      for (let i = 0; i < this.products.length; i++) {
+        this.subd=this.products[i].subDestinations; 
+        const ids = this.subd.map((o:any) => o.subDestinationName)
+        this.subd1=this.subd.filter(({subDestinationName}:any, index:any) => !ids.includes(subDestinationName, index + 1));
+        // console.log(filtered)
+        this.products[i].subDestinations=this.subd1;
+      }
+      console.log(this.subd);
+      // console.log(this.products);
       this.key=Object.keys(this.products).length;
       this.productCode=this.products[0].productCode;
       console.log(this.key);
-      console.log(this.products);
+      // console.log(this.products);
       console.log(this.productCode);
         this.total="Total "+ this.key+" results found"; 
     }
