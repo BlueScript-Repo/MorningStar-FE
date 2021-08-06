@@ -56,7 +56,7 @@ role:any;
   Code:any='';
   images:any=[];
   pdf:any="";
-  inquery:InquiryDetails[]=[];
+  inquery:any={};
   Inquiry(InquiryForm:any){
     let user=InquiryForm.name;
     let email=InquiryForm.email;
@@ -66,14 +66,14 @@ role:any;
     let Date=InquiryForm.date;
     console.log(InquiryForm);
    
-    this.inquery.push({
+    this.inquery={
       // agentId:"",
     contactNo:Contact,
     productCode:code,
     city:City,
     emaiId:email,
     name:user
-    });
+    };
     alert("Your Inquiry has been successfully sent to the Inquiry List")
     console.log("thiss"+this.inquery);
     // console.log("inquiry"+JSON.stringify(this.inquery));

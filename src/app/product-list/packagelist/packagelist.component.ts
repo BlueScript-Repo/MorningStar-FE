@@ -18,6 +18,7 @@ export class PackagelistComponent implements OnInit {
     this.getCategory();
     this.getInclusions();
     this.getTags();
+    
     this.package={
       keyword:localStorage.getItem('package'),
       productType:localStorage.getItem('productType')
@@ -91,7 +92,7 @@ export class PackagelistComponent implements OnInit {
         console.log(this.products);
         this.products[i].servicesIncluded=this.services;
         console.log(this.services);
-        console.log(this.products); 
+        // console.log(this.products); 
        }
       }
       this.key=Object.keys(this.products).length;
@@ -112,7 +113,7 @@ export class PackagelistComponent implements OnInit {
         console.log(this.products);
         this.products[i].servicesIncluded=this.services;
         console.log(this.services);
-        console.log(this.products); 
+        // console.log(this.products); 
        }
       }
       this.key=Object.keys(this.products).length;
@@ -298,7 +299,7 @@ filterData:any={
           console.log(this.products);
           this.products[i].servicesIncluded=this.services;
           console.log(this.services);
-          console.log(this.products);  
+          // console.log(this.products);  
          }
       }
       console.log(this.products);
