@@ -67,23 +67,26 @@ export class AddproductComponent implements OnInit {
     this.subdestinationOptions=this.subdestinations;
   }
 
-  showSubdestination(type:any,subdesti:any,hot:any){
+  showSubdestination(type:any,subdesti:any,hot:any,srNo:any){
     let ptype=type;
     let subd=subdesti;
     let hotels=hot;    
     this.productSubDestination.push({
+      serialNo:srNo,
       productType:ptype,
       hotelName:hotels,
       subDestinationName:subd
     })
     console.log(this.productSubDestination);  
   }
-  ShowData(prType:any,Adlt:any,Chld:any,Infnt:any){
+  ShowData(prType:any,Adlt:any,Chld:any,Infnt:any,srno:any){
+  
     let adlt=Adlt;
     let prtyp=prType;
     let chld=Chld
     let ifnt=Infnt
     this.productPrice.push({
+      serialNo:srno,
       adultPrice:adlt,
       childrenPrice:chld,
       infantPrice:ifnt,
@@ -92,17 +95,19 @@ export class AddproductComponent implements OnInit {
     console.log(this.productPrice);
     
   }
-  ShowInclusion(val:any){
+  ShowInclusion(val:any,srNo:any){
     let inclusn=val;
     this.productInclusion.push({
+      serialNo:srNo,
       inclusionText:inclusn
     })
     console.log(this.productInclusion);
     
   }
-  ShowExclusion(val:any){
+  ShowExclusion(val:any,srNo:any){
     let exclusn=val;
     this.productExclusion.push({
+      serialNo:srNo,
       exclusionText:exclusn
     })
     console.log(this.productExclusion);

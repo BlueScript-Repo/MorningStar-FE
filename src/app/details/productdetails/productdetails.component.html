@@ -72,15 +72,15 @@
                       </li>
                       <li class="itinerary_tab_tab nav-item" style="margin-left: 20px;" role="presentation">
                         <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
-                        <button class="nav-link" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#tab-itinerary_tab" type="button" role="tab" aria-selected="true">Daily Itinerary</button>
+                        <button class="nav-link" id="itinerary-tab" data-bs-toggle="tab" data-bs-target="#itinerary_tab" type="button" role="tab" aria-selected="true">Daily Itinerary</button>
                       </li>		
                       <li class="accommodations_tab_tab nav-item" style="margin-left: 40px;" role="accommodations">
                         <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
-                        <button class="nav-link" id="accommodations-tab" data-bs-toggle="tab" data-bs-target="#tab-accommodations_tab" type="button" role="tab" aria-selected="true">Accommodations</button>
+                        <button class="nav-link" id="accommodations-tab" data-bs-toggle="tab" data-bs-target="#accommodations_tab" type="button" role="tab" aria-selected="true">Accommodations</button>
                       </li>	
                       <li class="packagePrice_tab_tab nav-item" style="margin-left: 40px;" role="packagePrice">
                         <!-- <a class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="" type="button" role="tab" aria-selected="true" role="tab" data-toggle="tab">Itinerary</a> -->
-                        <button class="nav-link" id="packagePrice-tab" data-bs-toggle="tab" data-bs-target="#tab-packagePrice_tab" type="button" role="tab" aria-selected="true">packagePrice</button>
+                        <button class="nav-link" id="packagePrice-tab" data-bs-toggle="tab" data-bs-target="#packagePrice_tab" type="button" role="tab" aria-selected="true">Package Price</button>
                       </li>							
                     </ul>
                     <div class="tab-content">
@@ -133,11 +133,81 @@
                         <a href={{pdf}} target="_blank" class="brochure">Get brochure</a>
                       </div>
                       </div>
-                      <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab tabs_layout" id="tab-itinerary_tab">
+
+
+                      <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab tabs_layout" id="accommodations_tab">
+                        
+                        <table style="margin-left: 10px;" class="table table-hover mt-5">
+                          <!-- <caption>Accomodation List</caption> -->
+                          <thead>
+                            <tr>
+                              <th>CITY</th>
+                              <th>TYPE</th>
+                              <th>HOTEL</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let i of productDetails.productSubDestinations">
+                              <td>
+                                {{i.subDestinationName}}
+                              </td>
+                              <td>
+                                {{i.productType}}
+                              </td>
+                              <td>
+                                {{i.hotelName}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+
+                      </div>
+
+                      <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--description panel entry-content wc-tab tabs_layout" id="packagePrice_tab">
+                        
+
+                        <table style="margin-left: 10px;" class="table table-hover mt-5">
+                          <!-- <caption>Accomodation List</caption> -->
+                          <thead>
+                            <tr>
+                              <th>TYPE</th>
+                              <th>Adult Price</th>
+                              <th>Children Price</th>
+                              <th>Infant Price</th>
+                              <!-- <th>HOTEL</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let i of productDetails.productPrice">
+                              <td>
+                                {{i.type}}
+                              </td>
+                              <td>
+                                {{i.adultPrice}}
+                              </td>
+                              <td>
+                                {{i.childrenPrice}}
+                              </td>
+                              <td>
+                                {{i.infantPrice}}
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+
+                      </div>
+
+
+
+
+
+                      <div role="tabpanel" class="tab-pane single-tour-tabs-panel single-tour-tabs-panel--itinerary_tab panel entry-content wc-tab tabs_layout" id="itinerary_tab">
                         <div *ngFor="let i of Days;let j=index" class="interary-item">
                           <div class="item_content">
                           <p ><span style="margin-left:-100px;margin-top:20px" class="icon-left">{{j+1}}</span></p>
-                          <h2><strong>{{i.day}}:  Description</strong></h2>
+                          <h2><strong>{{i.day}}</strong></h2>
                             <p> {{i.dayDescription}}</p>
                            
                           </div>
@@ -311,8 +381,8 @@
 
   
   
-              <div *ngIf="authenticate.Role==''" >
-                <div class="summary entry-summary description_single">
+              <div class="col-md-4" *ngIf="authenticate.Role==null" >
+                <div class="summary entry-summary description_single" style="width: 100%;">
                 <div class="affix-sidebar">
                   <div class="entry-content-tour">
                     <p style="color: white;font-family: 'Noto Sans JP', sans-serif;font-size: 20px;" class="price">
