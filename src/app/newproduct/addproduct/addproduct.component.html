@@ -273,7 +273,7 @@
         <textarea style="font-size:14px" class="form-control" name="inclusion" #inclusion id="exampleFormControlTextarea1" rows="2"></textarea>
     </div>
     <div class="col-sm-2">
-        <button type="button" (click)="ShowInclusion(inclusion.value,IncSr.value)" class="btn121"> Add</button>
+        <button type="button" (click)="ShowInclusion(inclusion.value,IncSr.value)" class="btn121 mt-5"> Add</button>
     </div>
     </div>
     <table style="border: none" class="table mb-5">
@@ -336,7 +336,12 @@
     </div>
 
     <div class="row mt-3">
-        <div class="col-md-4">
+        <div class="col-md-2">
+            <label for="srno" class="form-label">Sr No.</label>
+            <input type="number" name="ExSrNo" id="srno" #DaySr class="form-control input" placeholder="Serial No">
+
+        </div>
+        <div class="col-md-2">
             <label class="form-label">Product Days</label>
             <input type="text" name="days" #Day class="form-control input" placeholder="Enter Day">
         </div>
@@ -345,17 +350,20 @@
         <textarea style="font-size:14px" class="form-control" name="description" #Description id="exampleFormControlTextarea1" rows="2"></textarea>
         </div>
         <div style="margin-top:27px" class="col-md-1">
-            <button type="button" (click)="ShowDay(Day.value,Description.value)" class="btn121">Add</button>
+            <button type="button" (click)="ShowDay(Day.value,Description.value,DaySr.value)" class="btn121">Add</button>
         </div>
     </div>
     <table style="border: none" class="table mb-5">
         <thead> 
+            <th style="border-top: none;border-right: none;">Serial Number</th>
             <th style="border-top: none;border-right: none;">Product Days</th>
             <th style="border-top: none;border-right: none;">Day Description</th>
             <th style="border-left: none;border-top: none;border-right: none;">Delete</th>
         </thead>
         <tbody>
             <tr *ngFor="let t of productDays;let i=index">
+                
+                <td style="border-top: none;border-right: none;">{{t.serialNo}}</td>
                 <td style="border-top: none;border-right: none;">{{t.day}}</td>
                 <td style="border-top: none;border-right: none;">{{t.dayDescription}}</td>
                 <td style="border-top: none;border-right: none;"><button (click)="deleteDays(i)" class="btn btn-outline-danger">-</button></td>

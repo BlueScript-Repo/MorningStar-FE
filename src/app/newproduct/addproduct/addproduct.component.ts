@@ -113,10 +113,11 @@ export class AddproductComponent implements OnInit {
     console.log(this.productExclusion);
     
   }
-  ShowDay(day:any,desc:any){
+  ShowDay(day:any,desc:any,srno:any){
     let days=day;
     let descrip=desc;
     this.productDays.push({
+      serialNo:srno,
       day:days,
       dayDescription:descrip
     })
