@@ -3,7 +3,7 @@
 <h1 class="heading_primary">Upload Product</h1></div>
 </div>
 <div style="padding-top: 30px;padding-bottom: 50px;" class="container">
-    <form #uploadForm="ngForm" (ngSubmit)="Submit(uploadForm.value)" class="form mb-5 mt-3" action="">
+    <form #uploadForm="ngForm" (ngSubmit)="Submit(uploadForm.value);uploadForm.reset()" class="form mb-5 mt-3" action="">
     <div class="mt-5 mb-3" style="text-align:left">
         <h1 class="title_primary fs-2" style="font-family: 'Noto Sans JP', sans-serif;font-weight: bold;"><span style="margin-right: 10px;color: gold;"><i class="fab fa-battle-net"></i></span>Create Product</h1>
     </div>
