@@ -439,7 +439,7 @@ filterData:any={
       this.productDetails=res;
       console.log("result============"+JSON.stringify(res));
       this.http.setArray(this.productDetails);
-      this.http.setName(edit);
+      this.http.setChoice(edit);
       this.router.navigate(['/editproduct/edit'])
     })
   

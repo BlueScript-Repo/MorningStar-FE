@@ -154,7 +154,7 @@
     </div>
     <table class="table">
         <thead>
-            <th style="border-top: none;border-right: none;">Serial No</th>
+            <th style="border-top: none;border-right: none;">Serial No.</th>
             <th style="border-top: none;border-right: none;">Product Type</th>
             <th style="border-top: none;border-right: none;">Sub Destination</th>
             <th style="border-top: none;border-right: none;">Hotels</th>
@@ -214,7 +214,7 @@
 
         <table class="table">
             <thead>
-                <th style="border-top: none;border-right: none;">Serial No</th>
+                <th style="border-top: none;border-right: none;">Serial No.</th>
                 <th style="border-top: none;border-right: none;">
                     Product Type
                 </th>
@@ -316,7 +316,12 @@
     </div>
 
     <div class="row mt-3">
-        <div class="col-md-4">
+        <div class="col-md-2">
+            <label for="srno" class="form-label">Sr No.</label>
+            <input type="number" name="ExSrNo" id="srno" #DaySr class="form-control input" placeholder="Serial No">
+
+        </div>
+        <div class="col-md-2">
             <label class="form-label">Product Days</label>
             <input type="text" name="days" #Day class="form-control input" placeholder="Enter Day">
         </div>
@@ -325,7 +330,7 @@
         <textarea style="font-size:14px" class="form-control" name="description" #Description id="exampleFormControlTextarea1" rows="2"></textarea>
         </div>
         <div style="margin-top:27px" class="col-md-1">
-            <button type="button" (click)="ShowDay(Day.value,Description.value)" class="btn121">Add</button>
+            <button type="button" (click)="ShowDay(Day.value,Description.value,DaySr.value)" class="btn121">Add</button>
         </div>
     </div>
     <table style="border: none" class="table mb-5">

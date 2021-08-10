@@ -16,7 +16,7 @@ import {Day} from './Day';
 export class EditComponent implements OnInit {
   constructor(private http:PackageServiceService) { }
   ngOnInit(): void {
-   this.choice=this.http.getName();
+   this.choice=this.http.getChoice();
    console.log(this.choice);
     this.getService();
     this.productDetails=this.http.getArray();
@@ -69,6 +69,7 @@ export class EditComponent implements OnInit {
     }
     for (let i = 0; i < this.productDetails.productDays.length; i++) {
       this.productDays.push({
+        serialNo:this.productDetails.productDays[i].serialNo,
         day:this.productDetails.productDays[i].day,
         dayDescription:this.productDetails.productDays[i].dayDescription
      })       
@@ -191,10 +192,11 @@ export class EditComponent implements OnInit {
     console.log(this.productExclusion);
     
   }
-  ShowDay(day:any,desc:any){
+  ShowDay(day:any,desc:any,srno:any){
     let days=day;
     let descrip=desc;
     this.productDays.push({
+      serialNo:srno,
       day:days,
       dayDescription:descrip
     })

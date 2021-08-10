@@ -11,7 +11,7 @@ export class InquiryComponent implements OnInit {
   constructor(private http:PackageServiceService,private router:Router) { }
 
   ngOnInit(): void {
-    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/PDF.pdf"
+    
     this.getProductInquiry();
   }
   pdf:any='';
@@ -67,8 +67,8 @@ details:any = {};
   amount=0;
   booked(val:any,j:any){
     this.updateStatus=val.target.value;
-    if(this.updateStatus=='BOOKED'){
-      this.bookStatus='BOOKED';
+    if(this.updateStatus=='BOOK'){
+      this.bookStatus='BOOK';
     document.getElementById("Status"+j)?.addEventListener("click",function(){
       document.getElementsByClassName('bookingInput')[j].classList.add('active');
     })
@@ -148,6 +148,7 @@ details:any = {};
     console.log("Working");
     this.Code=code; 
     console.log(this.Code);
+    this.pdf="https://morning-star-image-store.s3.ap-south-1.amazonaws.com/"+this.Code+"/"+this.Code+".pdf"
     
   }
   modal(){

@@ -10,6 +10,7 @@ import { HttpEvent } from '@angular/common/http';
 export class PackageServiceService {
   productDetails:any;
   choice:any='';
+  choice1:any='';
   role:any;
   isAuthenticated:boolean=false;
 agentID:any;
@@ -35,6 +36,17 @@ rate:any='';
      {
        return this.choice;
      }
+
+
+     setChoice(value:any)
+     {
+       this.choice1 = value;
+     }
+
+   getChoice() 
+    {
+      return this.choice1;
+    }
 
      setPrice(val:any){
       this.rate=val;
