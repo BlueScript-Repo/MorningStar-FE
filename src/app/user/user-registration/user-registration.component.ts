@@ -157,7 +157,6 @@ errcode:any=0;
   
   forgetPassword()
   {
-    console.log("fogot");
     this.router.navigate(["/admin/forgot"]);
   }
 
