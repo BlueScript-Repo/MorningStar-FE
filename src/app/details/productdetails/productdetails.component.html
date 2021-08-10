@@ -343,10 +343,10 @@
                           </div>
                           
                           <div class="">
-                            <input name="email" ngModel value="" placeholder="Email" type="text">
+                            <input name="email" [(ngModel)]="user" value="" placeholder="Email" type="text">
                           </div>
                           <div class="">
-                            <input name="phone" ngModel value="" placeholder="Phone" type="text">
+                            <input name="phone" [(ngModel)]='date' value="" placeholder="Phone" type="text">
                           </div>
                           <div class="">
                             <input name="city" ngModel value="" placeholder="City" type="text">
@@ -381,7 +381,7 @@
 
   
   
-              <div class="col-md-4" *ngIf="authenticate.Role==null" >
+              <div class="col-md-4" *ngIf="authenticate.Role==''" >
                 <div class="summary entry-summary description_single" style="width: 100%;">
                 <div class="affix-sidebar">
                   <div class="entry-content-tour">

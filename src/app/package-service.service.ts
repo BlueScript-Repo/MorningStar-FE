@@ -15,6 +15,7 @@ export class PackageServiceService {
 agentID:any;
 token = localStorage.getItem('token');
 bucketName:any;
+rate:any='';
 
   constructor(private http: HttpClient) {}
 
@@ -33,6 +34,14 @@ bucketName:any;
     getName() 
      {
        return this.choice;
+     }
+
+     setPrice(val:any){
+      this.rate=val;
+     }
+
+     getPrice(){
+       return this.rate;
      }
 
     setRole(data:any){

@@ -20,7 +20,7 @@
                 <th style="text-align:center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Contact Number</th>
                 <th style="text-align:center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">City</th>
                 <th style="text-align:center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Product Code</th>
-                <th style="text-align:center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Action</th>
+                <th style="text-align:center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Status</th>
                 <th style="text-align: center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Remark</th>
                 <th  style="text-align: center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Update</th>
                 <th  style="text-align: center;border: none;width: 150px;font-family: 'Noto Sans JP', sans-serif;">Download</th>
@@ -28,7 +28,7 @@
             <tbody>
                 <tr class="td1" *ngFor="let i of Inquiries;let j=index">
                     <td style="text-align:center;border: none">
-                        {{i.name}}
+                        {{i.productName}}
                     </td>
                     <td style="text-align:center;border: none">
                         {{i.emailId}}
@@ -60,7 +60,7 @@
                     </td>
                    
                     <td style="text-align:center;border: none">
-                        <button style="text-align: center;" (click)="UpdateStatus(status.value,remark.value,amount.value,j)" class="btn121" >Update</button>
+                        <button style="text-align: center;" id="update{{j}}" (click)="UpdateStatus(status.value,remark.value,amount.value,j)" class="btn121" >Update</button>
                     </td>
                     <td style="text-align:center;border: none">
                         <div style="margin-top: 5px;">
@@ -70,7 +70,46 @@
                 <!-- </form> -->
                 </tr>
             </tbody>
-        </table>  
+        </table>
+             <!-- Modal -->
+     <div class="popup center">
+        <div class="icon">
+          <i class="fa fa-check"></i>
+        </div>
+        <div class="title mb-3 mt-3">
+          Done!!!!
+        </div>
+        <div class="description">
+          Your Product Inquiry is Updated successfully. 
+        </div>
+        <div class="dismiss-btn">
+          <button type="button" id="dismiss-popup-btn" (mouseenter)="closeModal()">
+            close
+          </button>
+        </div>
+      </div>
+      <!-- Modal Ends -->
+
+
+
+      <!-- Modal -->
+      <div class="popup1 center">
+        <div class="icon">
+          <i class="far fa-frown"></i>
+        </div>
+        <div class="title mb-3 mt-3">
+          OOPs!!!!
+        </div>
+        <div class="description">
+          Seems something went wrong . Please try again.
+        </div>
+        <div class="dismiss-btn">
+          <button id="dismiss-popup1-btn" (mouseenter)="closeModal1()">
+            close
+          </button>
+        </div>
+      </div>
+      <!-- Modal Ends -->  
      </div>
 </div>
 

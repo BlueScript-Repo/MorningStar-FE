@@ -375,7 +375,7 @@ filterData:any={
   console.log(code1);
   let Rate=val.rate;
   console.log(Rate);
-  this.http.setName(Rate);
+  this.http.setPrice(Rate);
   this.productCode=val.code;
   console.log(this.productCode);
     

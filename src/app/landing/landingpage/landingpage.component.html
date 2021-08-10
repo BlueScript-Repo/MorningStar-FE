@@ -109,7 +109,7 @@
             </div>
            
           </div>
-          <div style="padding-left: 100px;" class="row container-fluid cont">
+          <!-- <div style="padding-left: 100px;" class="row container-fluid cont">
             <div class="col-md-8">
              <div class="mb-3" style="text-align:left">
                <h3 class="" style="font-weight: bold;font-family: 'Noto Sans JP', sans-serif;"><span style="margin-right: 10px;color: gold;margin-top: -530px;"><i class="fab fa-battle-net"></i></span>YOUR INQUIRIES</h3>
@@ -197,7 +197,7 @@
                </div>
              </div>
               </div>
-              </div>
+              </div> -->
     </div>
         
         <div *ngIf="authenticate.Role=='ADMIN' ">
@@ -340,11 +340,15 @@
                </div>
                  <div class="card" style="height:100%;box-shadow: 8px 8px 8px 5px rgba(0,0,0,0.2); border-radius:20px;width: 90%;" alt="">
                    <div class="card-body loyalty">
-                     <div>
+                     <div *ngIf="loyalti; else elseblock">
                      <h2 style="font-size: 40px;text-align:center;" class="card-text">{{loyalti.loyaltyPoints}}.00</h2>
                      <p style="text-align:center;">Your Loyalty Score is {{loyalti.loyaltyPoints}}.00</p>
-                     <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;">Reedem</button>
+                     <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;" (click)="navToList()" >Reedem</button>
                    </div>
+                   <ng-template #elseblock>
+                     <p class="fs-3">Oops you hav not booked any Package yet</p>
+                     <button class="btn btn-danger" style="text-align:center;font-size: 16px;width:120px;margin-left: 35px;margin-top: 20px;padding: 10px; background-color:red;border: none;border-radius: 90px;" (click)="navToList()" >Book Now</button>
+                   </ng-template>
                    </div>
                  </div>
                   </div>

@@ -22,8 +22,15 @@ export class ProductdetailsComponent implements OnInit {
 role:any;
 
   ngOnInit(): void {
-    this.Rate=this.http.getName();
+    this.Rate=this.http.getPrice();
     console.log(this.Rate);
+    console.log(this.user);
+    let date=new Date();
+    var day= date.getDate();
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    this.date=day+"/"+ month + "/"+ year;
+    console.log(this.date);
     
     this.productDetails=this.http.getArray();
     this.Code=this.productDetails.productCode;
@@ -50,14 +57,17 @@ role:any;
     console.log(this.role);
     
   }
+  date:any;
   Rate:any;
   image:any;
   Days:any[]=[];
   Code:any='';
   images:any=[];
   pdf:any="";
+  user:any=localStorage.getItem('user');
   inquery:any={};
   Inquiry(InquiryForm:any){
+    console.log(this.user);
     let user=InquiryForm.name;
     let email=InquiryForm.email;
     let Contact=InquiryForm.phone;

@@ -278,4 +278,9 @@ productCategory:any='';
       console.log(this.inquiry);
     })
   }
+
+
+  navToList(){
+    this.router.navigate(['/ProductList/list']);
+  }
 }
