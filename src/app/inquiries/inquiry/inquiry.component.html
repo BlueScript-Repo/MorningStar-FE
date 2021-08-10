@@ -48,8 +48,8 @@
                     <!-- <form #status="ngForm" (ngSubmit)="UpdateStatus(status.value)"> -->
                     <td style="text-align:center;border: none">
                         <select id="Status{{j}}" (change)="booked($event,j)" class="form-select" #status style="height:30px;font-size: 16px;font-family: 'Noto Sans JP', sans-serif;">
-                            <option selected>IN PROCESS</option>
-                            <option>BOOKED</option> 
+                            <option selected>{{i.inquiryStatus}}</option>
+                            <option>BOOK</option> 
                             <option>HOLD</option> 
                             <option>DROP</option> 
                         </select>
