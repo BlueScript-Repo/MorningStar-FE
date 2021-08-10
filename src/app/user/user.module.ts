@@ -4,10 +4,10 @@ import {UserRegistrationComponent} from "./user-registration/user-registration.c
 import { FormsModule } from '@angular/forms';
 import {UserRoutingModule} from "./user-routing.module";
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
-  declarations: [UserRegistrationComponent, ForgotPasswordComponent],
+  declarations: [UserRegistrationComponent, ForgotPasswordComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     FormsModule,

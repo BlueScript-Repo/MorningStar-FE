@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { AgentGuard } from './agent.guard';
 
 
+
 const routes: Routes = [
   {path: 'admin', loadChildren:()=>import("./user/user.module").then(mod=>mod.UserModule)},
   {path: 'landing',loadChildren:()=>import("./landing/landing.module").then(mod=>mod.LandingModule)},
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'newproduct',loadChildren:()=>import("./newproduct/newproduct.module").then(mod=>mod.NewproductModule),canActivate:[AuthGuard]},
   {path:'updatedata',loadChildren:()=>import("./updatedata/updatedata.module").then(mod=>mod.UpdatedataModule)},
   {path:'CMS',loadChildren:()=>import("./cms/cms.module").then(mod=>mod.CmsModule),canActivate:[AuthGuard]},
-  {path:'details',loadChildren:()=>import("./details/details.module").then(mod=>mod.DetailsModule)}
+  {path:'details',loadChildren:()=>import("./details/details.module").then(mod=>mod.DetailsModule)},
 ];
 
 @NgModule({

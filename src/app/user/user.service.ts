@@ -5,6 +5,7 @@ import { UserLogin } from './UserLogin';
 import { UserRegistration } from './UserRegistration';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Router} from "@angular/router";
+import { ResetPassword } from './ResetPassword';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,6 @@ export class UserService {
 
 
   jwtHelper = new JwtHelperService();
-
 
   isAuthenticated:boolean=false;
   Role:any=localStorage.getItem('role');
@@ -85,11 +85,20 @@ export class UserService {
     }
 
     getNewPassword(email:string){
-      let pwd=this.usersUrl + "login/OTP?email="+email;
+      let Email=this.usersUrl + "login/OTP?email="+email;
       console.log("successful"+email);
-      return this.http.get(pwd);
+      return this.http.get(Email);
+     
     }
-    
+ 
+    // getResetPassword(newpassword:string,otp:string)
+    // {
+      // console.log("email"+email);
+      //  this.OneTimePass= localStorage.getItem('OTP');
+    //   let newPassword=this.usersUrl + "/login/passwordReset?email="+;
+    //   console.log("newpassword");
+    //   return this.http.put(newPassword,otp);
+    // }
 
 
 }

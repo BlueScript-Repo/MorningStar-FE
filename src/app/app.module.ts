@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthInterceptor } from './user/AuthInterceptor';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 
 
   
