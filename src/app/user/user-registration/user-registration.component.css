@@ -660,6 +660,8 @@ form.sign-in-form {
 }
 
 .forget:hover{
+  cursor: pointer;
+  transition: all 0.5s;
   text-decoration:underline;
-  font-size: 20px;
+  font-size: 15px;
 }

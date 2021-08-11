@@ -100,5 +100,15 @@ export class UserService {
     //   return this.http.put(newPassword,otp);
     // }
 
+    changePass(mail:any,newPass:any,confirmPass:any){
+      let url=this.usersUrl+"login/passwordReset?email="+mail;
+      let data={
+        conformNewPassword:confirmPass,
+        newPassword:newPass
+      }
+      console.log("Change Pass api");
+      return this.http.put(url,data)
+
+    }
 
 }
